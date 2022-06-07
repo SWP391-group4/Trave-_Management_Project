@@ -100,16 +100,28 @@ public class DAOHotels extends connectDB {
 
     public List<Hotels> SearchbyProvince(String txtSearch) {
         List<Hotels> list = new ArrayList<>();
-        String sql = "select ha.city,ha.District,ha.Specific,ha.Ward from HotelAddresses ha inner join Hotels  on ha.AddressId = Hotels.AddressId where city like N'%"+ txtSearch+ "%'";
+        String sql = "select ha.city,ha.District,ha.Specific,ha.Ward,h.hotelname from HotelAddresses ha inner join Hotels h on ha.AddressId = Hotels.AddressId where city like N'%"+ txtSearch+ "%'";
         ResultSet rs = getData(sql);
         try {
             while (rs.next()) {
                 list.add(new Hotels(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getString(4)));
+                        rs.getString(4),
+                rs.getString(5)));
             }
         } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<Hotels> SearchbyName(String txtSearch){
+         List<Hotels> list = new ArrayList<>();
+         String sql="";
+         ResultSet rs=getData(sql);
+         try
+         {
+             
+         }catch (Exception e) {
         }
         return list;
     }

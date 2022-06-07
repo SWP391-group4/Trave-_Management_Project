@@ -120,6 +120,13 @@ public class Hotels {
         this.specific = specific;
         this.ward = ward;
     }
+    public Hotels(String city, String district, String specific, String ward, String hotelName ) {
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.hotelName=hotelName;
+    }
 
     public Hotels(String hotelID, String hotelName) {
         this.hotelID = hotelID;
