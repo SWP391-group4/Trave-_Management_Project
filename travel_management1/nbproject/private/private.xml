@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOBlogs.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOFlightHistory.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOCustomers.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DBContext/connectDB.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHotels.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/Controller/HotelList.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOFlightDetails.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHotelAddresses.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAODishes.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOFlightBooking.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHotelHistory.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHotelBooking.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Documents/NetBeansProjects/Trave-_Management_Project/travel_management1/src/java/DAO/DAOCustomerAddresses.java</file>
+        </group>
+    </open-files>
+</project-private>
