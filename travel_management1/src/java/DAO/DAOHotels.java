@@ -125,6 +125,19 @@ public class DAOHotels extends connectDB {
         }
         return list;
     }
+public List<Hotels> getProductByCID(String hotelid) {
+        List<Hotels> list = new ArrayList<>();
+        String query = "select * from hotels inner join HotelAddresses on Hotels.AddressId=HotelAddresses.AddressId where hotelid='HT001'";
+        try {
+           
+            while (rs.next()) {
+                list.add(new Hotels(hotelid, hotelid, hotelid, query, hotelid, query, query, query, query));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+/// van chua xong query
 
     public static void main(String[] args) {
         String txtSearch="";
