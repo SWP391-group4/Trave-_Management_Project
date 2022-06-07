@@ -28,7 +28,16 @@ public class DAOHotelHistory extends connectDB{
 //            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                HotelHistory hotelHistory = new HotelHistory(id, id, 0, sql, sql, sql, id, sql, id, 0)
+                HotelHistory hotelHistory = new HotelHistory(null,
+                        null, 
+                        0, 
+                        rs.getString(1), 
+                        null, 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getInt(6));
                         list.add(hotelHistory);
             }
             return list;

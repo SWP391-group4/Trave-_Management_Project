@@ -28,7 +28,15 @@ public class DAORestaurantHistory extends connectDB{
 //            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                 RestaurantHistory restauranthistory = new RestaurantHistory(null, 0, rs.getString(1), null, rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getInt(5));
+                 RestaurantHistory restauranthistory = new RestaurantHistory(id,
+                         id, 
+                         0, 
+                         rs.getString(1), 
+                         null, 
+                         rs.getString(2), 
+                         rs.getDouble(3), 
+                         rs.getString(4), 
+                         rs.getInt(5));
                 list.add(restauranthistory);
             }
             return list;
