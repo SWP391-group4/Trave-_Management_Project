@@ -100,11 +100,10 @@ public class DAOHotels extends connectDB {
 
     public List<Hotels> SearchbyProvince(String txtSearch) {
         List<Hotels> list = new ArrayList<>();
-<<<<<<< Updated upstream
+
         String sql = "select ha.city,ha.District,ha.Specific,ha.Ward from HotelAddresses ha inner join Hotels  on ha.AddressId = Hotels.AddressId where city like N'%"+ txtSearch+ "%'";
-=======
-        String sql = "select ha.city,ha.District,ha.Specific,ha.Ward,h.hotelname from HotelAddresses ha inner join Hotels h on ha.AddressId = h.AddressId where city like N'%"+ txtSearch+ "%'";
->>>>>>> Stashed changes
+
+       
         ResultSet rs = getData(sql);
         try {
             while (rs.next()) {
@@ -117,8 +116,7 @@ public class DAOHotels extends connectDB {
         }
         return list;
     }
-<<<<<<< Updated upstream
-=======
+
     public List<Hotels> SearchbyName(String txtSearch){
          List<Hotels> list = new ArrayList<>();
          String sql=""; // check lai cau lenh sql
@@ -130,7 +128,7 @@ public class DAOHotels extends connectDB {
         }
         return list;
     }
->>>>>>> Stashed changes
+
 
     public static void main(String[] args) {
         String txtSearch="minh"; //check lai 
