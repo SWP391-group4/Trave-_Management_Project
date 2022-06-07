@@ -34,6 +34,7 @@ public class HotelSearch extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //search
        String txtSearch = request.getParameter("txt");
         DAOHotels dao = new DAOHotels();
        List<Hotels> list=dao.SearchbyProvince(txtSearch);

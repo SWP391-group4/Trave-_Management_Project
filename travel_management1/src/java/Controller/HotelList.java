@@ -36,7 +36,7 @@ public class HotelList extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String submit = request.getParameter("Search");
-
+       //List Search
         if (submit == null) {
             DAOHotels dao = new DAOHotels();
             List<Hotels> list = dao.ListHotel();
