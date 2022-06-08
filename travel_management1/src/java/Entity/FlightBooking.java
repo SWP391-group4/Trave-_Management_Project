@@ -9,6 +9,7 @@ package Entity;
  * @author nam
  */
 public class FlightBooking {
+    //create object
     public String ticketId;
     public String customerId;
     public int flightOrderNumber;
@@ -16,7 +17,7 @@ public class FlightBooking {
     public String lastName;
     public String phone;
     public double price;
-
+    //constructor
     public FlightBooking() {
     }
 
