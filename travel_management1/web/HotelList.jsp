@@ -50,7 +50,7 @@
                         <li class="nav-item active"><a href="hotel.html" class="nav-link">Hotels</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
+                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="Login" class="nav-link">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-lg-3 sidebar order-md-last ftco-animate">
                         <div class="sidebar-wrap ftco-animate">
-                            <h3 class="heading mb-4"> Tìm ki?m</h3>
+                            <h3 class="heading mb-4">Search</h3>
                             <form action="searchhotel">
                                 <div class="fields">
                                     <div class="form-group">
@@ -135,7 +135,13 @@
                         </div>
 
                     </div><!-- END-->
+<div class="container">
+                <div style="padding-bottom: 25px ">
+                    <a href="hotelservice">Home ></a>
 
+                    <a href="hotellist">List</a>
+                </div>
+            </div>
                     <div class="col-lg-9">
                         <div class="row">
                             <c:forEach items="${listh}" var="o">
@@ -307,3 +313,4 @@
 
     </body>
 </html>
+<!-- END -->

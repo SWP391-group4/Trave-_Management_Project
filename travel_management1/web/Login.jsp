@@ -62,7 +62,8 @@
                 </div>
                 <div class="clearfix">
                     <label class="float-left form-check-label">Don't have account?<a href="Registration.jsp">   register</a></label>
-                </div>        
+                </div>  
+                <!-- END of nav tung comment -->
             </form>
         </div>
     </body>

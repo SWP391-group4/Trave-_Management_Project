@@ -21,7 +21,7 @@
                 top: 13px;
             }
         </style>
-    </head>
+    </head> <!-- END of nav tung comment -->
     <body>
         <section class="h-100 bg-dark">
             <div class="container py-5 h-100">
@@ -155,3 +155,4 @@
         </section>
     </body>
 </html>
+<!-- END -->

@@ -29,7 +29,7 @@
 	      </div>
 	    </div>
 	  </nav>
-    <!-- END nav -->
+    <!--  END nav  -->
     
     <div class="hero-wrap js-fullheight" style="background-image: url('images/pexels-pixabay-258154.jpg');">
       <div class="overlay"></div>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-		
+		<!-- END of nav tung comment -->
 		<section class="ftco-section">
       <div class="container">
         <div class="row">
@@ -108,6 +108,6 @@
 							</form>
         		</div>
                               
-          </div><!-- END-->
+          </div><!-- END -->
     </body>
 </html>
