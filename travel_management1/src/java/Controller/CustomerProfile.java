@@ -4,12 +4,22 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
+import DAO.DAOFlightHistory;
+import DAO.DAOHotelHistory;
+import DAO.DAORestaurantHistory;
+import Entity.Customers;
+import Entity.FlightHistory;
+import Entity.HotelHistory;
+import Entity.RestaurantHistory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -55,21 +65,54 @@ public class CustomerProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        DAOFlightHistory daoFLI = new DAOFlightHistory();
+        DAOHotelHistory daoHTHis = new DAOHotelHistory();
+        DAOCustomers daoCus = new DAOCustomers();
+        DAORestaurantHistory daoResHis = new DAORestaurantHistory();
+        Customers cus = daoCus.getCustomerById("USER018");
+        List<RestaurantHistory> reslist = daoResHis.getAllRSHistoryByCusId("USER018");
+        List<HotelHistory> hotellist = daoHTHis.getAllHTHistoryByCusId("USER018");        
+        List<FlightHistory> flightList = daoFLI.getAllFLHistoryByCusId("USER018");        
+        request.setAttribute("customer", cus);
+        request.setAttribute("resHisList", reslist);
+        request.setAttribute("hotelList", hotellist);
+        request.setAttribute("flightList", flightList);
+        request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        
+   
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        Customers user = (Customers) session.getAttribute("accountsession");
+        String oldpass = request.getParameter("oldpass");
+        String newpass = request.getParameter("newpass");
+        String renewpass = request.getParameter("renewpass");
+        request.setAttribute("user", user);
+        String hashpass ="";
+        try {
+            hashpass = extension.Extension.generateHash(oldpass);
+        } catch (Exception e) {
+        }
+        if(!hashpass.equals(user.getCustomersPass()) || !newpass.equals(renewpass))
+        {
+            request.setAttribute("error", "Error Change Password");
+            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+            return;
+        }
+        CustomersDAO dao = new CustomersDAO();
+        try {
+            hashpass = extension.Extension.generateHash(newpass);
+        } catch (Exception e) {
+        }
+        dao.updatePassword(user.getCustomersId(), hashpass);
+        user.setCustomersPass(hashpass);
+        session.setAttribute("user", user);
+        request.setAttribute("success", "Change Password Successful");
+        request.getRequestDispatcher("Profile.jsp").forward(request, response);
     }
 
     /**
