@@ -92,22 +92,14 @@ public class CustomerProfile extends HttpServlet {
         String newpass = request.getParameter("newpass");
         String renewpass = request.getParameter("renewpass");
         request.setAttribute("user", user);
-        String hashpass ="";
-        try {
-            hashpass = extension.Extension.generateHash(oldpass);
-        } catch (Exception e) {
-        }
+        String hashpass = oldpass;
         if(!hashpass.equals(user.getCustomersPass()) || !newpass.equals(renewpass))
         {
             request.setAttribute("error", "Error Change Password");
-            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
             return;
         }
         CustomersDAO dao = new CustomersDAO();
-        try {
-            hashpass = extension.Extension.generateHash(newpass);
-        } catch (Exception e) {
-        }
         dao.updatePassword(user.getCustomersId(), hashpass);
         user.setCustomersPass(hashpass);
         session.setAttribute("user", user);
