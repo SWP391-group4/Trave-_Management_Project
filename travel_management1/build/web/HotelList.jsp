@@ -56,7 +56,7 @@
             </div>
         </nav>
         <!-- END nav -->
-
+<!--content--!>
         <div class="hero-wrap js-fullheight" style="background-image: url('images/pexels-pixabay-258154.jpg');">
             <div class="overlay"></div>
             <div class="container">
