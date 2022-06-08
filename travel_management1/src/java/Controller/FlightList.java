@@ -36,6 +36,7 @@ public class FlightList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOPlanes dao = new DAOPlanes();
         try ( PrintWriter out = response.getWriter()) {
+            // upload
             /* TODO output your page here. You may use following sample code. */
             String sql = "select p.PlaneName,p.PlaneCate,t.SeatClass,pb.PlaneBrandName,t.SeatNumber,t.Price,f.StartTimeA,f.[From],f.[To],t.FlightId from planes p\n"
                     + "inner join FlightDetails f on p.PlaneId=f.PlaneId\n"

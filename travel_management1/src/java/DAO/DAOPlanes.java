@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class DAOPlanes extends connectDB {
 
-
+    // list all
     public void ListAll() {
         String sql = "select p.PlaneName,p.PlaneCate,t.SeatClass,pb.PlaneBrandName,t.SeatNumber,t.Price,f.StartTimeA,f.[From],f.[To],t.FlightId from planes p\n"
                 + "inner join FlightDetails f on p.PlaneId=f.PlaneId\n"
@@ -44,6 +44,7 @@ public class DAOPlanes extends connectDB {
             Logger.getLogger(DAOPlanes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    // test
     public static void main(String[] args) {
         DAOPlanes p=new DAOPlanes();
         p.ListAll();
