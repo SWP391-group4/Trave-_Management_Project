@@ -157,7 +157,7 @@
                                         <!--        <div class="alert alert-danger" role="alert">-->
 
 
-                                        <h2 class="text-center">Log in</h2>  
+                                        <h2 class="text-center">Change Password</h2>  
                                         <div>${alert}</div>
                                         <div class="form-group">
                                             <input  type="text" name="account" class="form-control" placeholder="username" required="required" value="">
@@ -166,12 +166,13 @@
                                             <input  type="password" name="password" class="form-control" placeholder="password" required="required" value="">
                                         </div>
                                         <div class="form-group">
+                                            <input  type="password" name="repassword" class="form-control" placeholder="repassword" required="required" value="">
+                                        </div>
+                                        <div class="form-group">
 
                                             <input type="submit" class="btn btn-warning btn-block" name="Login">
                                         </div>
-                                        <div class="clearfix">
-                                            <label class="float-left form-check-label">Don't have account?<a href="Registration.jsp">   register</a></label>
-                                        </div>        
+                                         
                                     </form>
                                 </div>
                                 </div>
