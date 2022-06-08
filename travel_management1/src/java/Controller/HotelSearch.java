@@ -35,14 +35,17 @@ public class HotelSearch extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //search
-       String txtSearch = request.getParameter("txt");
-        DAOHotels dao = new DAOHotels();
-       List<Hotels> list=dao.SearchbyProvince(txtSearch);
-              
+        String txtSearch = request.getParameter("txt");
+        String txtSearchName = request.getParameter("txtname");
 
-       request.setAttribute("listh", list);
+        DAOHotels dao = new DAOHotels();
+        List<Hotels> list = dao.SearchbyProvince(txtSearch);
+        list=dao.SearchbyName(txtSearchName);
+
+        request.setAttribute("listh", list);
         request.setAttribute("txtsearch", txtSearch);
-         request.getRequestDispatcher("/HotelList.jsp").forward(request, response);
+        request.setAttribute("txtsearchname", txtSearchName);
+        request.getRequestDispatcher("/HotelList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
