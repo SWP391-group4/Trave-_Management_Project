@@ -9,29 +9,31 @@ package Entity;
  * @author nam
  */
 public class Marketing {
-    public String marketingId;
+    public String accountM;
     public String firstName;
     public String lastName;
     public int age;
     public String email;
+    public String phone;
 
     public Marketing() {
     }
 
-    public Marketing(String marketingId, String firstName, String lastName, int age, String email) {
-        this.marketingId = marketingId;
+    public Marketing(String accountM, String firstName, String lastName, int age, String email, String phone) {
+        this.accountM = accountM;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+        this.phone = phone;
     }
 
-    public String getMarketingId() {
-        return marketingId;
+    public String getAccountM() {
+        return accountM;
     }
 
-    public void setMarketingId(String marketingId) {
-        this.marketingId = marketingId;
+    public void setAccountM(String accountM) {
+        this.accountM = accountM;
     }
 
     public String getFirstName() {
@@ -66,11 +68,18 @@ public class Marketing {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Marketing{" + "marketingId=" + marketingId + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email=" + email + '}';
+    public String getPhone() {
+        return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Marketing{" + "accountM=" + accountM + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email=" + email + ", phone=" + phone + '}';
+    }
     
-    
+   
 }

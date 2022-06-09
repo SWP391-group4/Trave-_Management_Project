@@ -9,57 +9,54 @@ package Entity;
  * @author nam
  */
 public class Accounts {
-
-    public String UserId;
-    public String Account;
-    public String Password;
-    public int Type;
+    public String account;
+    public String password;
+    public int type;
 
     public Accounts() {
     }
 
-    public Accounts(String UserId, String Account, String Password, int Type) {
-        this.UserId = UserId;
-        this.Account = Account;
-        this.Password = Password;
-        this.Type = Type;
+    public Accounts(String account, String password, int type) {
+        this.account = account;
+        this.password = password;
+        this.type = type;
     }
 
-    public String getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(String UserId) {
-        this.UserId = UserId;
+    public Accounts(String account, String password) {
+        this.account = account;
+        this.password = password;
     }
 
     public String getAccount() {
-        return Account;
+        return account;
     }
 
-    public void setAccount(String Account) {
-        this.Account = Account;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getType() {
-        return Type;
+        return type;
     }
 
-    public void setType(int Type) {
-        this.Type = Type;
+    public void setType(int type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Accounts{" + "UserId=" + UserId + ", Account=" + Account + ", Password=" + Password + ", Type=" + Type + '}';
+        return "Accounts{" + "account=" + account + ", password=" + password + ", type=" + type + '}';
     }
-
+    
+    
+      
+    
 }
