@@ -83,36 +83,36 @@ public class CustomerProfile extends HttpServlet {
    
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Customers user = (Customers) session.getAttribute("accountsession");
-        String oldpass = request.getParameter("oldpass");
-        String newpass = request.getParameter("newpass");
-        String renewpass = request.getParameter("renewpass");
-        request.setAttribute("user", user);
-        String hashpass ="";
-        try {
-            hashpass = extension.Extension.generateHash(oldpass);
-        } catch (Exception e) {
-        }
-        if(!hashpass.equals(user.getCustomersPass()) || !newpass.equals(renewpass))
-        {
-            request.setAttribute("error", "Error Change Password");
-            request.getRequestDispatcher("Profile.jsp").forward(request, response);
-            return;
-        }
-        CustomersDAO dao = new CustomersDAO();
-        try {
-            hashpass = extension.Extension.generateHash(newpass);
-        } catch (Exception e) {
-        }
-        dao.updatePassword(user.getCustomersId(), hashpass);
-        user.setCustomersPass(hashpass);
-        session.setAttribute("user", user);
-        request.setAttribute("success", "Change Password Successful");
-        request.getRequestDispatcher("Profile.jsp").forward(request, response);
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        HttpSession session = request.getSession();
+//        Customers user = (Customers) session.getAttribute("accountsession");
+//        String oldpass = request.getParameter("oldpass");
+//        String newpass = request.getParameter("newpass");
+//        String renewpass = request.getParameter("renewpass");
+//        request.setAttribute("user", user);
+//        String hashpass ="";
+//        try {
+//            hashpass = extension.Extension.generateHash(oldpass);
+//        } catch (Exception e) {
+//        }
+//        if(!hashpass.equals(user.getCustomersPass()) || !newpass.equals(renewpass))
+//        {
+//            request.setAttribute("error", "Error Change Password");
+//            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+//            return;
+//        }
+//        CustomersDAO dao = new CustomersDAO();
+//        try {
+//            hashpass = extension.Extension.generateHash(newpass);
+//        } catch (Exception e) {
+//        }
+//        dao.updatePassword(user.getCustomersId(), hashpass);
+//        user.setCustomersPass(hashpass);
+//        session.setAttribute("user", user);
+//        request.setAttribute("success", "Change Password Successful");
+//        request.getRequestDispatcher("Profile.jsp").forward(request, response);
     }
 
     /**
@@ -120,9 +120,9 @@ public class CustomerProfile extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+//    @Override
+//    public String getServletInfo() {
+//        return "Short description";
+//    }// </editor-fold>
 
-}
+
