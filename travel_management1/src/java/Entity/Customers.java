@@ -9,29 +9,31 @@ package Entity;
  * @author nam
  */
 public class Customers {
-    public String customerId;
+    public String accountC;
     public String firstName;
     public String lastName;
-    public String phone;
     public String email;
+    public String phone;
+    public int status;
 
     public Customers() {
     }
 
-    public Customers(String customerId, String firstName, String lastName, String phone, String email) {
-        this.customerId = customerId;
+    public Customers(String accountC, String firstName, String lastName, String email, String phone, int status) {
+        this.accountC = accountC;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
         this.email = email;
+        this.phone = phone;
+        this.status = status;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getAccountC() {
+        return accountC;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setAccountC(String accountC) {
+        this.accountC = accountC;
     }
 
     public String getFirstName() {
@@ -50,14 +52,6 @@ public class Customers {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -66,10 +60,27 @@ public class Customers {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Customers{" + "customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", email=" + email + '}';
+    public String getPhone() {
+        return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Customers{" + "accountC=" + accountC + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + ", status=" + status + '}';
+    }
+    
+    
     
 }

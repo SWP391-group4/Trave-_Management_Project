@@ -10,14 +10,21 @@ package Entity;
  */
 public class Images {
     public String imageId;
-    public String tableId;
+    public String imageUrl;
+    public String homeStayId;
 
     public Images() {
     }
 
-    public Images(String imageId, String tableId) {
+    public Images(String imageUrl, String homeStayId) {
+        this.imageUrl = imageUrl;
+        this.homeStayId = homeStayId;
+    }
+     
+    public Images(String imageId, String imageUrl, String homeStayId) {
         this.imageId = imageId;
-        this.tableId = tableId;
+        this.imageUrl = imageUrl;
+        this.homeStayId = homeStayId;
     }
 
     public String getImageId() {
@@ -28,18 +35,28 @@ public class Images {
         this.imageId = imageId;
     }
 
-    public String getTableId() {
-        return tableId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getHomeStayId() {
+        return homeStayId;
+    }
+
+    public void setHomeStayId(String homeStayId) {
+        this.homeStayId = homeStayId;
     }
 
     @Override
     public String toString() {
-        return "Images{" + "imageId=" + imageId + ", tableId=" + tableId + '}';
+        return "Images{" + "imageId=" + imageId + ", imageUrl=" + imageUrl + ", homeStayId=" + homeStayId + '}';
     }
+    
 
+   
     
 }

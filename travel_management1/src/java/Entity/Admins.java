@@ -9,18 +9,31 @@ package Entity;
  * @author nam
  */
 public class Admins {
-    public String adminId;
+    public String accountA;
     public String firstName;
     public String lastName;
     public int age;
-    public String email;
+    public String email; 
+    public String phone;
 
-    public String getAdminId() {
-        return adminId;
+    public Admins() {
     }
 
-    public void setAdminId(String adminId) {
-        this.adminId = adminId;
+    public Admins(String accountA, String firstName, String lastName, int age, String email, String phone) {
+        this.accountA = accountA;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public String getAccountA() {
+        return accountA;
+    }
+
+    public void setAccountA(String accountA) {
+        this.accountA = accountA;
     }
 
     public String getFirstName() {
@@ -55,10 +68,19 @@ public class Admins {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Admins{" + "adminId=" + adminId + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email=" + email + '}';
+    public String getPhone() {
+        return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Admins{" + "accountA=" + accountA + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email=" + email + ", phone=" + phone + '}';
+    }
+
+    
     
 }
