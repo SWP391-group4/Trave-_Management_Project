@@ -6,8 +6,8 @@ package DAO;
 
 /**
  *
- * @author phams
+ * @author nam
  */
-public class CustomerImages {
+public class DAOCustomers {
     
 }

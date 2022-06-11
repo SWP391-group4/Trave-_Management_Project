@@ -19,6 +19,27 @@ public class Rules {
         this.homeStayId = homeStayId;
         this.listRules = listRules;
     }
+
+    public String getHomeStayId() {
+        return homeStayId;
+    }
+
+    public void setHomeStayId(String homeStayId) {
+        this.homeStayId = homeStayId;
+    }
+
+    public String getListRules() {
+        return listRules;
+    }
+
+    public void setListRules(String listRules) {
+        this.listRules = listRules;
+    }
+
+    @Override
+    public String toString() {
+        return "Rules{" + "homeStayId=" + homeStayId + ", listRules=" + listRules + '}';
+    }
     
     
 }
