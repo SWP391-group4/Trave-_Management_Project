@@ -9,5 +9,16 @@ package Entity;
  * @author nam
  */
 public class Rules {
+    public String homeStayId;
+    public String listRules;
+
+    public Rules() {
+    }
+
+    public Rules(String homeStayId, String listRules) {
+        this.homeStayId = homeStayId;
+        this.listRules = listRules;
+    }
+    
     
 }
