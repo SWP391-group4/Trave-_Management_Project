@@ -63,6 +63,7 @@ public class SupplierImage {
         this.img_Avatar = img_Avatar;
     }
 
+//comment
     @Override
     public String toString() {
         return "SupplierImage{" + "accountS=" + accountS + ", img_ID_front=" + img_ID_front + ", img_ID_back=" + img_ID_back + ", img_Avatar=" + img_Avatar + '}';

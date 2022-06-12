@@ -46,6 +46,7 @@ public class Categories {
         this.accountS = accountS;
     }
 
+    //tung comment
     @Override
     public String toString() {
         return "Categories{" + "cateId=" + cateId + ", cateName=" + cateName + ", accountS=" + accountS + '}';
