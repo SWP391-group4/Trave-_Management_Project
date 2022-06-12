@@ -36,6 +36,7 @@ public class Accounts {
     }
 
     public String getPassword() {
+        
         return password;
     }
 
@@ -51,6 +52,7 @@ public class Accounts {
         this.type = type;
     }
 
+    
     @Override
     public String toString() {
         return "Accounts{" + "account=" + account + ", password=" + password + ", type=" + type + '}';
