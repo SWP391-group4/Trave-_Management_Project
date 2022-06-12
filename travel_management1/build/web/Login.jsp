@@ -63,10 +63,12 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
+                    <form method="POST" id="signup-form" class="signup-form" action="login">
                         <h2 class="form-title">Login</h2>
+                        <div>${alert}</div>
+                        
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="Email"/>
+                            <input type="text" class="form-input" name="account" id="name" placeholder="account"/>
                         </div>
                         
                         <div class="form-group">

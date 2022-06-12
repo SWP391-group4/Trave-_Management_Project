@@ -4,10 +4,40 @@
  */
 package DAO;
 
+import DBContext.connectDB;
+import Entity.Accounts;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author phams
  */
-public class DAOAccounts {
-    
+
+    public class DAOAccounts extends connectDB {
+    public Accounts search(String account, String password) {
+        String sql = "select * from accounts where "
+                + "account = '"+account+"'and "
+                + "password =+ '"+password+"'";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                
+              return new Accounts(
+                      rs.getString(1), 
+                      rs.getString(2),
+                      rs.getInt(3));   
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+    public static void main(String[] args) {
+        DAOAccounts dao = new DAOAccounts();
+        System.out.println(dao.search("tungseo11", "123456"));
+    }
 }
