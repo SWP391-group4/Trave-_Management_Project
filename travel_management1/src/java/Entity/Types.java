@@ -35,7 +35,7 @@ public class Types {
     public void setTypeName(String typeName) {
         this.typeName = typeName;
     }
-
+//tung comment
     @Override
     public String toString() {
         return "Types{" + "typeId=" + typeId + ", typeName=" + typeName + '}';
