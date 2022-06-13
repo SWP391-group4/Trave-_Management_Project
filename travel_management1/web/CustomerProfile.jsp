@@ -1,335 +1,257 @@
-<%-- 
-    Document   : CustomerProfile
-    Created on : Jun 8, 2022, 11:06:12 AM
-    Author     : nguye
---%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-<!--===============================================================================================-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
 
-<head>
-    <title>Customer Profile</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        .tr {
-            border: 2px solid red;
-            border-radius: 12px;
-            padding: 5px;
-        }
-        .login-form {
-            width: 340px;
-            margin: 50px auto;
-            font-size: 15px;
-        }
-        .login-form form {
-            margin-bottom: 15px;
-            background: #f7f7f7;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-        }
-        .login-form h2 {
-            margin: 0 0 15px;
-        }
-        .form-control, .btn {
-            min-height: 38px;
-            border-radius: 2px;
-        }
-        .btn {
-            font-size: 15px;
-            font-weight: bold;
-        }
-    </style>
-</head>
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
 
-<body><hr>
-    <div class="container bootstrap snippet">
-        <div class="row">
-            <div class="col-sm-10"><h1>User name</h1></div>
-            <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        <link rel="stylesheet" href="css/aos.css">
+
+        <link rel="stylesheet" href="css/ionicons.min.css">
+
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">OhYeah</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
+                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
+                        <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END nav -->
+
+        <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                    <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Discover <br>A new Place</h1>
+                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat, shop, or visit from local experts</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-3"><!--left col-->
 
+        <section >
+            <div class="container">
+                <div class="main-body">
 
-                <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <h6>Upload a different photo...</h6>
-                    <input type="file" class="text-center center-block file-upload">
-                </div></hr><br>
+                    <!-- Breadcrumb -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">Account</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" href="#">History</a>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- /Breadcrumb -->
 
-
-
-
-            </div><!--/col-3-->
-            <div class="col-sm-9">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                    <li><a data-toggle="tab" href="#messages">Restaurant</a></li>
-                    <li><a data-toggle="tab" href="#settings">Hotel</a></li>
-                    <li><a data-toggle="tab" href="#setting">Flight</a></li>
-                </ul>
-
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                        <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="first_name"><h4>First name</h4></label>
-                                    <div class="form-control"> ${customer.firstName}</div> 
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                        <div class="mt-3">
+                                            <h4>John Doe</h4>
+                                            
+                                            <button class="btn btn-outline-primary">Change Image</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="last_name"><h4>Last name</h4></label>
-                                    <div class="form-control"> ${customer.lastName}</div> 
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Full Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" class="form-control" value="John Doe">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" class="form-control" value="John Doe">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Phone</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" class="form-control" value="John Doe">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Mobile</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" class="form-control" value="John Doe">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" class="form-control" value="John Doe">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Save Change</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="phone"><h4>Phone</h4></label>
-                                    <div class="form-control"> ${customer.phone}</div> 
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile"><h4>Mobile</h4></label>
-                                    <div class="form-control"> ${customer.email}</div> 
-                                </div>
-                            </div>
-                        </form>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                               	<button class="btn btn-lg" type="button" data-toggle="modal" data-target="#myModal"> 
-                                    Change Password
-                                </button>
-                            </div>
                         </div>
 
 
-                        <!-- The ChangePass Form -->
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="login-form">
-                                    <form action="Login" method="post">
-                                        <!--        <div class="alert alert-danger" role="alert">-->
 
+                    </div>
+                </div>
 
-                                        <h2 class="text-center">Change Password</h2>  
-                                        <div>${alert}</div>
-                                        <div class="form-group">
-                                            <input  type="text" name="account" class="form-control" placeholder="username" required="required" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input  type="password" name="password" class="form-control" placeholder="password" required="required" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input  type="password" name="repassword" class="form-control" placeholder="repassword" required="required" value="">
-                                        </div>
-                                        <div class="form-group">
+            </div>
+        </div>        </section>
 
-                                            <input type="submit" class="btn btn-warning btn-block" name="Login">
-                                        </div>
-                                         
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">OhYeah</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Information</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">About Us</a></li>
+                            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
+                            <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
+                            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Experience</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Beach</a></li>
+                            <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
+                            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
+                            <li><a href="#" class="py-2 d-block">Nature</a></li>
+                            <li><a href="#" class="py-2 d-block">Party</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
                         </div>
-                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
 
-                    </div><!--/CusInfo-->
-                    <div class="tab-pane" id="messages">
-
-                        <h2></h2>
-
-                        <hr>
-                        <table class="table ">
-                            <thead>
-                                <tr>
-
-
-                                    <th>Full Name</th>
-
-
-                                    <th>Phone</th>
-                                    <th>OrderTime</th>
-
-                                    <th>Feedback</th>
-                                    <th>Star</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <c:forEach items="${resHisList}" var="res">
-                                    <tr class="tr">
-                                        <td>${res.firstName}</td>
-
-                                        <td>${res.phone}</td>
-                                        <td>${res.orderTime}</td>
-
-                                        <td>${res.feedback}</td>
-                                        <td>${res.star}</td>
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
-                                    </tr>
-
-                                </c:forEach>
-
-                            </tbody>
-                        </table>
-
-                    </div><!--/RES-->
-                    <div class="tab-pane" id="settings">
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-                        <hr>
-                        <table class="table ">
-                            <thead>
-                                <tr>
-
-
-                                    <th>Full Name</th>
-
-
-                                    <th>Phone</th>
-                                    <th>OrderTime</th>
-                                    <th>UserTime</th>
-
-                                    <th>Feedback</th>
-                                    <th>Star</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <c:forEach items="${hotelList}" var="hotel">
-                                    <tr class="tr">
-                                        <td>${hotel.firstName}</td>
-
-                                        <td>${hotel.phone}</</td>
-                                        <td>${hotel.orderTime}</td>
-                                        <td>${hotel.usedTime}</td>
-
-                                        <td>${hotel.feedback}</td>
-                                        <td>${hotel.star}</td>
-
-
-
-                                    </tr>
-
-                                </c:forEach>
-
-                            </tbody>
-                        </table>
-                    </div><!--/HIS-->
-                    <div class="tab-pane" id="setting">
-
-
-                        <hr>
-                        <table class="table ">
-                            <thead>
-                                <tr>
-
-
-                                    <th>First Name</th>
-
-
-                                    <th>Phone</th>
-                                    <th>Price</th>
-
-                                    <th>Feedback</th>
-                                    <th>Star</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <c:forEach items="${flightList}" var="flight">
-                                    <tr class="tr">
-                                        <td>${flight.firstName}</td>
-
-                                        <td>${flight.phone}</</td>
-                                        <td>${flight.price}</</td>
-
-                                        <td>${flight.feedback}</</td>
-                                        <td>${flight.star}</</td>
-
-
-
-                                    </tr>
-
-                                </c:forEach>
-
-                            </tbody>
-                        </table>
-                    </div><!--/FLI-->
-
-                </div><!--/tab-pane-->
-            </div><!--/tab-content-->
-
-        </div><!--/col-9-->
-
-    </div><!--/row-->
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
-</body>
 
+</body>
+</html>
