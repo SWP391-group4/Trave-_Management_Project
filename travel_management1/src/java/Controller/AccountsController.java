@@ -76,7 +76,7 @@ public class AccountsController extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     *meo
+     *
      * @return a String containing servlet description
      */
     @Override
