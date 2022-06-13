@@ -5,7 +5,9 @@
 package Controller;
 
 import DAO.DAOAccounts;
-import Entity.Accounts;
+import DAO.*;
+import Entity.*;
+import Entity.Customers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -76,6 +79,7 @@ public class LoginController extends HttpServlet {
             int type = acc.getType();
             switch (type) {
                 case 1:
+                    
                     response.sendRedirect("AdminHome.jsp");
                     break;
                 case 2:
@@ -85,7 +89,13 @@ public class LoginController extends HttpServlet {
                     response.sendRedirect("SupplierHome.jsp");
                     break;
                 case 4:
-                    response.sendRedirect("CustomerHome.jsp");
+                    DAOCustomers daoCus = new DAOCustomers();
+                    Customers cus = daoCus.getCustomer(account);
+                    CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("customer", cus);
+                    session.setAttribute("customerAddress", cusAddress);
+                    response.sendRedirect("CustomerProfile");
                     break;
                 default:
                     throw new AssertionError();

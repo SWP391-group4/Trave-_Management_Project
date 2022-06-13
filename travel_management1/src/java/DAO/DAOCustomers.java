@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class DAOCustomers extends connectDB{
     public Customers getCustomer(String accountC) {
-        String sql = "Select * from customers where accountC = '"+accountC+"'";
+        String sql = "Select * from customers where accountc = '"+accountC+"'";
         ResultSet rs = getData(sql);
         try {
             if(rs.next()) {
@@ -52,5 +52,12 @@ public class DAOCustomers extends connectDB{
             ex.printStackTrace();
         }
         return null;
+    }
+    public static void main(String[] args) {
+        DAOCustomers dao = new DAOCustomers();
+        Customers cus = dao.getCustomer("motnguoithu3");
+        CustomerAddresses c = dao.getCustomerAddresses("motnguoithu3");
+        System.out.println(cus);
+        System.out.println(c);
     }
 }

@@ -130,19 +130,19 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="fullName">Full Name</label>
-                                                <input type="text" class="form-control" id="fullName" value="Enter full name" name="name">
+                                                <input type="text" class="form-control" id="fullName" value="${cus.firstName} ${cus.lastName}" name="name">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="eMail">Email</label>
-                                                <input type="email" class="form-control" id="eMail"value="Enter full name" name="email">
+                                                <input type="email" class="form-control" id="eMail"value="${cus.email}" name="email">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
-                                                <input type="text" class="form-control" id="phone" value="Enter full name" name="phone">
+                                                <input type="text" class="form-control" id="phone" value="${cus.phone}" name="phone">
                                             </div>
                                         </div>
                                         
@@ -154,25 +154,25 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="Street">Specific</label>
-                                                <input type="name" class="form-control" id="Street" value="Enter full name" name="specific">
+                                                <input type="name" class="form-control" id="Street" value="${cusAddress.specific}" name="specific">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="ciTy">Ward</label>
-                                                <input type="name" class="form-control" id="ciTy" value="Enter full name" name="ward">
+                                                <input type="name" class="form-control" id="ciTy" value="${cusAddress.ward}" name="ward">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="sTate">District</label>
-                                                <input type="text" class="form-control" id="sTate" value="Enter full name" name="district">
+                                                <input type="text" class="form-control" id="sTate" value="${cusAddress.district}" name="district">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="zIp">City</label>
-                                                <input type="text" class="form-control" id="zIp" value="Enter full name" name="city">
+                                                <input type="text" class="form-control" id="zIp" value="${cusAddress.city}" name="city">
                                             </div>
                                         </div>
                                     </div>

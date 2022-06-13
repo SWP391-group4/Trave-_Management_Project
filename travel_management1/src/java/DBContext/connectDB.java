@@ -38,7 +38,7 @@ public class connectDB {
         }
     }
     public connectDB(){
-        this("jdbc:sqlserver://localhost:1433;databaseName=travel_management","sa","123456");
+        this("jdbc:sqlserver://localhost:1433;databaseName=travel_management1","sa","123456");
     } 
     public ResultSet getData(String sql) {
         ResultSet rs = null;

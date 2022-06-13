@@ -38,6 +38,6 @@ import java.util.logging.Logger;
     }
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
-        System.out.println(dao.search("tungseo11", "123456"));
+        System.out.println(dao.search("alolao", "123456"));
     }
 }

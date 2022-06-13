@@ -4,12 +4,14 @@
  */
 package Controller;
 
+import Entity.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,8 +32,7 @@ public class CustomerProfileController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        response.sendRedirect("CustomerProfile.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,6 +48,14 @@ public class CustomerProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        Customers cus = (Customers) session.getAttribute("customer");
+        CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
+        // tim cach dung thang vao jsp
+        request.setAttribute("cus", cus);
+        request.setAttribute("cusAddress", cusAddress);
+        request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        
     }
 
     /**
