@@ -6,7 +6,7 @@ package DAO;
 
 /**
  *
- * @author nam
+ * @author phams
  */
 public class DAOCustomerAddresses {
     

@@ -9,49 +9,48 @@ package Entity;
  * @author nam
  */
 public class Suppliers {
-    public String SsupplierId;
-    public String companyName;
-    public String contactName;
+    public String accountS;
+    public String firstName;
+    public String lastName;
     public String fax;
     public String email;
     public String phone;
-    public String serviceId;
+    
 
     public Suppliers() {
     }
 
-    public Suppliers(String SsupplierId, String companyName, String contactName, String fax, String email, String phone, String serviceId) {
-        this.SsupplierId = SsupplierId;
-        this.companyName = companyName;
-        this.contactName = contactName;
+    public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone) {
+        this.accountS = accountS;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.fax = fax;
         this.email = email;
         this.phone = phone;
-        this.serviceId = serviceId;
     }
 
-    public String getSsupplierId() {
-        return SsupplierId;
+    public String getAccountS() {
+        return accountS;
     }
 
-    public void setSsupplierId(String SsupplierId) {
-        this.SsupplierId = SsupplierId;
+    public void setAccountS(String accountS) {
+        this.accountS = accountS;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getContactName() {
-        return contactName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFax() {
@@ -77,19 +76,14 @@ public class Suppliers {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
+//tungcomment
+    
     @Override
     public String toString() {
-        return "Suppliers{" + "SsupplierId=" + SsupplierId + ", companyName=" + companyName + ", contactName=" + contactName + ", fax=" + fax + ", email=" + email + ", phone=" + phone + ", serviceId=" + serviceId + '}';
+        return "Suppliers{" + "accountS=" + accountS + ", firstName=" + firstName + ", lastName=" + lastName + ", fax=" + fax + ", email=" + email + ", phone=" + phone + '}';
     }
+
+    
 
 
     

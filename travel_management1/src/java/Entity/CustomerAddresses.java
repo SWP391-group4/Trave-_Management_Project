@@ -10,67 +10,69 @@ package Entity;
  */
 public class CustomerAddresses {
 
-    public String CustomerId;
-    public String City;
-    public String District;
-    public String Specific;
-    public String Ward;
+    public String accountC;
+    public String city;
+    public String district;
+    public String specific;
+    public String ward;
 
     public CustomerAddresses() {
     }
 
-    public CustomerAddresses(String CustomerId, String City, String District, String Specific, String Ward) {
-        this.CustomerId = CustomerId;
-        this.City = City;
-        this.District = District;
-        this.Specific = Specific;
-        this.Ward = Ward;
+    public CustomerAddresses(String accountC, String city, String district, String specific, String ward) {
+        this.accountC = accountC;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
     }
 
-    public String getCustomerId() {
-        return CustomerId;
+    public String getAccountC() {
+        return accountC;
     }
 
-    public void setCustomerId(String CustomerId) {
-        this.CustomerId = CustomerId;
+    public void setAccountC(String accountC) {
+        this.accountC = accountC;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
-    public void setCity(String City) {
-        this.City = City;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getDistrict() {
-        return District;
+        return district;
     }
 
-    public void setDistrict(String District) {
-        this.District = District;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getSpecific() {
-        return Specific;
+        return specific;
     }
 
-    public void setSpecific(String Specific) {
-        this.Specific = Specific;
+    public void setSpecific(String specific) {
+        this.specific = specific;
     }
 
     public String getWard() {
-        return Ward;
+        return ward;
     }
 
-    public void setWard(String Ward) {
-        this.Ward = Ward;
+    public void setWard(String ward) {
+        this.ward = ward;
     }
 
     @Override
     public String toString() {
-        return "CustomerAddresses{" + "CustomerId=" + CustomerId + ", City=" + City + ", District=" + District + ", Specific=" + Specific + ", Ward=" + Ward + '}';
+        return "CustomerAddresses{" + "accountC=" + accountC + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + '}';
     }
+
+    
 
     
 

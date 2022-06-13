@@ -11,17 +11,23 @@ package Entity;
 public class Blogs {
     public String blogId;
     public String image;
-    public String text;
-    public String marketingId;
+    public String title;
+    public String accountM;
 
     public Blogs() {
     }
 
-    public Blogs(String blogId, String image, String text, String marketingId) {
+    public Blogs(String blogId, String image, String title, String accountM) {
         this.blogId = blogId;
         this.image = image;
-        this.text = text;
-        this.marketingId = marketingId;
+        this.title = title;
+        this.accountM = accountM;
+    }
+
+    public Blogs(String image, String title, String accountM) {
+        this.image = image;
+        this.title = title;
+        this.accountM = accountM;
     }
 
     public String getBlogId() {
@@ -40,26 +46,27 @@ public class Blogs {
         this.image = image;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getMarketingId() {
-        return marketingId;
+    public String getaccountM() {
+        return accountM;
     }
 
-    public void setMarketingId(String marketingId) {
-        this.marketingId = marketingId;
+    public void setaccountM(String accountM) {
+        this.accountM = accountM;
     }
 
     @Override
     public String toString() {
-        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", text=" + text + ", marketingId=" + marketingId + '}';
+        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", title=" + title + ", accountM=" + accountM + '}';
     }
+
     
     
 }

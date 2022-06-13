@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This is supplier</h1>
+        <h1>This isa  supplier</h1>
     </body>
 </html>
