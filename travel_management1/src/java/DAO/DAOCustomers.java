@@ -37,7 +37,20 @@ public class DAOCustomers extends connectDB{
     }
     
     public CustomerAddresses getCustomerAddresses(String accountC) {
-        
+        String sql = "Select * from customerAddresses where accountC = '"+accountC+"'";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return new CustomerAddresses(
+                        rs.getString(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return null;
     }
 }
