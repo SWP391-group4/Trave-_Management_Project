@@ -34,7 +34,7 @@ public class AdminProfileController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            //admin profile
             HttpSession session = request.getSession();
             // session from login
             Admins admin = (Admins) session.getAttribute("admin");
