@@ -19,6 +19,7 @@
 
         <link rel="stylesheet" href="css/ionicons.min.css">
 
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
 
@@ -44,7 +45,13 @@
                         <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
+                         <c:if test="${sessionScope.acc!=null}">
+			  <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
+                          <li class="nav-item"><a href="contact.html" class="nav-link">Hello ${sessionScope.acc.account}</a></li>
+                </c:if>
+                    <c:if test="${sessionScope.acc==null}">
+			  <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
+                </c:if> 
                     </ul>
                 </div>
             </div>
