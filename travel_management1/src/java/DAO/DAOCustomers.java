@@ -52,7 +52,10 @@ public class DAOCustomers extends connectDB{
         }
         return null;
     }
-
+    
+    public int updateCustomer() {
+        return 0;
+    }
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
