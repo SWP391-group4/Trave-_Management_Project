@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,5 +84,25 @@ public class DAOHomeStays extends connectDB{
             ex.printStackTrace();
         }
         return n;
+    }
+    
+    public Vector<HomeStays> viewallHomeStays() {
+        Vector<HomeStays> vec = new Vector<HomeStays>();
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[HomeStays]";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String homeStayID = rs.getString(1);
+                String homeStayname = rs.getString(2);
+                String cateID = rs.getString(3);
+                HomeStays obj = new HomeStays(homeStayID, homeStayname, cateID);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
     }
 }
