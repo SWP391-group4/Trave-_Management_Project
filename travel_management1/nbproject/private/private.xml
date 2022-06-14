@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/Controller/HotelList.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/Entity/Planes.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/web/HotelList.jsp</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/Entity/RoomImages.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/Controller/FlightList.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/DAO/DAOPlanes.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/Controller/Login.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/web/FlightList.jsp</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/DBContext/connectDB.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/DAO/DAOAccounts.java</file>
+            <file>file:/C:/Users/nam/OneDrive/Documents/NetBeansProjects/travel_management1/src/java/DAO/DAOHotels.java</file>
+        </group>
     </open-files>
 </project-private>
