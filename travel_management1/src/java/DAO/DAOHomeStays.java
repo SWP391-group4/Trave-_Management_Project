@@ -7,8 +7,10 @@ package DAO;
 import DBContext.connectDB;
 
 import Entity.HomeStays;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,5 +36,52 @@ public class DAOHomeStays extends connectDB{
         }
         
         return null;
+    }
+    
+    public int addHomeStays(HomeStays hs) {
+        int n = 0;
+        String sql = "insert into HomeStays(HomeStayId,HomeStayName,CateId) \n"
+                + "values ('" + hs.getHomeStayID()+ "','" + hs.getHomeStayname()+ "','" + hs.getCateID()+"')";
+
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+    
+    public int updateHomeStays(HomeStays hs) {
+        int n = 0;
+        
+        String sql = "UPDATE [dbo].[HomeStays]"
+                + "   SET \n"
+                + "      [HomeStayName] = ?"
+                + "      ,[CateId] = ?"
+                + " WHERE [HomeStayId] = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, hs.getHomeStayname());
+            pre.setString(2, hs.getCateID());
+            pre.setString(3, hs.getHomeStayID());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+    
+    public int removeHomeStays(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[HomeStays]"
+                + "      WHERE HomeStayId='" + id + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
     }
 }

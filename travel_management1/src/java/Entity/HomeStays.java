@@ -13,6 +13,12 @@ public class HomeStays {
     public String homeStayname;
     public String cateID;
 
+    public HomeStays(String homeStayID, String homeStayname, String cateID) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+    }
+
     public HomeStays() {
     }
 
