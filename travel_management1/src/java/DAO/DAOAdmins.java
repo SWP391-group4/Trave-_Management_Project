@@ -9,5 +9,12 @@ package DAO;
  * @author phams
  */
 public class DAOAdmins {
-    
+    public String AdminProfile (String acc){
+        String sql="select '"+acc+"'";
+        return sql;
+    }
+    public static void main(String[] args) {
+        DAOAdmins d=new DAOAdmins();
+        System.out.println(d.AdminProfile("m"));
+    }
 }
