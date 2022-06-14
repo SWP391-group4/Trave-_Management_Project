@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Entity.Admins;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,7 +35,11 @@ public class AdminProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            response.sendRedirect("AdminProfile.jsp");
+            HttpSession session = request.getSession();
+            Admins admin = (Admins) session.getAttribute("admin");
+            // tim cach dung thang vao jsp
+            request.setAttribute("admin", admin);
+            request.getRequestDispatcher("AdminProfile.jsp").forward(request, response);
         }
     }
 

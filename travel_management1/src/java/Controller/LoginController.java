@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOAccounts;
+import DAO.DAOAdmins;
 import DAO.DAOCustomers;
 import Entity.Accounts;
 import Entity.*;
@@ -64,8 +65,11 @@ public class LoginController extends HttpServlet {
             int type = acc.getType();
             switch (type) {
                 case 1:
-                    session.setAttribute("accA", acc);
-                    response.sendRedirect("AdminHome.jsp");
+                    DAOAdmins daoAd = new DAOAdmins();
+                    Admins admin = daoAd.getAdmin(account);
+                    session.setAttribute("acc", acc);
+                    session.setAttribute("admin", admin);
+                    response.sendRedirect("AdminProfileController");
                     break;
                 case 2:
                     session.setAttribute("accM", acc);
@@ -79,7 +83,7 @@ public class LoginController extends HttpServlet {
                     DAOCustomers daoCus = new DAOCustomers();
                     Customers cus = daoCus.getCustomer(account);
                     CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
-  session.setAttribute("acc", acc);
+                    session.setAttribute("acc", acc);
                     session.setAttribute("customer", cus);
                     session.setAttribute("customerAddress", cusAddress);
                     response.sendRedirect("CustomerProfile");
