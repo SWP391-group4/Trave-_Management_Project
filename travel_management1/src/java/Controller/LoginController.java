@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,34 +52,34 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-          DAOAccounts dao = new DAOAccounts();
+        DAOAccounts dao = new DAOAccounts();
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
         if (acc == null) {
-           
+
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             int type = acc.getType();
             switch (type) {
                 case 1:
-                     session.setAttribute("accA", acc);
+                    session.setAttribute("accA", acc);
                     response.sendRedirect("AdminHome.jsp");
                     break;
                 case 2:
-                     session.setAttribute("accM", acc);
+                    session.setAttribute("accM", acc);
                     response.sendRedirect("MarketingHome.jsp");
                     break;
                 case 3:
-                     session.setAttribute("accS", acc);
+                    session.setAttribute("accS", acc);
                     response.sendRedirect("SuppilerProfile.jsp");
                     break;
                 case 4:
-                        DAOCustomers daoCus = new DAOCustomers();
+                    DAOCustomers daoCus = new DAOCustomers();
                     Customers cus = daoCus.getCustomer(account);
                     CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
-                    
+
                     session.setAttribute("customer", cus);
                     session.setAttribute("customerAddress", cusAddress);
                     response.sendRedirect("CustomerProfile");
@@ -89,7 +89,7 @@ public class LoginController extends HttpServlet {
             }
 
         }
-     
+
     }
 
     /**
@@ -104,7 +104,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         response.sendRedirect("Login.jsp");
+        response.sendRedirect("Login.jsp");
     }
 
     /**
