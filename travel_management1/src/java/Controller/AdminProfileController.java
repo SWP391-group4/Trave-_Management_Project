@@ -36,8 +36,9 @@ public class AdminProfileController extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
+            // session from login
             Admins admin = (Admins) session.getAttribute("admin");
-            // tim cach dung thang vao jsp
+            // update data
             request.setAttribute("admin", admin);
             request.getRequestDispatcher("AdminProfile.jsp").forward(request, response);
         }
