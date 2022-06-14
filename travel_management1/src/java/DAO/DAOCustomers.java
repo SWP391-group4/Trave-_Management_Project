@@ -6,8 +6,11 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.*;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -52,9 +55,20 @@ public class DAOCustomers extends connectDB{
         }
         return null;
     }
-    
-    public int updateCustomer() {
-        //comment
+
+    public int updateCustomer(Customers cus) {
+        String sql = "update Customers set "
+                + "firstName = ?,"
+                + "lastname = ?,"
+                + "email = ?,"
+                + "phone = ?,"
+                + "status = ? "
+                + "where accountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return 0;
     }
     public static void main(String[] args) {
