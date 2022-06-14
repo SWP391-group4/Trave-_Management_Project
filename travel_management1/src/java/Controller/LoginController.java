@@ -5,10 +5,7 @@
 package Controller;
 
 import DAO.DAOAccounts;
-import DAO.DAOCustomers;
 import Entity.Accounts;
-import Entity.CustomerAddresses;
-import Entity.Customers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -53,7 +50,40 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("Login.jsp");
+          DAOAccounts dao = new DAOAccounts();
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
+        Accounts acc = dao.search(account, password);
+        if (acc == null) {
+           
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            int type = acc.getType();
+            switch (type) {
+                case 1:
+                     session.setAttribute("accA", acc);
+                    response.sendRedirect("AdminHome.jsp");
+                    break;
+                case 2:
+                     session.setAttribute("accM", acc);
+                    response.sendRedirect("MarketingHome.jsp");
+                    break;
+                case 3:
+                     session.setAttribute("accS", acc);
+                    response.sendRedirect("SuppilerProfile.jsp");
+                    break;
+                case 4:
+                        session.setAttribute("acc", acc);
+                    response.sendRedirect("CustomerHome.jsp");
+                    break;
+                
+                default:
+                    throw new AssertionError();
+            }
+
+        }
+     
     }
 
     /**
@@ -68,41 +98,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOAccounts dao = new DAOAccounts();
-        String account = request.getParameter("account");
-        String password = request.getParameter("password");
-        Accounts acc = dao.search(account, password);
-        if (acc == null) {
-            String alert = "Account or password was wrong!";
-            request.setAttribute("alert", alert);
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        } else {
-            int type = acc.getType();
-            switch (type) {
-                case 1:
-                    
-                    response.sendRedirect("AdminHome.jsp");
-                    break;
-                case 2:
-                    response.sendRedirect("MarketingHome.jsp");
-                    break;
-                case 3:
-                    response.sendRedirect("SupplierHome.jsp");
-                    break;
-                case 4:
-                    DAOCustomers daoCus = new DAOCustomers();
-                    Customers cus = daoCus.getCustomer(account);
-                    CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
-                    HttpSession session = request.getSession();
-                    session.setAttribute("customer", cus);
-                    session.setAttribute("customerAddress", cusAddress);
-                    response.sendRedirect("CustomerProfile");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-
-        }
+         response.sendRedirect("Login.jsp");
     }
 
     /**

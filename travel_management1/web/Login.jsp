@@ -63,7 +63,7 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" action="login">
+                    <form method="GET" id="signup-form" class="signup-form" action="login">
                         <h2 class="form-title">Login</h2>
                         <div>${alert}</div>
                         
