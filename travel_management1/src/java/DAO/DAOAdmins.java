@@ -36,6 +36,6 @@ public class DAOAdmins extends connectDB{
     }
     public static void main(String[] args) {
         DAOAdmins d=new DAOAdmins();
-        System.out.println(d.getAdmin("hamhochoi21"));
+        System.out.println(d.getAdmin("luubi2"));
     }
 }
