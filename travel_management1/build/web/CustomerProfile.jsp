@@ -99,31 +99,15 @@
                                             <h4>John Doe</h4>
 
                                             <button class="btn btn-outline-primary">Change Image</button>
+                                            <hr>
+                                            <button class="btn btn-outline-primary">Change Password</button>
+                                            <hr>
+                                            <button class="btn btn-outline-primary">Change Email</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="my-4">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-
-                                </li>
-                                <li class=" text-center list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <span class="text-secondary ">bootdey</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter me-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
-                                    <span class="text-secondary">@bootdey</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram me-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
-                                    <span class="text-secondary">bootdey</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
-                                    <span class="text-secondary">bootdey</span>
-                                </li>
-                            </ul>
+                            
                         </div>
 
                         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
@@ -158,9 +142,12 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
-                                                <label for="phone">Phone</label>
-                                                <input type="text" class="form-control" id="phone" value="${cus.phone}" name="phone">
-                                            </div>
+                                                <label for="eMail">Phone</label>
+                                                <div class="col-sm-9 text-secondary card form-control">
+                                                    <div>
+                                                       ${cus.phone}
+                                                    </div>
+                                                </div></div>
                                         </div>
 
                                     </div>
@@ -196,7 +183,7 @@
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
-                                                <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                                
                                                 <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </div>
