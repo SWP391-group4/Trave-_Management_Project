@@ -129,8 +129,14 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
-                                                <label for="fullName">Full Name</label>
-                                                <input type="text" class="form-control" id="fullName" value="${cus.firstName} ${cus.lastName}" name="name">
+                                                <label for="fullName">First Name</label>
+                                                <input type="text" class="form-control" id="fullName" value="${cus.firstName}" name="name">
+                                            </div>
+                                        </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="fullName">Last Name</label>
+                                                <input type="text" class="form-control" id="fullName" value=" ${cus.lastName}" name="name">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
