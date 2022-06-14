@@ -14,6 +14,7 @@ import java.sql.SQLException;
  * @author phams
  */
 public class DAOAdmins extends connectDB{
+    // List infomation
       public Admins getAdmin(String accountA) {
         String sql = "Select * from Admins where AccountA = '" + accountA + "'";
         ResultSet rs = getData(sql);
