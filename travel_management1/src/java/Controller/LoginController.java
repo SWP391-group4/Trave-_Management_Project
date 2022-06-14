@@ -5,7 +5,9 @@
 package Controller;
 
 import DAO.DAOAccounts;
+import DAO.DAOCustomers;
 import Entity.Accounts;
+import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -74,10 +76,14 @@ public class LoginController extends HttpServlet {
                     response.sendRedirect("SuppilerProfile.jsp");
                     break;
                 case 4:
-                        session.setAttribute("acc", acc);
-                    response.sendRedirect("CustomerHome.jsp");
+                        DAOCustomers daoCus = new DAOCustomers();
+                    Customers cus = daoCus.getCustomer(account);
+                    CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
+                    
+                    session.setAttribute("customer", cus);
+                    session.setAttribute("customerAddress", cusAddress);
+                    response.sendRedirect("CustomerProfile");
                     break;
-                
                 default:
                     throw new AssertionError();
             }
