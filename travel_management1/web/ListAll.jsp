@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="Entity.HomeStays"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -145,10 +149,13 @@
 							</form>
         		</div>
           </div><!-- END-->
-          
+          <% List<HomeStays> list = new ArrayList<>();
+           list = (List<HomeStays>) request.getAttribute("list");  %>
           <div class="col-lg-9">
           	<div class="row">
-                      <c:forEach items="${listP}" var="o">
+               <%
+                    for (HomeStays temp : list) {
+                %> 
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
 		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-1.jpg);">
@@ -159,7 +166,7 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">${o.homeStayname}</a></h3>
+				    						<h3><a href="#"><%=temp.getHomeStayname()%></a></h3>
 				    						<p class="rate">
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
@@ -173,16 +180,16 @@
 			    							<span class="price per-price">$40<br><small>/night</small></span>
 		    							</div>
 		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
+		    						<p><%=temp.getCity()%></p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i></span> 
+		    							<span><i class="icon-map-o">${o.city}</i></span> 
 		    							<span class="ml-auto"><a href="#">Book Now</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
-                      </c:forEach>
+                   <%}%>
 		    		</div>
 
           	<div class="row mt-5">
