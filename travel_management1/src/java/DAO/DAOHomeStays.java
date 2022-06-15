@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,8 +88,8 @@ public class DAOHomeStays extends connectDB{
         return n;
     }
     
-    public Vector<HomeStays> viewallHomeStays() {
-        Vector<HomeStays> vec = new Vector<HomeStays>();
+    public List<HomeStays> viewallHomeStays() {
+        List<HomeStays> vec = new ArrayList<HomeStays>();
         String sql = "SELECT *\n"
                 + "  FROM [dbo].[HomeStays]";
         try {
