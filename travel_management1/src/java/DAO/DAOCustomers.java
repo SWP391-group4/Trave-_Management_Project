@@ -57,6 +57,7 @@ public class DAOCustomers extends connectDB{
     }
 
     public int updateCustomer(Customers cus) {
+        int n = 0;
         String sql = "update Customers set "
                 + "firstName = ?,"
                 + "lastname = ?,"
@@ -66,11 +67,20 @@ public class DAOCustomers extends connectDB{
                 + "where accountC = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cus.getFirstName());
+            pre.setString(2, cus.getLastName());
+            pre.setString(3, cus.getEmail());
+            pre.setString(4, cus.getPhone());
+            pre.setInt(5, cus.getStatus());
+            pre.setString(6, cus.getAccountC());
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        return n;
     }
+    
+    
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
