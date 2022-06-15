@@ -38,7 +38,7 @@ public class ListAllHomeStayController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             DAOHomeStays dao = new DAOHomeStays();
             List<HomeStays> list=dao.viewallHomeStayByAddress();
-            request.setAttribute("listP", list);
+            request.setAttribute("list", list);
              request.getRequestDispatcher("ListAll.jsp").forward(request, response);
         }
     }

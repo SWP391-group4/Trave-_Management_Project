@@ -130,4 +130,11 @@ public class DAOHomeStays extends connectDB{
         }
               return vec;
     }
+    public static void main(String[] args) {
+        DAOHomeStays dao = new DAOHomeStays();
+        List<HomeStays> list=dao.viewallHomeStayByAddress();
+        for(HomeStays o: list){
+            System.out.println(o);
+        }
+    }
 }
