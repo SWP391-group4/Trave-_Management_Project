@@ -5,7 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
-import Entity.Customers;
+import Entity.SupplierAddresses;
 import Entity.Suppliers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +28,23 @@ public class DAOSupplier extends connectDB{
                         rs.getString(5),
                          rs.getString(6)
                 );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    public SupplierAddresses getSupplierAddresses(String accountS) {
+        String sql = "Select * from customerAddresses where accountC = '" + accountS + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new SupplierAddresses(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
