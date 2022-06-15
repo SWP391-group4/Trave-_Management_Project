@@ -74,7 +74,7 @@ public class DAOCustomers extends connectDB{
         return n;
     }
     
-    
+    //comment
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
