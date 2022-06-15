@@ -107,4 +107,27 @@ public class DAOHomeStays extends connectDB{
         }
         return vec;
     }
+    public List<HomeStays> viewallHomeStayByAddress(){
+          List<HomeStays> vec = new ArrayList<HomeStays>();
+          String sql="select h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward from HomeStays h inner join HomeStayAddressses ha on\n" +
+"h.HomeStayid=ha.HomeStayid";
+            try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String homeStayID = rs.getString(1);
+                String homeStayname = rs.getString(2);
+                String cateID = rs.getString(3);
+                String city = rs.getString(4);
+                String district = rs.getString(5);
+                String specific = rs.getString(6);
+                String ward = rs.getString(7);
+                HomeStays obj = new HomeStays(homeStayID, homeStayname, cateID, city, district, specific, ward);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+              return vec;
+    }
 }

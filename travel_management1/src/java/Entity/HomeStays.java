@@ -12,6 +12,20 @@ public class HomeStays {
     public String homeStayID;
     public String homeStayname;
     public String cateID;
+public String city;
+public String district;
+public String specific;
+public String ward;
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+    }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID) {
         this.homeStayID = homeStayID;
