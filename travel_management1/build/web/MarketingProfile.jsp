@@ -99,7 +99,7 @@
                                             <hr>
                                             <a href="#" class="btn btn-sm btn-block btn-success">
                                                 <i class="ace-icon fa fa-plus-circle bigger-120"></i>
-                                                <span class="bigger-110">Change Image</span>
+                                                <span class="bigger-110">Change Avatar</span>
                                             </a>
                                         </div><!-- /.col -->
 
@@ -107,15 +107,23 @@
                                             <h4 class="blue">
                                                 <span class="middle">John Doe</span>
 
+                                            </h4>
+                                            <h6 class="green" style="margin-bottom: 25px">                                                  
                                                 <span class="label label-purple arrowed-in-right">
-                                                    <i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+                                                    <i class="ace-icon fa fa-circle smaller-80 align-middle" ></i>
                                                     online
                                                 </span>
-                                            </h4>
-
+                                            </h6>
                                             <div class="profile-user-info">
                                                 <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Username </div>
+                                                    <div class="profile-info-name"> First Name </div>
+
+                                                    <div class="profile-info-value">
+                                                        <span>2010/06/20</span>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-info-row">
+                                                    <div class="profile-info-name"> Last Name</div>
 
                                                     <div class="profile-info-value">
                                                         <span>alexdoe</span>
@@ -123,7 +131,7 @@
                                                 </div>
 
                                                 <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Location </div>
+                                                    <div class="profile-info-name"> Age </div>
 
                                                     <div class="profile-info-value">
                                                         <i class="fa fa-map-marker light-orange bigger-110"></i>
@@ -133,7 +141,7 @@
                                                 </div>
 
                                                 <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Age </div>
+                                                    <div class="profile-info-name"> Email </div>
 
                                                     <div class="profile-info-value">
                                                         <span>38</span>
@@ -141,7 +149,7 @@
                                                 </div>
 
                                                 <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Joined </div>
+                                                    <div class="profile-info-name"> Phone </div>
 
                                                     <div class="profile-info-value">
                                                         <span>2010/06/20</span>
@@ -153,35 +161,6 @@
 
                                             <div class="hr hr-8 dotted"></div>
 
-                                            <div class="profile-user-info">
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Website </div>
-
-                                                    <div class="profile-info-value">
-                                                        <a href="#" target="_blank">www.alexdoe.com</a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name">
-                                                        <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
-                                                    </div>
-
-                                                    <div class="profile-info-value">
-                                                        <a href="#">Find me on Facebook</a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name">
-                                                        <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
-                                                    </div>
-
-                                                    <div class="profile-info-value">
-                                                        <a href="#">Follow me on Twitter</a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
 
