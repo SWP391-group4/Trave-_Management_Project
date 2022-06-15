@@ -75,14 +75,14 @@
                                 <li class="active">
                                     <a data-toggle="tab" href="#home">
                                         <i class="green ace-icon fa fa-user bigger-120"></i>
-                                        Profile
+                                        Marketing's Profile
                                     </a>
                                 </li>
 
                                 <li>
                                     <a data-toggle="tab" href="#feed">
                                         <i class="orange ace-icon fa fa-rss bigger-120"></i>
-                                        Activity Feed
+                                        Change Password
                                     </a>
                                 </li>                                      
                             </ul>
@@ -173,7 +173,7 @@
                                     <div class="profile-feed row">
                                         <div class="col-sm-6">
                                             <div class="profile-activity clearfix">
-
+                                                   n
 
                                                 <div class="tools action-buttons">
                                                     <a href="#" class="blue">
