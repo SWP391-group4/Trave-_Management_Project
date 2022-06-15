@@ -103,11 +103,11 @@
                                                     </div>
                                                     <% Admins a = (Admins) request.getAttribute("admin"); %>
                                                     <ul class="list-unstyled mb-1-9">
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name: </span><%=a.getFirstName() %> </li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name: </span ><%=a.getFirstName() %> </li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Last Name: </span> <%=a.getLastName() %></li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span><%=a.getAge() %></li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span><%=a.getEmail() %></li>
-                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> <%=a.getPhone() %></li>
+                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> +<%=a.getPhone() %></li>
                                                     </ul>
                                                     
                                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
