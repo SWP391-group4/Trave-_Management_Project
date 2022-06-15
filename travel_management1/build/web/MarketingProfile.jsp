@@ -61,14 +61,7 @@
 
         <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
             <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                    <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Discover <br>A new Place</h1>
-                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat, shop, or visit from local experts</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <section >
@@ -91,21 +84,7 @@
                                                 <i class="orange ace-icon fa fa-rss bigger-120"></i>
                                                 Activity Feed
                                             </a>
-                                        </li>
-
-                                        <li>
-                                            <a data-toggle="tab" href="#friends">
-                                                <i class="blue ace-icon fa fa-users bigger-120"></i>
-                                                Friends
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a data-toggle="tab" href="#pictures">
-                                                <i class="pink ace-icon fa fa-picture-o bigger-120"></i>
-                                                Pictures
-                                            </a>
-                                        </li>
+                                        </li>                                      
                                     </ul>
 
                                     <div class="tab-content no-border padding-24">
