@@ -17,6 +17,8 @@ public class DAOHomeStays {
 <%@page import="Entity.Hotels"%>
 <!DOCTYPE html>
 <html lang="en">
+meo
+
     <head>
         <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
         <meta charset="utf-8">
