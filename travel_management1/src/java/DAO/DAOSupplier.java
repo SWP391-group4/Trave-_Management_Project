@@ -4,10 +4,38 @@
  */
 package DAO;
 
+import DBContext.connectDB;
+import Entity.Customers;
+import Entity.Suppliers;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author phams
  */
-public class DAOSupplier {
-    
+public class DAOSupplier extends connectDB{
+     public Suppliers getSuppiler(String accountS) {
+        String sql = "Select * from Suppliers where accountS = '" + accountS + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Suppliers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                         rs.getString(6)
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+     public static void main(String[] args) {
+         DAOSupplier d=new DAOSupplier();
+        System.out.println(d.getSuppiler("nguyenphuong"));
+    }
 }

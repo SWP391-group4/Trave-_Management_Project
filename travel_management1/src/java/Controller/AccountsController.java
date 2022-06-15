@@ -4,12 +4,6 @@
  */
 package Controller;
 
-import DAO.DAOAccounts;
-import DAO.DAOAdmins;
-import DAO.DAOCustomers;
-import DAO.DAOSupplier;
-import Entity.Accounts;
-import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,14 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author thinh
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
+@WebServlet(name = "AccountsController", urlPatterns = {"/accountsController"})
+public class AccountsController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +31,18 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AccountsController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AccountsController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,50 +58,6 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOAccounts dao = new DAOAccounts();
-        String account = request.getParameter("account");
-        String password = request.getParameter("password");
-        Accounts acc = dao.search(account, password);
-        if (acc == null) {
-
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            int type = acc.getType();
-            switch (type) {
-                case 1:
-                    DAOAdmins daoAd = new DAOAdmins();
-                    Admins admin = daoAd.getAdmin(account);
-                    session.setAttribute("acc", acc);
-                    session.setAttribute("admin", admin);
-                    response.sendRedirect("AdminProfileController");
-                    break;
-                case 2:
-                    session.setAttribute("accM", acc);
-                    response.sendRedirect("MarketingHome.jsp");
-                    break;
-                case 3:
-                    DAOSupplier daoSup=new DAOSupplier();
-                    Suppliers sup=daoSup.getSuppiler(account);
-                    session.setAttribute("accS", acc);
-                    session.setAttribute("sup", sup);
-                    response.sendRedirect("suppilerProflieController");
-                    break;
-                case 4:
-                    DAOCustomers daoCus = new DAOCustomers();
-                    Customers cus = daoCus.getCustomer(account);
-                    CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
-                    session.setAttribute("acc", acc);
-                    session.setAttribute("customer", cus);
-                    session.setAttribute("customerAddress", cusAddress);
-                    response.sendRedirect("CustomerProfile");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-
-        }
-
     }
 
     /**
@@ -112,7 +72,6 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("Login.jsp");
     }
 
     /**

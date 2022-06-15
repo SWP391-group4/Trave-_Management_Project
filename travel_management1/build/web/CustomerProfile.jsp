@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-<form action="CustomerProfile" method="POST">
+
         <section >
             <div class="container">
                 <div class="main-body">
@@ -88,6 +88,7 @@
                         </div>
                     </nav>
                     <!-- /Breadcrumb -->
+
                     <div class="row gutters-sm">
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                             <div class="card">
@@ -99,108 +100,107 @@
 
                                             <button class="btn btn-outline-primary">Change Image</button>
                                             <hr>
-                                            <button class="btn btn-outline-primary">Change Password</button>
+                                            <button class="btn btn-outline-primary">Reset password</button>
                                             <hr>
-                                            <button class="btn btn-outline-primary">Change Email</button>
+                                            <button class="btn btn-outline-primary">Change phone</button>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        
 
-                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 ">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <div class="row gutters">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <h6 class="mb-2 text-primary">Personal Details</h6>
+                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <h6 class="mb-2 text-primary">Personal Details</h6>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="fullName">First Name</label>
+                                                <input type="text" class="form-control" id="fullName" value="${cus.firstName}" name="name">
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="fullName">First Name</label>
-                                                    <input type="text" class="form-control" id="fullName" value="${cus.firstName}" name="firstName">
-                                                </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="fullName">Last Name</label>
+                                                <input type="text" class="form-control" id="fullName" value=" ${cus.lastName}" name="name">
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="fullName">Last Name</label>
-                                                    <input type="text" class="form-control" id="fullName" value=" ${cus.lastName}" name="lastName">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="eMail">Email</label>
-                                                    <div class="col-sm-9 text-secondary card form-control">
-                                                        <div>
-                                                            ${cus.email}
-                                                        </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="eMail">Email</label>
+                                                <div class="col-sm-9 text-secondary card form-control">
+                                                    <div>
+                                                        ${cus.email}
                                                     </div>
+                                                </div>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
-                                                <div class="form-group">
-                                                    <label for="eMail">Phone</label>
-                                                    <div class="col-sm-9 text-secondary card form-control">
-                                                        <div>
-                                                            ${cus.phone}
-                                                        </div>
-                                                    </div></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row gutters">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <h6 class="mt-3 mb-2 text-primary">Address</h6>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="Street">Specific</label>
-                                                    <input type="name" class="form-control" id="Street" value="${cusAddress.specific}" name="specific">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="ciTy">Ward</label>
-                                                    <input type="name" class="form-control" id="ciTy" value="${cusAddress.ward}" name="ward">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="sTate">District</label>
-                                                    <input type="text" class="form-control" id="sTate" value="${cusAddress.district}" name="district">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="zIp">City</label>
-                                                    <input type="text" class="form-control" id="zIp" value="${cusAddress.city}" name="city">
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row gutters">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="text-right">
-                                                    <p class="danger">${noti}</p>
-                                                    <input type="submit" name="submit" class="btn btn-primary" value="Update">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="eMail">Phone</label>
+                                                <div class="col-sm-9 text-secondary card form-control">
+                                                    <div>
+                                                        ${cus.phone}
+                                                    </div>
                                                 </div>
+                                               
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <h6 class="mt-3 mb-2 text-primary">Address</h6>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="Street">Specific</label>
+                                                <input type="name" class="form-control" id="Street" value="${cusAddress.specific}" name="specific">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="ciTy">Ward</label>
+                                                <input type="name" class="form-control" id="ciTy" value="${cusAddress.ward}" name="ward">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="sTate">District</label>
+                                                <input type="text" class="form-control" id="sTate" value="${cusAddress.district}" name="district">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="zIp">City</label>
+                                                <input type="text" class="form-control" id="zIp" value="${cusAddress.city}" name="city">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="text-right">
+                                                <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                                <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                       
-
+                        </div>
                     </div>
-
                 </div>
 
             </div>
 
         </section>
- </form>
+
         <footer class="ftco-footer ftco-bg-dark ftco-section">
             <div class="container">
                 <div class="row mb-5">

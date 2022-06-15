@@ -6,11 +6,8 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.*;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -56,36 +53,11 @@ public class DAOCustomers extends connectDB{
         return null;
     }
 
-    public int updateCustomer(Customers cus) {
-        int n = 0;
-        String sql = "update Customers set "
-                + "firstName = ?,"
-                + "lastname = ? "
-                + "where accountC = ?";
-        try {
-            PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, cus.getFirstName());
-            pre.setString(2, cus.getLastName());
-            pre.setString(3, cus.getAccountC());
-            n = pre.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return n;
-    }
-    
-    //comment
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
-        cus.setFirstName("Trang");
-        cus.setLastName("Tran");
-        int n = dao.updateCustomer(cus);
-        Customers cus1 = dao.getCustomer("motnguoithu3");
         CustomerAddresses c = dao.getCustomerAddresses("motnguoithu3");
         System.out.println(cus);
         System.out.println(c);
-        System.out.println(n);
-        System.out.println(cus1);
     }
 }
