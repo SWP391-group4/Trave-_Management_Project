@@ -71,14 +71,14 @@
 
                     <!-- Breadcrumb -->
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#">Account</a>
+                        <a class="navbar-brand" href="#">User Information</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-item nav-link " href="#">Booking <span class="sr-only">(current)</span></a>
-                                <a class="nav-item nav-link" href="#">History</a>
+                                <a class="nav-item nav-link " href="#">Change Password <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" href="#">Management</a>
                             </div>
                         </div>
                     </nav>
@@ -94,7 +94,7 @@
                                         <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-6 mb-4 mb-lg-0">
-                                                    <img id="imgad" src="https://freenice.net/wp-content/uploads/2021/08/avt-ngau-hacker-bi-an.jpg" alt="...">
+                                                    <img id="imgad" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
                                                 </div>
                                                 <div class="col-lg-6 px-xl-10">
                                                     <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
@@ -103,11 +103,11 @@
                                                     </div>
                                                     <% Admins a = (Admins) request.getAttribute("admin"); %>
                                                     <ul class="list-unstyled mb-1-9">
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name: </span><%=a.getFirstName() %> </li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name: </span ><%=a.getFirstName() %> </li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Last Name: </span> <%=a.getLastName() %></li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span><%=a.getAge() %></li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span><%=a.getEmail() %></li>
-                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> <%=a.getPhone() %></li>
+                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> +<%=a.getPhone() %></li>
                                                     </ul>
                                                     
                                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
