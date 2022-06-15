@@ -91,8 +91,8 @@
                                 <div id="home" class="tab-pane in active">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-3 center">
-                                            <span class="profile-picture">
-                                                <img class="editable img-responsive" alt=" Avatar" id="avatar2" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                                            <span class="">
+                                                <img class="" style="width:243px;height:326px " alt=" Avatar" id="avatar2" src="https://bootdey.com/img/Content/avatar/avatar6.png">
                                             </span>
 
                                             <div class="space space-4"></div>
