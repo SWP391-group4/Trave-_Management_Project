@@ -262,6 +262,7 @@ public class DAOHomeStayHistories {
                             </ul>
                         </div>
                     </div>
+    delete
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">Experience</h2>
@@ -315,6 +316,7 @@ public class DAOHomeStayHistories {
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/aos.js"></script>
+    
         <script src="js/jquery.animateNumber.min.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
         <script src="js/jquery.timepicker.min.js"></script>
