@@ -110,7 +110,7 @@
                         </div>
                         
 
-                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 ">
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <div class="row gutters">
@@ -140,7 +140,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
                                                 <div class="form-group">
                                                     <label for="eMail">Phone</label>
                                                     <div class="col-sm-9 text-secondary card form-control">
@@ -184,7 +184,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
                                                     <p class="danger">${noti}</p>
-                                                    <input type="button" name="submit" class="btn btn-primary" value="Update">
+                                                    <input type="submit" name="submit" class="btn btn-primary" value="Update">
                                                 </div>
                                             </div>
                                         </div>

@@ -78,12 +78,14 @@ public class DAOCustomers extends connectDB{
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
-        cus.setFirstName("Minh");
-        cus.setLastName("Anh");
+        cus.setFirstName("Trang");
+        cus.setLastName("Tran");
         int n = dao.updateCustomer(cus);
+        Customers cus1 = dao.getCustomer("motnguoithu3");
         CustomerAddresses c = dao.getCustomerAddresses("motnguoithu3");
         System.out.println(cus);
         System.out.println(c);
         System.out.println(n);
+        System.out.println(cus1);
     }
 }

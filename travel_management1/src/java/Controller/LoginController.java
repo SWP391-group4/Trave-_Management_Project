@@ -84,8 +84,8 @@ public class LoginController extends HttpServlet {
                     Customers cus = daoCus.getCustomer(account);
                     CustomerAddresses cusAddress = daoCus.getCustomerAddresses(account);
                     session.setAttribute("acc", acc);
-                    session.setAttribute("customer", cus);
-                    session.setAttribute("customerAddress", cusAddress);
+                    session.setAttribute("cus", cus);
+                    session.setAttribute("cusAddress", cusAddress);
                     response.sendRedirect("CustomerProfile");
                     break;
                 default:

@@ -50,12 +50,6 @@ public class CustomerProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        HttpSession session = request.getSession();
-        Customers cus = (Customers) session.getAttribute("customer");
-        CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
-        // tim cach dung thang vao jsp
-        request.setAttribute("cus", cus);
-        request.setAttribute("cusAddress", cusAddress);
         request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
 
     }
@@ -73,7 +67,7 @@ public class CustomerProfileController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         HttpSession session = request.getSession();
-        Customers cus = (Customers) session.getAttribute("customer");
+        Customers cus = (Customers) session.getAttribute("cus");
         String accountC = cus.getAccountC();
         int status = cus.getStatus();
         String firstName = request.getParameter("firstName");
@@ -81,18 +75,20 @@ public class CustomerProfileController extends HttpServlet {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         Customers temp_cus = new Customers(accountC, firstName, lastName, email, phone, status);
-        
         DAOCustomers daoCus = new DAOCustomers();
         int n = daoCus.updateCustomer(temp_cus);
-        if(n>0) {
+        if (n > 0) {
             String noti = "Update success!";
+            request.getSession().setAttribute("cus", temp_cus);
             request.setAttribute("noti", noti);
+            
             request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
         } else {
-           String noti = "Update failed!";
+            String noti = "Update failed!";
             request.setAttribute("noti", noti);
+            
             request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
-         
+
         }
     }
 
