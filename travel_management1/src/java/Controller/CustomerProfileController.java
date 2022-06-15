@@ -72,8 +72,8 @@ public class CustomerProfileController extends HttpServlet {
         int status = cus.getStatus();
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
+        String email = cus.getEmail();
+        String phone = cus.getPhone();
         Customers temp_cus = new Customers(accountC, firstName, lastName, email, phone, status);
         DAOCustomers daoCus = new DAOCustomers();
         int n = daoCus.updateCustomer(temp_cus);
