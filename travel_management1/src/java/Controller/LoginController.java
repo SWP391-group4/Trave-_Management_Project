@@ -73,7 +73,7 @@ public class LoginController extends HttpServlet {
                     break;
                 case 2:
                     session.setAttribute("accM", acc);
-                    response.sendRedirect("MarketingHome.jsp");
+                    response.sendRedirect("MarketingProfile.jsp");
                     break;
                 case 3:
                     session.setAttribute("accS", acc);

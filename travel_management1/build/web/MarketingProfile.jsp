@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-
+        <link rel="stylesheet" href="css/marketing.css">
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
@@ -72,10 +72,7 @@
         </div>
 
         <section >
-            <div class="container">
-                <div class="main-body">
-
-                    <!-- Breadcrumb -->
+            
 
                     <div class="row gutters-sm">
                         <div class="container">
@@ -222,35 +219,7 @@
 
                                             <div class="space-20"></div>
 
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="widget-box transparent">
-                                                        <div class="widget-header widget-header-small">
-                                                            <h4 class="widget-title smaller">
-                                                                <i class="ace-icon fa fa-check-square-o bigger-110"></i>
-                                                                Little About Me
-                                                            </h4>
-                                                        </div>
-
-                                                        <div class="widget-body">
-                                                            <div class="widget-main">
-                                                                <p>
-                                                                    My job is mostly lorem ipsuming and dolor sit ameting as long as consectetur adipiscing elit.
-                                                                </p>
-                                                                <p>
-                                                                    Sometimes quisque commodo massa gets in the way and sed ipsum porttitor facilisis.
-                                                                </p>
-                                                                <p>
-                                                                    The best thing about my job is that vestibulum id ligula porta felis euismod and nullam quis risus eget urna mollis ornare.
-                                                                </p>
-                                                                <p>
-                                                                    Thanks for visiting my profile.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
                                         </div><!-- /#home -->
 
                                         <div id="feed" class="tab-pane">
@@ -1133,8 +1102,7 @@
 
 
                     </div>
-                </div>
-            </div>
+                
         </section>
 
         <footer class="ftco-footer ftco-bg-dark ftco-section">
