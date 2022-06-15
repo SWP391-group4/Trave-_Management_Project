@@ -77,7 +77,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-item nav-link " href="#">Booking <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link " href="#">Change Password <span class="sr-only">(current)</span></a>
                                 <a class="nav-item nav-link" href="#">History</a>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                         <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-6 mb-4 mb-lg-0">
-                                                    <img id="imgad" src="https://freenice.net/wp-content/uploads/2021/08/avt-ngau-hacker-bi-an.jpg" alt="...">
+                                                    <img id="imgad" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
                                                 </div>
                                                 <div class="col-lg-6 px-xl-10">
                                                     <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
