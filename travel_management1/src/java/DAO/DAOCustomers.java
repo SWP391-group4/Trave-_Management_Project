@@ -60,19 +60,13 @@ public class DAOCustomers extends connectDB{
         int n = 0;
         String sql = "update Customers set "
                 + "firstName = ?,"
-                + "lastname = ?,"
-                + "email = ?,"
-                + "phone = ?,"
-                + "status = ? "
+                + "lastname = ? "
                 + "where accountC = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, cus.getFirstName());
             pre.setString(2, cus.getLastName());
-            pre.setString(3, cus.getEmail());
-            pre.setString(4, cus.getPhone());
-            pre.setInt(5, cus.getStatus());
-            pre.setString(6, cus.getAccountC());
+            pre.setString(3, cus.getAccountC());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,8 +78,12 @@ public class DAOCustomers extends connectDB{
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
+        cus.setFirstName("Minh");
+        cus.setLastName("Anh");
+        int n = dao.updateCustomer(cus);
         CustomerAddresses c = dao.getCustomerAddresses("motnguoithu3");
         System.out.println(cus);
         System.out.println(c);
+        System.out.println(n);
     }
 }

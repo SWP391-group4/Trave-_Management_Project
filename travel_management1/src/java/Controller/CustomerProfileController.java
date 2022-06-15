@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
 import Entity.CustomerAddresses;
 import Entity.Customers;
 import java.io.IOException;
@@ -71,6 +72,28 @@ public class CustomerProfileController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        Customers cus = (Customers) session.getAttribute("customer");
+        String accountC = cus.getAccountC();
+        int status = cus.getStatus();
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        Customers temp_cus = new Customers(accountC, firstName, lastName, email, phone, status);
+        
+        DAOCustomers daoCus = new DAOCustomers();
+        int n = daoCus.updateCustomer(temp_cus);
+        if(n>0) {
+            String noti = "Update success!";
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        } else {
+           String noti = "Update failed!";
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+         
+        }
     }
 
     /**
