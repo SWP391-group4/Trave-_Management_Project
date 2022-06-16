@@ -67,11 +67,10 @@
     <div class="main-body">
     
           <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
+          <nav aria-label="breadcrumb" class="main-breadcrumb" >
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              <li class="breadcrumb-item active" aria-current="page">Marketing Profile</li>
             </ol>
           </nav>
           <!-- /Breadcrumb -->
@@ -84,7 +83,7 @@
                     <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>John Doe</h4>
-                      <p class="text-secondary mb-1">Marketing Staff</p>
+                      <p class="text-secondary mb-1" >Marketing Staff</p>
                       <button class="btn btn-primary">Change Avatar</button>
                     </div>
                   </div>
@@ -99,10 +98,19 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                      <h6 class="mb-0">First Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     hi
                     </div>
                   </div>
                   <hr>
@@ -117,7 +125,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
+                      <h6 class="mb-0">Age</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       (239) 816-9029
@@ -126,25 +134,17 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
+                      <h6 class="mb-0">Phone Number</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       (320) 380-4539
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
-                  <hr>
+                  
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Update</a>
                     </div>
                   </div>
                 </div>
