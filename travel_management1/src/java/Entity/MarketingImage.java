@@ -3,8 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 /**
  *
  * @author nam

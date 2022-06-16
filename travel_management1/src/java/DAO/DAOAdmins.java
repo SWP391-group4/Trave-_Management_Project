@@ -5,6 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.AdminImage;
 import Entity.Admins;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,8 +34,23 @@ public class DAOAdmins extends connectDB{
         }
         return null;
     }
+       public AdminImage getAdminImage(String accountA) {
+        String sql = "Select * from AdminImage where AccountA = '" + accountA + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new AdminImage(
+                        rs.getString(1),
+                        rs.getString(2)
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
     public static void main(String[] args) {
         DAOAdmins d=new DAOAdmins();
-        System.out.println(d.getAdmin("hamhochoi21"));
+        System.out.println(d.getAdminImage("khongkk"));
     }
 }
