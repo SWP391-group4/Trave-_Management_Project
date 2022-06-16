@@ -37,16 +37,16 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+       <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
             <div class="container">
-                <a class="navbar-brand" href="index.html">OhYeah</a>
+                <a  href="menu.jsp"><img src="images/logo.png" style="width: 70px;height:80px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
+                <div class="collapse navbar-collapse text-dark" id="ftco-nav" >
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
                         <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
                         <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
@@ -59,154 +59,106 @@
         </nav>
         <!-- END nav -->
 
-        <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-            <div class="overlay"></div>
-
-        </div>
+        
 
         <section >
 
-
-            <div class="row gutters-sm">
-                <div class="container">
-                    <div id="user-profile-2" class="user-profile">
-                        <div class="tabbable">
-                            <ul class="nav nav-tabs padding-18">
-                                <li class="active">
-                                    <a data-toggle="tab" href="#home">
-                                        <i class="green ace-icon fa fa-user bigger-120"></i>
-                                        Marketing's Profile
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a data-toggle="tab" href="#feed">
-                                        <i class="orange ace-icon fa fa-rss bigger-120"></i>
-                                        Change Password
-                                    </a>
-                                </li>                                      
-                            </ul>
-
-                            <div class="tab-content no-border padding-24">
-                                <div id="home" class="tab-pane in active">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-3 center">
-                                            <span class="">
-                                                <img class="" style="width:243px;height:326px " alt=" Avatar" id="avatar2" src="https://bootdey.com/img/Content/avatar/avatar6.png">
-                                            </span>
-
-                                            <div class="space space-4"></div>
-                                            <hr>
-                                            <a href="#" class="btn btn-sm btn-block btn-success">
-                                                <i class="ace-icon fa fa-plus-circle bigger-120"></i>
-                                                <span class="bigger-110">Change Avatar</span>
-                                            </a>
-                                        </div><!-- /.col -->
-
-                                        <div class="col-xs-12 col-sm-9">
-                                            <h4 class="blue">
-                                                <span class="middle">John Doe</span>
-
-                                            </h4>
-                                            <h6 class="green" style="margin-bottom: 25px">                                                  
-                                                <span class="label label-purple arrowed-in-right">
-                                                    <i class="ace-icon fa fa-circle smaller-80 align-middle" ></i>
-                                                    online
-                                                </span>
-                                            </h6>
-                                            <div class="profile-user-info">
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> First Name </div>
-
-                                                    <div class="profile-info-value">
-                                                        <span>2010/06/20</span>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Last Name</div>
-
-                                                    <div class="profile-info-value">
-                                                        <span>alexdoe</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Age </div>
-
-                                                    <div class="profile-info-value">
-                                                        <i class="fa fa-map-marker light-orange bigger-110"></i>
-                                                        <span>Netherlands</span>
-                                                        <span>Amsterdam</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Email </div>
-
-                                                    <div class="profile-info-value">
-                                                        <span>38</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile-info-row">
-                                                    <div class="profile-info-name"> Phone </div>
-
-                                                    <div class="profile-info-value">
-                                                        <span>2010/06/20</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-
-                                            <div class="hr hr-8 dotted"></div>
-
-                                        </div><!-- /.col -->
-                                    </div><!-- /.row -->
-
-                                    <div class="space-20"></div>
-
-
-                                </div><!-- /#home -->
-
-                                <div id="feed" class="tab-pane">
-                                    <div class="profile-feed row">
-                                        <div class="col-sm-6">
-                                            <div class="profile-activity clearfix">
-                                                   n
-
-                                                <div class="tools action-buttons">
-                                                    <a href="#" class="blue">
-                                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                    </a>
-
-                                                    <a href="#" class="red">
-                                                        <i class="ace-icon fa fa-times bigger-125"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.col -->
-                                    </div><!-- /.row -->
-
-                                    <div class="space-12"></div>
-
-                                    <div class="center">
-
-                                    </div>
-                                </div><!-- /#feed -->
-
-
-
-
-
-
-                            </div>
-                        </div>
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>John Doe</h4>
+                      <p class="text-secondary mb-1">Marketing Staff</p>
+                      <button class="btn btn-primary">Change Avatar</button>
                     </div>
+                  </div>
                 </div>
+              </div>
+              <div class="card mt-3">
+                
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      fip@jukmuh.al
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (239) 816-9029
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (320) 380-4539
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+             
+
 
 
             </div>
+          </div>
+
+        </div>
+    </div>
 
         </section>
 

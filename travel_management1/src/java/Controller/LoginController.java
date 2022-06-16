@@ -74,7 +74,7 @@ public class LoginController extends HttpServlet {
                     break;
                 case 2:
                     session.setAttribute("accM", acc);
-                    response.sendRedirect("MarketingHome.jsp");
+                    response.sendRedirect("MarketingProfileController");
                     break;
                 case 3:
                     DAOSupplier daoSup=new DAOSupplier();
