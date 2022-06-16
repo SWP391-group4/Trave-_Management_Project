@@ -10,6 +10,6 @@ import lombok.Data;
  * @author nam
  */
 public class MarketingImage {
-    public String accountA;
+    public String accountM;
     public String img_Avatar;
 }
