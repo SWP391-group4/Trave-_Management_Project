@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+        <title>Admin Profile</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -22,7 +22,7 @@
 
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
-
+        <link rel="icon" href="images/logo.png" type="">
 
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
@@ -31,16 +31,16 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
             <div class="container">
-                <a class="navbar-brand" href="index.html">OhYeah</a>
+                <a  href="menu.jsp"><img src="images/logo.png" style="width: 70px;height:80px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
+                <div class="collapse navbar-collapse text-dark" id="ftco-nav" >
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
                         <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
                         <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
@@ -52,18 +52,6 @@
             </div>
         </nav>
         <!-- END nav -->
-
-        <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                    <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Discover <br>A new Place</h1>
-                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat, shop, or visit from local experts</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <section >
             <div class="container">
@@ -94,22 +82,21 @@
                                         <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-6 mb-4 mb-lg-0">
-                                                    <img id="imgad" src="https://freenice.net/wp-content/uploads/2021/08/avt-ngau-hacker-bi-an.jpg" alt="...">
+                                                    <img id="imgad" src="images/AvatarDefault.jpg" alt="...">
                                                 </div>
                                                 <div class="col-lg-6 px-xl-10">
                                                     <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                                         <h3 class="h2 text-white mb-0">Profile Information</h3>
                                                         <span class="text-primary">Admin</span>
                                                     </div>
-                                                    <% Admins a = (Admins) request.getAttribute("admin"); %>
-                                                    <ul class="list-unstyled mb-1-9">
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name: </span><%=a.getFirstName() %> </li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Last Name: </span> <%=a.getLastName() %></li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span><%=a.getAge() %></li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span><%=a.getEmail() %></li>
-                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> <%=a.getPhone() %></li>
+                                                    <% Admins a = (Admins) request.getAttribute("admin");%>
+                                                    <ul class="list-unstyled mb-1-9" style="font-size: larger;color: #000">
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: </span><%=a.getFirstName()%> <%=a.getLastName()%> </li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span><%=a.getAge()%></li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span><%=a.getEmail()%></li>
+                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> + <%=a.getPhone()%></li>
                                                     </ul>
-                                                    
+
                                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
                                                         <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
                                                         <li><a href="#!"><i class="ti-facebook"></i></a></li>
