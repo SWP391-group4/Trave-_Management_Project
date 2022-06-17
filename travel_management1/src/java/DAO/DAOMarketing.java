@@ -11,8 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author nam yeu tung and sang
- * non tay thinh
+ * @author nam
  */
 public class DAOMarketing extends connectDB{
     public MarketingImage getMarketingImage(String accountM) {
