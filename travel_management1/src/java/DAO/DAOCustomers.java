@@ -101,6 +101,7 @@ public class DAOCustomers extends connectDB {
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
+        
         System.out.println(cus);
         
         cus.setFirstName("new ");

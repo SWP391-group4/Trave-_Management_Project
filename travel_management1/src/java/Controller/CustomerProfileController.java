@@ -6,7 +6,7 @@ package Controller;
 
 import DAO.*;
 import Entity.CustomerAddresses;
-import Entity.Customers;
+import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -73,22 +73,41 @@ public class CustomerProfileController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DAOCustomers daoCus = new DAOCustomers();
-
         Customers cus = (Customers) session.getAttribute("customer");
-         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
+        CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
         String firstName = request.getParameter("fname");
         String lastName = request.getParameter("lname");
         cus.setFirstName(firstName);
         cus.setLastName(lastName);
 
+        String specific = request.getParameter("specific");
+        String ward = request.getParameter("ward");
+        String district = request.getParameter("district");
+        String city = request.getParameter("city");
+
+        cusAddress.setCity(city);
+        cusAddress.setDistrict(district);
+        cusAddress.setSpecific(specific);
+        cusAddress.setWard(ward);
+
         int n = daoCus.updateCustomer(cus);
-        if (n > 0) {
+        int m = daoCus.updateCustomerAddress(cusAddress);
+        if (n == 0 && m == 0) {
+            String noti = "Update fails";
+            Customers cus_old = (Customers) session.getAttribute("customer");
+            CustomerAddresses cusAddress_old = (CustomerAddresses) session.getAttribute("customerAddress");
+            request.setAttribute("cus", cus_old);
+            request.setAttribute("cusAddress", cusAddress_old);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        }
+        else {
             String noti = "Update done.";
             request.setAttribute("cus", cus);
             request.setAttribute("cusAddress", cusAddress);
             request.setAttribute("noti", noti);
             request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
-        }
+        }  
 
     }
 

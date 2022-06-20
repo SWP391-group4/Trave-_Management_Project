@@ -96,13 +96,13 @@
                                         <div class="d-flex flex-column align-items-center text-center">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                                             <div class="mt-3">
-                                                <h4>John Doe</h4>
+                                                <h4>${cus.firstName} ${cus.lastName}</h4>
 
-                                                <button class="btn btn-outline-primary">Change Image</button>
+                                                <button class="btn btn-outline-primary">Reset Email</button>
                                                 <hr>
-                                                <button class="btn btn-outline-primary">Reset password</button>
+                                                <button class="btn btn-outline-primary">Reset Password</button>
                                                 <hr>
-                                                <button class="btn btn-outline-primary">Change phone</button>
+                                                <button class="btn btn-outline-primary">Change Phone</button>
 
                                             </div>
                                         </div>
