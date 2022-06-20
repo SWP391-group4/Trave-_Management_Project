@@ -54,23 +54,26 @@
                                         <input type="text" class="form-control" placeholder="Destination, City">
                                     </div>
                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="HomeStay Name">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="select-wrap one-third">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control" placeholder="Keyword search">
+<!--                                            <select name="" id="" class="form-control" placeholder="Keyword search">
                                                 <option value="">Select Location</option>
                                                 <option value="">San Francisco USA</option>
                                                 <option value="">Berlin Germany</option>
                                                 <option value="">London United Kingdom</option>
                                                 <option value="">Paris Italy</option>
-                                            </select>
+                                            </select>-->
                                         </div>
                                     </div>
-                                    <div class="form-group">
+<!--                                    <div class="form-group">
                                         <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Date from">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Date to">
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
                                         <div class="range-slider">
                                             <span>
@@ -88,6 +91,17 @@
                                 </div>
                             </form>
                         </div>
+                        
+                         <div class="card bg-warning mb-3">
+        <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
+        <ul class="list-group category_block">
+       
+                <li class="list-group-item list-group-item-action list-group-item-secondary text-light"><a href="category?cid="></a></li>
+     
+
+        </ul>
+    </div>
+                            
                         <div class="sidebar-wrap ftco-animate ">
                             <h3 class="heading mb-4">Star Rating</h3>
                             <form method="post" class="star-rating">
@@ -173,6 +187,25 @@
                                 </div>
                             </c:forEach>
                         </div> 
+                   
+                        	<div class="row mt-5">
+		          <div class="col text-center">
+                            
+		            <div class="block-27">
+                               
+		              <ul>
+		                
+                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                        <!--		                <li class=""><span></span></li>-->
+                                    <li class=""><a href="ListAllHomeStayController?index=${i}">${i}</a></li>
+		                 </c:forEach>
+		                
+		              </ul>
+                                
+		            </div>
+		          </div>
+		        </div>
+                   
                     </div>
 
                 </div>
