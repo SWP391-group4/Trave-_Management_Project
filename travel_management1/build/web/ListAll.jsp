@@ -33,7 +33,7 @@
 
 
 
-
+  <jsp:include page="Header.jsp"></jsp:include>
 
         <section class="ftco-section">
             <div class="container">
@@ -45,7 +45,7 @@
             </div>
             <div class="container ">
                 <div class="row">
-                    <div class="col-lg-3 sidebar  ftco-animate"style="border: 1px solid black">
+                    <div class="col-lg-3 sidebar  ftco-animate"style="">
                         <div class="sidebar-wrap ftco-animate">
                             <h3 class="heading mb-4">Find City</h3>
                             <form action="#">
@@ -124,11 +124,12 @@
                             </form>
                         </div>
                     </div><!-- END-->
+                 
 
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
                             <c:forEach items="${list}" var="o">
-                                <div class="col-sm col-md-6 col-lg-12 ftco-animate"style="border: 1px solid black; margin: 0 10px 20px 10px">
+                                <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
                                         <a href="#" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
@@ -140,8 +141,8 @@
                                             <div class="d-flex">
 
                                                 <div class="one">
-                                                    <h3><a href="#"></a></h3>
-                                                        ${o.homeStayname}
+                                                    <h3><a href="#"></a>${o.getHomeStayname()}</h3>
+
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -153,18 +154,16 @@
                                                 </div>
 
                                             </div>
-                                            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                                                </svg><i class="bi bi-house-door-fill"></i> </span>
-
+                                            <span class="ml-auto"><svg xmlns="" width="1" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
+                                                
+                                                </svg><i class="icon-map-o ml-auto"></i>  ${o.specific},${o.ward},${o.city} </span>
+  
                                             <hr>
                                             <p class="bottom-area d-flex">
 
-                                                <span class="ml-auto"><i class="icon-map-o ml-auto" style="display: none">
-
-
-
+                                                <span class="ml-auto"><i class="" style="display: inline" >
                                                     </i>
+    
                                                     <a href="#">Detail</a></span>
                                             </p>
                                         </div>
@@ -180,70 +179,7 @@
             </div>
         </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Adventure</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 class="ftco-heading-2">Information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                                <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                                <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                                <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                                <li><a href="#" class="py-2 d-block">Refund policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Experience</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Beach</a></li>
-                                <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                                <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                                <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                                <li><a href="#" class="py-2 d-block">Nature</a></li>
-                                <li><a href="#" class="py-2 d-block">Party</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+  <jsp:include page="Footer.jsp"></jsp:include>
 
 
 
