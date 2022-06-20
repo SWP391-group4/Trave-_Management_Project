@@ -197,7 +197,7 @@
 		                
                                     <c:forEach begin="1" end="${endPage}" var="i">
                                         <!--		                <li class=""><span></span></li>-->
-                                    <li class=""><a href="ListAllHomeStayController?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""}"><a href="ListAllHomeStayController?index=${i}">${i}</a></li>
 		                 </c:forEach>
 		                
 		              </ul>
