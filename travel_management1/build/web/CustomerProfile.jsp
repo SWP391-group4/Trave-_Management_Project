@@ -69,125 +69,127 @@
                 </div>
             </div>
         </div>
+        <form action="CustomerProfile" method="post">
+            <section >
+                <div class="container">
+                    <div class="main-body">
 
-        <section >
-            <div class="container">
-                <div class="main-body">
-
-                    <!-- Breadcrumb -->
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                        <a class="navbar-brand" href="#">Account</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
-                                <a class="nav-item nav-link" href="#">History</a>
+                        <!-- Breadcrumb -->
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+                            <a class="navbar-brand" href="#">Account</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
+                                    <a class="nav-item nav-link" href="#">History</a>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
-                    <!-- /Breadcrumb -->
+                        </nav>
+                        <!-- /Breadcrumb -->
 
-                    <div class="row gutters-sm">
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                                        <div class="mt-3">
-                                            <h4>John Doe</h4>
+                        <div class="row gutters-sm">
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center text-center">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                            <div class="mt-3">
+                                                <h4>John Doe</h4>
 
-                                            <button class="btn btn-outline-primary">Change Image</button>
-                                            <hr>
-                                            <button class="btn btn-outline-primary">Reset password</button>
-                                            <hr>
-                                            <button class="btn btn-outline-primary">Change phone</button>
+                                                <button class="btn btn-outline-primary">Change Image</button>
+                                                <hr>
+                                                <button class="btn btn-outline-primary">Reset password</button>
+                                                <hr>
+                                                <button class="btn btn-outline-primary">Change phone</button>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <div class="row gutters">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <h6 class="mb-2 text-primary">Personal Details</h6>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="fullName">First Name</label>
-                                                <input type="text" class="form-control" id="fullName" value="${cus.firstName}" name="name">
+                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mb-2 text-primary">Personal Details</h6>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="fullName">Last Name</label>
-                                                <input type="text" class="form-control" id="fullName" value=" ${cus.lastName}" name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="eMail">Email</label>
-                                                <div class="col-sm-9 text-secondary card form-control">
-                                                    <div>
-                                                        ${cus.email}
-                                                    </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="fullName">First Name</label>
+                                                    <input type="text" class="form-control" id="fullName" value="${cus.firstName}" name="fname">
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="eMail">Phone</label>
-                                                <div class="col-sm-9 text-secondary card form-control">
-                                                    <div>
-                                                        ${cus.phone}
-                                                    </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="fullName">Last Name</label>
+                                                    <input type="text" class="form-control" id="fullName" value=" ${cus.lastName}" name="lname">
                                                 </div>
-                                               
                                             </div>
-                                        </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="eMail">Email</label>
+                                                    <div class="col-sm-9 text-secondary card form-control">
+                                                        <div>
+                                                            ${cus.email}
+                                                        </div>
+                                                    </div>
 
-                                    </div>
-                                    <div class="row gutters">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <h6 class="mt-3 mb-2 text-primary">Address</h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="eMail">Phone</label>
+                                                    <div class="col-sm-9 text-secondary card form-control">
+                                                        <div>
+                                                            ${cus.phone}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Street">Specific</label>
-                                                <input type="name" class="form-control" id="Street" value="${cusAddress.specific}" name="specific">
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mt-3 mb-2 text-primary">Address</h6>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="Street">Specific</label>
+                                                    <input type="name" class="form-control" id="Street" value="${cusAddress.specific}" name="specific">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="ciTy">Ward</label>
+                                                    <input type="name" class="form-control" id="ciTy" value="${cusAddress.ward}" name="ward">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="sTate">District</label>
+                                                    <input type="text" class="form-control" id="sTate" value="${cusAddress.district}" name="district">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="zIp">City</label>
+                                                    <input type="text" class="form-control" id="zIp" value="${cusAddress.city}" name="city">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="ciTy">Ward</label>
-                                                <input type="name" class="form-control" id="ciTy" value="${cusAddress.ward}" name="ward">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="sTate">District</label>
-                                                <input type="text" class="form-control" id="sTate" value="${cusAddress.district}" name="district">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="zIp">City</label>
-                                                <input type="text" class="form-control" id="zIp" value="${cusAddress.city}" name="city">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row gutters">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div class="text-right">
-                                                <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                                <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="text-right">
+                                                    <p class="success">${noti}</p>
+                                                    <input type="submit" name="submit" class="btn btn-primary" value="Update">
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -195,12 +197,11 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
-
-        </section>
-
+            </section>
+        </form>
         <footer class="ftco-footer ftco-bg-dark ftco-section">
             <div class="container">
                 <div class="row mb-5">

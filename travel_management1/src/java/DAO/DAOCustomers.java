@@ -6,14 +6,17 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.*;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author nam
  */
-public class DAOCustomers extends connectDB{
+public class DAOCustomers extends connectDB {
 
     public Customers getCustomer(String accountC) {
         String sql = "Select * from customers where accountc = '" + accountC + "'";
@@ -53,11 +56,60 @@ public class DAOCustomers extends connectDB{
         return null;
     }
 
+    public int updateCustomer(Customers cus) {
+        int n = 0;
+        String sql = "Update Customers set "
+                + "firstname =?,"
+                + "lastname = ? "
+                + "where accountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cus.getFirstName());
+            pre.setString(2, cus.getLastName());
+            pre.setString(3, cus.getAccountC());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return n;
+    }
+
+    public int updateCustomerAddress(CustomerAddresses cusAdd) {
+        int n = 0;
+        String sql = "Update CustomerAddresses set "
+                + "city =?,"
+                + "district =?,"
+                + "specific =?,"
+                + "ward = ? "
+                + "where accountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cusAdd.getCity());
+            pre.setString(2, cusAdd.getDistrict());
+            pre.setString(3, cusAdd.getSpecific());
+            pre.setString(4, cusAdd.getWard());
+            pre.setString(5, cusAdd.getAccountC());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
-        CustomerAddresses c = dao.getCustomerAddresses("motnguoithu3");
         System.out.println(cus);
-        System.out.println(c);
+        
+        cus.setFirstName("new ");
+        cus.setLastName("person");
+        
+        int n = dao.updateCustomer(cus);
+        
+        System.out.println(cus);
+        
+
     }
 }

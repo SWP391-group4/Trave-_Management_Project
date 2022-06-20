@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.*;
 import Entity.CustomerAddresses;
 import Entity.Customers;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class CustomerProfileController extends HttpServlet {
         HttpSession session = request.getSession();
         Customers cus = (Customers) session.getAttribute("customer");
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
-        // tim cach dung thang vao jsp
+
         request.setAttribute("cus", cus);
         request.setAttribute("cusAddress", cusAddress);
         request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
@@ -70,7 +71,25 @@ public class CustomerProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        DAOCustomers daoCus = new DAOCustomers();
+
+        Customers cus = (Customers) session.getAttribute("customer");
+         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
+        String firstName = request.getParameter("fname");
+        String lastName = request.getParameter("lname");
+        cus.setFirstName(firstName);
+        cus.setLastName(lastName);
+
+        int n = daoCus.updateCustomer(cus);
+        if (n > 0) {
+            String noti = "Update done.";
+            request.setAttribute("cus", cus);
+            request.setAttribute("cusAddress", cusAddress);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        }
+
     }
 
     /**
