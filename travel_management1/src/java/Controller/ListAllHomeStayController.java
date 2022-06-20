@@ -4,7 +4,9 @@
  */
 package Controller;
 
+import DAO.DAOHomeStayAddresses;
 import DAO.DAOHomeStays;
+import Entity.HomeStayAddressses;
 import Entity.HomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,9 +39,12 @@ public class ListAllHomeStayController extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             DAOHomeStays dao = new DAOHomeStays();
-            List<HomeStays> list=dao.viewallHomeStayByAddress();
-            request.setAttribute("list", list);
-             request.getRequestDispatcher("ListAll.jsp").forward(request, response);
+            
+            List<HomeStays> listHomeStay=dao.viewallHomeStays();
+            List<HomeStayAddressses> listAddress=dao.getListAddress(listHomeStay);
+              request.setAttribute("listAddress", listAddress);
+            request.setAttribute("list", listHomeStay);
+             request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
         }
     }
 
