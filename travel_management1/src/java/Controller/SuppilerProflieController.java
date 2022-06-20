@@ -91,16 +91,16 @@ public class SuppilerProflieController extends HttpServlet {
         int m = daosup.updateSupAddress(address_temp);
         if (n == 0 && m == 0) {
             String noti = "Update fails";
-            request.setAttribute("cus", cus);
-            request.setAttribute("cusAddress", cusAddress);
+            request.setAttribute("sp", sp);
+            request.setAttribute("spa", spa);
             request.setAttribute("noti", noti);
-            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         } else {
             String noti = "Update done.";
-            request.setAttribute("cus", cus_temp);
-            request.setAttribute("cusAddress", address_temp);
+            request.setAttribute("sp", sp);
+            request.setAttribute("spa", spa);
             request.setAttribute("noti", noti);
-            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         }
        
     }
