@@ -84,7 +84,6 @@ public class CustomerProfileController extends HttpServlet {
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");
         String city = request.getParameter("city");
-
         cusAddress.setCity(city);
         cusAddress.setDistrict(district);
         cusAddress.setSpecific(specific);
@@ -103,8 +102,6 @@ public class CustomerProfileController extends HttpServlet {
         }
         else {
             String noti = "Update done.";
-            request.setAttribute("cus", cus);
-            request.setAttribute("cusAddress", cusAddress);
             request.setAttribute("noti", noti);
             request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
         }  

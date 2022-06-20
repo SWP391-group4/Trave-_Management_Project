@@ -97,13 +97,12 @@
                                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                                             <div class="mt-3">
                                                 <h4>${cus.firstName} ${cus.lastName}</h4>
-
-                                                <button class="btn btn-outline-primary">Reset Email</button>
-                                                <hr>
-                                                <button class="btn btn-outline-primary">Reset Password</button>
-                                                <hr>
-                                                <button class="btn btn-outline-primary">Change Phone</button>
-
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Reset Email</li>
+                                                    <li class="list-group-item">Reset Password</li>
+                                                    <li class="list-group-item">Change Phone</li>
+                                                </ul>
+                                                
                                             </div>
                                         </div>
                                     </div>
