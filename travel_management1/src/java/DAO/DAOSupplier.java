@@ -8,10 +8,13 @@ import DBContext.connectDB;
 import Entity.SupplierAddresses;
 import Entity.SupplierHomestays;
 import Entity.Suppliers;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,7 +43,7 @@ public class DAOSupplier extends connectDB {
     }
 
     public SupplierAddresses getSupplierAddresses(String accountS) {
-        String sql = "Select * from customerAddresses where accountC = '" + accountS + "'";
+        String sql = "Select * from SupplierAddresses where accountS = '" + accountS + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
@@ -110,9 +113,61 @@ public class DAOSupplier extends connectDB {
         }
         return listTop;
     }
+     public int updateSupplier(Suppliers cus) {
+        int n = 0;
+        String sql = "Update Suppliers set "
+                + "firstname =?,"
+                + "lastname = ? "
+                + "where accountS = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cus.getFirstName());
+            pre.setString(2, cus.getLastName());
+            pre.setString(3, cus.getAccountS());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return n;
+    }
+
+    public int updateSupplierAddress(SupplierAddresses cusAdd) {
+        int n = 0;
+        String sql = "Update SupplierAddresses set "
+                + "city =?,"
+                + "district =?,"
+                + "specific =?,"
+                + "ward = ? "
+                + "where accountS = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cusAdd.getCity());
+            pre.setString(2, cusAdd.getDistrict());
+            pre.setString(3, cusAdd.getSpecific());
+            pre.setString(4, cusAdd.getWard());
+            pre.setString(5, cusAdd.getAccountS());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return n;
+    }
+
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-        System.out.println(d.getSuppiler("nguyenphuong"));
+        Suppliers sup= d.getSuppiler("nguyenphuong");
+//        SupplierAddresses ad=d.getSuppiler("nguyenphuong");
+        System.out.println(sup);
+        
+        sup.setFirstName("new ");
+        sup.setLastName("person");
+        
+        int n = d.updateSupplier(sup);
+        
+        System.out.println(sup);
+        
     }
 }
