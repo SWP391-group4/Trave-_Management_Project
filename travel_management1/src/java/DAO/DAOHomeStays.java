@@ -5,6 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.HomeStayAddressses;
 
 import Entity.HomeStays;
 import java.sql.PreparedStatement;
@@ -130,11 +131,43 @@ public class DAOHomeStays extends connectDB{
         }
               return vec;
     }
-    public static void main(String[] args) {
-        DAOHomeStays dao = new DAOHomeStays();
-        List<HomeStays> list=dao.viewallHomeStayByAddress();
-        for(HomeStays o: list){
-            System.out.println(o);
+       public HomeStayAddressses searchByHomeStay(String homestayID) {
+        String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStayAddressses(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger( DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
+    }
+      public List<HomeStayAddressses> getListAddress(List<HomeStays> list) {
+        List<HomeStayAddressses> l = new ArrayList<>();
+        for (HomeStays o : list) {
+            l.add(searchByHomeStay(o.getHomeStayID()));
+        }
+
+        return l;
+    }
+    public static void main(String[] args) {
+           DAOHomeStays dao = new DAOHomeStays();
+        List<HomeStays> l = dao.viewallHomeStayByAddress();
+        List<HomeStayAddressses> l1 = dao.getListAddress(l);
+
+        for (int i = 0; i < l1.size(); i++) {
+            System.out.println(l.get(i).getHomeStayname()+ "  :  " + l1.get(i).getCity());
+        }
+       
+        for (HomeStays o : l) {
+            System.out.println(o); 
+       }
     }
 }
