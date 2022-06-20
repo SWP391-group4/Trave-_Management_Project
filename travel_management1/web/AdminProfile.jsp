@@ -90,11 +90,11 @@
                                                         <h3 class="h2 text-white mb-0">Profile Information</h3>
                                                         <span class="text-primary">Admin</span>
                                                     </div>
-                                                    
-                                                    <ul class="list-unstyled mb-1-9" style="font-size: larger;color: #000">
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: </span>${admin.firstName} ${admin.lasttName} </li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span>${admin.age}</li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span>${admin.email}</li>
+
+                                                    <ul class="list-unstyled mb-1-9">
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: ${admin.firstName} ${admin.lastName}</span> </li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: ${admin.age}</span></li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: ${admin.email}</span></li>
                                                         <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> + ${admin.phone}</li>
                                                     </ul>
 

@@ -30,26 +30,26 @@
     </head>
     <body>
         <jsp:include page="Header.jsp"/>
-        <form action="CustomerProfile" method="post">
-            <section >
-                <div class="container">
-                    <div class="main-body">
 
-                        <!-- Breadcrumb -->
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                            <a class="navbar-brand" href="#">Account</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <div class="navbar-nav">
-                                    <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
-                                    <a class="nav-item nav-link" href="#">History</a>
-                                </div>
+        <section >
+            <div class="container">
+                <div class="main-body">
+
+                    <!-- Breadcrumb -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+                        <a class="navbar-brand" href="#">Account</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" href="#">History</a>
                             </div>
-                        </nav>
-                        <!-- /Breadcrumb -->
-
+                        </div>
+                    </nav>
+                    <!-- /Breadcrumb -->
+                    <form action="CustomerProfile" method="post">
                         <div class="row gutters-sm">
                             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                 <div class="card">
@@ -63,7 +63,7 @@
                                                     <li class="list-group-item">Reset Password</li>
                                                     <li class="list-group-item">Change Phone</li>
                                                 </ul>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -156,13 +156,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    </form>
                 </div>
 
-            </section>
-        </form>
-<jsp:include page="Footer.jsp"/>
+            </div>
+
+        </section>
+
+        <jsp:include page="Footer.jsp"/>
 
 
 

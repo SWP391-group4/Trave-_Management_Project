@@ -59,8 +59,8 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
         if (acc == null) {
-
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            
+            response.sendRedirect("Login.jsp");
         } else {
             HttpSession session = request.getSession();
             int type = acc.getType();
