@@ -9,7 +9,7 @@ package Entity;
  * @author nam
  */
 public class SupplierAddresses {
-    public String supplierId;
+    public String AccountS;
     public String city;
     public String district;
     public String specific;
@@ -18,20 +18,20 @@ public class SupplierAddresses {
     public SupplierAddresses() {
     }
 
-    public SupplierAddresses(String supplierId, String city, String district, String specific, String ward) {
-        this.supplierId = supplierId;
+    public SupplierAddresses(String AccountS, String city, String district, String specific, String ward) {
+        this.AccountS = AccountS;
         this.city = city;
         this.district = district;
         this.specific = specific;
         this.ward = ward;
     }
 
-    public String getSupplierId() {
-        return supplierId;
+    public String getAccountS() {
+        return AccountS;
     }
 
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
+    public void setAccountS(String AccountS) {
+        this.AccountS = AccountS;
     }
 
     public String getCity() {
@@ -68,7 +68,7 @@ public class SupplierAddresses {
 
     @Override
     public String toString() {
-        return "SupplierAddresses{" + "supplierId=" + supplierId + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + '}';
+        return "SupplierAddresses{" + "AccountS=" + AccountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + '}';
     }
 
     

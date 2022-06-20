@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOSupplier;
 import Entity.SupplierAddresses;
 import Entity.Suppliers;
 import java.io.IOException;
@@ -34,14 +35,7 @@ public class SuppilerProflieController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        SupplierAddresses spa= (SupplierAddresses) session.getAttribute("suppliersAddress");
-        request.setAttribute("sp", sp);
-        request.setAttribute("spa", spa);
-        request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,7 +51,12 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-      
+        HttpSession session = request.getSession();
+        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        request.setAttribute("sp", sp);
+        request.setAttribute("spa", spa);
+        request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
     }
 
     /**
@@ -72,6 +71,38 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOSupplier daosup = new DAOSupplier();
+         HttpSession session = request.getSession();
+        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        String account = sp.getAccountS();
+        String firstName = request.getParameter("fname");
+        String lastName = request.getParameter("lname");
+        String fax=sp.getFax();
+        String email = sp.getEmail();
+        String phone = sp.getPhone();
+           String specific = request.getParameter("specific");
+        String ward = request.getParameter("ward");
+        String district = request.getParameter("district");
+        String city = request.getParameter("city");
+          Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
+      SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
+        int n = daosup.updateSuppiler(sup_temp);
+        int m = daosup.updateSupAddress(address_temp);
+        if (n == 0 && m == 0) {
+            String noti = "Update fails";
+            request.setAttribute("cus", cus);
+            request.setAttribute("cusAddress", cusAddress);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        } else {
+            String noti = "Update done.";
+            request.setAttribute("cus", cus_temp);
+            request.setAttribute("cusAddress", address_temp);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
+        }
+       
     }
 
     /**
