@@ -1,7 +1,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">OhYeah</a>
+                <a class="navbar-brand" href="index.html">CTUTRAVEL</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
@@ -16,7 +16,7 @@
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                             <c:if test="${sessionScope.acc!=null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello ${sessionScope.acc.account}</a></li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello${sessionScope.acc.account}</a></li>
                             </c:if>
                             <c:if test="${sessionScope.acc==null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
