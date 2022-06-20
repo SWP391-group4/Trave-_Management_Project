@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <title>Admin Profile</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -89,12 +90,12 @@
                                                         <h3 class="h2 text-white mb-0">Profile Information</h3>
                                                         <span class="text-primary">Admin</span>
                                                     </div>
-                                                    <% Admins a = (Admins) request.getAttribute("admin");%>
+                                                    
                                                     <ul class="list-unstyled mb-1-9" style="font-size: larger;color: #000">
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: </span><%=a.getFirstName()%> <%=a.getLastName()%> </li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span><%=a.getAge()%></li>
-                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span><%=a.getEmail()%></li>
-                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> + <%=a.getPhone()%></li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: </span>${admin.firstName} ${admin.lasttName} </li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: </span>${admin.age}</li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span>${admin.email}</li>
+                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> + ${admin.phone}</li>
                                                     </ul>
 
                                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
