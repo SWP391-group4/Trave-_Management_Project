@@ -1,978 +1,641 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <title>SB Admin 2 - Dashboard</title>
 
-        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-        <link rel="stylesheet" href="css/animate.css">
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/aos.css">
-
-        <link rel="stylesheet" href="css/ionicons.min.css">
-
-        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-        <link rel="stylesheet" href="css/flaticon.css">
-        <link rel="stylesheet" href="css/icomoon.css">
-        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">CTUTRAVEL</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
+    <body id="page-top">
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-                        <li class="nav-item"><a href="hotel.html" class="nav-link">Home Stay</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- END nav -->
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                    <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Discover <br>A new Place</h1>
-                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat, shop, or visit from local experts</p>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
                     </div>
+                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Interface
                 </div>
-            </div>
-        </div>
 
-        <section class="ftco-section justify-content-end ftco-search">
-            <div class="container-wrap ml-auto">
-                <div class="row no-gutters">
-                    <div class="col-md-12 nav-link-wrap">
-                        <div class="nav nav-pills justify-content-center text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
-
-
-                            <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="" aria-selected="false">SEARCH HERE</a>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                       aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Components</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Components:</h6>
+                            <a class="collapse-item" href="buttons.html">Buttons</a>
+                            <a class="collapse-item" href="cards.html">Cards</a>
                         </div>
                     </div>
-                    <div class="col-md-12 tab-wrap">
+                </li>
 
-                        <div class="tab-content p-4 px-5" id="v-pills-tabContent">
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                       aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Utilities</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Utilities:</h6>
+                            <a class="collapse-item" href="utilities-color.html">Colors</a>
+                            <a class="collapse-item" href="utilities-border.html">Borders</a>
+                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                            <a class="collapse-item" href="utilities-other.html">Other</a>
+                        </div>
+                    </div>
+                </li>
 
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-                            <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-effect-tab">
-                                <form action="#" class="search-destination">
-                                    <div class="row">
-                                        <div class="col-md align-items-end">
-                                            <div class="form-group">
-                                                <label for="#">Hotel Name</label>
-                                                <div class="form-field">
-                                                    <div class="icon"><span class="icon-map-marker"></span></div>
-                                                    <input type="text" class="form-control" placeholder="Where">
-                                                </div>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Addons
+                </div>
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                       aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Pages</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Login Screens:</h6>
+                            <a class="collapse-item" href="login.html">Login</a>
+                            <a class="collapse-item" href="register.html">Register</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Other Pages:</h6>
+                            <a class="collapse-item" href="404.html">404 Page</a>
+                            <a class="collapse-item" href="blank.html">Blank Page</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Charts</span></a>
+                </li>
+
+                <!-- Nav Item - Tables -->
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Tables</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+                <!-- Sidebar Message -->
+                <div class="sidebar-card d-none d-lg-flex">
+                    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                    <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                    <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+                </div>
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Search -->
+                        <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                       aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                     aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small"
+                                                   placeholder="Search for..." aria-label="Search"
+                                                   aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
                                             </div>
-                                        </div>
-                                        <div class="col-md align-items-end">
-                                            <div class="form-group">
-                                                <label for="#">Location</label>
-                                                <div class="form-field">
-                                                    <div class="icon"><span class="icon-map-marker"></span></div>
-                                                    <input type="text" class="form-control checkin_date" placeholder="Check In">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md align-self-end">
-                                            <div class="form-group">
-                                                <div class="form-field">
-                                                    <input type="submit" value="Search" class="form-control btn btn-primary">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="intro ftco-animate">
-                            <h3><span>01</span> Travel</h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="intro ftco-animate">
-                            <h3><span>02</span> Experience</h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="intro ftco-animate">
-                            <h3><span>03</span> Relax</h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4">See our latest vacation ideas</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 ftco-animate">
-                        <a href="#" class="destination-entry img" style="background-image: url(images/destination-1.jpg);">
-                            <div class="text text-center">
-                                <h3>Beachfront Scape</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 ftco-animate">
-                        <a href="#" class="destination-entry img" style="background-image: url(images/destination-2-1.jpg);">
-                            <div class="text text-center">
-                                <h3>Group Holidays</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 ftco-animate">
-                        <a href="#" class="destination-entry img" style="background-image: url(images/destination-3.jpg);">
-                            <div class="text text-center">
-                                <h3>City Breaks</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-about d-md-flex">
-            <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
-            <div class="one-half ftco-animate">
-                <div class="heading-section ftco-animate ">
-                    <h2 class="mb-4">The Best Travel Agency</h2>
-                </div>
-                <div>
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn?t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section services-section bg-light">
-            <div class="container">
-                <div class="row d-flex">
-                    <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services d-block">
-                            <div class="icon"><span class="flaticon-yatch"></span></div>
-                            <div class="media-body">
-                                <h3 class="heading mb-3">Special Activities</h3>
-                                <p>A small river named Duden flows by their place and supplies.</p>
-                            </div>
-                        </div>      
-                    </div>
-                    <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services d-block">
-                            <div class="icon"><span class="flaticon-around"></span></div>
-                            <div class="media-body">
-                                <h3 class="heading mb-3">Travel Arrangements</h3>
-                                <p>A small river named Duden flows by their place and supplies.</p>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services d-block">
-                            <div class="icon"><span class="flaticon-compass"></span></div>
-                            <div class="media-body">
-                                <h3 class="heading mb-3">Private Guide</h3>
-                                <p>A small river named Duden flows by their place and supplies.</p>
-                            </div>
-                        </div>      
-                    </div>
-                    <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services d-block">
-                            <div class="icon"><span class="flaticon-map-of-roads"></span></div>
-                            <div class="media-body">
-                                <h3 class="heading mb-3">Location Manager</h3>
-                                <p>A small river named Duden flows by their place and supplies.</p>
-                            </div>
-                        </div>      
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4">Most Popular Destination</h2>
-                    </div>
-                </div>    		
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">Paris, Italy</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price">$200</span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <p class="days"><span>2 days 3 nights</span></p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">Paris, Italy</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price">$200</span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <p class="days"><span>2 days 3 nights</span></p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">Paris, Italy</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price">$200</span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <p class="days"><span>2 days 3 nights</span></p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">Paris, Italy</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price">$200</span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <p class="days"><span>2 days 3 nights</span></p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                                <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number" data-number="100000">0</strong>
-                                        <span>Happy Customers</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                                <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number" data-number="40000">0</strong>
-                                        <span>Destination Places</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                                <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number" data-number="87000">0</strong>
-                                        <span>Hotels</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                                <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number" data-number="56400">0</strong>
-                                        <span>Restaurant</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4"><strong>Popular</strong> Hotels</h2>
-                    </div>
-                </div>    		
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-1.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">New Orleans, Hotel</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-2.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">New Orleans, Hotel</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-3.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">New Orleans, Hotel</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-4.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">New Orleans, Hotel</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-5.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">New Orleans, Hotel</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section testimony-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                        <h2 class="mb-4">Our satisfied customer says</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-                    </div>
-                </div>
-                <div class="row ftco-animate">
-                    <div class="col-md-12">
-                        <div class="carousel-testimony owl-carousel ftco-owl">
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text">
-                                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Mark Web</p>
-                                        <span class="position">Marketing Manager</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text">
-                                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Mark Web</p>
-                                        <span class="position">Interface Designer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text">
-                                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Mark Web</p>
-                                        <span class="position">UI Designer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text">
-                                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Mark Web</p>
-                                        <span class="position">Web Developer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text">
-                                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p class="name">Mark Web</p>
-                                        <span class="position">System Analyst</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4">Recommended Restaurants</h2>
-                    </div>
-                </div>    		
-                <div class="row">
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-1.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <h3><a href="#">Luxury Restaurant</a></h3>
-                                <p class="rate">
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star-o"></i>
-                                    <span>8 Rating</span>
-                                </p>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-2.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <h3><a href="#">Luxury Restaurant</a></h3>
-                                <p class="rate">
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star-o"></i>
-                                    <span>8 Rating</span>
-                                </p>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-3.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <h3><a href="#">Luxury Restaurant</a></h3>
-                                <p class="rate">
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star-o"></i>
-                                    <span>8 Rating</span>
-                                </p>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="destination d-md-flex flex-column-reverse">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-4.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <h3><a href="#">Luxury Restaurant</a></h3>
-                                <p class="rate">
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star-o"></i>
-                                    <span>8 Rating</span>
-                                </p>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span> 
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section bg-light">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2><strong>Tips</strong> &amp; Articles</h2>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-                            </a>
-                            <div class="text">
-                                <span class="tag">Tips, Travel</span>
-                                <h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that you don't miss out</a></h3>
-                                <div class="meta mb-3">
-                                    <div><a href="#">October 3, 2018</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-                            </a>
-                            <div class="text">
-                                <span class="tag">Culture</span>
-                                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta mb-3">
-                                    <div><a href="#">October 3, 2018</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-                            </a>
-                            <div class="text">
-                                <span class="tag">Tips, Travel</span>
-                                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta mb-3">
-                                    <div><a href="#">October 3, 2018</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section-parallax">
-            <div class="parallax-img d-flex align-items-center">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                            <h2>Subcribe to our Newsletter</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-                            <div class="row d-flex justify-content-center mt-5">
-                                <div class="col-md-8">
-                                    <form action="#" class="subscribe-form">
-                                        <div class="form-group d-flex">
-                                            <input type="text" class="form-control" placeholder="Enter email address">
-                                            <input type="submit" value="Subscribe" class="submit px-3">
                                         </div>
                                     </form>
                                 </div>
+                            </li>
+
+                            <!-- Nav Item - Alerts -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bell fa-fw"></i>
+                                    <!-- Counter - Alerts -->
+                                    <span class="badge badge-danger badge-counter">3+</span>
+                                </a>
+                                <!-- Dropdown - Alerts -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Alerts Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 12, 2019</div>
+                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-donate text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 7, 2019</div>
+                                            $290.29 has been deposited into your account!
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 2, 2019</div>
+                                            Spending Alert: We've noticed unusually high spending for your account.
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                </div>
+                            </li>
+
+                            <!-- Nav Item - Messages -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                    <!-- Counter - Messages -->
+                                    <span class="badge badge-danger badge-counter">7</span>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Message Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                                 alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                                problem I've been having.</div>
+                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                                 alt="...">
+                                            <div class="status-indicator"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">I have the photos that you ordered last month, how
+                                                would you like them sent to you?</div>
+                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                                 alt="...">
+                                            <div class="status-indicator bg-warning"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Last month's report looks great, I am very happy with
+                                                the progress so far, keep up the good work!</div>
+                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                                 alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                                told me that people say this to all dogs, even if they aren't good...</div>
+                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                </div>
+                            </li>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                    <img class="img-profile rounded-circle"
+                                         src="img/undraw_profile.svg">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Settings
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Activity Log
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+
+                            <!-- Supplier Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Supplier (Total)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    User(Total)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pending Supplier
+                                                </div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                 aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    FAQs</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">CTU</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
+                        <!-- Content Row -->
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+
+
+                            <!-- Content Row -->
+                            <div class="row">
+
+                                <!-- Content Column -->
+                                <div class="col-lg-6 mb-4 col-md-6">
+
+                                    <!-- Project Card Example -->
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">List Supplier</h6>
+                                        </div>
+                                        <table class="table table-striped">
+                                            <thead>
+
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Supplier</th>
+                                                    <th scope="col">Homestay</th>
+                                                    <th scope="col">Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${listSup}" var="s">
+                                                    <tr>
+                                                        <th scope="row"></th>
+                                                        <td>${s.firstName} ${s.lastName}</td>
+                                                        <td>${s.homestayName}</td>
+                                                        <td>${s.email}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="col-lg-6 mb-4  col-md-6">
+
+                                    <!-- Illustrations -->
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">Pending Register</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Supplier</th>
+                                                        <th scope="col">Homestay</th>
+                                                        <th scope="col">Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Supplier</td>
+                                                        <td>Homestay</td>
+                                                        <td>Email</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Approach -->
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">FAQs</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                                CSS bloat and poor page performance. 
+                                                hihihi
+                                            </p>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">First</th>
+                                                        <th scope="col">Last</th>
+                                                        <th scope="col">Handle</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
+                        <!-- /.container-fluid -->
+
                     </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 class="ftco-heading-2">Information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                                <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                                <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                                <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                                <li><a href="#" class="py-2 d-block">Refund policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Experience</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Beach</a></li>
-                                <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                                <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                                <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                                <li><a href="#" class="py-2 d-block">Nature</a></li>
-                                <li><a href="#" class="py-2 d-block">Party</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                                </ul>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; Your Website 2021</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
+                    </footer>
+                    <!-- End of Footer -->
 
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
                 </div>
+                <!-- End of Content Wrapper -->
+
             </div>
-        </footer>
+            <!-- End of Page Wrapper -->
 
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
 
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="login.html">Logout</a>
+                        </div>
+                    </div>
+                </div>`
+            </div>
 
-        <!-- loader -->
-        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery.animateNumber.min.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jquery.timepicker.min.js"></script>
-        <script src="js/scrollax.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="js/google-map.js"></script>
-        <script src="js/main.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="vendor/chart.js/Chart.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="js/demo/chart-area-demo.js"></script>
+            <script src="js/demo/chart-pie-demo.js"></script>
 
     </body>
+
 </html>
