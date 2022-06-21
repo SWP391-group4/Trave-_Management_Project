@@ -552,7 +552,7 @@ public class DAOImages {
                     </div>
                     <!-- /.container-fluid -->
 
-                </div>
+                </div>xszv
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
