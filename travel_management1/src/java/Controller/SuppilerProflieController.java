@@ -87,8 +87,8 @@ public class SuppilerProflieController extends HttpServlet {
         String city = request.getParameter("city");
           Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
       SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
-        int n = daosup.updateSuppiler(sup_temp);
-        int m = daosup.updateSupAddress(address_temp);
+        int n = daosup.updateSupplier(sup_temp);
+        int m = daosup.updateSupplierAddress(address_temp);
         if (n == 0 && m == 0) {
             String noti = "Update fails";
             request.setAttribute("sp", sp);
