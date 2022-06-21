@@ -50,7 +50,39 @@ public class MarketingProfileController extends HttpServlet {
              if (service.equals("updateMarketing")) {
                 //getdata from model
                 String submit = request.getParameter("submit");
-                 
+                 if (submit == null) {
+                    String titleID = request.getParameter("titleID");
+                    String sql = "SELECT * FROM [dbo].[titles] where title_id='" + titleID + "'";
+                    ResultSet rs = c1.getData(sql);
+                    ResultSet rs1 = c1.getData("select * from Publishers");
+                    request.setAttribute("rsTitle", rs);
+                    request.setAttribute("rsPublisher", rs1);
+                    dispath(request, response, "/JSP/UpdateTitles.jsp");
+                } else {
+                    String Title_id = request.getParameter("Title_id");
+                    String Title = request.getParameter("Title");
+                    String type = request.getParameter("type");
+                    String pub_id = request.getParameter("pub_id");
+                    String price = request.getParameter("price");
+                    String advance = request.getParameter("advance");
+                    String royalty = request.getParameter("royalty");
+                    String ytd_sales = request.getParameter("ytd_sales");
+                    String notes = request.getParameter("notes");
+                    String pubdate = request.getParameter("pubdate");
+                    String image = request.getParameter("image");
+                    double Price = Double.parseDouble(price);
+                    double Advance = Double.parseDouble(advance);
+                    int Royalty = Integer.parseInt(royalty);
+                    int Rtd = Integer.parseInt(ytd_sales);
+
+                    //insert
+                    Titles obj = new Titles(Title_id, Title, type, pub_id,
+                            Price, Advance, Royalty, Rtd, notes, pubdate, image);
+                    out.print(obj);
+                    int n = c1.updateTitles(obj);
+                    response.sendRedirect("TitlesController");
+//                  dispath(request, response, "/JSP/UpdateTitles.jsp");
+                }
             }
         }
     }

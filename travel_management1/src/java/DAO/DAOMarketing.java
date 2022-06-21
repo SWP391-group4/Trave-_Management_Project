@@ -7,6 +7,7 @@ package DAO;
 import DBContext.connectDB;
 import Entity.Marketing;
 import Entity.MarketingImage;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -49,9 +50,30 @@ public class DAOMarketing extends connectDB{
         }
         return null;
     }
+    public int updateMarketing( Marketing mar) {
+        int n = 0;
+        String sql = "UPDATE [Marketing]\n"
+                + "   SET FirstName = ?, LastName =?, Age = ?, Email = ?, Phone = ?"
+                + " WHERE AccountM = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(6, mar.getAccountM());
+            pre.setString(1, mar.getFirstName());
+            pre.setString(2, mar.getLastName());
+            pre.setInt(3, mar.getAge());
+            pre.setString(4, mar.getEmail());
+            pre.setString(5, mar.getPhone());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOMarketing dao=new DAOMarketing();
-        System.out.println(dao.getMarketing("bautroikhongem"));
-        System.out.println(dao.getMarketingImage("bautroikhongem"));
+        int n= dao.updateMarketing(new Marketing("bautroikhongem", "Thanh Lam", "Le", 28, "lamthanhle01@gmail.com", "8434784785"));
+        if (n > 0) {
+            System.out.println("updated");
+        }
     }
 }
