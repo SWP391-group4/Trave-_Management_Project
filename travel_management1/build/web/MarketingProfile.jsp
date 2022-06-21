@@ -4,6 +4,7 @@
     Author     : nam
 --%>
 
+<%@page import="Entity.Marketing"%>
 <%@page import="Entity.Admins"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,7 @@
     </head>
     <body>
 
-       <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
+        <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
             <div class="container">
                 <a  href="menu.jsp"><img src="images/logo.png" style="width: 70px;height:80px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,109 +60,104 @@
         </nav>
         <!-- END nav -->
 
-        
+
 
         <section >
+            <div class="container">
+                <div class="main-body">
 
-<div class="container">
-    <div class="main-body">
-    
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb" >
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Marketing Profile</li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
-    
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="200">
-                    <div class="mt-3">
-                      <h4>John Doe</h4>
-                      <p class="text-secondary mb-1" >Marketing Staff</p>
-                      <button class="btn btn-primary">Change Avatar</button>
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb" class="main-breadcrumb" >
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Marketing Profile</li>
+                        </ol>
+                    </nav>
+                    <!-- /Breadcrumb -->
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="200">
+                                        <div class="mt-3">
+                                            <h4>John Doe</h4>
+                                            <p class="text-secondary mb-1" >Marketing Staff</p>
+                                            <button class="btn btn-primary">Change Avatar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mt-3">
+                            </div>
+                        </div>  
+                        <%
+                            Marketing mar = (Marketing) request.getAttribute("mar");
+                        %> 
+                        <form class="col-md-8" action="TitlesController" method="post">
+                            <input type="hidden" name="go" value="updateMarketing">
+                            <div>
+                                <div class="card mb-6">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">First Name</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getFirstName()%>" name="fname">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Last Name</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getLastName()%>" name="fname">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Email</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getEmail()%>" name="fname">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Age</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getAge()%>" name="fname">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Phone Number</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getPhone()%>" name="fname">
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input class="btn btn-info"  type="submit" value="Update" name="submit">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                  </div>
                 </div>
-              </div>
-              <div class="card mt-3">
-                
-              </div>
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">First Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Last Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Age</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" id="fullName" value="nam" name="fname">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone Number</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" id="fullName" value="nam" name="fname">
-                    </div>
-                  </div>
-                  <hr>
-                  
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Update</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-             
-
-
-
-            </div>
-          </div>
-
-        </div>
-    </div>
-
         </section>
-
         <footer class="ftco-footer ftco-bg-dark ftco-section">
             <div class="container">
                 <div class="row mb-5">
