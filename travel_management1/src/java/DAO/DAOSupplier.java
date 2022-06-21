@@ -85,7 +85,9 @@ public class DAOSupplier extends connectDB {
     public List<SupplierHomestays> listHomestayBySupplier() {
         List<SupplierHomestays> list = new ArrayList<>();
         String sql = "select s.AccountS, s.firstName,s.lastName,s.email,h.homestayName\n"
-                + "from Homestays h inner join Suppliers s on h.AccountS = s.AccountS\n"
+                + "from Homestays h "
+                + "inner join Suppliers s "
+                + "on h.AccountS = s.AccountS\n"
                 + "group by s.AccountS, s.firstName,s.lastName,s.email,h.homestayName";
         ResultSet rs = getData(sql);
         try {
@@ -113,7 +115,7 @@ public class DAOSupplier extends connectDB {
         }
         return listTop;
     }
-     public int updateSupplier(Suppliers cus) {
+    public int updateSupplier(Suppliers cus) {
         int n = 0;
         String sql = "Update Suppliers set "
                 + "firstname =?,"
@@ -155,19 +157,18 @@ public class DAOSupplier extends connectDB {
         return n;
     }
 
-
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-        Suppliers sup= d.getSuppiler("nguyenphuong");
+        Suppliers sup = d.getSuppiler("nguyenphuong");
 //        SupplierAddresses ad=d.getSuppiler("nguyenphuong");
         System.out.println(sup);
-        
+
         sup.setFirstName("new ");
         sup.setLastName("person");
-        
+
         int n = d.updateSupplier(sup);
-        
+
         System.out.println(sup);
-        
+
     }
 }

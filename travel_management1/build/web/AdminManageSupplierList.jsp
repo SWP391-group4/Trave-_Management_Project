@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -364,14 +365,14 @@
 
                         <div class="row">
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
 
                                 <!-- Supplier List -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Suppliers List</h6>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body col-md-12">
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -384,18 +385,51 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Supplier</td>
-                                                    <td>Homestay</td>
-                                                    <td>Email@gmail.com</td>
-                                                    <td><button type="button" class="btn btn-primary">Preview</button></td>
-                                                    <td><button type="button" class="btn btn-warning">Detail</button></td>
-                                                </tr>
-
+                                                <c:forEach items="${list}" var="o">
+                                                    <tr>
+                                                        <th scope="row"></th>
+                                                        <td>${o.firstName} ${o.lastName}</td>
+                                                        <td>${o.homestayName}</td>
+                                                        <td>${o.email}</td>
+                                                        <td><button type="button" class="btn btn-primary">Preview</button></td>
+                                                        <td><button type="button" class="btn btn-warning">Detail</button></td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
+
+
                                     </div>
+
+                                    <c:set value="${endPage}" var="o"/>
+                                    <ul class="pagination justify-content-center">
+                                        <c:choose>
+                                            <c:when test="${tag > 1}">
+                                                <li class="page-item ">
+                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
+                                                </li>
+                                            </c:when>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${tag+4< endPage}">
+                                                <c:forEach begin="${tag}" end="${tag+2}" var="i">
+                                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
+                                                    </c:forEach>
+                                                </c:when>
+
+                                            </c:choose>
+
+                                        <c:choose>
+                                            <c:when test="${tag+6< endPage}">
+                                                <li class="page-item">
+                                                    <c:set value="${tag+1}" var="n"/>
+                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
+                                                </li>
+                                            </c:when>
+                                        </c:choose>
+
+                                    </ul>
+
                                 </div>
 
                                 <!-- Brand Buttons -->
@@ -420,7 +454,7 @@
 
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
 
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">

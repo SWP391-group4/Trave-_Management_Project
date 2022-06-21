@@ -37,27 +37,25 @@ public class ListAllHomeStayController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String indexPage = request.getParameter("index");
-        if(indexPage==null){
-            indexPage="1";
+        if (indexPage == null) {
+            indexPage = "1";
         }
-        int index=Integer.parseInt(indexPage);
-       
-            /* TODO output your page here. You may use following sample code. */
-            DAOHomeStays dao = new DAOHomeStays();
-            int count=dao.countToDiv();
-            int endPage= count/10;
-            if(count%10!=0){
-                endPage++;
-            }
-            
-            
-            List<HomeStays> listHomeStay=dao.paggingHomeStay(index);
-           request.setAttribute("endPage", endPage);
-            request.setAttribute("list", listHomeStay);
-            request.setAttribute("tag", index);
-             request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
+        int index = Integer.parseInt(indexPage);
+
+        /* TODO output your page here. You may use following sample code. */
+        DAOHomeStays dao = new DAOHomeStays();
+        int count = dao.countToDiv();
+        int endPage = count / 10;
+        if (count % 10 != 0) {
+            endPage++;
         }
-    
+
+        List<HomeStays> listHomeStay = dao.paggingHomeStay(index);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listHomeStay);
+        request.setAttribute("tag", index);
+        request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
