@@ -36,6 +36,18 @@ import java.util.logging.Logger;
         
         return null;
     }
+    public int totalAccount() {
+        String sql = "select count(account) from accounts";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
         System.out.println(dao.search("tungseo11", "123456"));

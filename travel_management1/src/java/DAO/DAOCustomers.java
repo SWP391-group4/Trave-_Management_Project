@@ -97,7 +97,18 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
-
+    public int totalUser() {
+        String sql = "select count(accountc) from customers";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
