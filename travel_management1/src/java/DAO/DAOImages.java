@@ -553,7 +553,8 @@ public class DAOImages {
                     <!-- /.container-fluid -->
 
                 </div>xszv
-                <!-- End of Main Content -->
+                <!-- End of Main Content -->ngao vcl ma
+
 
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
