@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "MarketingProfileController", urlPatterns = {"/MarketingProfileController"})
 public class MarketingProfileController extends HttpServlet {
-// nam
+// na
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
