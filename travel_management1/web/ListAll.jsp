@@ -48,10 +48,10 @@
                         <div class="col-lg-3 sidebar  ftco-animate"style="">
                             <div class="sidebar-wrap ftco-animate">
                                 <h3 class="heading mb-4">Find City</h3>
-                                <form action="#">
+                                <form action="searchHomeStay">
                                     <div class="fields">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Destination, City">
+                                            <input type="text" value=""${txtsearch} method="get" name="txt" class="form-control" placeholder="Destination, City">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="HomeStay Name">
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
                                         </div>
                                     </div>
                                 </form>

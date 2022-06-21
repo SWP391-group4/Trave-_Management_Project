@@ -195,12 +195,26 @@ public class DAOHomeStays extends connectDB {
         }
         return list;
     }
+    public List<HomeStays> SearchbyProvince(String txtSearch) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select h.HomeStayId,h.HomeStayName,h.CateId,ha.city,ha.district,ha.specific,ha.ward  from HomeStays h inner join HomeStayAddressses ha on h.HomeStayId=ha.HomeStayId where city like '%"+ txtSearch+ "%'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+               list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        List<HomeStays> l = dao.paggingHomeStay(1);
+//        List<HomeStays> l = dao.paggingHomeStay(1);
+         List<HomeStays> list = dao.SearchbyProvince("La");
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-        for (HomeStays o : l) {
+        for (HomeStays o : list) {
             System.out.println(o);
         }
 //int count = dao.countToDiv();
