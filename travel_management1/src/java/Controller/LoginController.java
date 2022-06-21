@@ -78,9 +78,11 @@ public class LoginController extends HttpServlet {
                     break;
                 case 3:
                     DAOSupplier daoSup=new DAOSupplier();
-                    Suppliers sup=daoSup.getSuppiler(account);
+                    Suppliers sp=daoSup.getSuppiler(account);
+                       SupplierAddresses spa = daoSup.getSupplierAddresses(account);
                     session.setAttribute("accS", acc);
-                    session.setAttribute("sup", sup);
+                    session.setAttribute("sp", sp);
+                     session.setAttribute("spa", spa);
                     response.sendRedirect("suppilerProflieController");
                     break;
                 case 4:

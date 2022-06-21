@@ -1,11 +1,10 @@
-<%@page import="Entity.Suppliers"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
@@ -20,6 +19,7 @@
 
         <link rel="stylesheet" href="css/ionicons.min.css">
 
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
 
@@ -29,10 +29,10 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">OhYeah</a>
+                <a class="navbar-brand" href="index.html">CTUTRAVEL</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
@@ -45,11 +45,11 @@
                         <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            <c:if test="${sessionScope.accS!=null}">
+                            <c:if test="${sessionScope.acc!=null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello ${sessionScope.accS.account}</a></li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello${sessionScope.acc.account}</a></li>
                             </c:if>
-                            <c:if test="${sessionScope.accS==null}">
+                            <c:if test="${sessionScope.acc==null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
                                 </c:if> 
                     </ul>
@@ -71,262 +71,139 @@
         </div>
 
         <section >
-            <div class="container p-0">
-                <h1 class="h3 mb-3">Settings</h1>
-                <div class="row">
-                    <div class="col-md-5 col-xl-4">
+            <div class="container">
+                <div class="main-body">
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Profile Settings</h5>
+                    <!-- Breadcrumb -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+                        <a class="navbar-brand" href="#">Account</a>
+                         <a class="nav-item nav-link active" href="#">Manage<span class="sr-only">(current)</span></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+<!--                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link active" href="#">Manage<span class="sr-only">(current)</span></a>
+                               
                             </div>
-
-                            <div class="list-group list-group-flush" role="tablist">
-                                <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
-                                    Account 
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                                    Password
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Privacy and safety
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Email notifications
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Web notifications
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Widgets
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Your data
-                                </a>
-                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                    Delete account
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-7 col-xl-8">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="account" role="tabpanel">
-
+                        </div>-->
+                    </nav>
+                    <!-- /Breadcrumb -->
+                    <form action="suppilerProflieController" method="post">
+                        <div class="row gutters-sm">
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-actions float-right">
-                                            <div class="dropdown show">
-                                                <a href="#" data-toggle="dropdown" data-display="static">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle">
-                                                    <circle cx="12" cy="12" r="1"></circle>
-                                                    <circle cx="19" cy="12" r="1"></circle>
-                                                    <circle cx="5" cy="12" r="1"></circle>
-                                                    </svg>
-                                                </a>
-                                                <% Suppliers sup = (Suppliers) request.getAttribute("sup");%>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                </div>
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center text-center">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                            <div class="mt-3">
+                                                <h4>${sp.firstName} ${sp.lastName}</h4>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Reset Email</li>
+                                                    <li class="list-group-item">Reset Password</li>
+                                                    
+                                                </ul>
+
                                             </div>
                                         </div>
-                                        <h5 class="card-title mb-0">Public info</h5>
                                     </div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label for="inputUsername">Username  <%=sup.getAccountS()%></label>
-                                                        <input type="text" class="form-control" id="inputUsername"  placeholder="Username">
-                                                    </div>
+                                </div>
 
+                            </div>
+
+                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mb-2 text-primary">Personal Details</h6>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="fullName">First Name</label>
+                                                    <input type="text" class="form-control" id="fullName" value="${sp.firstName}" name="fname">
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="text-center">
-                                                        <img alt="Andrew Jones" src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle img-responsive mt-2" width="128" height="128">
-                                                        <div class="mt-2">
-                                                            <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="fullName">Last Name</label>
+                                                    <input type="text" class="form-control" id="fullName" value=" ${sp.lastName}" name="lname">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="eMail">Email</label>
+                                                    <div class="col-sm-9 text-secondary card form-control">
+                                                        <div>
+                                                            ${sp.email}
                                                         </div>
-                                                        <small>For best results, use an image at least 128px by 128px in .jpg format</small>
                                                     </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="eMail">Phone</label>
+                                                    <div class="col-sm-9 text-secondary card form-control">
+                                                        <div>
+                                                            ${sp.phone}
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </form>
-
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-actions float-right">
-                                            <div class="dropdown show">
-                                                <a href="#" data-toggle="dropdown" data-display="static">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle">
-                                                    <circle cx="12" cy="12" r="1"></circle>
-                                                    <circle cx="19" cy="12" r="1"></circle>
-                                                    <circle cx="5" cy="12" r="1"></circle>
-                                                    </svg>
-                                                </a>
-
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mt-3 mb-2 text-primary">Address</h6>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="Street">Specific</label>
+                                                    <input type="name" class="form-control" id="Street" value="${spa.specific}" name="specific">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="ciTy">Ward</label>
+                                                    <input type="name" class="form-control" id="ciTy" value="${spa.ward}" name="ward">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="sTate">District</label>
+                                                    <input type="text" class="form-control" id="sTate" value="${spa.district}" name="district">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="zIp">City</label>
+                                                    <input type="text" class="form-control" id="zIp" value="${spa.city}" name="city">
                                                 </div>
                                             </div>
                                         </div>
-                                        <h5 class="card-title mb-0">Private info</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputFirstName">First name <%=sup.getFirstName()%></label>
-                                                    <input type="text" class="form-control" id="inputFirstName"  placeholder="First name">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputLastName">Last name <%=sup.getLastName()%></label>
-                                                    <input type="text" class="form-control" id="inputLastName"   placeholder="Last name">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputEmail4">Email  <%=sup.getEmail()%></label>
-                                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Fax  <%=sup.getFax()%></label>
-                                                <input type="text" class="form-control" id="inputAddress"  placeholder="xxxxxxxx">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Phone  <%=sup.getPhone()%></label>
-                                                <input type="text" class="form-control" id="inputAddress2"  placeholder="xxxxxxxxxxxxxxx">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState">State</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected="">Choose...</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </form>
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="text-right">
+                                                    <p class="success">${noti}</p>
+                                                    <input type="submit" name="submit" class="btn btn-primary" value="Update">
 
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane fade" id="password" role="tabpanel">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Password</h5>
-
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="inputPasswordCurrent">Current password</label>
-                                                <input type="password" class="form-control" id="inputPasswordCurrent">
-                                                <small><a href="#">Forgot your password?</a></small>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="inputPasswordNew">New password</label>
-                                                <input type="password" class="form-control" id="inputPasswordNew">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPasswordNew2">Verify password</label>
-                                                <input type="password" class="form-control" id="inputPasswordNew2">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </form>
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
             </div>
+
         </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">OhYeah</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 class="ftco-heading-2">Information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                                <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                                <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                                <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                                <li><a href="#" class="py-2 d-block">Refund policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Experience</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Beach</a></li>
-                                <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                                <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                                <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                                <li><a href="#" class="py-2 d-block">Nature</a></li>
-                                <li><a href="#" class="py-2 d-block">Party</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="Footer.jsp"/>
 
 
 
