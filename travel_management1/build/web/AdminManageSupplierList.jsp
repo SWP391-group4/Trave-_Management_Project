@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
+        <title>Supplier List</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,7 +42,7 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="index.html">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
@@ -58,17 +57,18 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                       aria-expanded="true" aria-controls="collapseTwo">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                       aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Components</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Components:</h6>
-                            <a class="collapse-item" href="AdminManageSupplierList.jsp">Suppliers</a>
-                            <a class="collapse-item" href="#">Cards</a>
+                            <h6 class="collapse-header">Custom Components:</h6>
+                            <a class="collapse-item active" href="buttons.html">Buttons</a>
+                            <a class="collapse-item" href="cards.html">Cards</a>
                         </div>
                     </div>
                 </li>
@@ -141,13 +141,6 @@
                 <!-- Sidebar Toggler (Sidebar) -->
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
-
-                <!-- Sidebar Message -->
-                <div class="sidebar-card d-none d-lg-flex">
-                    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                    <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                    <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
                 </div>
 
             </ul>
@@ -367,278 +360,203 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
-
-                        <!-- Content Row -->
-                        <div class="row">
-
-                            <!-- Supplier Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Supplier (Total)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- User Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-success shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    User(Total)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Pending Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-info shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pending Supplier
-                                                </div>
-                                                <div class="row no-gutters align-items-center">
-                                                    <div class="col-auto">
-                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="progress progress-sm mr-2">
-                                                            <div class="progress-bar bg-info" role="progressbar"
-                                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                                 aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Pending Requests Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-warning shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    FAQs</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Content Row -->
+                        <h1 class="h3 mb-4 text-gray-800">Buttons</h1>
 
                         <div class="row">
 
-                            <!-- Area Chart -->
+                            <div class="col-lg-6">
 
-
-                            <!-- Content Row -->
-                            <div class="row">
-
-                                <!-- Content Column -->
-                                <div class="col-lg-6 mb-4 col-md-6">
-
-                                    <!-- Project Card Example -->
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
-                                            <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
-                                            <a href="#">View all</a>
-                                        </div>
+                                <!-- Supplier List -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Suppliers List</h6>
+                                    </div>
+                                    <div class="card-body">
                                         <table class="table table-striped">
                                             <thead>
-
                                                 <tr>
                                                     <th scope="col">#</th>
                                                     <th scope="col">Supplier</th>
                                                     <th scope="col">Homestay</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col"></th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach items="${listSup}" var="s">
-                                                    <tr>
-                                                        <th scope="row"></th>
-                                                        <td>${s.firstName} ${s.lastName}</td>
-                                                        <td>${s.homestayName}</td>
-                                                        <td>${s.email}</td>
-                                                        <td><input type="submit" value="View" class="btn btn-primary"/></td>
-                                                
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Supplier</td>
+                                                    <td>Homestay</td>
+                                                    <td>Email@gmail.com</td>
+                                                    <td><button type="button" class="btn btn-primary">Preview</button></td>
+                                                    <td><button type="button" class="btn btn-warning">Detail</button></td>
                                                 </tr>
-                                            </c:forEach>
 
                                             </tbody>
                                         </table>
                                     </div>
-
-
-
                                 </div>
 
-                                <div class="col-lg-6 mb-4  col-md-6">
-
-                                    <!-- Illustrations -->
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">Pending Register</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Supplier</th>
-                                                        <th scope="col">Homestay</th>
-                                                        <th scope="col">Email</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Supplier</td>
-                                                        <td>Homestay</td>
-                                                        <td>Email</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                <!-- Brand Buttons -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
                                     </div>
+                                    <div class="card-body">
+                                        <p>Google and Facebook buttons are available featuring each company's respective
+                                            brand color. They are used on the user login and registration pages.</p>
+                                        <p>You can create more custom buttons by adding a new color variable in the
+                                            <code>_variables.scss</code> file and then using the Bootstrap button variant
+                                            mixin to create a new style, as demonstrated in the <code>_buttons.scss</code>
+                                            file.</p>
+                                        <a href="#" class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i>
+                                            .btn-google</a>
+                                        <a href="#" class="btn btn-facebook btn-block"><i
+                                                class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a>
 
-                                    <!-- Approach -->
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">FAQs</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                                CSS bloat and poor page performance. 
-                                                hihihi
-                                            </p>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First</th>
-                                                        <th scope="col">Last</th>
-                                                        <th scope="col">Handle</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-
-                                        </div>
                                     </div>
-
                                 </div>
+
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Split Buttons with Icon</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Works with any button colors, just use the <code>.btn-icon-split</code> class and
+                                            the markup in the examples below. The examples below also use the
+                                            <code>.text-white-50</code> helper class on the icons for additional styling,
+                                            but it is not required.</p>
+                                        <a href="#" class="btn btn-primary btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-flag"></i>
+                                            </span>
+                                            <span class="text">Split Button Primary</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                            <span class="text">Split Button Success</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-info btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-info-circle"></i>
+                                            </span>
+                                            <span class="text">Split Button Info</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-warning btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </span>
+                                            <span class="text">Split Button Warning</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Split Button Danger</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-secondary btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                            <span class="text">Split Button Secondary</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-light btn-icon-split">
+                                            <span class="icon text-gray-600">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                            <span class="text">Split Button Light</span>
+                                        </a>
+                                        <div class="mb-4"></div>
+                                        <p>Also works with small and large button classes!</p>
+                                        <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-flag"></i>
+                                            </span>
+                                            <span class="text">Split Button Small</span>
+                                        </a>
+                                        <div class="my-2"></div>
+                                        <a href="#" class="btn btn-primary btn-icon-split btn-lg">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-flag"></i>
+                                            </span>
+                                            <span class="text">Split Button Large</span>
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
-                        <!-- /.container-fluid -->
 
                     </div>
-                    <!-- End of Main Content -->
-
-                    <!-- Footer -->
-                    <footer class="sticky-footer bg-white">
-                        <div class="container my-auto">
-                            <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; Your Website 2021</span>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- End of Footer -->
+                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Content Wrapper -->
+                <!-- End of Main Content -->
 
-            </div>
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="login.html">Logout</a>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2020</span>
                         </div>
                     </div>
-                </div>`
+                </footer>
+                <!-- End of Footer -->
+
             </div>
+            <!-- End of Content Wrapper -->
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        </div>
+        <!-- End of Page Wrapper -->
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Page level custom scripts -->
-            <script src="js/demo/chart-area-demo.js"></script>
-            <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
     </body>
 

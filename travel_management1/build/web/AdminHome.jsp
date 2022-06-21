@@ -66,9 +66,9 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Buttons</a>
-                            <a class="collapse-item" href="cards.html">Cards</a>
+                            <h6 class="collapse-header">Components:</h6>
+                            <a class="collapse-item" href="AdminManageSupplierList.jsp">Suppliers</a>
+                            <a class="collapse-item" href="#">Cards</a>
                         </div>
                     </div>
                 </li>
@@ -475,8 +475,9 @@
 
                                     <!-- Project Card Example -->
                                     <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">List Supplier</h6>
+                                        <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
+                                            <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
+                                            <a href="#">View all</a>
                                         </div>
                                         <table class="table table-striped">
                                             <thead>
@@ -486,6 +487,7 @@
                                                     <th scope="col">Supplier</th>
                                                     <th scope="col">Homestay</th>
                                                     <th scope="col">Email</th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -495,9 +497,11 @@
                                                         <td>${s.firstName} ${s.lastName}</td>
                                                         <td>${s.homestayName}</td>
                                                         <td>${s.email}</td>
-                                                    </tr>
-                                                </c:forEach>
+                                                        <td><input type="submit" value="View" class="btn btn-primary"/></td>
                                                 
+                                                </tr>
+                                            </c:forEach>
+
                                             </tbody>
                                         </table>
                                     </div>
