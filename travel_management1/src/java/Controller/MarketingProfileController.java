@@ -36,7 +36,7 @@ public class MarketingProfileController extends HttpServlet {
             response.sendRedirect("MarketingProfile.jsp");
         }
     }
-
+//ssssss
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
