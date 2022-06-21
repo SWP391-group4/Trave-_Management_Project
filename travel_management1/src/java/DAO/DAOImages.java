@@ -603,7 +603,7 @@ public class DAOImages {
   <script src="js/jquery.easing.1.3.js"></scriptd>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>sdfsdf
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
