@@ -561,7 +561,7 @@ public class DAOImages {
                         <div class="copyright text-center my-auto">
                             <span>Copyright &copy; Your Website 2020</span>
                         </div>
-                    </div>
+                    </div> hjkjygc
 hh
                 </footer>
                 <!-- End of Footer -->
