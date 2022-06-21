@@ -60,7 +60,11 @@
         </nav>
         <!-- END nav -->
 
+        <%
+            Marketing mar = (Marketing) request.getAttribute("mar");
 
+            String submit = (String) request.getAttribute("submit");
+        %> 
 
         <section >
             <div class="container">
@@ -81,7 +85,7 @@
                                     <div class="d-flex flex-column align-items-center text-center">
                                         <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="200">
                                         <div class="mt-3">
-                                            <h4>John Doe</h4>
+                                            <h4><%=mar.getLastName()%> <%=mar.getFirstName()%></h4>
                                             <p class="text-secondary mb-1" >Marketing Staff</p>
                                             <button class="btn btn-primary">Change Avatar</button>
                                         </div>
@@ -91,10 +95,8 @@
                             <div class="card mt-3">
                             </div>
                         </div>  
-                        <%
-                            Marketing mar = (Marketing) request.getAttribute("mar");
-                        %> 
-                        <form class="col-md-8" action="TitlesController" method="post">
+
+                        <form class="col-md-8" action="MarketingProfileController" method="post">
                             <input type="hidden" name="go" value="updateMarketing">
                             <div>
                                 <div class="card mb-6">
@@ -113,7 +115,7 @@
                                                 <h6 class="mb-0">Last Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getLastName()%>" name="fname">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getLastName()%>" name="lname">
                                             </div>
                                         </div>
                                         <hr>
@@ -122,7 +124,7 @@
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getEmail()%>" name="fname">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getEmail()%>" name="email">
                                             </div>
                                         </div>
                                         <hr>
@@ -131,7 +133,7 @@
                                                 <h6 class="mb-0">Age</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getAge()%>" name="fname">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getAge()%>" name="age">
                                             </div>
                                         </div>
                                         <hr>
@@ -140,11 +142,16 @@
                                                 <h6 class="mb-0">Phone Number</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getPhone()%>" name="fname">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getPhone()%>" name="phone">
                                             </div>
                                         </div>
                                         <hr>
 
+                                        <%if (submit!= ""||submit!=null) {
+                                                String noti = (String) request.getAttribute("noti");
+                                        %>
+                                        <h7 style="color: #ff253a"><%=submit%></h7>
+                                            <%}%>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <input class="btn btn-info"  type="submit" value="Update" name="submit">

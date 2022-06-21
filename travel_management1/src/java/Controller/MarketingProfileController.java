@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOMarketing;
 import Entity.Marketing;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,6 +38,7 @@ public class MarketingProfileController extends HttpServlet {
         if (service == null) {//call controller direct
             service = "Show";
         }
+        DAOMarketing dao = new DAOMarketing();
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (service.equals("Show")) {
@@ -47,41 +49,41 @@ public class MarketingProfileController extends HttpServlet {
                 request.setAttribute("mar", mar);
                 request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
             }
-             if (service.equals("updateMarketing")) {
+            if (service.equals("updateMarketing")) {
                 //getdata from model
                 String submit = request.getParameter("submit");
-                 if (submit == null) {
-                    String titleID = request.getParameter("titleID");
-                    String sql = "SELECT * FROM [dbo].[titles] where title_id='" + titleID + "'";
-                    ResultSet rs = c1.getData(sql);
-                    ResultSet rs1 = c1.getData("select * from Publishers");
-                    request.setAttribute("rsTitle", rs);
-                    request.setAttribute("rsPublisher", rs1);
-                    dispath(request, response, "/JSP/UpdateTitles.jsp");
+                if (submit == null) {
+                    HttpSession session = request.getSession();
+                    Marketing mar = (Marketing) session.getAttribute("mar");
+                    // tim cach dung thang vao jsp
+                    request.setAttribute("mar", mar);
+                    request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                 } else {
-                    String Title_id = request.getParameter("Title_id");
-                    String Title = request.getParameter("Title");
-                    String type = request.getParameter("type");
-                    String pub_id = request.getParameter("pub_id");
-                    String price = request.getParameter("price");
-                    String advance = request.getParameter("advance");
-                    String royalty = request.getParameter("royalty");
-                    String ytd_sales = request.getParameter("ytd_sales");
-                    String notes = request.getParameter("notes");
-                    String pubdate = request.getParameter("pubdate");
-                    String image = request.getParameter("image");
-                    double Price = Double.parseDouble(price);
-                    double Advance = Double.parseDouble(advance);
-                    int Royalty = Integer.parseInt(royalty);
-                    int Rtd = Integer.parseInt(ytd_sales);
-
+                    HttpSession session = request.getSession();
+                    Marketing mar = (Marketing) session.getAttribute("mar");
+                    String accountM = mar.getAccountM();
+                    String firstName = request.getParameter("fname");
+                    String lastName = request.getParameter("lname");
+                    String age = request.getParameter("age");
+                    String email = request.getParameter("email");
+                    String phone = request.getParameter("phone");
+                    int Age = Integer.parseInt(age);
                     //insert
-                    Titles obj = new Titles(Title_id, Title, type, pub_id,
-                            Price, Advance, Royalty, Rtd, notes, pubdate, image);
-                    out.print(obj);
-                    int n = c1.updateTitles(obj);
-                    response.sendRedirect("TitlesController");
-//                  dispath(request, response, "/JSP/UpdateTitles.jsp");
+                    Marketing mar1 = new Marketing(accountM, firstName, lastName, Age, email, phone);
+                    int n = dao.updateMarketing(mar1);
+                    if (n == 0 ) {
+                        String noti = "Update fails";
+                        request.setAttribute("mar", mar1);
+                        request.setAttribute("noti", noti);
+                        request.setAttribute("submit", submit);
+                        request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
+                    } else {
+                        String noti = "Update done.";
+                        request.setAttribute("mar", mar1);
+                        request.setAttribute("noti", noti);
+                        request.setAttribute("submit", submit);
+                        request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
+                    }
                 }
             }
         }
