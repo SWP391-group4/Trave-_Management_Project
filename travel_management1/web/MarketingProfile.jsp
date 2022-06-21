@@ -101,7 +101,7 @@
                       <h6 class="mb-0">First Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
                     </div>
                   </div>
                   <hr>
@@ -110,7 +110,7 @@
                       <h6 class="mb-0">Last Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                     hi
+                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
                     </div>
                   </div>
                   <hr>
@@ -119,7 +119,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                     <input type="text" class="form-control" id="fullName" value="nam" name="fname">
                     </div>
                   </div>
                   <hr>
@@ -128,7 +128,7 @@
                       <h6 class="mb-0">Age</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                        <input type="text" class="form-control" id="fullName" value="nam" name="fname">
                     </div>
                   </div>
                   <hr>
@@ -137,7 +137,7 @@
                       <h6 class="mb-0">Phone Number</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                      <input type="text" class="form-control" id="fullName" value="nam" name="fname">
                     </div>
                   </div>
                   <hr>
