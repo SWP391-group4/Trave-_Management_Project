@@ -52,5 +52,6 @@ public class DAOMarketing extends connectDB{
     public static void main(String[] args) {
         DAOMarketing dao=new DAOMarketing();
         System.out.println(dao.getMarketing("bautroikhongem"));
+        System.out.println(dao.getMarketingImage("bautroikhongem"));
     }
 }
