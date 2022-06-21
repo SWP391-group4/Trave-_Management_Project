@@ -147,10 +147,10 @@
                                         </div>
                                         <hr>
 
-                                        <%if (submit!= ""||submit!=null) {
+                                        <%if (submit!=""||submit!=null||!submit.isEmpty()) {
                                                 String noti = (String) request.getAttribute("noti");
                                         %>
-                                        <h7 style="color: #ff253a"><%=submit%></h7>
+                                        <h7 style="color: #ff253a"><%=noti%></h7>
                                             <%}%>
                                         <div class="row">
                                             <div class="col-sm-12">
