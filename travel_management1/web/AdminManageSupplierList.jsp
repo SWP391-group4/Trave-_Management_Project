@@ -360,8 +360,7 @@
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-4 text-gray-800">Buttons</h1>
+                        
 
                         <div class="row">
 
@@ -403,7 +402,10 @@
                                                                 <input type="hidden" value="${o.homestayId}"  name="homestayId"/>
                                                                 Preview
                                                             </button></td>
-                                                        <td><button type="button" class="btn btn-warning">Detail</button></td>
+                                                            <td>
+<!--                                                                <input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                                                <button type="button" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
+                                                            </td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
@@ -465,6 +467,7 @@
                                                     <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
                                                 </div>
                                             </div>
+                                            
 
                                             <div class="card mb-4">
                                                 <div class="card-body">
