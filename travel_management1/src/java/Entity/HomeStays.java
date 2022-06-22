@@ -16,7 +16,26 @@ public String city;
 public String district;
 public String specific;
 public String ward;
+public String cateName;
 
+    public String getCateName() {
+        return cateName;
+    }
+
+    public void setCateName(String cateName) {
+        this.cateName = cateName;
+    }
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+    }
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -94,8 +113,10 @@ public String ward;
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + '}';
     }
+
+  
 
    
     

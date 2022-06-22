@@ -53,6 +53,7 @@ public class CategoriesController extends HttpServlet {
         request.setAttribute("list", list);
 //         request.setAttribute("endPage", endPage);
             request.setAttribute("listC", listC);
+             request.setAttribute("act", cateID);
 //            request.setAttribute("tag", index);
         request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
     }

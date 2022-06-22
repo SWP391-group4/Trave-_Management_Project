@@ -96,7 +96,7 @@
                                 <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
                                 <ul class="list-group category_block">
                                     <c:forEach items="${listC}" var="c">
-                                    <li class="list-group-item list-group-item-action list-group-item-light text-dark"><a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    <li class="list-group-item text-dark ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
                                     </c:forEach>
 
                                 </ul>
@@ -156,7 +156,7 @@
 
                                                 <div class="one">
                                                     <h3><a href="#"></a>${o.getHomeStayname()}</h3>
-
+${o.cateName}
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
