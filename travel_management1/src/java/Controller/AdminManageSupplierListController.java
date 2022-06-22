@@ -62,7 +62,6 @@ public class AdminManageSupplierListController extends HttpServlet {
         HomeStayAddressses homestayAddress = daoTemp.getHomeStay(homestayId);
         int evaluate = daoTemp.getEvaluate(homestayId);
 //       --------------------------
-
         request.setAttribute("supHome", supHome);
         request.setAttribute("address", homestayAddress);
         request.setAttribute("evaluate", evaluate);
