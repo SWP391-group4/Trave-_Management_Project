@@ -34,12 +34,12 @@ public class HomeStaySearch extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String txtSearch = request.getParameter("txt");
+         String txtSearch = request.getParameter("txt"); // get du lieu nhap vao
         DAOHomeStays dao = new DAOHomeStays();
        List<HomeStays> list=dao.SearchbyProvince(txtSearch);
               
 
-       request.setAttribute("listh", list);
+       request.setAttribute("list", list);
         request.setAttribute("txtsearch", txtSearch);
          request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
     }
