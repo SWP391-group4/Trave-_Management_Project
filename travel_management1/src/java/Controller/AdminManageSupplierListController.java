@@ -6,6 +6,7 @@ package Controller;
 
 import DAO.DAOHomeStays;
 import DAO.DAOSupplierTemp;
+import Entity.HomeStayAddressses;
 import Entity.HomeStays;
 import Entity.SupplierHomestays;
 import java.io.IOException;
@@ -46,17 +47,31 @@ public class AdminManageSupplierListController extends HttpServlet {
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
         DAOHomeStays daoHome = new DAOHomeStays();
         int count = daoHome.countToDiv();
-        int endPage = count /7;
+        int endPage = count / 7;
         if (count % 7 != 0) {
             endPage++;
         }
 
+//        --------------------
+        DAOSupplierTemp daoTemp = new DAOSupplierTemp();
+
+        String accountS = request.getParameter("accountS");
+        String homestayId = request.getParameter("homestayId");
+
+        SupplierHomestays supHome = daoTemp.getPreview(accountS, homestayId);
+        HomeStayAddressses homestayAddress = daoTemp.getHomeStay(homestayId);
+        int evaluate = daoTemp.getEvaluate(homestayId);
+//       --------------------------
+
+        request.setAttribute("supHome", supHome);
+        request.setAttribute("address", homestayAddress);
+        request.setAttribute("evaluate", evaluate);
         List<SupplierHomestays> listHomeStay = daoSup.pagging(index);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listHomeStay);
         request.setAttribute("tag", index);
         request.getRequestDispatcher("/AdminManageSupplierList.jsp").forward(request, response);
-    
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

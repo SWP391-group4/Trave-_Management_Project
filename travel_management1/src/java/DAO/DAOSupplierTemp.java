@@ -53,15 +53,76 @@ public class DAOSupplierTemp extends connectDB {
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new SupplierHomestays(
-                        rs.getString(1), 
-                        rs.getString(2), 
-                        rs.getString(3), 
-                        rs.getString(4), 
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
                         rs.getString(5)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+
+    public SupplierHomestays getPreview(String accountS, String homestayId) {
+
+        String sql = "select s.accountS, firstName,lastName, fax, \n"
+                + "email, phone, homestayId, homestayName, cateId\n"
+                + "from suppliers s, homestays \n"
+                + "where "
+                + "s.accountS = '"+accountS+"' and HomeStayId = '"+homestayId+"'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new SupplierHomestays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public HomeStayAddressses getHomeStay(String homestayID) {
+        String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStayAddressses(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public int getEvaluate(String homestayID) {
+        String sql = "select avg(star) from reviews where HomeStayId = '"+homestayID+"'";
+        
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }
