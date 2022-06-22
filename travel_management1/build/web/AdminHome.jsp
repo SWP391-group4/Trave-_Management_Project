@@ -144,7 +144,7 @@
                 </div>
 
                 <!-- Sidebar Message -->
-                </div>
+                
 
             </ul>
             <!-- End of Sidebar -->
