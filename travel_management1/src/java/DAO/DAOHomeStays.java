@@ -5,6 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.Categories;
 import Entity.HomeStayAddressses;
 
 import Entity.HomeStays;
@@ -133,7 +134,27 @@ public class DAOHomeStays extends connectDB {
         }
         return vec;
     }
+    
+    public List<HomeStays> getHomeStaybyCID(String cid) {
+              List<HomeStays> list = new ArrayList<>();
+        String sql = "select h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward from HomeStays h inner join HomeStayAddressses ha on\n" +
+"                h.HomeStayid=ha.HomeStayid where CateId=?";
 
+        try {
+          
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cid);
+             
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     public HomeStayAddressses searchByHomeStay(String homestayID) {
         String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
 
@@ -208,11 +229,30 @@ public class DAOHomeStays extends connectDB {
         }
         return list;
     }
+     public List<Categories> ListCate() {
+        List<Categories> vec = new ArrayList<Categories>();
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[Categories]";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String cateId = rs.getString(1);
+                String cateName = rs.getString(2);
+                String accountS = rs.getString(3);
+                Categories obj = new Categories(cateId, cateName, accountS);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
+    }
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
 //        List<HomeStays> l = dao.paggingHomeStay(1);
-         List<HomeStays> list = dao.SearchbyProvince("La");
+         List<HomeStays> list = dao.getHomeStaybyCID("CATID001");
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
         for (HomeStays o : list) {
             System.out.println(o);

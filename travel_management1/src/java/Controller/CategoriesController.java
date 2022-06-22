@@ -4,10 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOHomeStayAddresses;
 import DAO.DAOHomeStays;
 import Entity.Categories;
-import Entity.HomeStayAddressses;
 import Entity.HomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thinh
  */
-@WebServlet(name = "ListAllHomeStayController", urlPatterns = {"/ListAllHomeStayController"})
-public class ListAllHomeStayController extends HttpServlet {
+@WebServlet(name = "CategoriesController", urlPatterns = {"/category"})
+public class CategoriesController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,25 +35,25 @@ public class ListAllHomeStayController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String indexPage = request.getParameter("index");
-        if (indexPage == null) {
-            indexPage = "1";
-        }
-        int index = Integer.parseInt(indexPage);
-
-        /* TODO output your page here. You may use following sample code. */
+//        String indexPage = request.getParameter("index");
+//        if (indexPage == null) {
+//            indexPage = "1";
+//        }
+//       int index = Integer.parseInt(indexPage);
+     String cateID=request.getParameter("cid");
         DAOHomeStays dao = new DAOHomeStays();
-        int count = dao.countToDiv();
-        int endPage = count / 10;
-        if (count % 10 != 0) {
-            endPage++;
-        }
-List<Categories> listC=dao.ListCate();
-        List<HomeStays> listHomeStay = dao.paggingHomeStay(index);
-        request.setAttribute("endPage", endPage);
+//         int count = dao.countToDiv();
+//        int endPage = count / 5;
+//        if (count % 5 != 0) {
+//            endPage++;
+//        }
+        
+        List<Categories> listC=dao.ListCate();
+        List<HomeStays> list=dao.getHomeStaybyCID(cateID);
+        request.setAttribute("list", list);
+//         request.setAttribute("endPage", endPage);
             request.setAttribute("listC", listC);
-        request.setAttribute("list", listHomeStay);
-        request.setAttribute("tag", index);
+//            request.setAttribute("tag", index);
         request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
     }
 

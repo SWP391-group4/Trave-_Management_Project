@@ -95,9 +95,9 @@
                             <div class="card bg-warning mb-3">
                                 <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
                                 <ul class="list-group category_block">
-
-                                    <li class="list-group-item list-group-item-action list-group-item-secondary text-light"><a href="category?cid="></a></li>
-
+                                    <c:forEach items="${listC}" var="c">
+                                    <li class="list-group-item list-group-item-action list-group-item-light text-dark"><a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    </c:forEach>
 
                                 </ul>
                             </div>
