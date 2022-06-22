@@ -9,13 +9,14 @@ package Entity;
  * @author thinh
  */
 public class HomeStays {
+
     public String homeStayID;
     public String homeStayname;
     public String cateID;
-public String city;
-public String district;
-public String specific;
-public String ward;
+    public String city;
+    public String district;
+    public String specific;
+    public String ward;
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward) {
         this.homeStayID = homeStayID;
@@ -97,6 +98,4 @@ public String ward;
         return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + '}';
     }
 
-   
-    
 }

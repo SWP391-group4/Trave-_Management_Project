@@ -4,6 +4,9 @@
  */
 package Controller;
 
+import DAO.DAOSupplierTemp;
+import Entity.HomeStayAddressses;
+import Entity.SupplierHomestays;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,6 +34,8 @@ public class SupplierPreviewController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        request.getRequestDispatcher("").forward(request, response);
         
     }
 
