@@ -7,6 +7,7 @@ package Controller;
 import DAO.DAOAccounts;
 import DAO.DAOAdmins;
 import DAO.DAOCustomers;
+import DAO.DAOMarketing;
 import DAO.DAOSupplier;
 import Entity.Accounts;
 import Entity.*;
@@ -59,7 +60,7 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
         if (acc == null) {
-            
+
             response.sendRedirect("Login.jsp");
         } else {
             HttpSession session = request.getSession();
@@ -73,16 +74,19 @@ public class LoginController extends HttpServlet {
                     response.sendRedirect("AdminProfileController");
                     break;
                 case 2:
-                    session.setAttribute("accM", acc);
+                    DAOMarketing daoM = new DAOMarketing();
+                    Marketing mar = daoM.getMarketing(account);
+                    session.setAttribute("acc", acc);
+                    session.setAttribute("mar", mar);
                     response.sendRedirect("MarketingProfileController");
                     break;
                 case 3:
-                    DAOSupplier daoSup=new DAOSupplier();
-                    Suppliers sp=daoSup.getSuppiler(account);
-                       SupplierAddresses spa = daoSup.getSupplierAddresses(account);
-                    session.setAttribute("accS", acc);
-                    session.setAttribute("sp", sp);
-                     session.setAttribute("spa", spa);
+                    DAOSupplier daoSup = new DAOSupplier();
+                    Suppliers sp = daoSup.getSuppiler(account);
+                    SupplierAddresses spa = daoSup.getSupplierAddresses(account);
+                    session.setAttribute("acc", acc);
+                    session.setAttribute("suppliers", sp);
+                    session.setAttribute("suppliersAddress", spa);
                     response.sendRedirect("suppilerProflieController");
                     break;
                 case 4:
