@@ -71,7 +71,7 @@ public class LoginController extends HttpServlet {
                     Admins admin = daoAd.getAdmin(account);
                     session.setAttribute("acc", acc);
                     session.setAttribute("admin", admin);
-                    response.sendRedirect("AdminProfileController");
+                    response.sendRedirect("adminController");
                     break;
                 case 2:
                     DAOMarketing daoM = new DAOMarketing();
