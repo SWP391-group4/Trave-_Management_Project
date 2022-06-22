@@ -40,14 +40,14 @@
 
         <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
             <div class="container">
-                <a  href="menu.jsp"><img src="images/logo.png" style="width: 70px;height:80px"></a>
+                <a  href="Home"><img src="images/logo.png" style="width: 70px;height:80px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
 
                 <div class="collapse navbar-collapse text-dark" id="ftco-nav" >
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="Home" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
                         <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
                         <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
@@ -62,8 +62,6 @@
 
         <%
             Marketing mar = (Marketing) request.getAttribute("mar");
-
-            String submit = (String) request.getAttribute("submit");
         %> 
 
         <section >
@@ -73,8 +71,8 @@
                     <!-- Breadcrumb -->
                     <nav aria-label="breadcrumb" class="main-breadcrumb" >
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Marketing Profile</li>
+                            <li class="breadcrumb-item "><a href="Home">Home</a></li>
+                            <li class="breadcrumb-item active">Marketing Profile</li>
                         </ol>
                     </nav>
                     <!-- /Breadcrumb -->
@@ -147,11 +145,11 @@
                                         </div>
                                         <hr>
 
-                                        <%if (submit!=""||submit!=null||!submit.isEmpty()) {
+                                        <%
                                                 String noti = (String) request.getAttribute("noti");
                                         %>
                                         <h7 style="color: #ff253a"><%=noti%></h7>
-                                            <%}%>
+                                          
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <input class="btn btn-info"  type="submit" value="Update" name="submit">

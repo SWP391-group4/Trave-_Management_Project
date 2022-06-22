@@ -74,14 +74,16 @@ public class MarketingProfileController extends HttpServlet {
                     if (n == 0 ) {
                         String noti = "Update fails";
                         request.setAttribute("mar", mar1);
+                        if (submit!=""||submit!=null||!submit.isEmpty()) {
                         request.setAttribute("noti", noti);
-                        request.setAttribute("submit", submit);
+                        }
                         request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                     } else {
                         String noti = "Update done.";
                         request.setAttribute("mar", mar1);
+                        if (submit!=""||submit!=null||!submit.isEmpty()) {
                         request.setAttribute("noti", noti);
-                        request.setAttribute("submit", submit);
+                        }
                         request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                     }
                 }
