@@ -81,7 +81,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Don't have account ? Click Here to <a href="rei.html" class="loginhere-link">Sign Up</a>
+                        Don't have account ? Click Here to <a href="registerController" class="loginhere-link">Sign Up</a>
                     </p>
                     <p class="loginhere">
                       <a href="login.html" class="loginhere-link">Forget password</a>

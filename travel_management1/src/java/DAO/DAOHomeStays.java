@@ -250,7 +250,33 @@ public class DAOHomeStays extends connectDB {
         }
         return vec;
     }
-
+     
+       public List<HomeStays> getHomeStaybyID(String homeStayID) {
+        List<HomeStays> list = new ArrayList<>();
+     String sql = "select  h.HomeStayid,h.homestayname,h.cateID "
+             + ",ha.city,ha.district,ha.specific,ha.ward,cs.CateName,"
+             + "c.BedQty,c.BedRoomQty,c.BathRoomQty,c.LivingRoomQty,c.KitchenQty,c.CheckIn,"
+             + "c.CheckOut,c.Price,c.IncurredCost,r.Star,r.Feedback from "
+             + "((((HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid ) "
+             + "inner join HomeStayDetails c on h.HomeStayId=c.HomeStayId ) "
+             + "inner join Reviews r on h.HomeStayId=r.HomeStayId) "
+             + "inner join Categories cs on cs.CateId=h.CateId) where h.HomeStayId='" + homeStayID + "'";
+        try {
+          
+            PreparedStatement pre = conn.prepareStatement(sql);
+             
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+//// Chua xong 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
         List<HomeStays> list = dao.paggingHomeStay(1);

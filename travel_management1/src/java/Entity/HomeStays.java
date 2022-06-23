@@ -17,9 +17,130 @@ public String district;
 public String specific;
 public String ward;
 public String cateName;
+public int bedQty;
+public int bedRoomQty;
+public int bathRoomQty;
+public int livingRoomQty;
+public int kitchenQty;
+public String checkIn;
+public  String checkOut;
+public double price;
+public double IncurredCost;
+public int star;
+public String feedBack;
 
     public String getCateName() {
         return cateName;
+    }
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.bedQty = bedQty;
+        this.bedRoomQty = bedRoomQty;
+        this.bathRoomQty = bathRoomQty;
+        this.livingRoomQty = livingRoomQty;
+        this.kitchenQty = kitchenQty;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
+        this.star = star;
+        this.feedBack = feedBack;
+    }
+
+    public int getBedQty() {
+        return bedQty;
+    }
+
+    public void setBedQty(int bedQty) {
+        this.bedQty = bedQty;
+    }
+
+    public int getBedRoomQty() {
+        return bedRoomQty;
+    }
+
+    public void setBedRoomQty(int bedRoomQty) {
+        this.bedRoomQty = bedRoomQty;
+    }
+
+    public int getBathRoomQty() {
+        return bathRoomQty;
+    }
+
+    public void setBathRoomQty(int bathRoomQty) {
+        this.bathRoomQty = bathRoomQty;
+    }
+
+    public int getLivingRoomQty() {
+        return livingRoomQty;
+    }
+
+    public void setLivingRoomQty(int livingRoomQty) {
+        this.livingRoomQty = livingRoomQty;
+    }
+
+    public int getKitchenQty() {
+        return kitchenQty;
+    }
+
+    public void setKitchenQty(int kitchenQty) {
+        this.kitchenQty = kitchenQty;
+    }
+
+    public String getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public String getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(String checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getIncurredCost() {
+        return IncurredCost;
+    }
+
+    public void setIncurredCost(double IncurredCost) {
+        this.IncurredCost = IncurredCost;
+    }
+
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+
+    public String getFeedBack() {
+        return feedBack;
+    }
+
+    public void setFeedBack(String feedBack) {
+        this.feedBack = feedBack;
     }
 
     public void setCateName(String cateName) {
