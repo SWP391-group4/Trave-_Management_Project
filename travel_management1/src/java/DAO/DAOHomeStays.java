@@ -134,27 +134,28 @@ public class DAOHomeStays extends connectDB {
         }
         return vec;
     }
-    
+
     public List<HomeStays> getHomeStaybyCID(String cid) {
-              List<HomeStays> list = new ArrayList<>();
-        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n" +
-"                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) where c.CateId=? ";
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n"
+                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) where c.CateId=? ";
 
         try {
-          
+
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, cid);
-             
+
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
+
     public HomeStayAddressses searchByHomeStay(String homestayID) {
         String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
 
@@ -198,40 +199,42 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> paggingHomeStay(int index) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n" +
-"                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) order by HomeStayName offset ? rows fetch next 6 rows only\n" +
-"";
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n"
+                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) order by HomeStayName offset ? rows fetch next 6 rows only\n"
+                + "";
 
         try {
-          
+
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, (index - 1) * 6);
-             
+
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
+
     public List<HomeStays> SearchbyProvince(String txtSearch) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n" +
-"                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) where city like '%"+ txtSearch+ "%'";
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n"
+                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) where city like '%" + txtSearch + "%'";
         ResultSet rs = getData(sql);
         try {
             while (rs.next()) {
-               list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
             }
         } catch (Exception e) {
         }
         return list;
     }
-     public List<Categories> ListCate() {
+
+    public List<Categories> ListCate() {
         List<Categories> vec = new ArrayList<Categories>();
         String sql = "SELECT *\n"
                 + "  FROM [dbo].[Categories]";
@@ -250,37 +253,38 @@ public class DAOHomeStays extends connectDB {
         }
         return vec;
     }
-     
-       public List<HomeStays> getHomeStaybyID(String homeStayID) {
+
+    public List<HomeStays> getHomeStaybyID(String homeStayID) {
         List<HomeStays> list = new ArrayList<>();
-     String sql = "select  h.HomeStayid,h.homestayname,h.cateID "
-             + ",ha.city,ha.district,ha.specific,ha.ward,cs.CateName,"
-             + "c.BedQty,c.BedRoomQty,c.BathRoomQty,c.LivingRoomQty,c.KitchenQty,c.CheckIn,"
-             + "c.CheckOut,c.Price,c.IncurredCost,r.Star,r.Feedback from "
-             + "((((HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid ) "
-             + "inner join HomeStayDetails c on h.HomeStayId=c.HomeStayId ) "
-             + "inner join Reviews r on h.HomeStayId=r.HomeStayId) "
-             + "inner join Categories cs on cs.CateId=h.CateId) where h.HomeStayId='" + homeStayID + "'";
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID "
+                + ",ha.city,ha.district,ha.specific,ha.ward,cs.CateName,"
+                + "c.BedQty,c.BedRoomQty,c.BathRoomQty,c.LivingRoomQty,c.KitchenQty,c.CheckIn,"
+                + "c.CheckOut,c.Price,c.IncurredCost,r.Star,r.Feedback from "
+                + "((((HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid ) "
+                + "inner join HomeStayDetails c on h.HomeStayId=c.HomeStayId ) "
+                + "inner join Reviews r on h.HomeStayId=r.HomeStayId) "
+                + "inner join Categories cs on cs.CateId=h.CateId) where h.HomeStayId='" + homeStayID + "'";
+
         try {
-          
             PreparedStatement pre = conn.prepareStatement(sql);
-             
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9),
+                         rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13), rs.getString(14), rs.getString(15), rs.getDouble(16),
+                        rs.getDouble(17), rs.getInt(18), rs.getString(19)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-     
+
 //// Chua xong 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        List<HomeStays> list = dao.paggingHomeStay(1);
-//         List<HomeStays> list = dao.getHomeStaybyCID("CATID001");
+//        List<HomeStays> list = dao.paggingHomeStay(1);
+        List<HomeStays> list = dao.getHomeStaybyID("HS0001");
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
         for (HomeStays o : list) {
             System.out.println(o);

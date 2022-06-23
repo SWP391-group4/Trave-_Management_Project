@@ -5,12 +5,11 @@
         <group>
             <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/ListAll.jsp</file>
             <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Entity/Categories.java</file>
-            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/HomeStaySearch.java</file>
-            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHomeStays.java</file>
             <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/ListAllHomeStayController.java</file>
-            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/CategoriesController.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHomeStays.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/LoginController.java</file>
             <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Entity/HomeStays.java</file>
-            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/SupplierPreviewController.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/Login.jsp</file>
         </group>
     </open-files>
 </project-private>
