@@ -42,7 +42,7 @@ public class DAOSupplierTemp extends connectDB {
                 + "order by HomeStayName "
                 + "offset ? "
                 + "rows fetch "
-                + "next 7 rows "
+                + "next "+index+" rows "
                 + "only;";
 
         try {
