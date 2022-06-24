@@ -87,7 +87,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="images/<%=mark.getImg_Avatar() %>" alt="Admin" class="rounded-circle" width="200">
+                                            <img src="images/<%=mark.getImg_Avatar()%>" alt="Admin" class="rounded-circle" width="200">
                                             <div class="mt-3" style="text-align: center">
                                                 <h4><%=mar.getLastName()%> <%=mar.getFirstName()%></h4>
                                                 <p class="text-secondary mb-1" >Marketing Staff</p>
@@ -154,8 +154,11 @@
                                         <%
                                             String noti = (String) request.getAttribute("noti");
                                         %>
-                                        <h7 style="color: #ff253a"><%=noti%></h7>
+                                        <%if (noti == null) {
 
+                                            } else {%>
+                                        <h7 style="color: #ff253a"><%=noti%></h7>
+                                            <%}%>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <input class="btn btn-info"  type="submit" value="Update" name="submit">

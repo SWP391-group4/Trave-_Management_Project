@@ -9,7 +9,9 @@ import Entity.Marketing;
 import Entity.MarketingImage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import javafx.scene.input.DataFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
 @MultipartConfig
 /**
  *
@@ -70,40 +73,67 @@ public class MarketingProfileController extends HttpServlet {
                     Part part = request.getPart("image");
                     String realPart = request.getServletContext().getRealPath("/images");
                     String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-                    part.write(realPart + "/" + filename);
-                    
-                    HttpSession session = request.getSession();
-                    Marketing mar = (Marketing) session.getAttribute("mar");
-                    String img = filename;
-                    String accountM = mar.getAccountM();
-                    String firstName = request.getParameter("fname");
-                    String lastName = request.getParameter("lname");
-                    String age = request.getParameter("age");
-                    String email = request.getParameter("email");
-                    String phone = request.getParameter("phone");
-                    int Age = Integer.parseInt(age);
-                    //insert
-                    MarketingImage mar2 = new MarketingImage(accountM, img);
-                    Marketing mar1 = new Marketing(accountM, firstName, lastName, Age, email, phone);
-                    int n = dao.updateMarketing(mar1);
-                    int m = dao.updateMarketingImage(mar2);
-                    if (n == 0 && m == 0) {
-                        String noti = "Update fails";
-                        request.setAttribute("mar", mar1);
-                        // tim cach dung thang vao jsp
-                        request.setAttribute("mark", mar2);
-                        if (submit != "" || submit != null || !submit.isEmpty()) {
+                    if (filename.isEmpty()) {
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        MarketingImage mar2 = dao.getMarketingImage(mar.getAccountM());
+                        String img = mar2.getImg_Avatar();
+                        String accountM = mar.getAccountM();
+                        String firstName = request.getParameter("fname");
+                        String lastName = request.getParameter("lname");
+                        String age = request.getParameter("age");
+                        String email = request.getParameter("email");
+                        String phone = request.getParameter("phone");
+                        int Age = Integer.parseInt(age);
+                        //insert
+                        Marketing mar1 = new Marketing(accountM, firstName, lastName, Age, email, phone);
+                        int n = dao.updateMarketing(mar1);
+                        int m = dao.updateMarketingImage(mar2);
+                        if (n == 0 && m == 0) {
+                            String noti = "Update fails";
+                            request.setAttribute("mar", mar1);
+                            // tim cach dung thang vao jsp
+                            request.setAttribute("mark", mar2);
                             request.setAttribute("noti", noti);
+                            request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
+                        } else {
+                            String noti = "Update done.";
+                            request.setAttribute("mar", mar1);
+                            request.setAttribute("mark", mar2);
+                            request.setAttribute("noti", noti);
+                            request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                         }
-                        request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                     } else {
-                        String noti = "Update done.";
-                        request.setAttribute("mar", mar1);
-                        request.setAttribute("mark", mar2);
-                        if (submit != "" || submit != null || !submit.isEmpty()) {
+                        part.write(realPart + "/" + filename);
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        String img = filename;
+                        String accountM = mar.getAccountM();
+                        String firstName = request.getParameter("fname");
+                        String lastName = request.getParameter("lname");
+                        String age = request.getParameter("age");
+                        String email = request.getParameter("email");
+                        String phone = request.getParameter("phone");
+                        int Age = Integer.parseInt(age);
+                        //insert
+                        MarketingImage mar2 = new MarketingImage(accountM, img);
+                        Marketing mar1 = new Marketing(accountM, firstName, lastName, Age, email, phone);
+                        int n = dao.updateMarketing(mar1);
+                        int m = dao.updateMarketingImage(mar2);
+                        if (n == 0 && m == 0) {
+                            String noti = "Update fails";
+                            request.setAttribute("mar", mar1);
+                            // tim cach dung thang vao jsp
+                            request.setAttribute("mark", mar2);
                             request.setAttribute("noti", noti);
+                            request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
+                        } else {
+                            String noti = "Update done.";
+                            request.setAttribute("mar", mar1);
+                            request.setAttribute("mark", mar2);
+                            request.setAttribute("noti", noti);
+                            request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                         }
-                        request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
                     }
                 }
             }

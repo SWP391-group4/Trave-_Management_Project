@@ -48,7 +48,7 @@
                 <span class="oi oi-menu"></span> Menu
             </button>
 
-          
+
             <div class="collapse navbar-collapse" id="ftco-nav" style="margin-right:50px ">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.html" class="nav-link" style="color: #f9be37">Home</a></li>
@@ -67,47 +67,58 @@
             </div>
             <hr>
         </nav>
-
-        <section class="ftco-section" style="margin-top: 70px">
+        <section class="ftco-section" >
             <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel-testimony owl-carousel ftco-owl">
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div>
-                                    <img src="images/person_1.jpg" alt="">
+                <div  class="col-md-12" style="margin-top: 60px;text-align: center">
+                    <img style="height: 90%;width: 90%" src="images/banner.png">
+                    
+                </div>
+                <h3 style="margin-top:30px ;margin-left: 90px;font-weight: bold;color: #f9be37">Welcome to CTU Travel!</h3>
+            </div>
+        </section>
+        <section class="ftco-section" >
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel ftco-owl">
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div>
+                                        <img src="images/person_1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div>
+                                        <img src="images/person_1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div>
+                                        <img src="images/person_1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div>
+                                        <img src="images/person_1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div>
+                                        <img src="images/person_1.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div>
-                                    <img src="images/person_1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div>
-                                    <img src="images/person_1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div>
-                                    <img src="images/person_1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div>
-                                    <img src="images/person_1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
                 </div> 
             </div>
         </section>
