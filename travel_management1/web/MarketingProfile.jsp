@@ -4,6 +4,7 @@
     Author     : nam
 --%>
 
+<%@page import="Entity.MarketingImage"%>
 <%@page import="Entity.Marketing"%>
 <%@page import="Entity.Admins"%>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@
         <link rel="stylesheet" href="css/aos.css">
 
         <link rel="stylesheet" href="css/ionicons.min.css">
-
+        <link rel="stylesheet" href="css/image_choose.css">
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
         <link rel="icon" href="images/logo.png" type="">
@@ -62,6 +63,7 @@
 
         <%
             Marketing mar = (Marketing) request.getAttribute("mar");
+            MarketingImage mark = (MarketingImage) request.getAttribute("mark");
         %> 
 
         <section >
@@ -75,28 +77,32 @@
                             <li class="breadcrumb-item active">Marketing Profile</li>
                         </ol>
                     </nav>
-                    <!-- /Breadcrumb -->
-                    <div class="row gutters-sm">
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="images/AvatarDefault.jpg" alt="Admin" class="rounded-circle" width="200">
-                                        <div class="mt-3">
-                                            <h4><%=mar.getLastName()%> <%=mar.getFirstName()%></h4>
-                                            <p class="text-secondary mb-1" >Marketing Staff</p>
-                                            <button class="btn btn-primary">Change Avatar</button>
+                    <form  action="MarketingProfileController" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="go" value="updateMarketing">
+                        <!-- /Breadcrumb -->
+                        <div class="row gutters-sm">
+
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center text-center">
+                                            <img src="images/<%=mark.getImg_Avatar() %>" alt="Admin" class="rounded-circle" width="200">
+                                            <div class="mt-3" style="text-align: center">
+                                                <h4><%=mar.getLastName()%> <%=mar.getFirstName()%></h4>
+                                                <p class="text-secondary mb-1" >Marketing Staff</p>
+                                                <input type="file" name="image" value="image" class="custom" accept="image/png, image/jpg, image/jpeg">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card mt-3">
-                            </div>
-                        </div>  
+                                <div class="card mt-3">
+                                </div>
+                            </div>  
 
-                        <form class="col-md-8" action="MarketingProfileController" method="post">
-                            <input type="hidden" name="go" value="updateMarketing">
-                            <div>
+
+
+                            <div class="col-md-8">
                                 <div class="card mb-6">
                                     <div class="card-body">
                                         <div class="row">
@@ -140,16 +146,16 @@
                                                 <h6 class="mb-0">Phone Number</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getPhone()%>" name="phone">
+                                                <input type="text" class="form-control" id="fullName" value="<%=mar.getPhone()%>" name="phone" maxlength="10">
                                             </div>
                                         </div>
                                         <hr>
 
                                         <%
-                                                String noti = (String) request.getAttribute("noti");
+                                            String noti = (String) request.getAttribute("noti");
                                         %>
                                         <h7 style="color: #ff253a"><%=noti%></h7>
-                                          
+
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <input class="btn btn-info"  type="submit" value="Update" name="submit">
@@ -158,8 +164,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>

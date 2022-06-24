@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Resraurant
+    Document   : Home
     Created on : Jun 3, 2022, 11:23:50 AM
-    Author     : phams
+    Author     : Nam
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

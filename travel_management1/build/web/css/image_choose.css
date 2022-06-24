@@ -1,0 +1,34 @@
+.custom {
+    color: transparent;
+    text-align: center;
+  }
+  .custom::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom::before {
+    content: 'Change Avatar';
+    color: #ffffff;
+    display: inline-block;
+    background: #f9be37;
+    border: 1px solid #f9be37;
+    border-radius: 7px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #f9be37;
+    font-size: 10pt;
+    margin-left: 110px;
+    margin-right: auto;
+  }
+  .custom:hover::before {
+    border-color: #f9be37;
+  }
+  .custom:active {
+    outline: 0;
+  }
+  .custom:active::before {
+    background: -webkit-linear-gradient(top, #black, #black); 
+  }
+  

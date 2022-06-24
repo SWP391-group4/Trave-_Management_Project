@@ -15,8 +15,9 @@ import java.sql.SQLException;
  *
  * @author nam
  */
-public class DAOMarketing extends connectDB{
-       public Marketing getMarketing(String accountM) {
+public class DAOMarketing extends connectDB {
+
+    public Marketing getMarketing(String accountM) {
         String sql = "Select * from Marketing where AccountM = '" + accountM + "'";
         ResultSet rs = getData(sql);
         try {
@@ -35,6 +36,7 @@ public class DAOMarketing extends connectDB{
         }
         return null;
     }
+
     public MarketingImage getMarketingImage(String accountM) {
         String sql = "Select * from MarketingImage where AccountM = '" + accountM + "'";
         ResultSet rs = getData(sql);
@@ -50,7 +52,24 @@ public class DAOMarketing extends connectDB{
         }
         return null;
     }
-    public int updateMarketing( Marketing mar) {
+
+    public int updateMarketingImage(MarketingImage mar) {
+        int n = 0;
+        String sql = "UPDATE [MarketingImage]\n"
+                + "   SET Img_Avatar = ?"
+                + " WHERE AccountM = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(2, mar.getAccountM());
+            pre.setString(1, mar.getImg_Avatar());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+
+    public int updateMarketing(Marketing mar) {
         int n = 0;
         String sql = "UPDATE [Marketing]\n"
                 + "   SET FirstName = ?, LastName =?, Age = ?, Email = ?, Phone = ?"
@@ -69,11 +88,14 @@ public class DAOMarketing extends connectDB{
         }
         return n;
     }
+
     public static void main(String[] args) {
-        DAOMarketing dao=new DAOMarketing();
-        int n= dao.updateMarketing(new Marketing("bautroikhongem", "Thanh Lam", "Le", 28, "lamthanhle01@gmail.com", "8434784785"));
+        DAOMarketing dao = new DAOMarketing();
+        int n= dao.updateMarketing(new Marketing("bautroikhongem", "Thanh Nam", "Nguyen", 25, "namthanh@gmail.com", "8434784791"));
         if (n > 0) {
             System.out.println("updated");
-        }
+       
     }
 }
+}
+
