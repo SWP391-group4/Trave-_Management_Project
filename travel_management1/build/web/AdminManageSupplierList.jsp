@@ -394,9 +394,10 @@
                                             </thead>
                                             <tbody>
                                                 <c:forEach items="${list}" var="o">
-                                                <form action="AdminManageSupplierList" method="get">
+                                                <form action="preview?homestay${o.homestayId}&index=${tag}" method="get">
                                                     <tr>
                                                         <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
+                                                        <input type="hidden" name="tag" value="${tag}">
                                                         <td>${o.firstName} ${o.lastName}</td>
                                                         <td>${o.homestayName}</td>
                                                         <td>${o.email}</td>

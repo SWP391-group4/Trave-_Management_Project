@@ -121,13 +121,13 @@ public class DAOSupplierTemp extends connectDB {
         return 0;
     }
 
-    public SupplierHomestays getPreview(String accountS, String homestayId) {
+    public SupplierHomestays getPreview(String homestayId) {
 
         String sql = "select s.accountS, firstName,lastName, fax, \n"
                 + "email, phone, homestayId, homestayName, cateId\n"
-                + "from suppliers s, homestays \n"
-                + "where "
-                + "s.accountS = '" + accountS + "' and HomeStayId = '" + homestayId + "'";
+                + "from suppliers s, homestays h \n"
+                + "where s.accountS = h.accountS "
+                + " and HomeStayId = '" + homestayId + "'";
 
         ResultSet rs = getData(sql);
         try {
