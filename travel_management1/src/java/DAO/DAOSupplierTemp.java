@@ -35,14 +35,51 @@ public class DAOSupplierTemp extends connectDB {
 
     public List<SupplierHomestays> pagging(int index) {
         List<SupplierHomestays> list = new ArrayList<>();
-        String sql = "select s.AccountS, s.firstName,s.lastName,s.email,h.homestayName\n"
+        String sql = "select s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId,h.homestayName\n"
                 + "from Homestays h "
                 + "inner join Suppliers s "
                 + "on h.AccountS = s.AccountS\n"
                 + "order by HomeStayName "
                 + "offset ? "
                 + "rows fetch "
-                + "next "+index+" rows "
+                + "next 7 rows "
+                + "only;";
+
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 10);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new SupplierHomestays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<SupplierHomestays> paggingSearch(int index, String str) {
+        List<SupplierHomestays> list = new ArrayList<>();
+        String sql = "select s.accountS, firstName,lastName, fax,email, phone, homestayId, homestayName, cateId\n"
+                + "from suppliers s inner join homestays h on\n"
+                + "s.AccountS = h.AccountS where\n"
+                + "firstName like '%" + str + "%' or \n"
+                + "lastName like '%" + str + "%' or \n"
+                + "email like '%" + str + "%' or \n"
+                + "homestayName like '%" + str + "%'"
+                + "order by HomeStayName "
+                + "offset ? "
+                + "rows fetch "
+                + "next 7 rows "
                 + "only;";
 
         try {
@@ -65,13 +102,32 @@ public class DAOSupplierTemp extends connectDB {
         return list;
     }
 
+    public int countToDivBySearch(String str) {
+        String sql = "select count(homestayId)\n"
+                + "from suppliers s inner join homestays h on\n"
+                + "s.AccountS = h.AccountS where\n"
+                + "firstName like '%" + str + "%' or \n"
+                + "lastName like '%" + str + "%' or \n"
+                + "email like '%" + str + "%' or \n"
+                + "homestayName like '%" + str + "%'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     public SupplierHomestays getPreview(String accountS, String homestayId) {
 
         String sql = "select s.accountS, firstName,lastName, fax, \n"
                 + "email, phone, homestayId, homestayName, cateId\n"
                 + "from suppliers s, homestays \n"
                 + "where "
-                + "s.accountS = '"+accountS+"' and HomeStayId = '"+homestayId+"'";
+                + "s.accountS = '" + accountS + "' and HomeStayId = '" + homestayId + "'";
 
         ResultSet rs = getData(sql);
         try {
@@ -113,16 +169,41 @@ public class DAOSupplierTemp extends connectDB {
     }
 
     public int getEvaluate(String homestayID) {
-        String sql = "select avg(star) from reviews where HomeStayId = '"+homestayID+"'";
-        
+        String sql = "select avg(star) from reviews where HomeStayId = '" + homestayID + "'";
+
         ResultSet rs = getData(sql);
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 return rs.getInt(1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+
+    public List<SupplierHomestays> search(String str) {
+        List<SupplierHomestays> l = new ArrayList<>();
+        String sql = "select s.accountS, firstName,lastName, fax,email, phone, homestayId, homestayName, cateId\n"
+                + "from suppliers s inner join homestays h on\n"
+                + "s.AccountS = h.AccountS where\n"
+                + "firstName like '%" + str + "%' or \n"
+                + "lastName like '%" + str + "%' or \n"
+                + "email like '%" + str + "%' or \n"
+                + "homestayName like '%" + str + "%'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                l.add(new SupplierHomestays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
     }
 }

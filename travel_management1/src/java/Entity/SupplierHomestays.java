@@ -42,6 +42,16 @@ public class SupplierHomestays {
         this.homestayName = homestayName;
     }
 
+    public SupplierHomestays(String accountS, String firstName, String lastName, String email, String phone, String homestayId, String homestayName) {
+        this.accountS = accountS;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.homestayId = homestayId;
+        this.homestayName = homestayName;
+    }
+ 
     public String getAccountS() {
         return accountS;
     }

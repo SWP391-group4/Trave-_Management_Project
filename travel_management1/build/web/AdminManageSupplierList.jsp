@@ -68,7 +68,7 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item active" href="buttons.html">Buttons</a>
+                            <a class="collapse-item active" href="#">Suppliers</a>
                             <a class="collapse-item" href="cards.html">Cards</a>
                         </div>
                     </div>
@@ -358,161 +358,165 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                    <form action="AdminManageSupplierList" method="post">
-                        <div class="container-fluid">
+
+                    <div class="container-fluid">
 
 
 
-                            <div class="row">
+                        <div class="row">
 
-                                <div class="col-lg-7">
+                            <div class="col-lg-7">
 
-                                    <!-- Supplier List -->
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
-                                            <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
-                                            <div>
-                                                <input type="text" name="" placeholder="Search">
-                                                <input type="submit" name="" value="Search" class="btn btn-success">
-                                            </div>
-
+                                <!-- Supplier List -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
+                                        <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
+                                        <div>
+                                            <input type="text" name="search" placeholder="Search">
+                                            <input type="submit" name="submit" value="Search" class="btn btn-success">
                                         </div>
-                                        <div class="card-body col-md-12">
-                                            <table class="table table-striped">
-                                                <thead>
+
+                                    </div>
+                                    <div class="card-body col-md-12">
+
+                                        <table class="table table-striped">
+
+
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Supplier</th>
+                                                    <th scope="col">Homestay</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${list}" var="o">
+                                                <form action="AdminManageSupplierList" method="get">
                                                     <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Supplier</th>
-                                                        <th scope="col">Homestay</th>
-                                                        <th scope="col">Email</th>
-                                                        <th scope="col"></th>
-                                                        <th scope="col"></th>
+                                                        <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
+                                                        <td>${o.firstName} ${o.lastName}</td>
+                                                        <td>${o.homestayName}</td>
+                                                        <td>${o.email}</td>
+                                                        <td><button type="submit" class="btn btn-primary" >
+                                                                Preview
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                                            <button type="submit" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
+                                                        </td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach items="${list}" var="o">
+                                                </form>
+                                            </c:forEach>
+                                            </tbody>
 
-                                                        <tr>
-                                                            <th>
-                                                            </th>
-                                                            <td>${o.firstName} ${o.lastName}</td>
-                                                            <td>${o.homestayName}</td>
-                                                            <td>${o.email}</td>
-                                                            <td><button type="button" class="btn btn-primary" onclick="preview()">
-                                                                    <input type="hidden" value="${o.accountS}"  name="accountS"/>
-                                                                    <input type="hidden" value="${o.homestayId}"  name="homestayId"/>
-                                                                    Preview
-                                                                </button></td>
-                                                            <td>
-                                                                <!--                                                                <input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                                                <button type="button" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <c:set value="${endPage}" var="o"/>
-                                        <ul class="pagination justify-content-center">
-                                            <c:choose>
-                                                <c:when test="${tag > 1}">
-                                                    <li class="page-item ">
-                                                        <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
-                                                    </li>
-                                                </c:when>
-                                            </c:choose>
-                                            <c:choose>
-                                                <c:when test="${tag+4< endPage}">
-                                                    <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                                        <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
-                                                        </c:forEach>
-                                                    </c:when>
-
-                                            </c:choose>
-
-                                            <c:choose>
-                                                <c:when test="${tag+6< endPage}">
-                                                    <li class="page-item">
-                                                        <c:set value="${tag+1}" var="n"/>
-                                                        <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
-                                                    </li>
-                                                </c:when>
-                                            </c:choose>
-
-                                        </ul>
+                                        </table>
 
                                     </div>
 
+                                    <c:set value="${endPage}" var="o"/>
+                                    <ul class="pagination justify-content-center">
+                                        <c:choose>
+                                            <c:when test="${tag > 1}">
+                                                <li class="page-item ">
+                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
+                                                </li>
+                                            </c:when>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${tag+4< endPage}">
+                                                <c:forEach begin="${tag}" end="${tag+2}" var="i">
+                                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
+                                                    </c:forEach>
+                                                </c:when>
 
+                                        </c:choose>
+
+                                        <c:choose>
+                                            <c:when test="${tag+6< endPage}">
+                                                <li class="page-item">
+                                                    <c:set value="${tag+1}" var="n"/>
+                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
+                                                </li>
+                                            </c:when>
+                                        </c:choose>
+
+                                    </ul>
 
                                 </div>
 
-                                <div class="col-lg-5">
 
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">Supplier Preview</h6>
-                                        </div>
-                                        <div class="card-body" id="supplierPreview" style="display: none" >
 
-                                            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-                                            <div class="container bootdey flex-grow-1 container-p-y">
+                            </div>
 
-                                                <div class="media align-items-center py-3 mb-3">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
-                                                    <div class="media-body ml-4 col-md-8">
-                                                        <h4 class="font-weight-bold mb-0">John Doe <span class="text-muted font-weight-normal">@johndoe</span></h4>
-                                                        <div class="text-muted mb-2">Phone: 3425433</div>
-                                                        <div class="text-muted mb-2">Fax: 3425433</div>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
-                                                    </div>
+                            <div class="col-lg-5">
+
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Supplier Preview</h6>
+                                    </div>
+                                    <div class="card-body" id="supplierPreview" style="display: block" >
+
+                                        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+                                        <div class="container bootdey flex-grow-1 container-p-y">
+
+                                            <div class="media align-items-center py-3 mb-3">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
+                                                <div class="media-body ml-4 col-md-8">
+                                                    <h4 class="font-weight-bold mb-0">John Doe <span class="text-muted font-weight-normal">@johndoe</span></h4>
+                                                    <div class="text-muted mb-2">Phone: 3425433</div>
+                                                    <div class="text-muted mb-2">Fax: 3425433</div>
+                                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <table class="table user-view-table m-0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Service name:</td>
+                                                                <td>${supHome.firstName} ${supHome.lastName}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Type:</td>
+                                                                <td>${supHome.homestayName}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Evaluate:</td>
+                                                                <td>${evaluate}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Role:</td>
+                                                                <td>User</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>City:</td>
+                                                                <td>Ha Noi</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
-
-                                                <div class="card mb-4">
-                                                    <div class="card-body">
-                                                        <table class="table user-view-table m-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Service name:</td>
-                                                                    <td>${supHome.firstName} ${supHome.lastName}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Type:</td>
-                                                                    <td>${supHome.homestayName}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Evaluate:</td>
-                                                                    <td>${evaluate}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Role:</td>
-                                                                    <td>User</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>City:</td>
-                                                                    <td>Ha Noi</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                </div>
-                                                <div>
-                                                    <input type="button" class="btn btn-success" value="View Detail">
-                                                </div>
+                                            </div>
+                                            <div>
+                                                <input type="button" class="btn btn-success" value="View Detail">
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
                             </div>
 
                         </div>
-                        <!-- /.container-fluid -->
-                    </form>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
                 </div>
                 <!-- End of Main Content -->
 
