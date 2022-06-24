@@ -481,20 +481,17 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Service name:</td>
-                                                                <td>${supHome.firstName} ${supHome.lastName}</td>
+                                                                <td>${supHome.homestayName}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Type:</td>
-                                                                <td>${supHome.homestayName}</td>
+                                                                <td>${cateName}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Evaluate:</td>
                                                                 <td>${evaluate}</td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Role:</td>
-                                                                <td>User</td>
-                                                            </tr>
+                                                            
                                                             <tr>
                                                                 <td>City:</td>
                                                                 <td>Ha Noi</td>
@@ -505,7 +502,7 @@
 
                                             </div>
                                             <div>
-                                                <input type="button" class="btn btn-success" value="View Detail">
+                                                <input type="submit" class="btn btn-success" value="View Detail" src="SupplierDetail.jsp">
                                             </div>
                                         </div>
                                     </div>
@@ -562,16 +559,7 @@
             </div>
         </div>
 
-        <script>
-            function preview() {
-                if (document.getElementById("supplierPreview").style.display == 'none') {
-                    document.getElementById("supplierPreview").style.display = 'block';
-                }
-//                else {
-//                    document.getElementById("supplierPreview").style.display = 'none';
-//                }
-            }
-        </script>
+        
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

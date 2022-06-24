@@ -4,14 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOHomeStays;
-import DAO.DAOSupplierTemp;
-import Entity.HomeStayAddressses;
-import Entity.HomeStays;
-import Entity.SupplierHomestays;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author phams
  */
-@WebServlet(name = "AdminManageSupplierListController", urlPatterns = {"/AdminManageSupplierList"})
-public class AdminManageSupplierListController extends HttpServlet {
+@WebServlet(name = "AdminManageSearchController", urlPatterns = {"/AdminManageSearch"})
+public class AdminManageSearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +28,21 @@ public class AdminManageSupplierListController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AdminManageSearchController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AdminManageSearchController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,50 +54,10 @@ public class AdminManageSupplierListController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String indexPage = request.getParameter("index");
-        if (indexPage == null) {
-            indexPage = "1";
-        }
-        int index = Integer.parseInt(indexPage);
-
-        /* TODO output your page here. You may use following sample code. */
-        DAOSupplierTemp daoSup = new DAOSupplierTemp();
-        DAOHomeStays daoHome = new DAOHomeStays();
-        int count = daoHome.countToDiv();
-        int endPage = count / 7;
-        if (count % 7 != 0) {
-            endPage++;
-        }
-
-//        --------------------
-        
-
-        
-        String homestayId = (String)request.getSession().getAttribute("homestayId");
-
-        SupplierHomestays supHome = daoSup.getPreview(homestayId);
-        HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
-        int evaluate = daoSup.getEvaluate(homestayId);
-        
-        String cateId = supHome.getCateId();
-        String cateName = daoSup.getCategoryName(cateId);
-//       --------------------------
-        request.setAttribute("supHome", supHome);
-        request.setAttribute("address", homestayAddress);
-        request.setAttribute("evaluate", evaluate);
-        request.setAttribute("cateName", cateName);
-        
-        List<SupplierHomestays> listHomeStay = daoSup.pagging(index);
-        request.setAttribute("endPage", endPage);
-        request.setAttribute("list", listHomeStay);
-        request.setAttribute("tag", index);
-        request.getRequestDispatcher("/AdminManageSupplierList.jsp").forward(request, response);
-
     }
 
     /**

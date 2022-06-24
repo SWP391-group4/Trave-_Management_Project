@@ -149,6 +149,19 @@ public class DAOSupplierTemp extends connectDB {
         return null;
     }
 
+    public String getCategoryName(String cateId) {
+        String sql = "select cateName from Categories where cateId = '" + cateId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public HomeStayAddressses getHomeStay(String homestayID) {
         String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
 
