@@ -5,7 +5,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,11 +32,11 @@ public class PreviewSearchControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+        String search = request.getParameter("search");
         String homestayId = request.getParameter("homestay");
         String tag = request.getParameter("tag");
         session.setAttribute("homestayId", homestayId);
-        request.getRequestDispatcher("AdminManageSearch?index="+tag).forward(request, response);
+        request.getRequestDispatcher("AdminManageSearch?search="+search+"&index="+tag).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

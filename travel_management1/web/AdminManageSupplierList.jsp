@@ -374,7 +374,7 @@
                                         <div>
                                             <form action="AdminManageSearch">
                                                 <input type="text" name="search" placeholder="Search">
-                                                <input type="submit" name="submit" value="Search" class="btn btn-success">
+                                                <input type="submit" class="btn btn-success">
                                             </form>
                                         </div>
 
@@ -469,11 +469,11 @@
                                             <div class="media align-items-center py-3 mb-3">
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
                                                 <div class="media-body ml-4 col-md-8">
-                                                    <h4 class="font-weight-bold mb-0">John Doe <span class="text-muted font-weight-normal">@johndoe</span></h4>
-                                                    <div class="text-muted mb-2">Phone: 3425433</div>
-                                                    <div class="text-muted mb-2">Fax: 3425433</div>
-                                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
-                                                </div>
+                                                     <h4 class="font-weight-bold mb-0">${supHome.firstName} ${supHome.lastName}</h4>
+                                                    <div class="text-muted mb-2">${supHome.email}</div>
+                                                    <div class="text-muted mb-2">Phone: ${supHome.phone}</div>
+                                                    <div class="text-muted mb-2"></div>
+                                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
                                             </div>
 
 
