@@ -372,8 +372,10 @@
                                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                                         <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
                                         <div>
-                                            <input type="text" name="search" placeholder="Search">
-                                            <input type="submit" name="submit" value="Search" class="btn btn-success">
+                                            <form action="AdminManageSearch">
+                                                <input type="text" name="search" placeholder="Search">
+                                                <input type="submit" name="submit" value="Search" class="btn btn-success">
+                                            </form>
                                         </div>
 
                                     </div>
@@ -397,18 +399,18 @@
                                                 <form action="preview?homestay${o.homestayId}&index=${tag}" method="get">
                                                     <tr>
                                                         <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
-                                                        <input type="hidden" name="tag" value="${tag}">
-                                                        <td>${o.firstName} ${o.lastName}</td>
-                                                        <td>${o.homestayName}</td>
-                                                        <td>${o.email}</td>
-                                                        <td><button type="submit" class="btn btn-primary" >
-                                                                Preview
-                                                            </button>
-                                                        </td>
-                                                        <td>
-                                                            <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                                            <button type="submit" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
-                                                        </td>
+                                                    <input type="hidden" name="tag" value="${tag}">
+                                                    <td>${o.firstName} ${o.lastName}</td>
+                                                    <td>${o.homestayName}</td>
+                                                    <td>${o.email}</td>
+                                                    <td><button type="submit" class="btn btn-primary" >
+                                                            Preview
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
+                                                    </td>
                                                     </tr>
                                                 </form>
                                             </c:forEach>
@@ -491,7 +493,7 @@
                                                                 <td>Evaluate:</td>
                                                                 <td>${evaluate}</td>
                                                             </tr>
-                                                            
+
                                                             <tr>
                                                                 <td>City:</td>
                                                                 <td>Ha Noi</td>
@@ -559,7 +561,7 @@
             </div>
         </div>
 
-        
+
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

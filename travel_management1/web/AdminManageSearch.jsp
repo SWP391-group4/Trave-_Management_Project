@@ -372,8 +372,10 @@
                                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                                         <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
                                         <div>
+                                            
                                             <input type="text" name="search" placeholder="Search">
                                             <input type="submit" name="submit" value="Search" class="btn btn-success">
+                                            
                                         </div>
 
                                     </div>
@@ -394,7 +396,7 @@
                                             </thead>
                                             <tbody>
                                                 <c:forEach items="${list}" var="o">
-                                                <form action="preview?homestay${o.homestayId}&index=${tag}" method="get">
+                                                <form action="PreviewSearch?homestay${o.homestayId}&index=${tag}" method="get">
                                                     <tr>
                                                         <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
                                                         <input type="hidden" name="tag" value="${tag}">
@@ -423,14 +425,14 @@
                                         <c:choose>
                                             <c:when test="${tag > 1}">
                                                 <li class="page-item ">
-                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
+                                                    <a class="page-link" href="AdminManageSearch?index=${tag-1}">Previous</a>
                                                 </li>
                                             </c:when>
                                         </c:choose>
                                         <c:choose>
                                             <c:when test="${tag+4< endPage}">
                                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
+                                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSearch?index=${i}">${i}</a></li>
                                                     </c:forEach>
                                                 </c:when>
 
@@ -440,7 +442,7 @@
                                             <c:when test="${tag+6< endPage}">
                                                 <li class="page-item">
                                                     <c:set value="${tag+1}" var="n"/>
-                                                    <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
+                                                    <a class="page-link" href="AdminManageSearch?index=${tag+1}">Next</a>
                                                 </li>
                                             </c:when>
                                         </c:choose>

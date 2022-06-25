@@ -4,13 +4,12 @@
  */
 package Controller;
 
-import DAO.DAOHomeStayAddresses;
+
 import DAO.DAOHomeStays;
 import Entity.Categories;
-import Entity.HomeStayAddressses;
+
 import Entity.HomeStays;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

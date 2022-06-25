@@ -35,7 +35,6 @@ public class PreviewControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        session.removeAttribute("homestayId");
         
         String homestayId = request.getParameter("homestay");
         String tag = request.getParameter("tag");

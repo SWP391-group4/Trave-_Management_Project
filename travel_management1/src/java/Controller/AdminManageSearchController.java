@@ -4,8 +4,13 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
+import DAO.DAOSupplierTemp;
+import Entity.HomeStayAddressses;
+import Entity.SupplierHomestays;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,18 +36,44 @@ public class AdminManageSearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AdminManageSearchController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AdminManageSearchController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String indexPage = request.getParameter("index");
+        String search = request.getParameter("search");
+        
+        if (indexPage == null) {
+            indexPage = "1";
         }
+        int index = Integer.parseInt(indexPage);
+
+        /* TODO output your page here. You may use following sample code. */
+        DAOSupplierTemp daoSup = new DAOSupplierTemp();
+        int count = daoSup.countToDivBySearch(search);
+        int endPage = count / 7;
+        if (count % 7 != 0) {
+            endPage++;
+        }
+
+//        --------------------
+        String homestayId = (String) request.getSession().getAttribute("homestayId");
+        if (homestayId != null) {
+            SupplierHomestays supHome = daoSup.getPreview(homestayId);
+            HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
+            int evaluate = daoSup.getEvaluate(homestayId);
+
+            String cateId = supHome.getCateId();
+            String cateName = daoSup.getCategoryName(cateId);
+
+//       --------------------------
+            request.setAttribute("supHome", supHome);
+            request.setAttribute("address", homestayAddress);
+            request.setAttribute("evaluate", evaluate);
+            request.setAttribute("cateName", cateName);
+        }
+        List<SupplierHomestays> listHomeStay = daoSup.paggingSearch(index,search);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listHomeStay);
+        request.setAttribute("tag", index);
+        request.getRequestDispatcher("/AdminManageSearch.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

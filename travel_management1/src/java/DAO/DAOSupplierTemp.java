@@ -69,7 +69,7 @@ public class DAOSupplierTemp extends connectDB {
 
     public List<SupplierHomestays> paggingSearch(int index, String str) {
         List<SupplierHomestays> list = new ArrayList<>();
-        String sql = "select s.accountS, firstName,lastName, fax,email, phone, homestayId, homestayName, cateId\n"
+        String sql = "select s.accountS, firstName,lastName,email, phone, homestayId, homestayName, cateId\n"
                 + "from suppliers s inner join homestays h on\n"
                 + "s.AccountS = h.AccountS where\n"
                 + "firstName like '%" + str + "%' or \n"
@@ -94,7 +94,9 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5)));
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
