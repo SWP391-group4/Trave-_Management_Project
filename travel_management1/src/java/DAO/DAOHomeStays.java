@@ -284,7 +284,7 @@ public class DAOHomeStays extends connectDB {
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
 //        List<HomeStays> list = dao.paggingHomeStay(1);
-     HomeStays h=   dao.getHomeStaybyID("HS0003    ");
+     HomeStays h=   dao.getHomeStaybyID("HS0003");
         System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
 //        for (HomeStays o : d) {
