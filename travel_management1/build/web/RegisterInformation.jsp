@@ -1,9 +1,7 @@
-<%@page import="Entity.Accounts"%>
 <%@page import="DAO.DAOAccounts"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -47,7 +45,7 @@
 	          <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-			  <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="Login.jsp" class="nav-link">Login</a></li>
+			  <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -55,40 +53,33 @@
     <div class="main">
 
         <section class="signup">
-            
+         
             <div class="container">
                 <div class="signup-content">
                     <form action="registerCustomer" method="POST" id="signup-form" class="signup-form">
-<!--                       
--->                        <!--
--->                        <h2 class="form-title">Create account</h2><!--
--->                         <p>${alert}</p>
-<p>${alert1}</p>
+                        <h2 class="form-title">Enter Your Information</h2>
+                        
                         <div class="form-group">
-                            <input type="text" class="form-input" name="user" id="user" placeholder="Your Username"/>
+                            <input type="text" class="form-input" name="firstN" id="name" placeholder="Your FirstName"/>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="password" id="password" placeholder="Password"/>
-                       
+                         <div class="form-group">
+                            <input type="text" class="form-input" name="lastN" id="name" placeholder="Your LastName"/>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                         <div class="form-group">
+                            <input type="text" class="form-input" name="phone" id="user" placeholder="Phone"/>
                         </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                        </div>
+                         <div class="form-group">
+                            <input type="text" class="form-input" name="email" id="user" placeholder="Email"/>
+                        </div> 
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
                         </div>
                     </form>
-                    <p class="loginhere">
-                        Have already an account ? <a href="Login.jsp" class="loginhere-link">Login here</a>
-                    </p>
+ 
                 </div>
             </div>
         </section>
- 
+
     </div>
 
     <!-- JS -->

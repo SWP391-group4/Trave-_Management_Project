@@ -178,7 +178,7 @@ ${o.cateName}
                                                 <span class="ml-auto"><i class="" style="display: inline" >
                                                     </i>
 
-                                                    <a href="detailHomeStay?homeStayID">Detail</a></span>
+                                                    <a href="detailHomeStay?homeStayID=${o.homeStayID}">Detail</a></span>
                                             </p>
                                         </div>
 

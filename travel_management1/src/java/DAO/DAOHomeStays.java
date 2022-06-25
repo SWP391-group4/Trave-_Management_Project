@@ -254,8 +254,8 @@ public class DAOHomeStays extends connectDB {
         return vec;
     }
 
-    public List<HomeStays> getHomeStaybyID(String homeStayID) {
-        List<HomeStays> list = new ArrayList<>();
+    public HomeStays getHomeStaybyID(String homeStayID) {
+        
         String sql = "select  h.HomeStayid,h.homestayname,h.cateID "
                 + ",ha.city,ha.district,ha.specific,ha.ward,cs.CateName,"
                 + "c.BedQty,c.BedRoomQty,c.BathRoomQty,c.LivingRoomQty,c.KitchenQty,c.CheckIn,"
@@ -269,26 +269,27 @@ public class DAOHomeStays extends connectDB {
             PreparedStatement pre = conn.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                list.add(new HomeStays(rs.getString(1),
+                return new HomeStays(rs.getString(1),
                         rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9),
                          rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13), rs.getString(14), rs.getString(15), rs.getDouble(16),
-                        rs.getDouble(17), rs.getInt(18), rs.getString(19)));
+                        rs.getDouble(17), rs.getInt(18), rs.getString(19));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list;
+        return null;
     }
 
 //// Chua xong 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
 //        List<HomeStays> list = dao.paggingHomeStay(1);
-        List<HomeStays> list = dao.getHomeStaybyID("HS0001");
+     HomeStays h=   dao.getHomeStaybyID("HS0003    ");
+        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-        for (HomeStays o : list) {
-            System.out.println(o);
-        }
+//        for (HomeStays o : d) {
+//            System.out.println(o);
+//        }
 //int count = dao.countToDiv();
 //        System.out.println(count);
 //        for (int i = 0; i < l1.size(); i++) {
