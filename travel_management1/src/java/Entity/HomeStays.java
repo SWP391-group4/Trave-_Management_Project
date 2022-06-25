@@ -28,6 +28,34 @@ public double price;
 public double IncurredCost;
 public int star;
 public String feedBack;
+public String accountS;
+
+    public String getAccountS() {
+        return accountS;
+    }
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack, String accountS) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.bedQty = bedQty;
+        this.bedRoomQty = bedRoomQty;
+        this.bathRoomQty = bathRoomQty;
+        this.livingRoomQty = livingRoomQty;
+        this.kitchenQty = kitchenQty;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
+        this.star = star;
+        this.feedBack = feedBack;
+        this.accountS = accountS;
+    }
 
     public String getCateName() {
         return cateName;

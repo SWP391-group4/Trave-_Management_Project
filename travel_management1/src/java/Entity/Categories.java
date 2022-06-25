@@ -11,15 +11,15 @@ package Entity;
 public class Categories {
     public String cateId;
     public String cateName;
-    public String accountS;
+
 
     public Categories() {
     }
 
-    public Categories(String cateId, String cateName, String accountS) {
+    public Categories(String cateId, String cateName) {
         this.cateId = cateId;
         this.cateName = cateName;
-        this.accountS = accountS;
+  
     }
 
     public String getCateId() {
@@ -38,17 +38,10 @@ public class Categories {
         this.cateName = cateName;
     }
 
-    public String getAccountS() {
-        return accountS;
-    }
-
-    public void setAccountS(String accountS) {
-        this.accountS = accountS;
-    }
-
+   
     @Override
     public String toString() {
-        return "Categories{" + "cateId=" + cateId + ", cateName=" + cateName + ", accountS=" + accountS + '}';
+        return "Categories{" + "cateId=" + cateId + ", cateName=" + cateName +  '}';
     }
     
     

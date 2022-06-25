@@ -34,8 +34,10 @@ public class HomeStayDetailController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       String homeStayID=request.getParameter("homeStayID");
+        System.out.println(homeStayID);
         DAOHomeStays dao=new DAOHomeStays();
         HomeStays h = dao.getHomeStaybyID(homeStayID);
+        System.out.println(h);
         request.setAttribute("detail", h);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
         

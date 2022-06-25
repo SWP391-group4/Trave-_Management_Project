@@ -83,10 +83,11 @@
           			</div>
           		</div>
           		<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                             <h2>${detail.homeStayname}</h2>
           			<span>Our Best hotels &amp; Rooms</span>
-          			<h2>${detail.homeStayname}</h2>
+                               
           			<p class="rate mb-5">
-          				<span class="loc"><a href="#"><i class="icon-map"></i> 291 South 21th Street, Suite 721 New York NY 10016</a></span>
+          				<span class="loc"><a href="#"><i class="icon-map"></i>${detail.specific},${detail.ward},${detail.city}</a></span>
           				<span class="star">
     							<i class="icon-star"></i>
     							<i class="icon-star"></i>

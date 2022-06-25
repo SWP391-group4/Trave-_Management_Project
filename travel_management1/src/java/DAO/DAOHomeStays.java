@@ -200,7 +200,7 @@ public class DAOHomeStays extends connectDB {
     public List<HomeStays> paggingHomeStay(int index) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n"
-                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) order by HomeStayName offset ? rows fetch next 6 rows only\n"
+                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) order by HomeStayid offset ? rows fetch next 6 rows only\n"
                 + "";
 
         try {
@@ -244,8 +244,8 @@ public class DAOHomeStays extends connectDB {
             while (rs.next()) {
                 String cateId = rs.getString(1);
                 String cateName = rs.getString(2);
-                String accountS = rs.getString(3);
-                Categories obj = new Categories(cateId, cateName, accountS);
+           
+                Categories obj = new Categories(cateId, cateName);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
@@ -283,13 +283,13 @@ public class DAOHomeStays extends connectDB {
 //// Chua xong 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-//        List<HomeStays> list = dao.paggingHomeStay(1);
-     HomeStays h=   dao.getHomeStaybyID("HS0003");
-        System.out.println(h);
+     List<Categories> list = dao.ListCate();
+//     HomeStays h=   dao.getHomeStaybyID("HS0011");
+//        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-//        for (HomeStays o : d) {
-//            System.out.println(o);
-//        }
+        for (Categories o : list) {
+            System.out.println(o);
+        }
 //int count = dao.countToDiv();
 //        System.out.println(count);
 //        for (int i = 0; i < l1.size(); i++) {

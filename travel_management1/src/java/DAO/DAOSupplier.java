@@ -159,16 +159,11 @@ public class DAOSupplier extends connectDB {
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-        Suppliers sup = d.getSuppiler("nguyenphuong");
-//        SupplierAddresses ad=d.getSuppiler("nguyenphuong");
-        System.out.println(sup);
-
-        sup.setFirstName("new ");
-        sup.setLastName("person");
-
-        int n = d.updateSupplier(sup);
-
-        System.out.println(sup);
+        List<SupplierHomestays> list = d.listTop10Homestay();
+    for(SupplierHomestays temp:list){
+        System.out.println(temp);
+    }
+       
 
     }
 }
