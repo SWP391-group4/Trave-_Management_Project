@@ -52,7 +52,7 @@
 	          <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-			  <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="" class="nav-link">Return</a></li>
+			  <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="ListAllHomeStayController" class="nav-link">Return</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -73,7 +73,7 @@
                         
                         <div class="form-group">
                             <input type="password" class="form-input" name="password" id="password" placeholder="Password"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                           
                         </div>
                      
                         <div class="form-group">
@@ -81,7 +81,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Don't have account ? Click Here to <a href="registerController" class="loginhere-link">Sign Up</a>
+                        Don't have account ? Click Here to <a href="registerCustomer" class="loginhere-link">Sign Up</a>
                     </p>
                     <p class="loginhere">
                       <a href="login.html" class="loginhere-link">Forget password</a>
@@ -150,7 +150,7 @@
             <div class="col-md-12 text-center">
   
               <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+ 
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
           </div>

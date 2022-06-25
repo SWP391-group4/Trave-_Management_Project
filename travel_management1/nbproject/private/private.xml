@@ -3,13 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Entity/SupplierHomestays.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOSupplier.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOSupplierTemp.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminManageSupplierList.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/AdminManageSupplierListController.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOHomeStays.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/ListAllHomeStayController.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/CustomerHome.jsp</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/LoginController.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Entity/Accounts.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Controller/AdminProfileController.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/DAO/DAOCustomers.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/CustomerProfile.jsp</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/Entity/HomeStays.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/SuppilerProfile.jsp</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/Login.jsp</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/DAO/DAOAdmins.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/src/java/DAO/DAOSupplier.java</file>
+            <file>file:/C:/Users/thinh/OneDrive/Máy%20tính/SWT/Trave-_Management_Project/travel_management1/web/SupplierHome.jsp</file>
         </group>
     </open-files>
 </project-private>

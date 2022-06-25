@@ -80,6 +80,7 @@ import java.util.logging.Logger;
             Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
+   
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
         System.out.println(dao.checkAccount("Magaming"));
