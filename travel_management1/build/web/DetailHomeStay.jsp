@@ -98,17 +98,20 @@
     						</p>
     						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
     						<div class="d-md-flex mt-5 mb-5">
-    							<ul>
-	    							<li>The Big Oxmox advised her not to do so</li>
-	    							<li>When she reached the first hills of the Italic Mountains</li>
-	    							<li>She had a last view back on the skyline of her hometown </li>
-	    							<li>Bookmarksgrove, the headline of Alphabet </li>
+                                              
+    							<ul class="ml-md-5">
+                                                            <li><i class="fas fa-bed"></i> BedRoom :</li>
+	    							<li>Bed: </li>
+	    							<li>BathRoom </li>
+	    							<li>LivingRoom:</li>
+                                                                <li>KitChen:</li>
 	    						</ul>
 	    						<ul class="ml-md-5">
-	    							<li>Question ran over her cheek, then she continued</li>
-	    							<li>Pityful a rethoric question ran</li>
-	    							<li>Mountains, she had a last view back on the skyline</li>
-	    							<li>Headline of Alphabet Village and the subline</li>
+	    							<li>${detail.bedRoomQty}</li>
+	    							<li>${detail.bedQty}</li>
+	    							<li>${detail.bathRoomQty}</li>
+	    							<li>${detail.livingRoomQty}</li>
+                                                               <li> ${detail.kitchenQty}</li>
 	    						</ul>
     						</div>
     						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
