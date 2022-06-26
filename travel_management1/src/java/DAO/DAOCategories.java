@@ -30,7 +30,7 @@ public class DAOCategories extends connectDB{
                 String cateId = rs.getString(1);
                 String cateName = rs.getString(2);
                 String accountS = rs.getString(3);
-                Categories obj = new Categories(cateId, cateName, accountS);
+                Categories obj = new Categories(cateId, cateName);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
