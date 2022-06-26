@@ -181,7 +181,7 @@ public class DAOVouchers {
         <script src="js/jquery.stellar.min.js"></script>hksdgfksd
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.magnific-popup.min.js"></script>oujhsfdg
-        <script src="js/aos.js"></script>xczxfaád
+        <script src="js/aos.js"></script>xczxfaádtrydgsdaf
 /this isthe skndfln lknsd l
         <script src="js/jquery.animateNumber.min.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>tungtungushjef khbsaddsgf
