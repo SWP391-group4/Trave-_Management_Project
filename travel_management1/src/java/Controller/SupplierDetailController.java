@@ -8,6 +8,7 @@ import DAO.DAOSupplierTemp;
 import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,12 +44,16 @@ public class SupplierDetailController extends HttpServlet {
             HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
             HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homestayId);
             Categories category = daoSup.getCategories(homestayId);
-            System.out.println(category);
-            System.out.println(homestayAddress);
+            Extensions extention = daoSup.getExtenstion(homestayId);
+            List<String> listExtentions = daoSup.getExtenstion(extention);
+            Rules rule = daoSup.getRule(homestayId);
+            
             request.setAttribute("homestay", homestay);
             request.setAttribute("homestayAddress", homestayAddress);
             request.setAttribute("homestayDetail", homestayDetail);
-            request.setAttribute("category", category);
+            request.setAttribute("category",category );
+            request.setAttribute("rule", rule.getListRules());
+            request.setAttribute("listExtentions", listExtentions);
             
             //------------------------------
             
@@ -56,7 +61,7 @@ public class SupplierDetailController extends HttpServlet {
             Suppliers supplier = daoSup.getSupplier(homestayId);
             String accountS = supplier.getAccountS();
             SupplierAddresses supplierAddress = daoSup.getSupplierAddress(accountS);
-            System.out.println(supplierAddress);
+            
             SupplierImage supplierImage = daoSup.getSupplierImage(accountS);
             
             request.setAttribute("supplier", supplier);

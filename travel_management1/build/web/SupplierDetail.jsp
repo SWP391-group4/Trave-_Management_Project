@@ -44,8 +44,9 @@
             <div class="media align-items-center py-3 mb-3 col-md-8">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-3">
                 <div class="media-body ml-4 col-md-9">
-                    <h4 class="font-weight-bold mb-0">Supplier Name<span class="text-muted font-weight-normal">@Email</span></h4>
-                    <div class="text-muted mb-2">Fax</div>
+                    <h4 class="font-weight-bold mb-0">${supplier.firstName} ${supplier.lastName}</h4>
+                    <div><span class="text-muted font-weight-normal">${supplier.email}</span></div>
+                    <div class="text-muted mb-2">Fax: ${supplier.fax}</div>
                     <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="supplierProfile()" >Profile</a>&nbsp;
                     <a href="javascript:void(0)" class="btn btn-success btn-sm" onclick="supplierHomestay()">Homestay</a>&nbsp;
                     <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
@@ -177,10 +178,7 @@
                                     <td>Address</td>
                                     <td>${homestayAddress.specific}, ${homestayAddress.ward}, ${homestayAddress.district}, ${homestayAddress.city}</td>
                                 </tr>
-                                <tr>
-                                    <td>Status:</td>
-                                    <td><span class="badge badge-outline-success"></span></td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -210,92 +208,68 @@
                         </div>
                     </div>
                     <hr class="border-light m-0">
-                    
+<hr>
                     <div class="card-body">
 
                         <table class="m-0 user-view-table">
                             <tbody>
                             <thead>
                             <th>Furniture:</th>
-                            <td>2 Bathroom</td>
+                            <td> ${homestayDetail.livingRoomQty} Living room</td>
                             </thead>
                             <tr>
                                 <td></td>
-                                <td>1 Kitchen</td>
+                                <td>${homestayDetail.kitchenQty} Kitchen</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Nelle Maxwell</td>
+                                <td>${homestayDetail.bedRoomQty} Bedroom (${homestayDetail.bedQty} beds)</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>nmaxwell@mail.com</td>
+                                <td>${homestayDetail.bathRoomQty} Bathroom</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Company Ltd.</td>
+                                <td></td>
                             </tr>
                             </tbody>
                         </table>
-
+<hr>
                         <table class="m-0 user-view-table">
                             <tbody>
                             <thead>
                             <th>Extension:</th>
-                            <td>2 Bathroom</td>
+                            <td></td>
                             </thead>
+                            <c:forEach items="${listExtentions}" var="list">
+                                <tr>
+                                    <td></td>
+                                    <td> ${list}</td>
+                                </tr>
+                            </c:forEach>
                             <tr>
                                 <td></td>
-                                <td>1 Kitchen</td>
-                            </tr>
-                            <tr>
                                 <td></td>
-                                <td>Nelle Maxwell</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>nmaxwell@mail.com</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Company Ltd.</td>
                             </tr>
                             </tbody>
                         </table>
 
-
-                       
-
-                       
-                        <h6 class="mt-4 mb-3">Rule</h6>
-
-                        <table class="table user-view-table m-0">
+                            <hr>
+                        <table class="m-0 user-view-table">
                             <tbody>
-                                <tr>
-                                    <td>Favorite music:</td>
-                                    <td>
-                                        Rock,
-                                        Alternative,
-                                        Electro,
-                                        Drum &amp; Bass,
-                                        Dance
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Favorite movies:</td>
-                                    <td>
-                                        The Green Mile,
-                                        Pulp Fiction,
-                                        Back to the Future,
-                                        WALL·E,
-                                        Django Unchained,
-                                        The Truman Show,
-                                        Home Alone,
-                                        Seven Pounds
-                                    </td>
-                                </tr>
+                            <thead>
+                            <th>Rule:</th>
+                            <td> ${rule}</td>
+                            </thead>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
                             </tbody>
                         </table>
+
                         <table class="table user-view-table m-0">
                             <th>Price: </th>
                             <td >1000$</td>

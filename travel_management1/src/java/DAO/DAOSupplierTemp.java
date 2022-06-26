@@ -239,6 +239,43 @@ public class DAOSupplierTemp extends connectDB {
         return null;
     }
 
+    public Extensions getExtenstion(String HomeStayId) {
+        String sql = "select * from Extensions "
+                + " where homestayID = '" + HomeStayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Extensions(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public List<String> getExtenstion(Extensions e) {
+        String listExtenstions = e.getListExtentions();
+        String[] list = listExtenstions.split(",");
+        List<String> l = new ArrayList<>();
+        for (String o : list) {
+            l.add(o);
+        }
+        return l;
+    }
+
+    public Rules getRule(String homeStayId) {
+        String sql = "select * from rules where homestayId = '" + homeStayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Rules(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public Suppliers getSupplier(String homestayId) {
         String sql = "select * from suppliers s inner join homestays h on s.accountS = h.accountS where homestayId = '" + homestayId + "'";
         ResultSet rs = getData(sql);
@@ -251,10 +288,12 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6));
+
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -270,9 +309,11 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5));
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -287,9 +328,11 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4));
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -301,9 +344,11 @@ public class DAOSupplierTemp extends connectDB {
         try {
             if (rs.next()) {
                 return rs.getInt(1);
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
     }
@@ -328,9 +373,11 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getString(7)));
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return l;
     }
