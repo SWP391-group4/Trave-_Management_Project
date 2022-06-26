@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAO.DAOSupplierTemp;
+import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author phams
  */
-@WebServlet(name = "SupplierContractController", urlPatterns = {"/SupplierContract"})
-public class SupplierContractController extends HttpServlet {
+@WebServlet(name = "SupplierDetailController", urlPatterns = {"/SupplierDetail"})
+public class SupplierDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,6 +33,40 @@ public class SupplierContractController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+            /* TODO output your page here. You may use following sample code. */
+            DAOSupplierTemp daoSup = new DAOSupplierTemp();
+            String homestayId = request.getParameter("homestay");
+            
+            //-----Homestay information------
+            HomeStays homestay = daoSup.getHomeStayInfo(homestayId);
+            HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
+            HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homestayId);
+            Categories category = daoSup.getCategories(homestayId);
+            System.out.println(category);
+            System.out.println(homestayAddress);
+            request.setAttribute("homestay", homestay);
+            request.setAttribute("homestayAddress", homestayAddress);
+            request.setAttribute("homestayDetail", homestayDetail);
+            request.setAttribute("category", category);
+            
+            //------------------------------
+            
+            //-----Supplier information----
+            Suppliers supplier = daoSup.getSupplier(homestayId);
+            String accountS = supplier.getAccountS();
+            SupplierAddresses supplierAddress = daoSup.getSupplierAddress(accountS);
+            System.out.println(supplierAddress);
+            SupplierImage supplierImage = daoSup.getSupplierImage(accountS);
+            
+            request.setAttribute("supplier", supplier);
+            request.setAttribute("supplierAddress", supplierAddress);
+            //---------------
+            
+            
+            
+            request.getRequestDispatcher("SupplierDetail.jsp").forward(request, response);
+            
         
     }
 

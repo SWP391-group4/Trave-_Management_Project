@@ -34,6 +34,14 @@ public String accountS;
         return accountS;
     }
 
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.accountS = accountS;
+    }
+
+    
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack, String accountS) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;

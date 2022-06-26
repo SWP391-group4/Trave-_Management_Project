@@ -64,19 +64,19 @@
                             <tbody>
                                 <tr>
                                     <td>Username:</td>
-                                    <td>nmaxwell</td>
+                                    <td>${supplier.accountS}</td>
                                 </tr>
                                 <tr>
                                     <td>Name:</td>
-                                    <td>Nelle Maxwell</td>
+                                    <td>${supplier.firstName} ${supplier.lastName}</td>
                                 </tr>
                                 <tr>
                                     <td>E-mail:</td>
-                                    <td>nmaxwell@mail.com</td>
+                                    <td>${supplier.email}</td>
                                 </tr>
                                 <tr>
                                     <td>Fax: </td>
-                                    <td>Company Ltd.</td>
+                                    <td>${supplier.fax}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -89,19 +89,19 @@
                             <tbody>
                                 <tr>
                                     <td>Country:</td>
-                                    <td>May 3, 1995</td>
+                                    <td>Viet Nam</td>
                                 </tr>
                                 <tr>
                                     <td>City (Province)</td>
-                                    <td>Canada</td>
+                                    <td>${supplierAddress.city}</td>
                                 </tr>
                                 <tr>
                                     <td>Distric: </td>
-                                    <td>English</td>
+                                    <td>${supplierAddress.district}</td>
                                 </tr>
                                 <tr>
-                                    <td>Street: </td>
-                                    <td>English</td>
+                                    <td>Ward: </td>
+                                    <td>${supplierAddress.specific}, ${supplierAddress.ward}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -112,7 +112,7 @@
                             <tbody>
                                 <tr>
                                     <td>Phone:</td>
-                                    <td>+0 (123) 456 7891</td>
+                                    <td>+${supplier.phone}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -163,11 +163,11 @@
                             <tbody>
                                 <tr>
                                     <td>Service name:</td>
-                                    <td></td>
+                                    <td>${homestay.homeStayname}</td>
                                 </tr>
                                 <tr>
                                     <td>Type:</td>
-                                    <td></td>
+                                    <td>${category.cateName}</td>
                                 </tr>
                                 <tr>
                                     <td>Verified:</td>
@@ -175,7 +175,7 @@
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td></td>
+                                    <td>${homestayAddress.specific}, ${homestayAddress.ward}, ${homestayAddress.district}, ${homestayAddress.city}</td>
                                 </tr>
                                 <tr>
                                     <td>Status:</td>

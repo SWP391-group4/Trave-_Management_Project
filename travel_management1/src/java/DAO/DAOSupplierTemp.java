@@ -183,6 +183,117 @@ public class DAOSupplierTemp extends connectDB {
         return null;
     }
 
+    public HomeStays getHomeStayInfo(String homestayID) {
+        String sql = "select * from homeStays where homestayID = '" + homestayID + "'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public HomeStayDetails getHomestayDetails(String homestayId) {
+        String sql = "select * from HomeStayDetails where homestayID = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStayDetails(
+                        rs.getString(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getInt(10));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Categories getCategories(String HomeStayId) {
+        String sql = "select * from Categories c inner join Homestays h "
+                + " on c.cateId = h.cateId"
+                + " where homestayID = '" + HomeStayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Categories(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Suppliers getSupplier(String homestayId) {
+        String sql = "select * from suppliers s inner join homestays h on s.accountS = h.accountS where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Suppliers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public SupplierAddresses getSupplierAddress(String accountS) {
+        String sql = "select * from SupplierAddresses where accountS = '" + accountS + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new SupplierAddresses(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public SupplierImage getSupplierImage(String accountS) {
+        String sql = "select * from SupplierImage where accountS = '" + accountS + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new SupplierImage(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public int getEvaluate(String homestayID) {
         String sql = "select avg(star) from reviews where HomeStayId = '" + homestayID + "'";
 

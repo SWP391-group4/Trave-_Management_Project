@@ -374,7 +374,7 @@
                                         <div>
                                             <form action="AdminManageSearch">
                                                 <input type="text" name="search" placeholder="Search">
-                                                <input type="submit" class="btn btn-success">
+                                                <input type="submit" class="btn btn-success" value="Search">
                                             </form>
                                         </div>
 
@@ -409,7 +409,7 @@
                                                     </td>
                                                     <td>
                                                         <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
+                                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail?homestay=${o.homestayId}">Detail</a></button>
                                                     </td>
                                                     </tr>
                                                 </form>

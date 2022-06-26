@@ -370,7 +370,7 @@
                                 <!-- Supplier List -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
-                                        <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary"><a href="AdminManageSupplierList">List Suppliers</a></h6>
                                         <div>
                                             <form action="AdminManageSearch">
                                             <input type="text" name="search" placeholder="Search">
