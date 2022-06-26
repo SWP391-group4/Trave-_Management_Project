@@ -91,10 +91,10 @@
                 <div class="container">
                     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
                         <div class="col-md-12 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                            <form action="" class="searchcheck" >
+                            <form action="menu.jsp" class="searchcheck" >
                                 <input type="search" name="search" placeholder="     Search" pattern=".*\S.*" required>
                                 <button class="search-btn" type="submit">
-                                    <span>Search</span>
+                                    <span></span>
                                 </button>
                             </form>
                         </div>
@@ -112,53 +112,70 @@
             <section >
                 <div class="row" style="margin-top:40px ;margin-left: 90px;color: #000000">
                     <h3 style="font-weight: bold;font-style: italic">Favorite Destination </h3>
+                    <br>
+
                 </div>
+                <p style="margin-left: 90px" >  Join CTU Travel to start your journey to conquer the world.</p>
             </section>
             <section class="ftco-section" >
-                <div class="container">
 
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="carousel-testimony owl-carousel ftco-owl">
                                 <div class="item">
-                                    <div class="testimony-wrap p-4 pb-5">
-                                        <div>
-                                            <img src="images/person_1.jpg" alt="">
+                                    <a  href="menu.jsp" >
+                                        <div class="testimony-wrap p-4 pb-5">
+                                            <div style="width: 301px;height:336px ;background-image: url(images/HN.png)">
+                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">Ha Noi</h3>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="item">
-                                    <div class="testimony-wrap p-4 pb-5">
-                                        <div>
-                                            <img src="images/person_1.jpg" alt="">
+                                    <a  href="menu.jsp" >
+                                        <div class="testimony-wrap p-4 pb-5">
+                                            <div style="width: 301px;height:336px ; ;background-image: url(images/HCM.png)">
+                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Ho Chi Minh</h3>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="item">
-                                    <div class="testimony-wrap p-4 pb-5">
-                                        <div>
-                                            <img src="images/person_1.jpg" alt="">
+                                    <a  href="menu.jsp" >
+                                        <div class="testimony-wrap p-4 pb-5">
+                                            <div style="width: 301px;height:336px ; ;background-image: url(images/DL.png)">
+                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Lat</h3>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="item">
+                                    <a  href="menu.jsp" >
+                                        <div class="testimony-wrap p-4 pb-5">
+                                            <div>
+                                                <div style="width: 301px;height:336px ; ;background-image: url(images/QN.png)">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Quang Ninh</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="item">
-                                    <div class="testimony-wrap p-4 pb-5">
-                                        <div>
-                                            <img src="images/person_1.jpg" alt="">
+                                    <a  href="menu.jsp" >
+                                        <div class="testimony-wrap p-4 pb-5">
+                                            <div>
+                                                <div style="width: 301px;height:336px ; ;background-image: url(images/DN.png)">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Nang</h3>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-                                <div class="item">
-                                    <div class="testimony-wrap p-4 pb-5">
-                                        <div>
-                                            <img src="images/person_1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> 
                         </div> 
-                    </div> 
-                </div>
+                    </div>
             </section>
 
             <section class="ftco-section">
