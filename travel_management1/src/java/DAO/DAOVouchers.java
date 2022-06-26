@@ -180,7 +180,7 @@ public class DAOVouchers {
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/jquery.stellar.min.js"></script>hksdgfksd
         <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>oujhsfdg
         <script src="js/aos.js"></script>xczxfaád
 /this isthe skndfln lknsd l
         <script src="js/jquery.animateNumber.min.js"></script>
