@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAO.DAOAccounts;
+import Entity.Accounts;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,9 +33,7 @@ public class ResetPasswordController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String account = request.getParameter("account");
-        
-        response.sendRedirect("ResetPassword.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,6 +49,8 @@ public class ResetPasswordController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        response.sendRedirect("ResetPassword.jsp");
     }
 
     /**
@@ -63,6 +65,39 @@ public class ResetPasswordController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        Accounts account = (Accounts)request.getSession().getAttribute("acc");
+
+        DAO.DAOAccounts daoAccount = new DAOAccounts();
+
+        String oldPasswordTemp = daoAccount.getPassword(account.getAccount());
+        System.out.println(account);
+        System.out.println(oldPasswordTemp);
+        String oldPassword = request.getParameter("oldPassword");
+        String newPassword = request.getParameter("newPassword");
+        String confirm = request.getParameter("confirmPassword");
+        
+        request.setAttribute("oldPassword", oldPasswordTemp);
+        request.setAttribute("newPassword", newPassword);
+        request.setAttribute("confirmPassword", confirm);
+        
+        if (oldPassword.equals(oldPasswordTemp)) {
+            if (newPassword.equals(confirm)) {
+                daoAccount.updatePassword(account.getAccount(), newPassword);
+                String alert = "Update success";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("login").forward(request, response);
+
+            } else {
+                String alert = "Wrong confirm password";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
+            }
+        } else {
+            String alert = "Wrong old password";
+            request.setAttribute("alert", alert);
+            request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
+
+        }
     }
 
     /**

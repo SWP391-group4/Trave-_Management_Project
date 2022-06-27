@@ -63,24 +63,24 @@
                             <div class="card">
                                 <div class="card-header">Reset Password</div>
                                 <div class="card-body">
-                                    <form action="" method="">
+                                    <form action="ResetPassword" method="post">
                                         <div class="form-group row">
                                             <label for="password" class="col-md-4 col-form-label text-md-right">Old Password</label>
                                             <div class="col-md-6">
-                                                <input type="password" id="password" class="form-control" name="password" required>
+                                                <input type="password" id="password" class="form-control" name="oldPassword" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
                                             <div class="col-md-6">
-                                                <input type="password" id="password" class="form-control" name="password" required>
+                                                <input type="password" id="password" class="form-control" name="newPassword" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="password" class="col-md-4 col-form-label text-md-right">Reset Password</label>
                                             <div class="col-md-6">
-                                                <input type="password" id="password" class="form-control" name="password" required>
+                                                <input type="password" id="password" class="form-control" name="confirmPassword" required>
                                             </div>
                                         </div>
 
@@ -89,7 +89,7 @@
                                             <button type="submit" class="btn btn-primary">
                                                 Update
                                             </button>
-
+                                            <p class="alert">${alert}</p>
                                         </div>
                                 </div>
                                 </form>

@@ -84,6 +84,18 @@ public class DAOAccounts extends connectDB {
         }
     }
 
+    public String getPassword(String account) {
+        String sql = "select password from accounts where account = '"+account+"'";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public int updatePassword(String account, String password) {
         int n = 0;
         String sql = "Update Accounts set "
