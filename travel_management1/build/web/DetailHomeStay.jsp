@@ -52,7 +52,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<!--    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 		
 		<section class="ftco-section ftco-degree-bg">
       <div class="container">
@@ -101,11 +101,11 @@
     						<div class="d-md-flex mt-5 mb-5">
                                               
     							<ul class="ml-md-5">
-                                                            <li><i class="fas fa-bed"></i> BedRoom :</li>
-	    							<li>Bed: </li>
-	    							<li>BathRoom </li>
-	    							<li>LivingRoom:</li>
-                                                                <li>KitChen:</li>
+                                                            <li><i class="fad fa-bed"></i> BedRoom :</li>
+	    							<li><i class="fas fa-bed"></i>  Bed: </li>
+	    							<li><i class="fas fa-bath"></i> BathRoom </li>
+	    							<li><i class="fad fa-person-booth"></i> LivingRoom:</li>
+                                                                <li><i class="fad fa-utensils"></i> KitChen:</li>
 	    						</ul>
 	    						<ul class="ml-md-5">
 	    							<li>${detail.bedRoomQty}</li>

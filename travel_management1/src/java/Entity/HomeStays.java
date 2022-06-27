@@ -9,26 +9,27 @@ package Entity;
  * @author thinh
  */
 public class HomeStays {
+
     public String homeStayID;
     public String homeStayname;
     public String cateID;
-public String city;
-public String district;
-public String specific;
-public String ward;
-public String cateName;
-public int bedQty;
-public int bedRoomQty;
-public int bathRoomQty;
-public int livingRoomQty;
-public int kitchenQty;
-public String checkIn;
-public  String checkOut;
-public double price;
-public double IncurredCost;
-public int star;
-public String feedBack;
-public String accountS;
+    public String accountS;
+    public String city;
+    public String district;
+    public String specific;
+    public String ward;
+    public String cateName;
+    public int bedQty;
+    public int bedRoomQty;
+    public int bathRoomQty;
+    public int livingRoomQty;
+    public int kitchenQty;
+    public String checkIn;
+    public String checkOut;
+    public double price;
+    public double IncurredCost;
+    public int star;
+    public String feedBack;
 
     public String getAccountS() {
         return accountS;
@@ -41,7 +42,6 @@ public String accountS;
         this.accountS = accountS;
     }
 
-    
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack, String accountS) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -193,6 +193,20 @@ public String accountS;
         this.ward = ward;
         this.cateName = cateName;
     }
+
+    public HomeStays(String accountS,String homeStayID, String homeStayname, String cateID,  String city, String district, String specific, String ward, String cateName) {
+        this.accountS = accountS;
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+    }
+
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -270,13 +284,9 @@ public String accountS;
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", bedQty=" + bedQty + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", IncurredCost=" + IncurredCost + ", star=" + star + ", feedBack=" + feedBack + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", accountS=" + accountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + '}';
     }
 
    
 
-  
-
-   
-    
 }

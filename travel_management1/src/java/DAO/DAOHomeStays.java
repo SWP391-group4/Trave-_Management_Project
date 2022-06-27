@@ -279,15 +279,57 @@ public class DAOHomeStays extends connectDB {
         }
         return null;
     }
+    
+    //Random HomeStay
+//        public HomeStays getRandomHomeStaybySuppiler(String accountS) {
+//        
+//        String sql = "select   h.AccountS,h.HomeStayid,h.homestayname,h.cateID \n" +
+//" ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName from\n" +
+//"((HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid )            \n" +
+//" inner join Categories cs on cs.CateId=h.CateId) where h.AccountS='"+accountS+"'ORDER BY NEWID()";
+//
+//        try {
+//            PreparedStatement pre = conn.prepareStatement(sql);
+//            ResultSet rs = pre.executeQuery();
+//            while (rs.next()) {
+//                return new HomeStays(rs.getString(1),
+//                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
+  public List<HomeStays> getRandomHomeStaybySuppiler(String accountS) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select top 3  h.AccountS,h.HomeStayid,h.homestayname,h.cateID \n" +
+" ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName from\n" +
+"((HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid )            \n" +
+" inner join Categories cs on cs.CateId=h.CateId) where h.AccountS=? ORDER BY NEWID()";
 
-//// Chua xong 
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, accountS);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-     List<Categories> list = dao.ListCate();
-//     HomeStays h=   dao.getHomeStaybyID("HS0011");
+     List<HomeStays> list = dao.getRandomHomeStaybySuppiler("1danvit");
+//     HomeStays h=   dao.getRandomHomeStaybySuppiler("1danvit");
 //        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-        for (Categories o : list) {
+        for (HomeStays o : list) {
             System.out.println(o);
         }
 //int count = dao.countToDiv();
