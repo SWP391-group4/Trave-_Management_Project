@@ -52,96 +52,96 @@
                                     <div class="fields">
                                         <div class="form-group">
                                             <input type="text" value=""${txtsearch} method="get" name="txt" class="form-control" placeholder="Destination, City">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="HomeStay Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="select-wrap one-third">
-                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                <!--                                            <select name="" id="" class="form-control" placeholder="Keyword search">
-                                                                                                <option value="">Select Location</option>
-                                                                                                <option value="">San Francisco USA</option>
-                                                                                                <option value="">Berlin Germany</option>
-                                                                                                <option value="">London United Kingdom</option>
-                                                                                                <option value="">Paris Italy</option>
-                                                                                            </select>-->
-                                            </div>
-                                        </div>
-                                        <!--                                    <div class="form-group">
-                                                                                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Date from">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Date to">
-                                                                            </div>-->
-                                        <div class="form-group">
-                                            <div class="range-slider">
-                                                <span>
-                                                    <input type="number" value="25000" min="0" max="120000"/>	-
-                                                    <input type="number" value="50000" min="0" max="120000"/>
-                                                </span>
-                                                <input value="1000" min="0" max="120000" step="500" type="range"/>
-                                                <input value="50000" min="0" max="120000" step="500" type="range"/>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="HomeStay Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="select-wrap one-third">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <!--                                            <select name="" id="" class="form-control" placeholder="Keyword search">
+                                                                                            <option value="">Select Location</option>
+                                                                                            <option value="">San Francisco USA</option>
+                                                                                            <option value="">Berlin Germany</option>
+                                                                                            <option value="">London United Kingdom</option>
+                                                                                            <option value="">Paris Italy</option>
+                                                                                        </select>-->
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <!--                                    <div class="form-group">
+                                                                            <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Date from">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Date to">
+                                                                        </div>-->
+                                    <div class="form-group">
+                                        <div class="range-slider">
+                                            <span>
+                                                <input type="number" value="25000" min="0" max="120000"/>	-
+                                                <input type="number" value="50000" min="0" max="120000"/>
+                                            </span>
+                                            <input value="1000" min="0" max="120000" step="500" type="range"/>
+                                            <input value="50000" min="0" max="120000" step="500" type="range"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
 
-                            <div class="card bg-warning mb-3">
-                                <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
-                                <ul class="list-group category_block">
-                                    <c:forEach items="${listC}" var="c">
+                        <div class="card bg-warning mb-3">
+                            <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
+                            <ul class="list-group category_block">
+                                <c:forEach items="${listC}" var="c">
                                     <li class="list-group-item text-dark ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
                                     </c:forEach>
 
-                                </ul>
-                            </div>
+                            </ul>
+                        </div>
 
-                            <div class="sidebar-wrap ftco-animate ">
-                                <h3 class="heading mb-4">Star Rating</h3>
-                                <form method="post" class="star-rating">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div><!-- END-->
+                        <div class="sidebar-wrap ftco-animate ">
+                            <h3 class="heading mb-4">Star Rating</h3>
+                            <form method="post" class="star-rating">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- END-->
 
 
-                        <div class="col-lg-9 order-md-last" >
-                            <div class="row">
+                    <div class="col-lg-9 order-md-last" >
+                        <div class="row">
                             <c:forEach items="${list}" var="o">
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
@@ -156,7 +156,7 @@
 
                                                 <div class="one">
                                                     <h3><a href="#"></a>${o.getHomeStayname()}</h3>
-${o.cateName}
+                                                        ${o.cateName}
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>

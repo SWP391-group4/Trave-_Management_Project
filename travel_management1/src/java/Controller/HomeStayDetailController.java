@@ -8,6 +8,7 @@ import DAO.DAOHomeStays;
 import Entity.HomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,10 +35,12 @@ public class HomeStayDetailController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       String homeStayID=request.getParameter("homeStayID");
-        System.out.println(homeStayID);
+
         DAOHomeStays dao=new DAOHomeStays();
         HomeStays h = dao.getHomeStaybyID(homeStayID);
-        System.out.println(h);
+List<HomeStays> listbyS = dao.getRandomHomeStay();
+
+        request.setAttribute("listbyS", listbyS);
         request.setAttribute("detail", h);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
         
