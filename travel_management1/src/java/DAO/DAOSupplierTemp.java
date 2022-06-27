@@ -381,4 +381,5 @@ public class DAOSupplierTemp extends connectDB {
         }
         return l;
     }
+    
 }
