@@ -85,10 +85,10 @@ public class DAOAccounts extends connectDB {
     }
 
     public String getPassword(String account) {
-        String sql = "select password from accounts where account = '"+account+"'";
+        String sql = "select password from accounts where account = '" + account + "'";
         ResultSet rs = getData(sql);
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 return rs.getString(1);
             }
         } catch (SQLException ex) {
@@ -96,6 +96,7 @@ public class DAOAccounts extends connectDB {
         }
         return null;
     }
+
     public int updatePassword(String account, String password) {
         int n = 0;
         String sql = "Update Accounts set "
@@ -103,11 +104,11 @@ public class DAOAccounts extends connectDB {
                 + "where account = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, account);
-            pre.setString(2, password);
+            pre.setString(1, password);
+            pre.setString(2, account);
             n = pre.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return n;
     }
@@ -115,6 +116,7 @@ public class DAOAccounts extends connectDB {
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
         System.out.println(dao.checkAccount("Magaming"));
-
+        int n = dao.updatePassword("benbohanhphuc", "123");
+        System.out.println(n);
     }
 }
