@@ -16,7 +16,7 @@
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                             <c:if test="${sessionScope.acc!=null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello${sessionScope.acc.account}</a></li>
+                            <li class="nav-item"><a href="CustomerProfile" class="nav-link">Hello ${sessionScope.acc.account}</a></li>
                             </c:if>
                             <c:if test="${sessionScope.acc==null}">
                             <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
