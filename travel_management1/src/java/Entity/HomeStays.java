@@ -42,10 +42,11 @@ public class HomeStays {
         this.accountS = accountS;
     }
 
-    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty,String accountS) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
+        this.accountS = accountS;
         this.city = city;
         this.district = district;
         this.specific = specific;
@@ -56,9 +57,13 @@ public class HomeStays {
         this.bathRoomQty = bathRoomQty;
         this.livingRoomQty = livingRoomQty;
         this.kitchenQty = kitchenQty;
-            this.accountS = accountS;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
     }
-       public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty,Double price) {
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, Double price) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
@@ -72,7 +77,7 @@ public class HomeStays {
         this.bathRoomQty = bathRoomQty;
         this.livingRoomQty = livingRoomQty;
         this.kitchenQty = kitchenQty;
-            this.price = price;
+        this.price = price;
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack, String accountS) {
@@ -227,7 +232,7 @@ public class HomeStays {
         this.cateName = cateName;
     }
 
-    public HomeStays(String accountS,String homeStayID, String homeStayname, String cateID,  String city, String district, String specific, String ward, String cateName) {
+    public HomeStays(String accountS, String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName) {
         this.accountS = accountS;
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -335,9 +340,5 @@ public class HomeStays {
     public String toString() {
         return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", accountS=" + accountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", bedQty=" + bedQty + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + '}';
     }
-
-  
-
-   
 
 }

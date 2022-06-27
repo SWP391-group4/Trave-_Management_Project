@@ -4,7 +4,6 @@
  */
 package Controller;
 
-
 import DAO.DAOHomeStays;
 import Entity.Categories;
 
@@ -49,10 +48,10 @@ public class ListAllHomeStayController extends HttpServlet {
         if (count % 10 != 0) {
             endPage++;
         }
-List<Categories> listC=dao.ListCate();
+        List<Categories> listC = dao.ListCate();
         List<HomeStays> listHomeStay = dao.paggingHomeStay(index);
         request.setAttribute("endPage", endPage);
-            request.setAttribute("listC", listC);
+        request.setAttribute("listC", listC);
         request.setAttribute("list", listHomeStay);
         request.setAttribute("tag", index);
         request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
