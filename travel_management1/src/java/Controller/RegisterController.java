@@ -37,8 +37,17 @@ public class RegisterController extends HttpServlet {
         String user=request.getParameter("user");
         String password=request.getParameter("password");
         String re_password=request.getParameter("re_password");
+        if(user.isEmpty() || password.isEmpty() ) {
+            String alert5="Please enter all your text filed";
+                            request.setAttribute("alert5", alert5);
+             request.getRequestDispatcher("Register.jsp").forward(request, response);
+               
+        }
         if(!password.equals(re_password)){
-            response.sendRedirect("Login.jsp");
+               
+             String alert1 = "Password is not match re_password";
+            request.setAttribute("alert1", alert1);
+             request.getRequestDispatcher("Register.jsp").forward(request, response);
         }else{
             DAOAccounts dao=new DAOAccounts();
             Accounts a=dao.checkAccount(user);
@@ -47,9 +56,14 @@ public class RegisterController extends HttpServlet {
                 response.sendRedirect("");
             }
             else {
-                 response.sendRedirect("Login.jsp");
+              String alert = "Account have exit,please try again!";
+            request.setAttribute("alert", alert);
+            request.getRequestDispatcher("Register.jsp").forward(request, response);
+            
             }
         }
+       
+            
     }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
