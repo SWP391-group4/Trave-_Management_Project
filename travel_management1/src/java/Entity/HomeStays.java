@@ -80,10 +80,11 @@ public class HomeStays {
         this.price = price;
     }
 
-    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, int star, String feedBack, String accountS) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price, double IncurredCost) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
+        this.accountS = accountS;
         this.city = city;
         this.district = district;
         this.specific = specific;
@@ -94,14 +95,10 @@ public class HomeStays {
         this.bathRoomQty = bathRoomQty;
         this.livingRoomQty = livingRoomQty;
         this.kitchenQty = kitchenQty;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
         this.price = price;
         this.IncurredCost = IncurredCost;
-        this.star = star;
-        this.feedBack = feedBack;
-        this.accountS = accountS;
     }
+
 
     public String getCateName() {
         return cateName;

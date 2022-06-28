@@ -46,6 +46,7 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("listBySupplier", listBySupplier);
         System.out.println(h);
         System.out.println(accountS);
+        System.out.println(listbyS);
         System.out.println(listBySupplier);
         request.setAttribute("detail", h);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
