@@ -123,7 +123,7 @@
                                         <i class="icon-star-o"></i>
                                         8 Rating</span>
                                 </p>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                                <p>${detail.description}</p>
                                 <div class="d-md-flex mt-5 mb-5">
 
                                     <ul class="ml-md-5">
@@ -141,7 +141,7 @@
                                         <li> ${detail.kitchenQty}</li>
                                     </ul>
                                 </div>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                               
                             </div>
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                                 <h4 class="mb-4">Take A Tour</h4>
@@ -235,13 +235,10 @@
 
                                             <c:if test="${sessionScope.acc==null}">
                                                 <form>
-
-                                                    <h3 class="pull-left">You must to login to comment</h3>
-                                                  
-                                                   
+                                                    <h6 class="pull-left">You must to login to comment</h6>
                                                 </form>
                                             </c:if>
-                                            <h3>number of Comments</h3>
+                                            <h6>1 Comments</h6>
                                             <c:forEach  items="${review}" var="o">
                                                 <!-- COMMENT 1 - START -->
                                                 <div class="media">

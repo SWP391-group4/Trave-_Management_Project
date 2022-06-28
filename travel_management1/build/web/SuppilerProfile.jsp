@@ -82,7 +82,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="manageHomeStay">Manage</a></div>
+                <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage</a></div>
             </div>
 
             <ul class="list-group">

@@ -4,11 +4,14 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
 import DAO.DAOSupplier;
+import Entity.HomeStays;
 import Entity.SupplierAddresses;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,15 +38,17 @@ public class manageHomeStay extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-             HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
+            String accountS = request.getParameter("accountS");
             
-        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
-      
-                   request.getRequestDispatcher("/manageHomeStay.jsp").forward(request, response);
-        }
+        System.out.println(accountS);
+            DAOHomeStays dao = new DAOHomeStays();
+            List<HomeStays> listbyAccountS = dao.getHomeStayforSUP(accountS);
+            System.out.println(listbyAccountS);
+            request.setAttribute("listbyAccountS", listbyAccountS);
+            Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+            request.getRequestDispatcher("/manageHomeStay.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
