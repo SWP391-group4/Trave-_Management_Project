@@ -60,16 +60,21 @@
 
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="places.html" class="nav-link">Places</a></li>
-                        <li class="nav-item active"><a href="hotel.html" class="nav-link">Hotels</a></li>
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
+                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
+                        <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">List HomeStay</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
+                            <c:if test="${sessionScope.acc!=null}">
+                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
+                            <li class="nav-item"><a href="CustomerProfile" class="nav-link">Hello ${sessionScope.acc.account}</a></li>
+                            </c:if>
+                            <c:if test="${sessionScope.acc==null}">
+                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
+                                </c:if> 
                     </ul>
                 </div>
-            </div>
         </nav>
         <!-- END nav -->
 
@@ -212,43 +217,54 @@
                                 <div class="container">   
                                     <div class="row">
                                         <div class="col-sm-8">   
-                                            <form>
-                                                <h3 class="pull-left">New Comment</h3>
-                                                <button type="submit" class="btn btn-normal pull-right">Submit</button>
-                                                <fieldset>
-                                                    <div class="row">
+                                            <c:if test="${sessionScope.acc!=null}">
+                                                <form>
 
-                                                        <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                                            <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                                                        </div>
-                                                    </div>  	
-                                                </fieldset>
-                                            </form>
+                                                    <h3 class="pull-left">New Comment</h3>
+                                                    <button type="submit" class="btn btn-normal pull-right">Submit</button>
+                                                    <fieldset>
+                                                        <div class="row">
 
-                                            <h3>4 Comments</h3>
+                                                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                                <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                                            </div>
+                                                        </div>  	
+                                                    </fieldset>
+                                                </form>
+                                            </c:if>
+
+                                            <c:if test="${sessionScope.acc==null}">
+                                                <form>
+
+                                                    <h3 class="pull-left">You must to login to comment</h3>
+                                                  
+                                                   
+                                                </form>
+                                            </c:if>
+                                            <h3>number of Comments</h3>
                                             <c:forEach  items="${review}" var="o">
-                                            <!-- COMMENT 1 - START -->
-                                            <div class="media">
-                                                <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">${o.cus_name}</h4>
-                                                    <p>${o.feedBack}</p>
-                                                    <ul class="list-unstyled list-inline media-detail pull-left">
-                                                        <li>${o.date}</li>
-                                                    </ul>
-                                                    <ul class="list-unstyled list-inline media-detail pull-right">
+                                                <!-- COMMENT 1 - START -->
+                                                <div class="media">
+                                                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">${o.cus_name}</h4>
+                                                        <p>${o.feedBack}</p>
+                                                        <ul class="list-unstyled list-inline media-detail pull-left">
+                                                            <li>${o.date}</li>
+                                                        </ul>
+                                                        <ul class="list-unstyled list-inline media-detail pull-right">
 
-                                                    </ul>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-</c:forEach>
+                                            </c:forEach>
 
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                           
-                           
+
+
 
                         </div>
                     </div> <!-- .col-md-8 -->

@@ -71,8 +71,8 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOSupplier daosup = new DAOSupplier();
          HttpSession session = request.getSession();
+        DAOSupplier daosup = new DAOSupplier();      
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String account = sp.getAccountS();
@@ -81,6 +81,7 @@ public class SuppilerProflieController extends HttpServlet {
         String fax=sp.getFax();
         String email = sp.getEmail();
         String phone = sp.getPhone();
+        
            String specific = request.getParameter("specific");
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");

@@ -49,7 +49,7 @@
 	          <li class="nav-item "><a href="index.html" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
 	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-	          <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
+	          <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">List HomeStay</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 			  <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="ListAllHomeStayController" class="nav-link">Return</a></li>
