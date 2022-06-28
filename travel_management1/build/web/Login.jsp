@@ -65,7 +65,7 @@
                 <div class="signup-content">
                     <form method="GET" id="signup-form" class="signup-form" action="login">
                         <h2 class="form-title">Login</h2>
-                        <div>${alert}</div>
+                        <p>${noti}</p>
                         
                         <div class="form-group">
                             <input type="text" class="form-input" name="account" id="name" placeholder="account"/>
