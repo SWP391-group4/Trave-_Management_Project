@@ -187,17 +187,23 @@
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right">
-                        <a herf="home.jsp">See All</a>
+                        <a href="home.jsp">See All</a>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/voucher1.png">
+                            <a href="home.jsp">
+                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher1.png">
+                            </a>
                         </div> 
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/voucher2.png">
+                            <a href="home.jsp">
+                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher2.png">
+                            </a>
                         </div> 
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/voucher3.png">
+                            <a href="home.jsp">
+                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher3.png">
+                            </a>
                         </div> 
                     </div>
             </section>
@@ -212,17 +218,33 @@
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right">
-                        <a herf="home.jsp">See All</a>
+                        <a href="home.jsp">See All</a>
                     </div>
                     <div class="row">
+
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/blog1.jpg">
+                            <a href="home.jsp">
+                                <div style="width: 366px;height: 289px ; ;background-image: url(images/blog1.jpg);background-position:center;background-size: cover">
+                                    <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
+                                    <h6 style="color: #FFF;text-align: center;margin-top: 140px;background:rgba(0,0,0,0.5)">How to finance the perfect trip ?</h6>
+                                </div>
+                            </a>
                         </div> 
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/blog2.jpg">
+                            <a href="home.jsp">
+                                <div style="width: 366px;height: 289px ; ;background-image: url(images/blog2.jpg);background-position:center;background-size: cover">
+                                    <p style="color: #FFF;text-align: center;padding-top:20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
+                                    <h6 style="color: #FFF;text-align: center;margin-top: 140px;background:rgba(0,0,0,0.5)">5 luxury resorts in Vietnam appear on British magazine</h6>
+                                </div>
+                            </a>
                         </div> 
                         <div class="col-md-4">
-                            <img style="width: 336px;height: 259px" src="images/blog3.jpg">
+                            <a href="home.jsp">
+                                <div style="width: 366px;height:289px ; ;background-image: url(images/blog3.jpg);background-position:center;background-size: cover">
+                                    <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
+                                    <h6 style="color: #FFF;text-align: center;margin-top: 140px;background:rgba(0,0,0,0.5)">Hanoi is in the top of the most beautiful cities in the world</h6>
+                                </div>
+                            </a>
                         </div> 
                     </div>
             </section>
