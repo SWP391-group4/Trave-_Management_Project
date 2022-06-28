@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -63,7 +63,7 @@
 <div class="container bootstrap snippets bootdey">
     <div class="row">
         <div class="col-sm-10">
-            <h1>${sp.accountS}</h1></div>
+            <h1>User: ${sp.accountS}</h1></div>
         <div class="col-sm-2">
             <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
         </div>
@@ -82,7 +82,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="">Manage</a></div>
+                <div class="panel-body"><a href="manageHomeStay">Manage</a></div>
             </div>
 
             <ul class="list-group">
@@ -338,6 +338,13 @@
                                 
                             </div>
                         </div>
+ <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="text-right">
+                                                    <p class="success">${noti}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                     </form>
                 </div>
 
