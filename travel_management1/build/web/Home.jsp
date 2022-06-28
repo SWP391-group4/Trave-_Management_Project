@@ -116,7 +116,7 @@
                 </div>
                 <p style="margin-left: 90px" >  Join CTU Travel to start your journey to conquer the world.</p>
             </section>
-            <section class="ftco-section" >
+            <section class="" >
 
                 <div class="container">
                     <div class="row">
@@ -183,7 +183,7 @@
             </section>
             <p style="margin-left: 90px">Only at CTU Travel, attractive and limited, book now!</p>
 
-            <section class="ftco-section" >
+            <section class="" >
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right;text-decoration: underline;">
@@ -215,7 +215,7 @@
             </section>
             <p style="margin-left: 90px">Let each trip be an inspirational journey, each room a peaceful space!</p>
 
-            <section class="ftco-section" >
+            <section class="" >
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right;text-decoration: underline;">
@@ -250,6 +250,8 @@
                         </div> 
                     </div>
             </section>
+            <br> <br> <br>
+                     
             <section class="ftco-section-parallax">
                 <div class="parallax-img d-flex align-items-center">
                     <div class="container">
