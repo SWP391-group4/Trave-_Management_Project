@@ -27,30 +27,29 @@
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/booking.css">
     </head>
     <body>
         <jsp:include page="Header.jsp"/>
 
-        <section  >
+        <section >
             <div class="container">
                 <div class="main-body">
 
                     <!-- Breadcrumb -->
                     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                        <a class="navbar-brand" onclick="profileFunction()">Account</a>
+                        <a class="navbar-brand" href="#">Account</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-item nav-link active" onclick="bookingFunction()">Booking <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link active" href="#">Booking <span class="sr-only">(current)</span></a>
                                 <a class="nav-item nav-link" href="#">History</a>
                             </div>
                         </div>
                     </nav>
                     <!-- /Breadcrumb -->
-                    <form action="CustomerProfile" method="post" id="profile">
+                    <form action="CustomerProfile" method="post">
                         <div class="row gutters-sm">
                             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                 <div class="card">
@@ -159,103 +158,14 @@
                         </div>
                     </form>
                 </div>
+
             </div>
+
         </section>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-        <div class="event-schedule-area-two bg-color pad100" id="booking" onclick="bookingFunction()" style="display: none">
-            <div class="container">
-
-                <!-- row end-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade active show" id="home" role="tabpanel">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center" scope="col">Date</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col" >Home stay</th>
-                                                <th scope="col" >Price</th>
-                                                <th scope="col">Status</th>
-                                                <th class="text-center" scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="inner-box">
-                                                <th scope="row">
-                                                    <div class="event-date">
-                                                        <span>16</span>
-                                                        <p>Novembar</p>
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div class="event-img">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="event-wrap">
-                                                        <h3><a href="#">Harman Kardon</a></h3>
-                                                        <div class="meta">
-                                                            <div class="organizers">
-                                                                <a href="#">Aslan Lingker</a>
-                                                            </div>
-                                                            <div class="categories">
-                                                                <a href="#">Inspire</a>
-                                                            </div>
-                                                            <div class="time">
-                                                                <span>05:35 AM - 08:00 AM 2h 25'</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="r-no">
-                                                        <span>1000$</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="primary-btn">
-                                                        <span>Pending</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="primary-btn">
-                                                        <a class="btn btn-primary" href="#">Read More</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /col end-->
-                </div>
-                <!-- /row end-->
-            </div>
-        </div>
+        
         <jsp:include page="Footer.jsp"/>
 
-        <script>
-            function profileFunction() {
-                document.getElementById("profile").style.display = "block";
-                document.getElementById("booking").style.display = "none";
 
-
-            }
-            function bookingFunction() {
-                document.getElementById("profile").style.display = "none";
-                document.getElementById("booking").style.display = "block";
-            }
-        </script>
 
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
