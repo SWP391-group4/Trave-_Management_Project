@@ -71,23 +71,23 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         HttpSession session = request.getSession();
-        DAOSupplier daosup = new DAOSupplier();      
+        HttpSession session = request.getSession();
+        DAOSupplier daosup = new DAOSupplier();
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String account = sp.getAccountS();
         String firstName = request.getParameter("fname");
         String lastName = request.getParameter("lname");
-        String fax=sp.getFax();
+        String fax = sp.getFax();
         String email = sp.getEmail();
         String phone = sp.getPhone();
-        
-           String specific = request.getParameter("specific");
+
+        String specific = request.getParameter("specific");
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");
         String city = request.getParameter("city");
-          Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
-      SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
+        Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
+        SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
         int n = daosup.updateSupplier(sup_temp);
         int m = daosup.updateSupplierAddress(address_temp);
         if (n == 0 && m == 0) {
@@ -103,7 +103,7 @@ public class SuppilerProflieController extends HttpServlet {
             request.setAttribute("noti", noti);
             request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         }
-       
+
     }
 
     /**
