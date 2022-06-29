@@ -49,4 +49,17 @@ public class DAOBlogs extends connectDB {
         }
         return n;
     }
+    
+    public int removeBlogs(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[Blogs]"
+                + "      WHERE BlogId='" + id + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
 }
