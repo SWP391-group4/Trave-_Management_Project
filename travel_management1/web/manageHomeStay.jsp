@@ -91,6 +91,8 @@
 									<th>HomeStayName</th>
 									<th>Type</th>
 									<th>Status</th>
+                                                                        <th>View</th><!-- <th>Status</th> -->
+                                                                        <th>Edit</th>
 								</tr>
 							</thead>
                                                         <c:forEach items="${listbyAccountS}" var="o">
@@ -101,6 +103,8 @@
 									<td>${o.homeStayname}</td>
 									<td>${o.cateName}</td>
 									<td><span class="badge bg-success">Active</span></td>
+                                                                        <td><a href="">View</a></td>
+                                                                        <td><a href="">Edit</a></td>
 								</tr>
 								
 							</tbody>
@@ -135,8 +139,7 @@
 							</div>
 							<div class="col-sm-9 col-xl-12 col-xxl-9">
 								<strong>About me</strong>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-									magna aliqua.</p>
+								
 							</div>
 						</div>
 
@@ -144,19 +147,19 @@
 							<tbody>
 								<tr>
 									<th>Name</th>
-									<td>Angelica Ramos</td>
+									<td>${detail.firstName} ${detail.lastName}</td>
 								</tr>
 								<tr>
-									<th>Company</th>
-									<td>The Wiz</td>
-								</tr>
+									<th>Fax</th>
+									<td>${detail.fax}</td>
+								</tr>   
 								<tr>
 									<th>Email</th>
-									<td>angelica@ramos.com</td>
+									<td>${detail.email}</td>
 								</tr>
 								<tr>
 									<th>Phone</th>
-									<td>+1234123123123</td>
+									<td>${detail.phone}</td>
 								</tr>
 								<tr>
 									<th>Status</th>

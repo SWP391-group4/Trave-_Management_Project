@@ -40,11 +40,11 @@ public class manageHomeStay extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
             String accountS = request.getParameter("accountS");
-            
-        System.out.println(accountS);
             DAOHomeStays dao = new DAOHomeStays();
+            DAOSupplier daos=new DAOSupplier();
+            Suppliers sup=daos.getSuppiler(accountS);
             List<HomeStays> listbyAccountS = dao.getHomeStayforSUP(accountS);
-            System.out.println(listbyAccountS);
+              request.setAttribute("detail", sup);
             request.setAttribute("listbyAccountS", listbyAccountS);
             Suppliers sp = (Suppliers) session.getAttribute("suppliers");
             request.getRequestDispatcher("/manageHomeStay.jsp").forward(request, response);
