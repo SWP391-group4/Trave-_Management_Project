@@ -5,7 +5,12 @@
 package Controller;
 
 import DAO.DAOHomeStays;
+import DAO.DAOReviews;
+import DAO.DAOSupplier;
 import Entity.HomeStays;
+import Entity.Reviews;
+import Entity.SupplierAddresses;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,19 +41,19 @@ public class HomeStayDetailController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String homeStayID = request.getParameter("homeStayID");
-
+        HttpSession session = request.getSession();
+        DAOSupplier daosup = new DAOSupplier();
+       
         DAOHomeStays dao = new DAOHomeStays();
-        
+        DAOReviews daor = new DAOReviews();
+        List<Reviews> r = daor.getFeedbackByHID(homeStayID);
         HomeStays h = dao.getHomestay(homeStayID);
         String accountS = h.getAccountS();
         List<HomeStays> listbyS = dao.getRandomHomeStay();
         List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
         request.setAttribute("listbyS", listbyS);
         request.setAttribute("listBySupplier", listBySupplier);
-        System.out.println(h);
-        System.out.println(accountS);
-        System.out.println(listbyS);
-        System.out.println(listBySupplier);
+        request.setAttribute("review", r);
         request.setAttribute("detail", h);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
 

@@ -30,15 +30,38 @@ public class HomeStays {
     public double IncurredCost;
     public int star;
     public String feedBack;
-
+public String description;
+public String video;
     public String getAccountS() {
         return accountS;
     }
 
-    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price, double IncurredCost, String description, String video) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
+        this.accountS = accountS;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.bedQty = bedQty;
+        this.bedRoomQty = bedRoomQty;
+        this.bathRoomQty = bathRoomQty;
+        this.livingRoomQty = livingRoomQty;
+        this.kitchenQty = kitchenQty;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
+    
+        this.description = description;
+        this.video = video;
+    }
+
+    public HomeStays(String homeStayID, String homeStayname, String accountS, String cateName) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateName = cateName;
         this.accountS = accountS;
     }
 
@@ -140,6 +163,22 @@ public class HomeStays {
 
     public void setBedRoomQty(int bedRoomQty) {
         this.bedRoomQty = bedRoomQty;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public int getBathRoomQty() {
@@ -335,7 +374,9 @@ public class HomeStays {
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", accountS=" + accountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", bedQty=" + bedQty + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", accountS=" + accountS + ", cateName=" + cateName + '}';
     }
+
+  
 
 }

@@ -15,9 +15,17 @@ public class Suppliers {
     public String fax;
     public String email;
     public String phone;
-    
+    public String homeStayID;
+    public String homeStayname;
+    public String cateName;
 
     public Suppliers() {
+    }
+
+    public Suppliers(String homeStayID, String homeStayname, String cateName) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateName = cateName;
     }
 
     public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone) {
@@ -77,11 +85,13 @@ public class Suppliers {
         this.phone = phone;
     }
 //tungcomment
-    
+
     @Override
     public String toString() {
-        return "Suppliers{" + "accountS=" + accountS + ", firstName=" + firstName + ", lastName=" + lastName + ", fax=" + fax + ", email=" + email + ", phone=" + phone + '}';
+        return "Suppliers{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateName=" + cateName + '}';
     }
+    
+ 
 
     
 
