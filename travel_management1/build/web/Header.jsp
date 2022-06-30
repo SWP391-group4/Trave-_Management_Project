@@ -27,12 +27,19 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                      aria-labelledby="userDropdown">
-
-                    <a class="dropdown-item" href="">
+                    <c:if test="${sessionScope.acc.type==3}">
+                    <a class="dropdown-item" href="suppilerProflieController">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
-
+</c:if>
+             
+                     <c:if test="${sessionScope.acc.type==4}">
+                    <a class="dropdown-item" href="CustomerProfile">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+</c:if>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="login"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
                     </a>
