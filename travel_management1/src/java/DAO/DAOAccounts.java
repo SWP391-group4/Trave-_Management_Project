@@ -113,10 +113,26 @@ public class DAOAccounts extends connectDB {
         return n;
     }
 
+    public int insertAccount(Accounts acc) {
+        int n = 0;
+        String sql = "insert into Accounts(account,password,type) \n"
+                + "values (?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, acc.getAccount());
+            pre.setString(2, acc.getPassword());
+            pre.setInt(3, acc.getType());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
         System.out.println(dao.checkAccount("Magaming"));
         int n = dao.updatePassword("benbohanhphuc", "123");
         System.out.println(n);
+        
+        //int n = dao.insertAccount(new Accounts("haianh123", "123456", "3"));
     }
 }

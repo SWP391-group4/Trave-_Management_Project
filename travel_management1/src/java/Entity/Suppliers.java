@@ -29,6 +29,15 @@ public class Suppliers {
         this.cateName = cateName;
     }
 
+    public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone) {
+        this.accountS = accountS;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fax = fax;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone,int status) {
         this.accountS = accountS;
         this.firstName = firstName;

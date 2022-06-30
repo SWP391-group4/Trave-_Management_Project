@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOAccounts;
 import DAO.DAOSupplier;
 import Entity.Suppliers;
 import java.io.IOException;
@@ -50,6 +51,10 @@ public class SupplierInsert extends HttpServlet {
         processRequest(request, response);
         
         DAOSupplier sup = new DAOSupplier();
+        DAOAccounts acc = new DAOAccounts();
+        
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
         String accountS = request.getParameter("accountS");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -58,7 +63,7 @@ public class SupplierInsert extends HttpServlet {
         String phone = request.getParameter("phone");
         //validation           
 
-            int n = sup.addSuppliers(obj);
+        
         
     }
 
