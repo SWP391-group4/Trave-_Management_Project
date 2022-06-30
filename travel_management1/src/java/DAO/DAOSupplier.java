@@ -209,11 +209,17 @@ public class DAOSupplier extends connectDB {
     public int addSuppliers(Suppliers sup) {
         int n = 0;
         String sql = "insert into Suppliers(accountS,firstName,lastName,fax,email,phone) \n"
-                + "values ('" + sup.getAccountS()+ "','" + sup.getFirstName() + "','" + sup.getLastName() + "','" + sup.getFax() + "','" + sup.getEmail()+ "','" + sup.getPhone() + ")";
+                + "values (?,?,?,?,?,?)";
 
         try {
-            Statement state = conn.createStatement();
-            n = state.executeUpdate(sql);
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, sup.getAccountS());
+            pre.setString(2, sup.getFirstName());
+            pre.setString(3, sup.getLastName());
+            pre.setString(4, sup.getFax());
+            pre.setString(5, sup.getEmail());
+            pre.setString(6, sup.getPhone());
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -226,6 +232,7 @@ public class DAOSupplier extends connectDB {
         for (Suppliers temp : list) {
             System.out.println(temp);
         }
+        int n = d.addSuppliers(new Suppliers("lethilo", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402"));
 
     }
 }
