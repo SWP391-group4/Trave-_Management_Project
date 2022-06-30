@@ -57,33 +57,30 @@ public class CustomerProfileController extends HttpServlet {
         HttpSession session = request.getSession();
         DAOBooking daoBook = new DAOBooking();
         DAOSupplier daoSup = new DAOSupplier();
-        
+
         DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         String accountC = cus.getAccountC();
-        
+
         //--------Booking-----------
-        
         List<Booking> listBooking = daoBook.getBooking(accountC);
         List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
-        
+
         //--------History-----------
-        
-        List<BookingHistories> listHistory  = daoHis.getBooking(accountC);
+        List<BookingHistories> listHistory = daoHis.getBooking(accountC);
         List<HomeStays> listHomestayHistory = daoHis.getHomestay(listHistory);
         List<Suppliers> listSup = daoSup.getHomeStayByAccountS(listHomestayHistory);
-        
-        
+
         request.setAttribute("size", listBooking.size());
         request.setAttribute("listBooking", listBooking);
         request.setAttribute("listHomestay", listHomestay);
         request.setAttribute("listSup", listSup);
         request.setAttribute("listHistory", listHistory);
         request.setAttribute("listHomestayHistory", listHomestayHistory);
-        
+
         System.out.println(listBooking);
         System.out.println(listHomestay);
-        CustomerAddresses cusAddress = (CustomerAddresses)session.getAttribute("customerAddress");
+        CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
 
         request.setAttribute("cus", cus);
         request.setAttribute("cusAddress", cusAddress);
@@ -104,22 +101,42 @@ public class CustomerProfileController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DAOCustomers daoCus = new DAOCustomers();
+        DAOBooking daoBook = new DAOBooking();
+        DAOSupplier daoSup = new DAOSupplier();
+
+        DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
-        String account = cus.getAccountC();
+        String accountC = cus.getAccountC();
         String firstName = request.getParameter("fname");
         String lastName = request.getParameter("lname");
         String email = cus.getEmail();
         String phone = cus.getPhone();
         int status = cus.getStatus();
 
-        Customers cus_temp = new Customers(account, firstName, lastName, email, phone, status);
+        Customers cus_temp = new Customers(accountC, firstName, lastName, email, phone, status);
         String specific = request.getParameter("specific");
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");
         String city = request.getParameter("city");
+//--------Booking-----------
 
-        CustomerAddresses address_temp = new CustomerAddresses(account, city, district, specific, ward);
+        List<Booking> listBooking = daoBook.getBooking(accountC);
+        List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
+
+        //--------History-----------
+        List<BookingHistories> listHistory = daoHis.getBooking(accountC);
+        List<HomeStays> listHomestayHistory = daoHis.getHomestay(listHistory);
+        List<Suppliers> listSup = daoSup.getHomeStayByAccountS(listHomestayHistory);
+
+        request.setAttribute("size", listBooking.size());
+        request.setAttribute("listBooking", listBooking);
+        request.setAttribute("listHomestay", listHomestay);
+        request.setAttribute("listSup", listSup);
+        request.setAttribute("listHistory", listHistory);
+        request.setAttribute("listHomestayHistory", listHomestayHistory);
+
+        CustomerAddresses address_temp = new CustomerAddresses(accountC, city, district, specific, ward);
 
         int n = daoCus.updateCustomer(cus_temp);
         int m = daoCus.updateCustomerAddress(address_temp);

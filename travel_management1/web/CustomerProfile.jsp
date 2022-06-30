@@ -174,7 +174,7 @@
                             <div class="tab-pane fade active show" id="home" role="tabpanel">
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead>
+                                        <thead style="background-color: #CCC">
                                             <tr>
                                                 <th class="text-center" scope="col">Date</th>
                                                 <th scope="col"></th>
