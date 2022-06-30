@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOSupplier;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,24 +31,8 @@ public class SupplierInsert extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Validation v = new Validation();
-        DAOSupplier c11 = new DAOSupplier();
-        String service = request.getParameter("go");
-        if (service == null) {
-            service = "ListAllAuthors";
-        }
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SupplierInsert</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SupplierInsert at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        response.sendRedirect("InsertSupplier.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,6 +48,18 @@ public class SupplierInsert extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        DAOSupplier sup = new DAOSupplier();
+        String accountS = request.getParameter("accountS");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String fax = request.getParameter("fax");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        //validation           
+
+            int n = sup.addSuppliers(obj);
+        
     }
 
     /**
@@ -77,22 +74,15 @@ public class SupplierInsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
      * Returns a short description of the servlet.
      *
-     * @param str
+     *
      * @return a String containing servlet description
      */
-    public boolean checkNull(String str) {
-        if (str == "" || str.equals("")) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    
     @Override
     public String getServletInfo() {
         return "Short description";

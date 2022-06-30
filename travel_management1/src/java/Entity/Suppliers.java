@@ -15,6 +15,7 @@ public class Suppliers {
     public String fax;
     public String email;
     public String phone;
+    public int status;
     public String homeStayID;
     public String homeStayname;
     public String cateName;
@@ -28,13 +29,14 @@ public class Suppliers {
         this.cateName = cateName;
     }
 
-    public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone) {
+    public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone,int status) {
         this.accountS = accountS;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fax = fax;
         this.email = email;
         this.phone = phone;
+        this.status =status;
     }
 
     public String getAccountS() {
@@ -85,6 +87,14 @@ public class Suppliers {
         this.phone = phone;
     }
 //tungcomment
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
