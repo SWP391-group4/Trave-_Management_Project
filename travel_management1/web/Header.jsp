@@ -8,17 +8,12 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="Home" class="nav-link">Home</a></li>
+            <li class="nav-item "><a href="Home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">FAQs</a></li>
             <li class="nav-item dropdown no-arrow">
-                <c:if test="${sessionScope.acc==null}">
-
-                <li class="nav-item"> <a href="login" class="nav-link">Login</a></li>
-
-
-            </c:if>
+                
             <c:if test="${sessionScope.acc!=null}">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,11 +36,19 @@
                     </a>
 </c:if>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
+                    <a class="dropdown-item" href="logout"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
                     </a>
                 </div>
             </c:if>
+<c:if test="${sessionScope.acc==null}">
 
+              <a class="nav-link " href="login"  >
+                    <span class="mr-2 d-none d-lg-inline">Login</span>
+
+                </a>
+
+
+            </c:if>
             </li>
         </ul>
     </div>
