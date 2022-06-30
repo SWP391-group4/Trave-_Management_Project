@@ -103,12 +103,13 @@
 									<td>${o.homeStayname}</td>
 									<td>${o.cateName}</td>
 									<td><span class="badge bg-success">Active</span></td>
-                                                                        <td><a href="">View</a></td>
+                                                                        <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                                         <td><a href="">Edit</a></td>
 								</tr>
 								
 							</tbody>
 </c:forEach>
+                                                        <a href=""> <button> Create </button> </a>
 						</table>
 					</div>
 				</div>
@@ -279,4 +280,4 @@ background-color: #f7f7fc;
 
 </script>
     </body>
-</html>
+</html> 

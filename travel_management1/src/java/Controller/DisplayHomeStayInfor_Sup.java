@@ -4,11 +4,15 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
+import DAO.DAOReviews;
 import DAO.DAOSupplier;
-import Entity.SupplierAddresses;
+import Entity.HomeStays;
+import Entity.Reviews;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +24,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author thinh
  */
-@WebServlet(name = "SuppilerProflieController", urlPatterns = {"/suppilerProflieController"})
-public class SuppilerProflieController extends HttpServlet {
+@WebServlet(name = "DisplayHomeStayInfor_Sup", urlPatterns = {"/displayinf"})
+public class DisplayHomeStayInfor_Sup extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +39,17 @@ public class SuppilerProflieController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+            HttpSession session = request.getSession();
+             Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+        String homeStayID=request.getParameter("homeStayID");
+        DAOHomeStays dao = new DAOHomeStays();
+        DAOReviews daor=new DAOReviews();
+         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
+         request.setAttribute("review", r);
+        HomeStays h=dao.getHomestay(homeStayID);
+        request.setAttribute("display", h);
+        request.getRequestDispatcher("/DisplayDetailHomeStay.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,12 +65,6 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        HttpSession session = request.getSession();
-        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
-        request.setAttribute("sp", sp);
-        request.setAttribute("spa", spa);
-        request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
     }
 
     /**
@@ -71,39 +79,6 @@ public class SuppilerProflieController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         HttpSession session = request.getSession();
-        DAOSupplier daosup = new DAOSupplier();      
-        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
-        String account = sp.getAccountS();
-        String firstName = request.getParameter("fname");
-        String lastName = request.getParameter("lname");
-        String fax=sp.getFax();
-        String email = sp.getEmail();
-        String phone = sp.getPhone();
-        
-//           String specific = request.getParameter("specific");
-//        String ward = request.getParameter("ward");
-//        String district = request.getParameter("district");
-//        String city = request.getParameter("city");
-          Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
-//      SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
-        int n = daosup.updateSupplier(sup_temp);
-//        int m = daosup.updateSupplierAddress(address_temp);
-        if (n == 0 ) {
-            String noti = "Update fails";
-            request.setAttribute("sp", sp);
-            request.setAttribute("spa", spa);
-            request.setAttribute("noti", noti);
-            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
-        } else {
-            String noti = "Update done.";
-            request.setAttribute("sp", sp);
-            request.setAttribute("spa", spa);
-            request.setAttribute("noti", noti);
-            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
-        }
-       
     }
 
     /**
