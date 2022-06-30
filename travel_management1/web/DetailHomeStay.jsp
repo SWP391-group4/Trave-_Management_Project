@@ -185,7 +185,7 @@
                             <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                 <h4 class="mb-4">Ours HomeStay</h4>
                                 <div class="row">
-                                    <c:forEach begin="0" end="2" items="${listBySupplier}" var="o">
+                                    <c:forEach begin="0" end="3" items="${listBySupplier}" var="o">
                                         <div class="col-md-4">
                                             <div class="destination">
                                                 <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2" style="background-image: url(images/room-4.jpg);"></a>

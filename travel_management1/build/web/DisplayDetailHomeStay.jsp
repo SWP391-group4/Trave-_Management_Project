@@ -121,8 +121,12 @@
                                 <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-compose"></i><a href="" >Update Information</a></button>
 				<p>${display.description}</p>
 				<div class="row">
+                                     
 					<div class="col-sm-9">
 						<dl class="dl-horizontal">
+                                                      <h2>Type:</h2>
+                                    <p>${display.cateName}</p>
+                                                    
                                                     <h2>All Service</h2>
 
                                                     <p>Bed Quantity: ${display.bedQty}</p>
@@ -188,68 +192,30 @@
 		</div>
 		<div class="col-md-4">
 			<!-- MY TODO LIST -->
-			<div class="widget">
-				<div class="widget-header clearfix">
-					<h3><i class="fa fa-calendar"></i> <span>MY TODO LIST</span></h3>
-					<div class="btn-group widget-header-toolbar">
-						<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="fa fa-ios-arrow-up"></i></a>
-						<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="fa fa-ios-close-empty"></i></a>
-					</div>
-				</div>
-				<div class="widget-content">
-					<ul class="list-unstyled simple-todo-list">
-						<li>
-							<label class="fancy-checkbox">
-								<input type="checkbox" checked="checked">
-								<span class="todo-text">Upload new revision</span>
-							</label>
-						</li>
-						<li>
-							<label class="fancy-checkbox">
-								<input type="checkbox">
-								<span class="todo-text">Responsive test</span>
-							</label>
-						</li>
-						<li>
-							<label class="fancy-checkbox">
-								<input type="checkbox" checked="checked">
-								<span class="todo-text">Cross-browser check</span>
-							</label>
-						</li>
-						<li>
-							<label class="fancy-checkbox">
-								<input type="checkbox">
-								<span class="todo-text">Social media research</span>
-							</label>
-						</li>
-						<li>
-							<label class="fancy-checkbox">
-								<input type="checkbox">
-								<span class="todo-text">Conduct A/B test</span>
-							</label>
-						</li>
-					</ul>
-				</div>
-			</div>
+                            
 			<!-- END MY TODO LIST -->
 			<!-- RECENT FILES -->
 			<div class="widget">
 				<div class="widget-header clearfix">
-					<h3><i class="fa fa-document"></i> <span>RECENT FILES</span></h3>
+					<h3><i class="fa fa-document"></i> <span>Other Service</span></h3>
 					<div class="btn-group widget-header-toolbar">
 						<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="fa fa-ios-arrow-up"></i></a>
 						<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="fa fa-ios-close-empty"></i></a>
 					</div>
 				</div>
+                               
 				<div class="widget-content">
+                                    <c:forEach  items="${listBySupplier}" var="o">
 					<ul class="fa-ul recent-file-list bottom-30px">
-						<li><i class="fa-li fa fa-file-pdf-o"></i><a href="#">Project Requirements.pdf</a></li>
-						<li><i class="fa-li fa fa-file-word-o"></i><a href="#">[DRAFT] System Specifications.docx</a></li>
-						<li><i class="fa-li fa fa-file-picture-o"></i><a href="#">Marketing Content-v2.jpg</a></li>
-						<li><i class="fa-li fa fa-file-zip-o"></i><a href="#">All-files-backup.zip</a></li>
+						<li><i class="fa-li fa fa-home"></i><a href="displayinf?homeStayID=${o.homeStayID}">${o.homeStayname}</a></li>        
 					</ul>
-					<button type="button" class="btn btn-sm btn-primary"><i class="fa fa-upload"></i> Upload</button> <a href="#" class="btn btn-sm btn-default"><i class="fa fa-folder"></i> See all files</a>
+                                               
+                                                 </c:forEach>
+                                                 <c:forEach begin="0" end="0"  items="${listBySupplier}" var="o">
+					  <a href="manageHomeStay?accountS=${o.accountS}" class="btn btn-sm btn-default"><i class="fa fa-list"></i> See all</a>
+                                          </c:forEach>
 				</div>
+                              
 			</div>
 			<!-- END RECENT FILES -->
 		</div>
