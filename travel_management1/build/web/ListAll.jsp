@@ -145,7 +145,7 @@
                             <c:forEach items="${list}" var="o">
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
-                                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
+                                        <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
                                                 <span class="icon-link"></span>
                                             </div>
