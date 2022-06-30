@@ -60,8 +60,8 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
         if (acc == null) {
- String noti = "Incorrect user name or password,please try again";
-  request.setAttribute("noti", noti);
+            String noti = "Incorrect user name or password,please try again";
+            request.setAttribute("noti", noti);
             response.sendRedirect("Login.jsp");
         } else {
             HttpSession session = request.getSession();
