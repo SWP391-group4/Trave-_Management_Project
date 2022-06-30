@@ -131,21 +131,22 @@ public class DAOSupplier extends connectDB {
 
     public List<SupplierHomestays> listHomestayBySupplier() {
         List<SupplierHomestays> list = new ArrayList<>();
-        String sql = "select s.AccountS, s.firstName,s.lastName,s.email,h.homestayName\n"
+        String sql = "select s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId, h.homestayName\n"
                 + "from Homestays h "
                 + "inner join Suppliers s "
                 + "on h.AccountS = s.AccountS\n"
-                + "group by s.AccountS, s.firstName,s.lastName,s.email,h.homestayName";
+                + "group by s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId,h.homestayName";
         ResultSet rs = getData(sql);
         try {
             while (rs.next()) {
                 list.add(new SupplierHomestays(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5)
-                ));
+                        rs.getString(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getString(6), 
+                        rs.getString(7)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

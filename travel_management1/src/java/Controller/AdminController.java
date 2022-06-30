@@ -34,7 +34,6 @@ public class AdminController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             DAOSupplier daoSupplier = new DAOSupplier();
             DAOSupplierTemp daoSupTemp = new DAOSupplierTemp();
@@ -49,7 +48,6 @@ public class AdminController extends HttpServlet {
             request.setAttribute("totalSup", totalSupplier);
             request.setAttribute("listSup", listSupplier);
             request.getRequestDispatcher("AdminHome.jsp").forward(request, response);
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

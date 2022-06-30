@@ -7,10 +7,10 @@ package Controller;
 import DAO.DAOHomeStays;
 import DAO.DAOSupplierTemp;
 import Entity.HomeStayAddressses;
-import Entity.HomeStays;
+
 import Entity.SupplierHomestays;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -84,6 +84,7 @@ public class AdminManageSupplierListController extends HttpServlet {
             request.setAttribute("evaluate", evaluate);
             request.setAttribute("cateName", cateName);
         }
+        
         List<SupplierHomestays> listHomeStay = daoSup.pagging(index);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listHomeStay);
