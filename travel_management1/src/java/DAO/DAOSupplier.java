@@ -5,6 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.HomeStays;
 import Entity.SupplierAddresses;
 import Entity.SupplierHomestays;
 import Entity.Suppliers;
@@ -76,19 +77,20 @@ public class DAOSupplier extends connectDB {
 //        }
 //        return null;
 //    }
- public List<Suppliers> getHomeStayByAccountS(String accountS) {
+
+    public List<Suppliers> getHomeStayByAccountS(String accountS) {
         List<Suppliers> list = new ArrayList<>();
-        String sql = "select h.HomeStayId,h.homestayname,c.catename from Suppliers s inner join HomeStays h on s.AccountS =h.AccountS inner join Categories c on\n" +
-"c.CateId=h.CateId where s.AccountS ='"+accountS+"'";
+        String sql = "select h.HomeStayId,h.homestayname,c.catename from Suppliers s inner join HomeStays h on s.AccountS =h.AccountS inner join Categories c on\n"
+                + "c.CateId=h.CateId where s.AccountS ='" + accountS + "'";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            
+
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new Suppliers(
-                        rs.getString(1), 
-                        rs.getString(2), 
+                        rs.getString(1),
+                        rs.getString(2),
                         rs.getString(3)));
             }
         } catch (SQLException ex) {
@@ -96,6 +98,15 @@ public class DAOSupplier extends connectDB {
         }
         return list;
     }
+
+    public List<Suppliers> getHomeStayByAccountS(List<HomeStays> listHome) {
+        List<Suppliers> list = new ArrayList<>();
+        for (HomeStays o : listHome) {
+            list.add(getSuppiler(o.getAccountS()));
+        }
+        return list;
+    }
+
     public List<Suppliers> listTopTenSupplier() {
         List<Suppliers> list = new ArrayList<>();
         String sql = "select top 10 * from suppliers";
@@ -151,6 +162,7 @@ public class DAOSupplier extends connectDB {
         }
         return listTop;
     }
+
     public int updateSupplier(Suppliers cus) {
         int n = 0;
         String sql = "Update Suppliers set "
@@ -192,15 +204,13 @@ public class DAOSupplier extends connectDB {
 
         return n;
     }
-    
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
         List<Suppliers> list = d.getHomeStayByAccountS("2convitcon");
-    for(Suppliers temp:list){
-        System.out.println(temp);
-    }
-       
+        for (Suppliers temp : list) {
+            System.out.println(temp);
+        }
 
     }
 }
