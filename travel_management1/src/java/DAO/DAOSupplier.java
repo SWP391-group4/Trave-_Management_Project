@@ -12,6 +12,7 @@ import Entity.Suppliers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -203,6 +204,19 @@ public class DAOSupplier extends connectDB {
             Logger.getLogger(DAOSupplier.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        return n;
+    }
+    public int addSuppliers(Suppliers sup) {
+        int n = 0;
+        String sql = "insert into Suppliers(accountS,firstName,lastName,fax,email,phone) \n"
+                + "values ('" + sup.getAccountS()+ "','" + sup.getFirstName() + "','" + sup.getLastName() + "','" + sup.getFax() + "','" + sup.getEmail()+ "','" + sup.getPhone() + ")";
+
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return n;
     }
 
