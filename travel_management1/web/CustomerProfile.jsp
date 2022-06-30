@@ -45,7 +45,7 @@
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                                 <a class="nav-item nav-link active" onclick="bookingFunction()">Booking <span class="sr-only">(current)</span></a>
-                                <a class="nav-item nav-link" href="#">History</a>
+                                <a class="nav-item nav-link"onclick="historyFunction()">History</a>
                             </div>
                         </div>
                     </nav>
@@ -163,13 +163,13 @@
         </section>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-        <div class="event-schedule-area-two bg-color pad100" id="booking" onclick="bookingFunction()" style="display: none">
+        <div class="event-schedule-area-two bg-color pad100" id="booking" style="display: none">
             <div class="container">
 
                 <!-- row end-->
                 <div class="row">
                     <div class="col-lg-12">
-                        
+
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade active show" id="home" role="tabpanel">
                                 <div class="table-responsive">
@@ -185,51 +185,147 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="inner-box">
-                                                <th scope="row">
-                                                    <div class="event-date">
-                                                        <span>16</span>
-                                                        <p>Novembar</p>
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div class="event-img">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="event-wrap">
-                                                        <h3><a href="#">Harman Kardon</a></h3>
-                                                        <div class="meta">
-                                                            <div class="organizers">
-                                                                <a href="#">Aslan Lingker</a>
-                                                            </div>
-                                                            <div class="categories">
-                                                                <a href="#">Inspire</a>
-                                                            </div>
-                                                            <div class="time">
-                                                                <span>05:35 AM - 08:00 AM 2h 25'</span>
+                                            <c:set value="${listHomestay}" var="listHomestay"/>
+                                            <c:set value="${listBooking}" var="listBooking"/>
+                                            <c:forEach begin="0" end="${size-1}" var="i">
+                                                <tr class="inner-box">
+                                                    <th scope="row">
+                                                        <div class="event-date">
+                                                            <span>${listBooking.get(i).day}</span>
+                                                            <p>${listBooking.get(i).month}</p>
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <div class="event-img">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="event-wrap">
+                                                            <h3><a href="#"></a></h3>
+                                                            <div class="meta">
+                                                                <div class="organizers">
+                                                                    <a href="#">${listHomestay.get(i).homeStayname}</a>
+                                                                </div>
+                                                                <div class="categories">
+                                                                    <a href="#">${listBooking.get(i).visitorNumber}</a>
+                                                                </div>
+                                                                <div class="time">
+                                                                    <span>${listBooking.get(i).hour}h:${listBooking.get(i).minute} - 08:00 AM 2h 25'</span>
+                                                                </div>
+                                                                <div class="time">
+                                                                    <span>${listHomestay.get(i).specific}, ${listHomestay.get(i).ward}, ${listHomestay.get(i).district}, ${listHomestay.get(i).city}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="r-no">
-                                                        <span>1000$</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="primary-btn">
-                                                        <span>Pending</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="primary-btn">
-                                                        <a class="btn btn-primary" href="#">Read More</a>
-                                                    </div>
-                                                </td>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="r-no">
+                                                            <span>${listBooking.get(i).price} VND</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="primary-btn">
+                                                            <span>Pending</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="primary-btn">
+                                                            <a class="btn btn-primary" href="#">Read More</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /col end-->
+                </div>
+                <!-- /row end-->
+            </div>
+        </div>
+
+
+
+        <div class="event-schedule-area-two bg-color pad100" id="history" style="display: none">
+            <div class="container">
+
+                <!-- row end-->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show" id="home" role="tabpanel">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" scope="col">Date</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col" >Home stay</th>
+                                                <th scope="col" >Price</th>
+                                                <th scope="col">Status</th>
+                                                <th class="text-center" scope="col"></th>
                                             </tr>
-                                            
+                                        </thead>
+                                        <tbody>
+                                            <c:set value="${listHistory}" var="listHistory"/>
+                                            <c:set value="${listHomestayHistory}" var="listHomestayHistory"/>
+                                            <c:forEach begin="0" end="${size-1}" var="i">
+                                                <tr class="inner-box">
+                                                    <th scope="row">
+                                                        <div class="event-date">
+                                                            <span>${listHistory.get(i).day}</span>
+                                                            <p>${listHistory.get(i).month}</p>
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <div class="event-img">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="event-wrap">
+                                                            <h3><a href="#"></a></h3>
+                                                            <div class="meta">
+                                                                <div class="organizers">
+                                                                    <a href="#">${listHomestayHistory.get(i).homeStayname}</a>
+                                                                </div>
+                                                                <div class="categories">
+                                                                    <a href="#">${listHistory.get(i).visitorNumber}</a>
+                                                                </div>
+                                                                <div class="time">
+                                                                    <span>${listHistory.get(i).hour}h:${listBooking.get(i).minute} - 08:00 AM 2h 25'</span>
+                                                                </div>
+                                                                <div class="time">
+                                                                    <span>${listHomestayHistory.get(i).specific}, ${listHomestay.get(i).ward}, ${listHomestay.get(i).district}, ${listHomestay.get(i).city}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="r-no">
+                                                            <span>${listHistory.get(i).price} $</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="primary-btn">
+                                                            <span>Pending</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="primary-btn">
+                                                            <a class="btn btn-primary" href="#">Read More</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -248,12 +344,17 @@
             function profileFunction() {
                 document.getElementById("profile").style.display = "block";
                 document.getElementById("booking").style.display = "none";
-
-
+                document.getElementById("history").style.display = "none";
             }
             function bookingFunction() {
                 document.getElementById("profile").style.display = "none";
                 document.getElementById("booking").style.display = "block";
+                document.getElementById("history").style.display = "none";
+            }
+            function historyFunction() {
+                document.getElementById("profile").style.display = "none";
+                document.getElementById("booking").style.display = "none";
+                document.getElementById("history").style.display = "block";
             }
         </script>
 

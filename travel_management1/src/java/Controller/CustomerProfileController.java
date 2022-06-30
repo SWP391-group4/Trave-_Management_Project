@@ -10,6 +10,7 @@ import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,11 +38,7 @@ public class CustomerProfileController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAOBooking daoBook = new DAOBooking();
-        HttpSession session = request.getSession();
-        Customers cus = (Customers) session.getAttribute("customer");
-        String accountC = cus.getAccountC();
-        List<Booking> list = new ArrayList<>();
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,8 +55,29 @@ public class CustomerProfileController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         HttpSession session = request.getSession();
+        DAOBooking daoBook = new DAOBooking();
+        DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
-        CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
+        String accountC = cus.getAccountC();
+        //--------Booking-----------
+        
+        List<Booking> listBooking = daoBook.getBooking(accountC);
+        List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
+        
+        //--------History-----------
+        
+        List<BookingHistories> listHistory  = daoHis.getBooking(accountC);
+        List<HomeStays> listHomestayHistory = daoHis.getHomestay(listHistory);
+        
+        request.setAttribute("size", listBooking.size());
+        request.setAttribute("listBooking", listBooking);
+        request.setAttribute("listHomestay", listHomestay);
+        request.setAttribute("listHistory", listHistory);
+        request.setAttribute("listHomestayHistory", listHomestayHistory);
+        
+        System.out.println(listBooking);
+        System.out.println(listHomestay);
+        CustomerAddresses cusAddress = (CustomerAddresses)session.getAttribute("customerAddress");
 
         request.setAttribute("cus", cus);
         request.setAttribute("cusAddress", cusAddress);

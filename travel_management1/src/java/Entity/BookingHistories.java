@@ -4,6 +4,11 @@
  */
 package Entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author nam
@@ -25,6 +30,22 @@ public class BookingHistories {
     public String email;
 
     public BookingHistories() {
+    }
+
+    public BookingHistories(String accountC, String homeStayId, int orderNumber, String firstName, String lastName, String phone, String orderTime, int bookingTime, int visitorNumber, String price, int star, String feedback, String email) {
+        this.accountC = accountC;
+        this.homeStayId = homeStayId;
+        this.orderNumber = orderNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.orderTime = orderTime;
+        this.bookingTime = bookingTime;
+        this.visitorNumber = visitorNumber;
+        this.price = price;
+        this.star = star;
+        this.feedback = feedback;
+        this.email = email;
     }
 
     public String getAccountC() {
@@ -131,10 +152,88 @@ public class BookingHistories {
         this.email = email;
     }
 
+    public Calendar getDate() {
+        String date_time = this.orderTime;
+//        String date_time = "11/27/2020 05:35:00";
+        SimpleDateFormat dateParser = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
+        {
+            try {
+                Date date = (Date) dateParser.parse(date_time);
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(date);
+                return cal;
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public int getYear() {
+        return getDate().get(Calendar.YEAR);
+    }
+
+    public String getMonth() {
+        int month = getDate().get(Calendar.MONTH);
+        switch (month) {
+            case 1:
+                return "January";
+            case 2:
+
+                return "February";
+            case 3:
+
+                return "March";
+            case 4:
+
+                return "April";
+            case 5:
+
+                return "May";
+            case 6:
+
+                return "June";
+            case 7:
+
+                return "July";
+            case 8:
+
+                return "August";
+            case 9:
+
+                return "September";
+            case 10:
+
+                return "October";
+            case 11:
+
+                return "November";
+
+            default:
+                return "December";
+        }
+    }
+
+    public int getDay() {
+        return getDate().get(Calendar.DAY_OF_MONTH);
+    }
+
+    public int getHour() {
+        return getDate().get(Calendar.HOUR_OF_DAY);
+    }
+
+    public int getMinute() {
+        return getDate().get(Calendar.MINUTE);
+    }
+
+    public int getSecond() {
+        return getDate().get(Calendar.SECOND);
+    }
+
     @Override
     public String toString() {
         return "BookingHistories{" + "accountC=" + accountC + ", homeStayId=" + homeStayId + ", orderNumber=" + orderNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", orderTime=" + orderTime + ", bookingTime=" + bookingTime + ", visitorNumber=" + visitorNumber + ", price=" + price + ", star=" + star + ", feedback=" + feedback + ", email=" + email + '}';
     }
-    
-    
+
 }

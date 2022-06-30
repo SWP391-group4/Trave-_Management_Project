@@ -30,8 +30,9 @@ public class HomeStays {
     public double IncurredCost;
     public int star;
     public String feedBack;
-public String description;
-public String video;
+    public String description;
+    public String video;
+
     public String getAccountS() {
         return accountS;
     }
@@ -53,7 +54,7 @@ public String video;
         this.kitchenQty = kitchenQty;
         this.price = price;
         this.IncurredCost = IncurredCost;
-    
+
         this.description = description;
         this.video = video;
     }
@@ -121,7 +122,6 @@ public String video;
         this.price = price;
         this.IncurredCost = IncurredCost;
     }
-
 
     public String getCateName() {
         return cateName;
@@ -376,7 +376,5 @@ public String video;
     public String toString() {
         return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", accountS=" + accountS + ", cateName=" + cateName + '}';
     }
-
-  
 
 }
