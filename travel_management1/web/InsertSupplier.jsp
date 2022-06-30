@@ -14,6 +14,7 @@
     <body>
         <h1>----------- Input Supp ----------- </h1>
         <form action="SupplierInsert" method="Post">
+            <p>${alert}</p>
             <table>
                 <tr>
                     <td>

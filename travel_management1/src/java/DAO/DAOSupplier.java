@@ -233,7 +233,7 @@ public class DAOSupplier extends connectDB {
         for (Suppliers temp : list) {
             System.out.println(temp);
         }
-        int n = d.addSuppliers(new Suppliers("tungu", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402",0));
+        int n = d.addSuppliers(new Suppliers("haianh123", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402",0));
         System.out.println(n);
     }
 }
