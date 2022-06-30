@@ -124,6 +124,7 @@
                                         8 Rating</span>
                                 </p>
                                 <p>${detail.description}</p>
+                                <h3>All Service</h3>
                                 <div class="d-md-flex mt-5 mb-5">
 
                                     <ul class="ml-md-5">
@@ -141,14 +142,25 @@
                                         <li> ${detail.kitchenQty}</li>
                                     </ul>
                                 </div>
-                               
+                                <h3>Some Rules</h3>
+                                <c:forEach  items="${rules}" var="o">
+                              
+                                    <div class="media">
+
+                                        <div class="media-body">
+
+                                            <p>- ${o.listRules}</p>                        
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </div>
+
                             <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                                 <h4 class="mb-4">Take A Tour</h4>
                                 <div class="block-16">
                                     <figure>
-                                        <img src="images/hotel-6.jpg" alt="Image placeholder" class="img-fluid">
-                                        <a href="https://vimeo.com/45830194" class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                                        <img src="images/1560881.png" alt="Image placeholder" class="img-fluid">
+                                        <a href="${detail.video}" class="play-button popup-vimeo"><span class="icon-play"></span></a>
                                     </figure>
                                 </div>
                             </div>

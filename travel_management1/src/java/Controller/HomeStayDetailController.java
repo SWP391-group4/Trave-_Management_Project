@@ -6,9 +6,11 @@ package Controller;
 
 import DAO.DAOHomeStays;
 import DAO.DAOReviews;
+import DAO.DAORules;
 import DAO.DAOSupplier;
 import Entity.HomeStays;
 import Entity.Reviews;
+import Entity.Rules;
 import Entity.SupplierAddresses;
 import Entity.Suppliers;
 import java.io.IOException;
@@ -43,9 +45,10 @@ public class HomeStayDetailController extends HttpServlet {
         String homeStayID = request.getParameter("homeStayID");
         HttpSession session = request.getSession();
         DAOSupplier daosup = new DAOSupplier();
-       
+        DAORules daorule=new DAORules();
         DAOHomeStays dao = new DAOHomeStays();
         DAOReviews daor = new DAOReviews();
+        List<Rules> rules = daorule.getRulebyHomeStayID(homeStayID);
         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
         HomeStays h = dao.getHomestay(homeStayID);
         String accountS = h.getAccountS();
@@ -54,6 +57,7 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("listbyS", listbyS);
         request.setAttribute("listBySupplier", listBySupplier);
         request.setAttribute("review", r);
+        request.setAttribute("rules", rules);
         request.setAttribute("detail", h);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
 
