@@ -74,11 +74,11 @@
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto" style="margin-right: 40px">
                         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">Homestay</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">Host</a></li>
+                        <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
+                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
                     </ul>
 
                 </div>
