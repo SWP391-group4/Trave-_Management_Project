@@ -54,7 +54,7 @@
                                             <input type="text" value=""${txtsearch} method="get" name="txt" class="form-control" placeholder="Destination, City">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="HomeStay Name">
+                                        <input type="text"  value=""${txtSearchname} method="get" name="txtname" class="form-control" placeholder="HomeStay Name">
                                     </div>
                                     <div class="form-group">
                                         <div class="select-wrap one-third">
@@ -147,6 +147,7 @@
                                     <div class="destination" style="display: inline-flex">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
+                                                
                                                 <span class="icon-link"></span>
                                             </div>
                                         </a>
@@ -165,6 +166,7 @@
                                                         <i class="icon-star-o"></i>
                                                         <span>8 Rating</span>
                                                     </p>
+                                                    <span class="badge bg-info">Active</span>
                                                 </div>
 
                                             </div>

@@ -5,7 +5,6 @@
 package Controller;
 
 import DAO.DAOHomeStays;
-import Entity.Categories;
 import Entity.HomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thinh
  */
-@WebServlet(name = "HomeStaySearch", urlPatterns = {"/searchHomeStay"})
-public class HomeStaySearch extends HttpServlet {
+@WebServlet(name = "searchHomeStayByName", urlPatterns = {"/searchHomeStayByName"})
+public class searchHomeStayByName extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,14 +34,12 @@ public class HomeStaySearch extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String txtSearch = request.getParameter("txt"); // get du lieu nhap vao
-           String txtSearchname = request.getParameter("txtname"); // get du lieu nhap vao
+           
+ String txtSearchname = request.getParameter("txtname"); // get du lieu nhap vao
         DAOHomeStays dao = new DAOHomeStays();
-       List<HomeStays> list=dao.SearchbyProvince(txtSearch);
-           List<Categories> listC = dao.ListCate();
-           request.setAttribute("listC", listC);
-       request.setAttribute("list", list);
-        request.setAttribute("txtsearch", txtSearch);
+         List<HomeStays> list=dao.SearchbyName(txtSearchname);
+           request.setAttribute("list", list);
+        request.setAttribute("txtSearchname", txtSearchname);
          request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
     }
 

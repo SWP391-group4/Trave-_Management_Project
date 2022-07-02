@@ -51,66 +51,42 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="ListAllHomeStayController">Adventure</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
+        <jsp:include page="Header.jsp"></jsp:include>
+            <!-- END nav -->
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
-                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-                        <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">List HomeStay</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            <c:if test="${sessionScope.acc!=null}">
-                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
-                            <li class="nav-item"><a href="CustomerProfile" class="nav-link">Hello ${sessionScope.acc.account}</a></li>
-                            </c:if>
-                            <c:if test="${sessionScope.acc==null}">
-                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"> </i><a href="login" class="nav-link">Login</a></li>
-                                </c:if> 
-                    </ul>
-                </div>
-        </nav>
-        <!-- END nav -->
-
-        <!--    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-              <div class="overlay"></div>
-              <div class="container">
-                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-                  <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Hotel</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels</h1>
+            <!--    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+                  <div class="overlay"></div>
+                  <div class="container">
+                    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                      <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                        <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Hotel</span></p>
+                        <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels</h1>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>-->
+                </div>-->
 
-        <section class="ftco-section ftco-degree-bg">
-            <div class="container">
-                <div class="row">
+            <section class="ftco-section ftco-degree-bg">
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-lg-9">
-                        <div class="row">
-                            <div class="col-md-12 ftco-animate">
-                                <div class="single-slider owl-carousel">
-                                    <div class="item">
-                                        <div class="hotel-img" style="background-image: url(images/hotel-2.jpg);"></div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="hotel-img" style="background-image: url(images/hotel-3.jpg);"></div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="hotel-img" style="background-image: url(images/hotel-4.jpg);"></div>
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-md-12 ftco-animate">
+                                    <div class="single-slider owl-carousel">
+                                        <div class="item">
+                                            <div class="hotel-img" style="background-image: url(images/hotel-2.jpg);"></div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="hotel-img" style="background-image: url(images/hotel-3.jpg);"></div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="hotel-img" style="background-image: url(images/hotel-4.jpg);"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-                                <h2>${detail.homeStayname}</h2>
+                                <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                                    <h2>${detail.homeStayname}</h2>
                                 <span>Our Best hotels &amp; Rooms</span>
 
                                 <p class="rate mb-5">
@@ -144,7 +120,7 @@
                                 </div>
                                 <h3>Some Rules</h3>
                                 <c:forEach  items="${rules}" var="o">
-                              
+
                                     <div class="media">
 
                                         <div class="media-body">
@@ -166,34 +142,60 @@
                             </div>
                             <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                 <h4 class="mb-4">Other HomeStay</h4>
-                                <div class="row">
-                                    <c:forEach begin="0" end="2" items="${listbyS}" var="o">
+                                <div id="tables" class="row">
+                                    <c:forEach  items="${listbyS}" var="o">
                                         <div class="col-md-4">
                                             <div class="destination">
                                                 <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2" style="background-image: url(images/room-4.jpg);"></a>
                                                 <div class="text p-3">
+
                                                     <div class="d-flex">
+
                                                         <div class="one">
                                                             <h6><a href="HomeStayDetailController?homeStayID=${o.homeStayID}"></a>${o.homeStayname}</h6>
                                                             <p><i class="icon-map-o"></i> ${o.specific},${o.ward},${o.city}</p>
                                                         </div>
+
                                                         <div class="two">
                                                             <span class="price per-price"><br><small>${o.cateName}</small></span>
                                                         </div>
+
                                                     </div>
 
                                                     <hr>
                                                     <p class="bottom-area d-flex">
-
+                                                        <span class="badge bg-info text-text">Active</span>
                                                         <span class="ml-auto"><a href="HomeStayDetailController?homeStayID=${o.homeStayID}">Detail</a></span>
                                                     </p>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </c:forEach>
-
+                                      <button onclick="more()" class="btn btn-outline-warning">Load More</button>
+                                       
+                                    
                                 </div>
+                                 
                             </div>
+                                 
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <script>
+                                                                function more() {
+                                                                    $.ajax({
+                                                                        url: "travel_management1/load",
+                                                                        type: "get",
+                                                                        success: function (data) {
+                                                                            var row = document.getElementById("tables");
+                                                                            row innerHTML += data;
+                                                                        },
+                                                                        error: function (xhr){
+                                                                            //do something here
+                                                                        }
+
+                                                                    });
+                                                                }
+                            </script>
                             <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                 <h4 class="mb-4">Ours HomeStay</h4>
                                 <div class="row">
@@ -368,7 +370,6 @@
                 </div>
             </div>
         </footer>
-
 
 
         <!-- loader -->

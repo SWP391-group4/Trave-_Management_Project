@@ -233,6 +233,21 @@ public class DAOHomeStays extends connectDB {
         }
         return list;
     }
+    
+    public List<HomeStays> SearchbyName(String txtSearchname) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,ha.specific,ha.ward,c.CateName from ((HomeStays h inner join HomeStayAddressses ha on\n"
+                + "                h.HomeStayid=ha.HomeStayid ) inner join Categories c on h.CateId=c.CateId ) where homestayname like '%" + txtSearchname + "%'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 
     public List<Categories> ListCate() {
         List<Categories> vec = new ArrayList<Categories>();
@@ -421,7 +436,7 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getRandomHomeStay() {
         List<HomeStays> vec = new ArrayList<>();
-        String sql = " select  h.HomeStayid,h.homestayname,h.cateID \n"
+        String sql = " select top 3  h.HomeStayid,h.homestayname,h.cateID \n"
                 + "                ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName,\n"
                 + "                c.BedQty,c.BedRoomQty,c.BathRoomQty,c.LivingRoomQty,c.KitchenQty,\n"
                 + "               c.Price from \n"
@@ -458,13 +473,13 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-//        List<HomeStays> list = dao.getHomeStayforSUP("2convitcon");
-     HomeStays h=   dao.getHomestay("HS0001");
-        System.out.println(h);
+        List<HomeStays> list = dao.getRandomHomeStay();
+//     HomeStays h=   dao.getHomestay("HS0001");
+//        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-//        for (HomeStays o : list) {
-//            System.out.println(o);
-//        }
+        for (HomeStays o : list) {
+            System.out.println(o);
+        }
 //int count = dao.countToDiv();
 //        System.out.println(count);
 //        for (int i = 0; i < l1.size(); i++) {

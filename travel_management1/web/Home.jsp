@@ -64,25 +64,7 @@
             <link rel="stylesheet" href="css/style.css">
         </head>
         <body>
-            <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-
-                <a  href="menu.jsp"><img src="images/logo.png" style="width: 50px;height:60px;margin-left:50px "></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto" style="margin-right: 40px">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">Host</a></li>
-                        <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
-                    </ul>
-
-                </div>
-            </nav>
+            <jsp:include page="Header.jsp"></jsp:include>
             <!-- END nav -->
 
             <div class="hero-wrap " style="background-image: url('images/bg_1.jpg');">
@@ -107,7 +89,7 @@
                 </div>
             </section>
             <p style="margin-left: 90px">Book accommodation, homestays, experiences and more on CTU Travel.</p>
-            <a href="Login" style="margin-left: 90px">Login &nbsp;</a>or &nbsp;<a href="Register">Register &nbsp;</a> to experience the best !
+            <a href="login" style="margin-left: 90px">Login &nbsp;</a>or &nbsp;<a href="registerCustomer">Register &nbsp;</a> to experience the best !
             <section >
                 <div class="row" style="margin-top:40px ;margin-left: 90px;color: #000000">
                     <h3 style="font-weight: bold;font-style: italic">Favorite Destination </h3>
