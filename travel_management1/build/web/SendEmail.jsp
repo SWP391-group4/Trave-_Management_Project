@@ -29,32 +29,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">CTUTRAVEL</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
-                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-                        <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            <c:if test="${sessionScope.acc!=null}">
-                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Logout</a></li>
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Hello${sessionScope.acc.account}</a></li>
-                            </c:if>
-                            <c:if test="${sessionScope.acc==null}">
-                            <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login" class="nav-link">Login</a></li>
-                                </c:if> 
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <jsp:include page="Header.jsp"/>
         <section >
             <div class="container">
                 <div class="main-body">
@@ -76,11 +51,12 @@
                                             <p>You can reset your password here.</p>
                                             <div class="panel-body">
 
-                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post">
-
+                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendMai">
+                                                    <p class="alert-danger">${alert}</p>
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+
                                                             <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
                                                         </div>
                                                     </div>
