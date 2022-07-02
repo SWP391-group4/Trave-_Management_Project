@@ -70,7 +70,7 @@
                                                 <h4>${cus.firstName} ${cus.lastName}</h4>
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item">Reset Email</li>
-                                                    <li class="list-group-item"><a href="ResetPassword?account=${cus.accountC}">Reset Password</a></li>
+                                                    <li class="list-group-item"><a href="SendMail">Reset Password</a></li>
                                                     <li class="list-group-item">Change Phone</li>
                                                 </ul>
 

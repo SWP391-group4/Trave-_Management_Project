@@ -51,7 +51,7 @@
                                             <p>You can reset your password here.</p>
                                             <div class="panel-body">
 
-                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendMai">
+                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendMail">
                                                     <p class="alert-danger">${alert}</p>
                                                     <div class="form-group">
                                                         <div class="input-group">

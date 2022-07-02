@@ -4,10 +4,12 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
 import DAO.DAOSendMail;
+import Entity.Accounts;
+import Entity.Customers;
 import Entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author phams
  */
-@WebServlet(name = "SendMailVerifyController", urlPatterns = {"/SendMai"})
+@WebServlet(name = "SendMailVerifyController", urlPatterns = {"/SendMail"})
 public class SendMailVerifyController extends HttpServlet {
 
     /**
@@ -34,8 +36,7 @@ public class SendMailVerifyController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        response.sendRedirect("SendEmail.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,6 +52,7 @@ public class SendMailVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.sendRedirect("SendEmail.jsp");
     }
 
     /**
@@ -65,29 +67,39 @@ public class SendMailVerifyController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOCustomers daoCus = new DAOCustomers();
         //feth form value
+        HttpSession session = request.getSession();
+        Accounts acc = (Accounts) session.getAttribute("acc");
+        Customers cus = daoCus.getCustomer(acc.getAccount());
         String email = request.getParameter("email");
+        if (email.equals(cus.getEmail())) {
+            //create instance object of the SendEmail Class
+            DAOSendMail sm = new DAOSendMail();
+            //get the 6-digit code
+            String code = sm.getRandom();
 
-        //create instance object of the SendEmail Class
-        DAOSendMail sm = new DAOSendMail();
-        //get the 6-digit code
-        String code = sm.getRandom();
+            //craete new user using all information
+            User user = new User(email, code);
 
-        //craete new user using all information
-        User user = new User(email, code);
+            //call the send email method
+            boolean test = sm.sendEmail(user);
 
-        //call the send email method
-        boolean test = sm.sendEmail(user);
+            //check if the email send successfully
+            if (test) {
 
-        //check if the email send successfully
-        if (test) {
-            HttpSession session = request.getSession();
-            session.setAttribute("authcode", user);
-            response.sendRedirect("SendCode");
+                session.setAttribute("authcode", user);
+                response.sendRedirect("SendCode");
+            } else {
+                String alert = "Cannot send verify code. Please check again.";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("SendEmail.jsp").forward(request, response);
+            }
         } else {
-            String alert = "Cannot send verify code. Please check again.";
+            String alert = "Wrong Email. Please check again.";
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("SendEmail.jsp").forward(request, response);
+
         }
     }
 

@@ -33,7 +33,7 @@ public class SendCodeVerifyController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("SendCodeVerify.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,6 +49,7 @@ public class SendCodeVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.sendRedirect("SendCodeVerify.jsp");
     }
 
     /**
@@ -62,19 +63,19 @@ public class SendCodeVerifyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                    HttpSession session = request.getSession();
-            User user= (User) session.getAttribute("authcode");
-            
-            String code = request.getParameter("authcode");
-            
-            if(code.equals(user.getCode())){
-                response.sendRedirect("ResetPassword");
-            }else{
-                String alert = "Wrong code!";
-                request.setAttribute("alert", alert);
-                request.getRequestDispatcher("SendCodeVerify.jsp").forward(request, response);
-            }
-            
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("authcode");
+
+        String code = request.getParameter("authcode");
+
+        if (code.equals(user.getCode())) {
+            response.sendRedirect("ResetPassword");
+        } else {
+            String alert = "Wrong code!";
+            request.setAttribute("alert", alert);
+            request.getRequestDispatcher("SendCodeVerify.jsp").forward(request, response);
+        }
+
     }
 
     /**
