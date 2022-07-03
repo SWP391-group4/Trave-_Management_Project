@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
         <link rel="stylesheet" href="css/search1.css">
-
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
@@ -233,7 +233,7 @@
                     </div>
             </section>
             <br> <br> <br>
-                     
+
             <section class="ftco-section-parallax">
                 <div class="parallax-img d-flex align-items-center">
                     <div class="container">

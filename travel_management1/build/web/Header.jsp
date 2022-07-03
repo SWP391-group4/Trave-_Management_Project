@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -11,13 +12,15 @@
             <li class="nav-item "><a href="Home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">FAQs</a></li>
+            <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
-
+                
                 <c:if test="${sessionScope.acc!=null}">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline">${sessionScope.acc.account}</span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 smal">${sessionScope.acc.account}</span>
 
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -53,3 +56,4 @@
         </ul>
     </div>
 </nav>
+

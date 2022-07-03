@@ -71,7 +71,7 @@
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item"><a href="SendMail?EmailService=0">Reset Email</a></li>
                                                     <li class="list-group-item"><a href="SendMail?EmailService=1">Reset Password</a></li>
-                                                    <li class="list-group-item">Change Phone</li>
+                                                    
                                                 </ul>
 
                                             </div>
