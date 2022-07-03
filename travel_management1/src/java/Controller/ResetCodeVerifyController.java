@@ -35,7 +35,7 @@ public class ResetCodeVerifyController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("SendCodeReset.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,7 +51,7 @@ public class ResetCodeVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
+        response.sendRedirect("SendCodeReset.jsp");
     }
 
     /**
@@ -76,9 +76,7 @@ public class ResetCodeVerifyController extends HttpServlet {
             int n = daoCus.updateCustomerEmail(email, acc.getAccount());
             // Fault
             if (n > 0) {
-                String alert = "Email Updated";
-                request.setAttribute("alert", alert);
-                request.getRequestDispatcher("CustomerProfile").forward(request, response);
+                request.getRequestDispatcher("logout").forward(request, response);
             } else {
                 String alert = "Something is fucked up";
                 request.setAttribute("alert", alert);

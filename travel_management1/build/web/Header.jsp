@@ -13,42 +13,42 @@
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">FAQs</a></li>
             <li class="nav-item dropdown no-arrow">
-                
-            <c:if test="${sessionScope.acc!=null}">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline">${sessionScope.acc.account}</span>
 
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                     aria-labelledby="userDropdown">
-                    <c:if test="${sessionScope.acc.type==3}">
-                    <a class="dropdown-item" href="suppilerProflieController">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
+                <c:if test="${sessionScope.acc!=null}">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline">${sessionScope.acc.account}</span>
+
                     </a>
-</c:if>
-             
-                     <c:if test="${sessionScope.acc.type==4}">
-                    <a class="dropdown-item" href="CustomerProfile">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                         aria-labelledby="userDropdown">
+                        <c:if test="${sessionScope.acc.type==3}">
+                            <a class="dropdown-item" href="suppilerProflieController">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                        </c:if>
+
+                        <c:if test="${sessionScope.acc.type==4}">
+                            <a class="dropdown-item" href="CustomerProfile">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                        </c:if>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
+                        </a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.acc==null}">
+
+                    <a class="nav-link " href="login"  >
+                        <span class="mr-2 d-none d-lg-inline">Login</span>
+
                     </a>
-</c:if>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
-                    </a>
-                </div>
-            </c:if>
-<c:if test="${sessionScope.acc==null}">
-
-              <a class="nav-link " href="login"  >
-                    <span class="mr-2 d-none d-lg-inline">Login</span>
-
-                </a>
 
 
-            </c:if>
+                </c:if>
             </li>
         </ul>
     </div>
