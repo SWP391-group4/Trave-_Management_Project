@@ -61,7 +61,7 @@ public class CustomerProfileController extends HttpServlet {
         DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         String accountC = cus.getAccountC();
-        System.out.println(accountC);
+        
         //--------Booking-----------
         List<Booking> listBooking = daoBook.getBooking(accountC);
         List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
@@ -78,8 +78,7 @@ public class CustomerProfileController extends HttpServlet {
         request.setAttribute("listHistory", listHistory);
         request.setAttribute("listHomestayHistory", listHomestayHistory);
 
-        System.out.println(listBooking);
-        System.out.println(listHomestay);
+        
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
 
         request.setAttribute("cus", cus);

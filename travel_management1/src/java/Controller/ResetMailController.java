@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOSendMail;
 import Entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,8 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author phams
  */
-@WebServlet(name = "SendCodeVerifyController", urlPatterns = {"/SendCode"})
-public class SendCodeVerifyController extends HttpServlet {
+@WebServlet(name = "ResetMailController", urlPatterns = {"/ResetMail"})
+public class ResetMailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,7 +50,7 @@ public class SendCodeVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("SendCodeVerify.jsp");
+        response.sendRedirect("SendEmailReset.jsp");
     }
 
     /**
@@ -63,25 +64,29 @@ public class SendCodeVerifyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("authcode");
+        String email = request.getParameter("email");
+        DAOSendMail sm = new DAOSendMail();
+        //get the 6-digit code
+        String code = sm.getRandom();
 
-        String code = request.getParameter("authcode");
+        //craete new user using all information
+        User user = new User(email, code);
 
-        if (code.equals(user.getCode())) {
-            String emailService = (String)session.getAttribute("EmailService");
-            if(emailService.equals("0")) {
-                response.sendRedirect("ResetMail");
-            } else {
-                response.sendRedirect("ResetPassword");
-            }
-            
+        //call the send email method
+        boolean test = sm.sendEmail(user);
+
+        //check if the email send successfully
+        if (test) {
+            session.setAttribute("authcode", user);
+            session.setAttribute("email", email);
+            response.sendRedirect("ResetCodeVerify");
         } else {
-            String alert = "Wrong code!";
+            String alert = "Cannot send verify code. Please check again.";
             request.setAttribute("alert", alert);
-            request.getRequestDispatcher("SendCodeVerify.jsp").forward(request, response);
+            request.getRequestDispatcher("SendMailReset.jsp").forward(request, response);
         }
-
     }
 
     /**

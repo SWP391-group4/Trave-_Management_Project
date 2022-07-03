@@ -47,11 +47,11 @@
                                     <div class="panel-body">
                                         <div class="text-center">
                                             <h3><i class="fa fa-lock fa-4x"></i></h3>
-                                            <h2 class="text-center">Verify Email</h2>
-                                            <p>Input Your Email.</p>
+                                            <h2 class="text-center">Reset User Mail</h2>
+                                            <p>Input New Email</p>
                                             <div class="panel-body">
 
-                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendMail">
+                                                <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="ResetMail">
                                                     <p class="alert-danger">${alert}</p>
                                                     <div class="form-group">
                                                         <div class="input-group">

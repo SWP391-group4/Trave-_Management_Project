@@ -47,8 +47,8 @@
                                     <div class="panel-body">
                                         <div class="text-center">
                                             <h3><i class="fa fa-lock fa-4x"></i></h3>
-                                            <h2 class="text-center">Forgot Password?</h2>
-                                            <p>You can reset your password here.</p>
+                                            <h2 class="text-center">Verify Code</h2>
+                                            <p>Input Your Code Verify.</p>
                                             <div class="panel-body">
 
                                                 <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendCode">
@@ -64,7 +64,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Send code" type="submit">
+                                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" type="submit">
                                                     </div>
 
                                                     <input type="hidden" class="hide" name="token" id="token" value=""> 

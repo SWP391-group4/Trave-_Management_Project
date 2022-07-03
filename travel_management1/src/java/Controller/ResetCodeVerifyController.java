@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
+import Entity.Accounts;
 import Entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author phams
  */
-@WebServlet(name = "SendCodeVerifyController", urlPatterns = {"/SendCode"})
-public class SendCodeVerifyController extends HttpServlet {
+@WebServlet(name = "ResetCodeVerifyController", urlPatterns = {"/ResetCodeVerify"})
+public class ResetCodeVerifyController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +35,7 @@ public class SendCodeVerifyController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        response.sendRedirect("SendCodeReset.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,7 +51,7 @@ public class SendCodeVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("SendCodeVerify.jsp");
+
     }
 
     /**
@@ -63,25 +65,30 @@ public class SendCodeVerifyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
+        DAOCustomers daoCus = new DAOCustomers();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("authcode");
-
         String code = request.getParameter("authcode");
-
         if (code.equals(user.getCode())) {
-            String emailService = (String)session.getAttribute("EmailService");
-            if(emailService.equals("0")) {
-                response.sendRedirect("ResetMail");
+            Accounts acc = (Accounts) session.getAttribute("acc");
+            String email = (String) session.getAttribute("email");
+            int n = daoCus.updateCustomerEmail(email, acc.getAccount());
+            // Fault
+            if (n > 0) {
+                String alert = "Email Updated";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("CustomerProfile").forward(request, response);
             } else {
-                response.sendRedirect("ResetPassword");
+                String alert = "Something is fucked up";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("CustomerProfile").forward(request, response);
             }
-            
         } else {
             String alert = "Wrong code!";
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("SendCodeVerify.jsp").forward(request, response);
         }
-
     }
 
     /**

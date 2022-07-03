@@ -52,6 +52,9 @@ public class SendMailVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        String EmailService = request.getParameter("EmailService");
+        session.setAttribute("EmailService", EmailService);
         response.sendRedirect("SendEmail.jsp");
     }
 
@@ -67,12 +70,15 @@ public class SendMailVerifyController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
         DAOCustomers daoCus = new DAOCustomers();
         //feth form value
         HttpSession session = request.getSession();
         Accounts acc = (Accounts) session.getAttribute("acc");
         Customers cus = daoCus.getCustomer(acc.getAccount());
         String email = request.getParameter("email");
+        
+        
         if (email.equals(cus.getEmail())) {
             //create instance object of the SendEmail Class
             DAOSendMail sm = new DAOSendMail();
@@ -87,7 +93,6 @@ public class SendMailVerifyController extends HttpServlet {
 
             //check if the email send successfully
             if (test) {
-
                 session.setAttribute("authcode", user);
                 response.sendRedirect("SendCode");
             } else {

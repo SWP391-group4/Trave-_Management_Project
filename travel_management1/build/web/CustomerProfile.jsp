@@ -69,8 +69,8 @@
                                             <div class="mt-3">
                                                 <h4>${cus.firstName} ${cus.lastName}</h4>
                                                 <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Reset Email</li>
-                                                    <li class="list-group-item"><a href="SendMail">Reset Password</a></li>
+                                                    <li class="list-group-item"><a href="SendMail?EmailService=0">Reset Email</a></li>
+                                                    <li class="list-group-item"><a href="SendMail?EmailService=1">Reset Password</a></li>
                                                     <li class="list-group-item">Change Phone</li>
                                                 </ul>
 
@@ -104,6 +104,7 @@
                                                 <div class="form-group">
                                                     <label for="eMail">Email</label>
                                                     <div class="col-sm-9 text-secondary card form-control">
+                                                        
                                                         <div>
                                                             ${cus.email}
                                                         </div>

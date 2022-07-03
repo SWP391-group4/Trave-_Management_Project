@@ -74,7 +74,22 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
+    public int updateCustomerEmail(String email, String accountC) {
+        int n = 0;
+        String sql = "Update Customers set "
+                + "email = ? "
+                + "where accountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, email);
+            pre.setString(2, accountC);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
+        return n;
+    }
     public int updateCustomerAddress(CustomerAddresses cusAdd) {
         int n = 0;
         String sql = "Update CustomerAddresses set "

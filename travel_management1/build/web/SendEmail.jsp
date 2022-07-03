@@ -47,8 +47,8 @@
                                     <div class="panel-body">
                                         <div class="text-center">
                                             <h3><i class="fa fa-lock fa-4x"></i></h3>
-                                            <h2 class="text-center">Forgot Password?</h2>
-                                            <p>You can reset your password here.</p>
+                                            <h2 class="text-center">Verify Email</h2>
+                                            <p>Input Your Email.</p>
                                             <div class="panel-body">
 
                                                 <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="SendMail">
@@ -56,7 +56,6 @@
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-
                                                             <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
                                                         </div>
                                                     </div>
