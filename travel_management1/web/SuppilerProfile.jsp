@@ -208,21 +208,42 @@
                 <!--/tab-pane-->
                 <div class="tab-pane" id="messages">
 
-                    <h2></h2>
+                      <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Reset Password</div>
+                                <div class="card-body">
+                                    <form action="resestpasswordSUP" method="post">
+                                        <div class="form-group row">
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">Old Password</label>
+                                            <div class="col-md-6">
+                                                <input type="password" id="password" class="form-control" name="oldPassword" required>
+                                            </div>
+                                        </div>
 
-                    <ul class="list-group">
-                        <li class="list-group-item text-muted">Inbox</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                                        <div class="form-group row">
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
+                                            <div class="col-md-6">
+                                                <input type="password" id="password" class="form-control" name="newPassword" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">Confirm new Password</label>
+                                            <div class="col-md-6">
+                                                <input type="password" id="password" class="form-control" name="confirmPassword" required>
+                                            </div>
+                                        </div>
 
-                    </ul>
 
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Update
+                                            </button>
+                                            <p class="alert">${alert}</p>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                 </div>
                 <!--/tab-pane-->
                 <div class="tab-pane active" id="settings">

@@ -85,6 +85,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                	
+                                	<div class="fields">
+                                            
+                                <div class="form-group">
+		                <input type="submit" value="Booking" class="btn btn-primary py-3 px-5">
+		              </div>
+                                        </div>
                                 <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
                                     <h2>${detail.homeStayname}</h2>
                                 <span>Our Best hotels &amp; Rooms</span>
