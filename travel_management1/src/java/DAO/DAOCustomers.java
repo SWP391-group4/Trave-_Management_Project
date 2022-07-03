@@ -74,6 +74,7 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
+
     public int updateCustomerEmail(String email, String accountC) {
         int n = 0;
         String sql = "Update Customers set "
@@ -90,6 +91,7 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
+
     public int updateCustomerAddress(CustomerAddresses cusAdd) {
         int n = 0;
         String sql = "Update CustomerAddresses set "
@@ -112,11 +114,12 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
+
     public int totalUser() {
         String sql = "select count(accountc) from customers";
         ResultSet rs = getData(sql);
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 return rs.getInt(1);
             }
         } catch (SQLException ex) {
@@ -124,19 +127,36 @@ public class DAOCustomers extends connectDB {
         }
         return 0;
     }
+
+    
+    public int contactAdmin(MessageAdmin mess) {
+        int n = 0;
+        String sql = "insert into messengerCA (caption, description, messrole, accountC) "
+                + "values(?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, mess.getCaption());
+            pre.setString(2, mess.getDescription());
+            pre.setInt(3, mess.getMessRole());
+            pre.setString(4, mess.getAccountC());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");
-        
+
         System.out.println(cus);
-        
+
         cus.setFirstName("new ");
         cus.setLastName("person");
-        
+
         int n = dao.updateCustomer(cus);
-        
+
         System.out.println(cus);
-        
 
     }
 }

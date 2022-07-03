@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/SendCodeVerify.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/ResetPasswordController.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Entity/User.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOSendMail.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/SendCodeVerifyController.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/SendMailVerifyController.java</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/LoginController.java</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/Home.jsp</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Entity/MessageAdmin.java</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOCustomers.java</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/ContactAdminController.java</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/SendEmailReset.jsp</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/ContactAdmin.jsp</file>
+            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminHome.jsp</file>
         </group>
     </open-files>
 </project-private>
