@@ -178,7 +178,7 @@
                                                             Booked
                                                         </span>
                                                     </c:if>
-
+                                                    <p> Price: ${o.price} dong</p>
                                                 </div>
 
                                             </div>
