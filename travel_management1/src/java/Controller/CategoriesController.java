@@ -50,7 +50,7 @@ public class CategoriesController extends HttpServlet {
         
         List<Categories> listC=dao.ListCate();
         List<HomeStays> list=dao.getHomeStaybyCID(cateID);
-        request.setAttribute("list", list);
+        request.setAttribute("listp", list);
 //         request.setAttribute("endPage", endPage);
             request.setAttribute("listC", listC);
              request.setAttribute("act", cateID);

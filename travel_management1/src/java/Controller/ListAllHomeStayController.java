@@ -52,7 +52,7 @@ public class ListAllHomeStayController extends HttpServlet {
         List<HomeStays> listHomeStay = dao.paggingHomeStay(index);
         request.setAttribute("endPage", endPage);
         request.setAttribute("listC", listC);
-        request.setAttribute("list", listHomeStay);
+        request.setAttribute("listp", listHomeStay);
         request.setAttribute("tag", index);
         request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
     }

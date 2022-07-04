@@ -125,6 +125,11 @@
                                         <li> ${detail.kitchenQty}</li>
                                     </ul>
                                 </div>
+                                    <h3>Extensions</h3>
+                                    
+                                      <ul class="ml-md-5">
+                                           <li>${extion.listExtentions}</li>
+                                          </ul>
                                 <h3>Some Rules</h3>
                                 <c:forEach  items="${rules}" var="o">
 

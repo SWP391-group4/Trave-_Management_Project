@@ -33,6 +33,7 @@ public class HomeStays {
     public String description;
     public String video;
 public int status;
+
     public String getAccountS() {
         return accountS;
     }

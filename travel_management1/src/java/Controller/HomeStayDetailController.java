@@ -4,10 +4,12 @@
  */
 package Controller;
 
+import DAO.DAOExtensions;
 import DAO.DAOHomeStays;
 import DAO.DAOReviews;
 import DAO.DAORules;
 import DAO.DAOSupplier;
+import Entity.Extensions;
 import Entity.HomeStays;
 import Entity.Reviews;
 import Entity.Rules;
@@ -48,9 +50,11 @@ public class HomeStayDetailController extends HttpServlet {
         DAORules daorule=new DAORules();
         DAOHomeStays dao = new DAOHomeStays();
         DAOReviews daor = new DAOReviews();
+        DAOExtensions daoe= new DAOExtensions();
         List<Rules> rules = daorule.getRulebyHomeStayID(homeStayID);
         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
         HomeStays h = dao.getHomestay(homeStayID);
+        Extensions e=daoe.getExtensions(homeStayID);
         String accountS = h.getAccountS();
         List<HomeStays> listbyS = dao.getRandomHomeStay();
         List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
@@ -59,6 +63,7 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("review", r);
         request.setAttribute("rules", rules);
         request.setAttribute("detail", h);
+        request.setAttribute("extion", e);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
 
     }

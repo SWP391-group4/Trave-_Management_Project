@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <a  href="menu.jsp"><img src="images/logo.png" style="width: 50px;height:60px;margin-left:50px "></a>
+    <a  href="Home"><img src="images/logo.png" style="width: 50px;height:60px;margin-left:50px "></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu">Menu</span> 
     </button>

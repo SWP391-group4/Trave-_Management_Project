@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="select-wrap one-third">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <div class="icon"><span></span></div>
                                             <!--                                            <select name="" id="" class="form-control" placeholder="Keyword search">
                                                                                             <option value="">Select Location</option>
                                                                                             <option value="">San Francisco USA</option>
@@ -80,8 +80,7 @@
                                                 <input type="number" value="25000" min="0" max="120000"/>	-
                                                 <input type="number" value="50000" min="0" max="120000"/>
                                             </span>
-                                            <input value="1000" min="0" max="120000" step="500" type="range"/>
-                                            <input value="50000" min="0" max="120000" step="500" type="range"/>
+
                                             </svg>
                                         </div>
                                     </div>
@@ -92,16 +91,25 @@
                             </form>
                         </div>
 
-                        <div class="card bg-warning mb-3">
-                            <div class="card-header bg-warning text-white text-uppercase"><i class="fa fa-list"></i>  Categories</div>
+                        <div class="card bg-dark mb-3">
+                            <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i>  Categories</div>
                             <ul class="list-group category_block">
                                 <c:forEach items="${listC}" var="c">
-                                    <li class="list-group-item text-dark ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    <li class="list-group-item text-white ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
                                     </c:forEach>
 
                             </ul>
-                        </div>
 
+                        </div>
+                        <div class="card bg-dark mb-3">
+                            <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i> Status</div>
+                            <ul class="list-group category_block">
+
+                                <li class="list-group-item "> <a href="category?cid=">Avaiable</a></li>
+                                <li class="list-group-item "> <a href="category?cid=">Booked</a></li>
+
+                            </ul>
+                        </div>
                         <div class="sidebar-wrap ftco-animate ">
                             <h3 class="heading mb-4">Star Rating</h3>
                             <form method="post" class="star-rating">
@@ -142,7 +150,7 @@
 
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
-                            <c:forEach items="${list}" var="o">
+                            <c:forEach items="${listp}" var="o">
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
