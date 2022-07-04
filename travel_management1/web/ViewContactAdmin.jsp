@@ -188,75 +188,64 @@
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
+                        <div class="container">
+                            <div class="container-fluid p-0">
+                                <h1 class="h3 mb-3">Customer Contact</h1>
+                                <div class="row">
+                                    <div class="col-xl-7">
+                                        <div class="card">
+                                            <div class="card-header pb-0">
+                                                <div class="card-actions float-right">
+                                                    <div class="dropdown show">
+                                                        <a href="#" data-toggle="dropdown" data-display="static">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                        </a>
 
-
-                        <div class="row">
-                            <div class="col-lg-3 left">
-                                <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-fluid" alt="Responsive image" />
-                                    <div class="p-3 border-bottom">
-                                        <h6 class="font-weight-bold text-dark">Notifications</h6>
-                                        <p class="mb-0 text-muted">You?re all caught up! Check back later for new notifications</p>
-                                    </div>
-                                    <div class="p-3">
-                                        <button type="button" class="btn btn-outline-success btn-sm pl-4 pr-4">View settings</button>
-                                    </div>
-                                </div>
-                                <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
-                                    <div class="p-5">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-fluid" alt="Responsive image" />
-                                    </div>
-                                    <div class="p-3 border-top border-bottom">
-                                        <h5 class="font-weight-bold text-dark mb-1 mt-0">Envato</h5>
-                                        <p class="mb-0 text-muted">Melbourne, AU</p>
-                                    </div>
-                                    <div class="p-3">
-                                        <div class="d-flex align-items-top mb-2">
-                                            <p class="mb-0 text-muted">Posted</p>
-                                            <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">1 day ago</p>
-                                        </div>
-                                        <div class="d-flex align-items-top">
-                                            <p class="mb-0 text-muted">Applicant Rank</p>
-                                            <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-9 right">
-                                <div class="box shadow-sm rounded bg-white mb-3">
-                                    <div class="box-title border-bottom p-3">
-                                        <h6 class="m-0">Recent</h6>
-                                    </div>
-                                    <div class="box-body p-0">
-                                        <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
-                                            <div class="dropdown-list-image mr-3">
-                                                
-                                            </div>
-                                            <div class="font-weight-bold mr-3">
-                                                <div class="text-truncate">DAILY RUNDOWN: WEDNESDAY</div>
-                                                <div class="small">Income tax sops on the cards, The bias in VC funding, and other top news for you</div>
-                                            </div>
-                                            <span class="ml-auto mb-auto">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <button class="dropdown-item" type="button"><i class="mdi mdi-delete"></i> Delete</button>
-                                                        <button class="dropdown-item" type="button"><i class="mdi mdi-close"></i> Turn Off</button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <br />
-                                                <div class="text-right text-muted pt-1">3d</div>
-                                            </span>
+                                                <h5 class="card-title mb-0"></h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-striped" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Message</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
+                                                            <td>Garrett Winters</td>
+                                                            <td>garrett@winters.com</td>
+                                                            <td>hihihaha</td>
+                                                            <td><button class="badge bg-success"><a href="#">View</a></button></td>
+                                                            <td><button class="badge bg-warning"><a href="#">Discard</a></button></td>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        
+                                    </div>
+
+                                    
                                     </div>
                                 </div>
-                                
-                            </div>
 
+                            </div>
                         </div>
+
+
                     </div>
                     <!-- End of Main Content -->
 
