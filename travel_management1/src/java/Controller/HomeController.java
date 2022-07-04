@@ -11,7 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import DAO.DAOVouchers;
+import Entity.Vouchers;
+import java.util.List;
 /**
  *
  * @author phams
@@ -31,7 +33,16 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("Home.jsp");
+        String service = request.getParameter("go");
+        DAOVouchers dao1=new DAOVouchers();
+        if (service == null) {//call controller direct
+            service = "Show";
+        }
+        if (service.equals("Show")) {
+            List<Vouchers> list3v = dao1.viewtop3Vouchers();
+            request.setAttribute("list3v",list3v);
+            request.getRequestDispatcher("Home..jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

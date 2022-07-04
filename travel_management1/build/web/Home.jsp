@@ -73,7 +73,7 @@
                     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
                         <div class="col-md-12 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
                             <form action="menu.jsp" class="searchcheck" >
-                                <input type="search" name="search" placeholder="        Type To Search" pattern=".*\S.*" required>
+                                <input type="search" name="search" placeholder="        Where do you want to go ?" pattern=".*\S.*" required>
                                 <button class="search-btn" type="submit">
                                     <span></span>
                                 </button>

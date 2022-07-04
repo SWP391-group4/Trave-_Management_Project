@@ -9,19 +9,26 @@ package Entity;
  * @author nam
  */
 public class Vouchers {
+
     public String voucherId;
+    public String title;
+    public String description;
+    public String image;
     public int discount;
     public int quantity;
-    public String accountC;
+    public String accountM;
 
-    public Vouchers() {
-    }
-
-    public Vouchers(String voucherId, int discount, int quantity, String accountC) {
+    public Vouchers(String voucherId, String title, String description, String image, int discount, int quantity, String accountM) {
         this.voucherId = voucherId;
+        this.title = title;
+        this.description = description;
+        this.image = image;
         this.discount = discount;
         this.quantity = quantity;
-        this.accountC = accountC;
+        this.accountM = accountM;
+    }
+
+    public Vouchers() {
     }
 
     public String getVoucherId() {
@@ -30,6 +37,30 @@ public class Vouchers {
 
     public void setVoucherId(String voucherId) {
         this.voucherId = voucherId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getDiscount() {
@@ -48,19 +79,17 @@ public class Vouchers {
         this.quantity = quantity;
     }
 
-    public String getCustomerId() {
-        return accountC;
+    public String getAccountM() {
+        return accountM;
     }
 
-    public void setCustomerId(String accountC) {
-        this.accountC = accountC;
+    public void setAccountM(String accountM) {
+        this.accountM = accountM;
     }
-//tung comment
+
     @Override
     public String toString() {
-        return "Vouchers{" + "voucherId=" + voucherId + ", discount=" + discount + ", quantity=" + quantity + ", accountC=" + accountC + '}';
+        return "Vouchers{" + "voucherId=" + voucherId + ", title=" + title + ", description=" + description + ", image=" + image + ", discount=" + discount + ", quantity=" + quantity + ", accountM=" + accountM + '}';
     }
-
-    
     
 }

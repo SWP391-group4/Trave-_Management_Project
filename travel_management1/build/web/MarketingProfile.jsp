@@ -39,26 +39,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
-            <div class="container">
-                <a  href="Home"><img src="images/logo.png" style="width: 70px;height:80px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse text-dark" id="ftco-nav" >
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="Home" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
-                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-                        <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <jsp:include page="Header.jsp"></jsp:include>
         <!-- END nav -->
 
         <%
