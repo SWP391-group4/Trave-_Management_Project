@@ -35,7 +35,8 @@ public class DAOSupplier extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6)
+                        rs.getString(6),
+                        rs.getInt(7)
                 );
             }
         } catch (SQLException ex) {
@@ -229,11 +230,13 @@ public class DAOSupplier extends connectDB {
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-        List<Suppliers> list = d.getHomeStayByAccountS("2convitcon");
-        for (Suppliers temp : list) {
-            System.out.println(temp);
-        }
-        int n = d.addSuppliers(new Suppliers("haianh123", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402",0));
-        System.out.println(n);
+//        List<Suppliers> list = d.getSuppiler("2convitcon");
+          Suppliers list = d.getSuppiler("2convitcon");
+          System.out.println(list);
+//        for (Suppliers temp : list) {
+//            System.out.println(temp);
+//        }
+//        int n = d.addSuppliers(new Suppliers("haianh123", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402",0));
+//        System.out.println(n);
     }
 }

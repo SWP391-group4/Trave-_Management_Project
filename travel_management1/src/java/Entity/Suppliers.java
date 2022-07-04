@@ -38,6 +38,30 @@ public class Suppliers {
         this.phone = phone;
     }
 
+    public String getHomeStayID() {
+        return homeStayID;
+    }
+
+    public void setHomeStayID(String homeStayID) {
+        this.homeStayID = homeStayID;
+    }
+
+    public String getHomeStayname() {
+        return homeStayname;
+    }
+
+    public void setHomeStayname(String homeStayname) {
+        this.homeStayname = homeStayname;
+    }
+
+    public String getCateName() {
+        return cateName;
+    }
+
+    public void setCateName(String cateName) {
+        this.cateName = cateName;
+    }
+
     public Suppliers(String accountS, String firstName, String lastName, String fax, String email, String phone,int status) {
         this.accountS = accountS;
         this.firstName = firstName;
@@ -107,8 +131,10 @@ public class Suppliers {
 
     @Override
     public String toString() {
-        return "Suppliers{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateName=" + cateName + '}';
+        return "Suppliers{" + "accountS=" + accountS + ", firstName=" + firstName + ", lastName=" + lastName + ", fax=" + fax + ", email=" + email + ", phone=" + phone + ", status=" + status + '}';
     }
+
+    
     
  
 

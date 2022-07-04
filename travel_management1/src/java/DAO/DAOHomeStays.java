@@ -375,7 +375,7 @@ public class DAOHomeStays extends connectDB {
                 + "ha.City, ha.District, ha.Specific, ha.Ward,\n"
                 + "cat.CateName,\n"
                 + "hd.BedQty, hd.BedRoomQty, hd.BathRoomQty, hd.LivingRoomQty, \n"
-                + "hd.KitchenQty, hd.Price, hd.IncurredCost\n"
+                + "hd.KitchenQty, hd.Price, hd.IncurredCost,hd.video,hd.description,hd.checkin,hd.checkout, h.status\n"
                 + "from HomeStays h \n"
                 + "inner join HomeStayAddressses ha\n"
                 + "on h.HomeStayId = ha.HomeStayId\n"
@@ -406,7 +406,8 @@ public class DAOHomeStays extends connectDB {
                         rs.getInt(13),
                         rs.getInt(14),
                         rs.getDouble(15),
-                        rs.getDouble(16)));
+                        rs.getDouble(16),
+                rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getInt(21)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -417,7 +418,7 @@ public class DAOHomeStays extends connectDB {
     public List<HomeStays> getHomeStayforSUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select h.HomeStayId, h.HomeStayName,  h.AccountS,\n"
-                + "cat.CateName \n"
+                + "cat.CateName,h.status \n"
                 + "from HomeStays h \n"
                 + "inner join Categories cat\n"
                 + "on h.CateId = cat.CateId\n"
@@ -432,7 +433,7 @@ public class DAOHomeStays extends connectDB {
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getString(4)));
+                        rs.getString(4),rs.getInt(5)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -479,7 +480,7 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        List<HomeStays> list = dao.getHomeStaybyCID("CATID001");
+        List<HomeStays> list = dao.getHomeStayforSUP("theanh");
 //     HomeStays h=   dao.getHomeStaybyCID("HS0001");
 //        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);

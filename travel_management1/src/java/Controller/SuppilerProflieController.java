@@ -97,10 +97,12 @@ public class SuppilerProflieController extends HttpServlet {
             request.setAttribute("noti", noti);
             request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         } else {
+         
             String noti = "Update done.";
-            request.setAttribute("sp", sp);
+            request.setAttribute("sp", sup_temp);
             request.setAttribute("spa", spa);
             request.setAttribute("noti", noti);
+               session.setAttribute("suppliers", sup_temp);
             request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         }
        

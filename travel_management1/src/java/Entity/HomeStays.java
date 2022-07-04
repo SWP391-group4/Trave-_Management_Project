@@ -38,6 +38,30 @@ public int status;
         return accountS;
     }
 
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty,double price, double IncurredCost, String description, String video, String checkIn, String checkOut,  int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.accountS = accountS;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.bedQty = bedQty;
+        this.bedRoomQty = bedRoomQty;
+        this.bathRoomQty = bathRoomQty;
+        this.livingRoomQty = livingRoomQty;
+        this.kitchenQty = kitchenQty;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
+        this.description = description;
+        this.video = video;
+        this.status = status;
+    }
+
     public int getStatus() {
         return status;
     }
@@ -68,11 +92,19 @@ public int status;
         this.video = video;
     }
 
+    public HomeStays(String homeStayID, String homeStayname, String accountS, String cateName,int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateName = cateName;
+        this.accountS = accountS;
+        this.status=status;
+    }
     public HomeStays(String homeStayID, String homeStayname, String accountS, String cateName) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateName = cateName;
         this.accountS = accountS;
+     
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost) {
