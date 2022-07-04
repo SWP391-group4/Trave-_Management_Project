@@ -40,24 +40,25 @@
     <body>
 
         <jsp:include page="Header.jsp"></jsp:include>
-        <!-- END nav -->
+            <!-- END nav -->
 
         <%
             Marketing mar = (Marketing) request.getAttribute("mar");
             MarketingImage mark = (MarketingImage) request.getAttribute("mark");
         %> 
-
+        <br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+            <a class="navbar-brand active" style="color: #eea236" href="#">Account Information</a>
+            <a class="navbar-brand" href="#">Marketing Manager</a>
+            </div>
+        </nav>
         <section >
             <div class="container">
                 <div class="main-body">
 
                     <!-- Breadcrumb -->
-                    <nav aria-label="breadcrumb" class="main-breadcrumb" >
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item "><a href="Home">Home</a></li>
-                            <li class="breadcrumb-item active">Marketing Profile</li>
-                        </ol>
-                    </nav>
+
                     <form  action="MarketingProfileController" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="go" value="updateMarketing">
                         <!-- /Breadcrumb -->
