@@ -50,7 +50,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
             <a class="navbar-brand active" style="color: #eea236" href="#">Account Information</a>
-            <a class="navbar-brand" href="#">Marketing Manager</a>
+            <a class="navbar-brand" href="MarketingManager">Marketing Manager</a>
             </div>
         </nav>
         <section >
