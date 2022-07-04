@@ -32,9 +32,17 @@ public class HomeStays {
     public String feedBack;
     public String description;
     public String video;
-
+public int status;
     public String getAccountS() {
         return accountS;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price, double IncurredCost, String description, String video) {
@@ -102,6 +110,20 @@ public class HomeStays {
         this.livingRoomQty = livingRoomQty;
         this.kitchenQty = kitchenQty;
         this.price = price;
+    }
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName,Double price,int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.price = price;
+        this.status=status;
+        
+        
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price, double IncurredCost) {
@@ -374,7 +396,11 @@ public class HomeStays {
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", accountS=" + accountS + ", cateName=" + cateName + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", price=" + price + ", star=" + star + ", status=" + status + '}';
     }
+
+  
+
+
 
 }

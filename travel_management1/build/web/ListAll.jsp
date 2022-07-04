@@ -147,7 +147,7 @@
                                     <div class="destination" style="display: inline-flex">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
-                                                
+
                                                 <span class="icon-link"></span>
                                             </div>
                                         </a>
@@ -166,7 +166,19 @@
                                                         <i class="icon-star-o"></i>
                                                         <span>8 Rating</span>
                                                     </p>
-                                                    <span class="badge bg-info">Active</span>
+                                                    <c:if test="${o.status==1}">
+                                                        <span class="badge bg-success text-light">
+
+                                                            Ready
+                                                        </span>
+                                                    </c:if>
+                                                    <c:if test="${o.status==0}">
+                                                        <span class="badge bg-secondary text-light">
+
+                                                            Booked
+                                                        </span>
+                                                    </c:if>
+
                                                 </div>
 
                                             </div>
@@ -175,7 +187,7 @@
                                                 </svg><i class="icon-map-o ml-auto"></i>  ${o.specific},${o.ward},${o.city} </span>
 
                                             <hr>
-                                            <p class="bottom-area d-flex">
+                                            <p class="bottom-area d-sm-flex">
 
                                                 <span class="ml-auto"><i class="" style="display: inline" >
                                                     </i>
