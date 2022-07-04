@@ -65,129 +65,121 @@
         </head>
         <body>
             <jsp:include page="Header.jsp"></jsp:include>
-            <!-- END nav -->
+                <!-- END nav -->
 
-            <div class="hero-wrap " style="background-image: url('images/bg_1.jpg');">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                        <div class="col-md-12 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                            <form action="menu.jsp" class="searchcheck" >
-                                <input type="search" name="search" placeholder="        Where do you want to go ?" pattern=".*\S.*" required>
-                                <button class="search-btn" type="submit">
-                                    <span></span>
-                                </button>
-                            </form>
+                <div class="hero-wrap " style="background-image: url('images/bg_1.jpg');">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                            <div class="col-md-12 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+                                <form action="menu.jsp" class="searchcheck" >
+                                    <input type="search" name="search" placeholder="        Where do you want to go ?" pattern=".*\S.*" required>
+                                    <button class="search-btn" type="submit">
+                                        <span></span>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <section >
-                <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
-                    <h3 style="font-weight: bold;font-style: italic">Welcome to CTU Travel !</h3>
-                </div>
-            </section>
-            <p style="margin-left: 90px">Book accommodation, homestays, experiences and more on CTU Travel.</p>
-            <a href="login" style="margin-left: 90px">Login &nbsp;</a>or &nbsp;<a href="registerCustomer">Register &nbsp;</a> to experience the best !
-            <section >
-                <div class="row" style="margin-top:40px ;margin-left: 90px;color: #000000">
-                    <h3 style="font-weight: bold;font-style: italic">Favorite Destination </h3>
-                    <br>
+                <section >
+                    <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
+                        <h3 style="font-weight: bold;font-style: italic">Welcome to CTU Travel !</h3>
+                    </div>
+                </section>
+                <p style="margin-left: 90px">Book accommodation, homestays, experiences and more on CTU Travel.</p>
+                <a href="login" style="margin-left: 90px">Login &nbsp;</a>or &nbsp;<a href="registerCustomer">Register &nbsp;</a> to experience the best !
+                <section >
+                    <div class="row" style="margin-top:40px ;margin-left: 90px;color: #000000">
+                        <h3 style="font-weight: bold;font-style: italic">Favorite Destination </h3>
+                        <br>
 
-                </div>
-                <p style="margin-left: 90px" >  Join CTU Travel to start your journey to conquer the world.</p>
-            </section>
-            <section class="" >
+                    </div>
+                    <p style="margin-left: 90px" >  Join CTU Travel to start your journey to conquer the world.</p>
+                </section>
+                <section class="" >
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="carousel-testimony owl-carousel ftco-owl">
-                                <div class="item">
-                                    <a  href="menu.jsp" >
-                                        <div class="testimony-wrap p-4 pb-5">
-                                            <div style="width: 301px;height:336px ;background-image: url(images/HN.png)">
-                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">Ha Noi</h3>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a  href="menu.jsp" >
-                                        <div class="testimony-wrap p-4 pb-5">
-                                            <div style="width: 301px;height:336px ; ;background-image: url(images/HCM.png)">
-                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Ho Chi Minh</h3>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a  href="menu.jsp" >
-                                        <div class="testimony-wrap p-4 pb-5">
-                                            <div style="width: 301px;height:336px ; ;background-image: url(images/DL.png)">
-                                                <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Lat</h3>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item">
-                                    <a  href="menu.jsp" >
-                                        <div class="testimony-wrap p-4 pb-5">
-                                            <div>
-                                                <div style="width: 301px;height:336px ; ;background-image: url(images/QN.png)">
-                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Quang Ninh</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="carousel-testimony owl-carousel ftco-owl">
+                                    <div class="item">
+                                        <a  href="menu.jsp" >
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div style="width: 301px;height:336px ;background-image: url(images/HN.png)">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">Ha Noi</h3>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a  href="menu.jsp" >
-                                        <div class="testimony-wrap p-4 pb-5">
-                                            <div>
-                                                <div style="width: 301px;height:336px ; ;background-image: url(images/DN.png)">
-                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Nang</h3>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a  href="menu.jsp" >
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div style="width: 301px;height:336px ; ;background-image: url(images/HCM.png)">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Ho Chi Minh</h3>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a  href="menu.jsp" >
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div style="width: 301px;height:336px ; ;background-image: url(images/DL.png)">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Lat</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="item">
+                                        <a  href="menu.jsp" >
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div>
+                                                    <div style="width: 301px;height:336px ; ;background-image: url(images/QN.png)">
+                                                        <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Quang Ninh</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a  href="menu.jsp" >
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div>
+                                                    <div style="width: 301px;height:336px ; ;background-image: url(images/DN.png)">
+                                                        <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Nang</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div> 
                             </div> 
-                        </div> 
+                        </div>
+                </section>
+                <section >
+                    <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
+                        <h3 style="font-weight: bold;font-style: italic">Exclusive Vouchers</h3>
                     </div>
-            </section>
-            <section >
-                <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
-                    <h3 style="font-weight: bold;font-style: italic">Exclusive Vouchers</h3>
-                </div>
-            </section>
-            <p style="margin-left: 90px">Only at CTU Travel, attractive and limited, book now!</p>
+                </section>
+                <p style="margin-left: 90px">Only at CTU Travel, attractive and limited, book now!</p>
 
-            <section class="" >
+                <section class="" >
 
-                <div class="container">
-                    <div class="col-md-12" style="text-align: right;text-decoration: underline;">
-                        <a href="home.jsp">See All</a>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher3.png">
-                            </a>
-                        </div> 
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher2.png">
-                            </a>
-                        </div> 
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <img style="width: 360px;height: 280px;border-radius: 15px" src="images/voucher1.png">
-                            </a>
-                        </div> 
+                    <div class="container">
+                        <div class="col-md-12" style="text-align: right;text-decoration: underline;">
+                            <a href="home.jsp">See All</a>
+                        </div>
+                        <br>
+                        <div class="row">
+                        <c:forEach items="${list3v}" var="c">
+                            <div class="col-md-4">                         
+                                <a href="home.jsp">
+                                    <img style="width: 360px;height: 280px;border-radius: 15px" src="images/${c.image}">
+                                </a>                          
+                            </div>   
+                        </c:forEach>
                     </div>
             </section>
             <section >

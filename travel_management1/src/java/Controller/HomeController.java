@@ -41,7 +41,7 @@ public class HomeController extends HttpServlet {
         if (service.equals("Show")) {
             List<Vouchers> list3v = dao1.viewtop3Vouchers();
             request.setAttribute("list3v",list3v);
-            request.getRequestDispatcher("Home..jsp").forward(request, response);
+            request.getRequestDispatcher("/Home.jsp").forward(request, response);
         }
     }
 
