@@ -197,31 +197,16 @@
                     </div>
                     <br>
                     <div class="row">
-
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <div style="width: 366px;height: 289px ; ;background-image: url(images/blog1.jpg);background-position:center;background-size: cover">
-                                    <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
-                                    <h6 style="color: #FFF;text-align: center;margin-top: 158px;background:rgba(0,0,0,0.5)">How to finance the perfect trip ?</h6>
-                                </div>
-                            </a>
-                        </div> 
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <div style="width: 366px;height: 289px ; ;background-image: url(images/blog2.jpg);background-position:center;background-size: cover">
-                                    <p style="color: #FFF;text-align: center;padding-top:20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
-                                    <h6 style="color: #FFF;text-align: center;margin-top: 158px;background:rgba(0,0,0,0.5)">5 luxury resorts in Vietnam appear on British magazine</h6>
-                                </div>
-                            </a>
-                        </div> 
-                        <div class="col-md-4">
-                            <a href="home.jsp">
-                                <div style="width: 366px;height:289px ; ;background-image: url(images/blog3.jpg);background-position:center;background-size: cover">
-                                    <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
-                                    <h6 style="color: #FFF;text-align: center;margin-top: 158px;background:rgba(0,0,0,0.5)">Hanoi is in the top of the most beautiful cities in the world</h6>
-                                </div>
-                            </a>
-                        </div> 
+                        <c:forEach items="${list3b}" var="c">
+                            <div class="col-md-4">
+                                <a href="home.jsp">
+                                    <div style="width: 366px;height: 289px ; ;background-image: url(images/${c.image});background-position:center;background-size: cover">
+                                        <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
+                                        <h6 style="color: #FFF;text-align: center;margin-top: 158px;background:rgba(0,0,0,0.5)">${c.title}</h6>
+                                    </div>
+                                </a>
+                            </div> 
+                        </c:forEach>
                     </div>
             </section>
             <br> <br> <br>
