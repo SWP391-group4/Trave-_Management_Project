@@ -37,7 +37,7 @@ public class DAOSupplierAddresses extends connectDB{
         DAOSupplierAddresses dao = new DAOSupplierAddresses();
         
         
-        int n = dao.addSuppliersAddresses(new SupplierAddresses("haianh123", "Ha Noi","Long BIen", "554/31 Nguyen Van Cu", "Gia Thuy"));
+        int n = dao.addSupplierAddresses(new SupplierAddresses("haianh123", "Ha Noi","Long BIen", "554/31 Nguyen Van Cu", "Gia Thuy"));
         System.out.println(n);
     }
 }
