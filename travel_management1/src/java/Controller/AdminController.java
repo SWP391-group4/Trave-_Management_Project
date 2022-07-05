@@ -42,7 +42,7 @@ public class AdminController extends HttpServlet {
             int totalCustomer = daoCus.totalUser();
 
             List<SupplierHomestays> listSupplier = daoSupplier.listTop10Homestay();
-
+            
             request.setAttribute("totalCus", totalCustomer);
             request.setAttribute("totalSup", totalSupplier);
             request.setAttribute("listSup", listSupplier);

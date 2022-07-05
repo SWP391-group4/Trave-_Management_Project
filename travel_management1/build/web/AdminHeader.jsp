@@ -26,7 +26,7 @@
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="ViewContactAdmin.jsp" id="alertsDropdown" role="button"
+        <a class="nav-link dropdown-toggle" href="ViewContactAdmin" id="alertsDropdown" role="button"
            data-toggle="" aria-haspopup="true">
             <i class="fas fa-bell fa-fw"></i>
             <!-- Counter - Alerts -->
