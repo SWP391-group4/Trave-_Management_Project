@@ -35,12 +35,32 @@ public class DAORules  extends connectDB {
         }
         return list;
     }
+        
+        public int addRules(Rules hs) {
+        int n = 0;
+        String sql = "insert into Rules(HomeStayId,ListRules) \n"
+                + "values (?,?)";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, hs.getHomeStayId());
+            pre.setString(2, hs.getListRules());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
         public static void main(String[] args) {
-            DAORules dao = new DAORules();
-        List<Rules> list = dao.getRulebyHomeStayID("HS0001");
-        for(Rules temp:list){
-            System.out.println(temp);
-        }
-        }
+        DAORules dao = new DAORules();
+//        List<Rules> list = dao.getRulebyHomeStayID("HS0001");
+//        for(Rules temp:list){
+//            System.out.println(temp);
+//        }
+        Rules s = new Rules("HS0104", "Pets may not be brought into the Hotel.");
+        int n = dao.addRules(s);
+        System.out.println(n);
+        System.out.println(s);
+    }
 //    }<li>${o.date}</li><p>${o.feedBack}</p>
 }
