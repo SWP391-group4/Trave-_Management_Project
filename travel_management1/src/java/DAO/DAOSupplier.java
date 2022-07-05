@@ -79,7 +79,22 @@ public class DAOSupplier extends connectDB {
 //        }
 //        return null;
 //    }
+  public int updateSupplierEmail(String email, String accountS) {
+        int n = 0;
+        String sql = "Update Supplier set "
+                + "email = ? "
+                + "where accountS = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, email);
+            pre.setString(2, accountS);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
+        return n;
+    }
     public List<Suppliers> getHomeStayByAccountS(String accountS) {
         List<Suppliers> list = new ArrayList<>();
         String sql = "select h.HomeStayId,h.homestayname,c.catename from Suppliers s inner join HomeStays h on s.AccountS =h.AccountS inner join Categories c on\n"

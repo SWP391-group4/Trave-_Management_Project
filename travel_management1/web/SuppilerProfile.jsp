@@ -70,6 +70,7 @@
                     <ul class="nav nav-tabs" id="myTab">
                         <!--                <li class=""><a href="#home" data-toggle="tab">Home</a></li>-->
                         <li><a href="resestpasswordSUP" >Change_Password</a></li>
+                          <li><a href="sendMailSup" >Change_Email</a></li>
                         <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
                     </ul>
 
