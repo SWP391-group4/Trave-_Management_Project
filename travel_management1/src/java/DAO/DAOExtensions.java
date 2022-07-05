@@ -6,7 +6,10 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.Extensions;
+import Entity.HomeStayAddressses;
 import Entity.HomeStays;
+import Entity.Rules;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -33,10 +36,31 @@ public class DAOExtensions extends connectDB{
         }
         return null;
     }
+    
+    public int addExtensions(Extensions hs) {
+        int n = 0;
+        String sql = "insert into Extensions(HomeStayId,ListExtensions) \n"
+                + "values (?,?)";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, hs.getHomeStayId());
+            pre.setString(2, hs.getListExtentions());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+    
     public static void main(String[] args) {
         DAOExtensions dao = new DAOExtensions();
-        Extensions e = dao.getExtensions("HS0001");
-        System.out.println(e);
+//        Extensions e = dao.getExtensions("HS0001");
+//        System.out.println(e);
+        Extensions s = new Extensions("HS0104", "All basic Extension, Reception 24/24, View of the forest, Fishing");
+        int n = dao.addExtensions(s);
+        System.out.println(n);
+        System.out.println(s);
 
     }
     
