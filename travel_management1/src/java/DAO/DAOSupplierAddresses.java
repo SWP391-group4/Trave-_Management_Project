@@ -16,8 +16,8 @@ import java.sql.SQLException;
 public class DAOSupplierAddresses extends connectDB{
     public int addSuppliersAddresses(SupplierAddresses sup) {
         int n = 0;
-        String sql = "insert into Suppliers(AccountS,city,district,specific,ward) \n"
-                + "values (?,?,?,?,?,?,?)";
+        String sql = "insert into SupplierAddresses(AccountS,city,district,specific,ward) \n"
+                + "values (?,?,?,?,?)";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -31,5 +31,13 @@ public class DAOSupplierAddresses extends connectDB{
             ex.printStackTrace();
         }
         return n;
+    }
+    
+    public static void main(String[] args) {
+        DAOSupplierAddresses dao = new DAOSupplierAddresses();
+        
+        
+        int n = dao.addSuppliersAddresses(new SupplierAddresses("haianh123", "Ha Noi","Long BIen", "554/31 Nguyen Van Cu", "Gia Thuy"));
+        System.out.println(n);
     }
 }
