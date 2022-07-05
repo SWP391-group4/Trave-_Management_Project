@@ -35,7 +35,9 @@ public class DAOHomeStayDetails extends connectDB{
                   String CheckOut=rs.getString(8);
                   double price=rs.getDouble(9);
                   double incurredCost=rs.getDouble(10);
-                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price, incurredCost);
+                  String description=rs.getString(11);
+                  String video = rs.getString(12);
+                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price, incurredCost, description, video);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
