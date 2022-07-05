@@ -38,7 +38,7 @@
             <section class="ftco-section">
                 <div class="container">
                     <div style="padding-bottom: 25px ">
-                        <a href="Restaurant">Home ></a>
+                        <a href="home">Home ></a>
 
                         <a href="#">List</a>
                     </div>

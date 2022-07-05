@@ -58,6 +58,7 @@ public class LoginController extends HttpServlet {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
+        
         if (acc == null) {
             String noti = "Incorrect user name or password,please try again";
             request.setAttribute("noti", noti);
@@ -65,6 +66,8 @@ public class LoginController extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             int type = acc.getType();
+            request.getSession().setMaxInactiveInterval(600);
+
             switch (type) {
                 case 1:
                     DAOAdmins daoAd = new DAOAdmins();
@@ -72,6 +75,8 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("acc", acc);
                     session.setAttribute("admin", admin);
                     response.sendRedirect("adminController");
+                    request.getSession().setMaxInactiveInterval(600);
+
                     break;
                 case 2:
                     DAOMarketing daoM = new DAOMarketing();
@@ -81,6 +86,8 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("mar", mar);
                     session.setAttribute("mark", mark);
                     response.sendRedirect("MarketingProfileController");
+                    request.getSession().setMaxInactiveInterval(600);
+
                     break;
                 case 3:
                     DAOSupplier daoSup = new DAOSupplier();
@@ -90,6 +97,8 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("suppliers", sp);
                     session.setAttribute("suppliersAddress", spa);
                     response.sendRedirect("suppilerProflieController");
+                    request.getSession().setMaxInactiveInterval(600);
+
                     break;
                 case 4:
                     DAOCustomers daoCus = new DAOCustomers();
@@ -99,6 +108,8 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("customer", cus);
                     session.setAttribute("customerAddress", cusAddress);
                     response.sendRedirect("CustomerProfile");
+                    request.getSession().setMaxInactiveInterval(600);
+
                     break;
                 default:
                     throw new AssertionError();

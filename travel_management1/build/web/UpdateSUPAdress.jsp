@@ -38,7 +38,7 @@
             <div class="container bootstrap snippets bootdey">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h1>User: ${sp.accountS}</h1></div>
+                        <h1>User: </h1></div>
                 <div class="col-sm-2">
                     <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
                     </a>
@@ -47,20 +47,20 @@
             <div class="row">
                 <div class="col-sm-3">
                     <!--left col-->
+ <div style="padding-bottom: 25px ">
+                        <a href="suppilerProflieController">Profile ></a>
 
+                        <a href="updateaddress">HighSetting</a>
+                    </div>
                     <ul class="list-group ">
-                        <li class="list-group-item  bg-secondary text-light">Profile</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Full name</strong></span> ${sp.firstName} ${sp.lastName}</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> ${sp.email} </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Phone</strong></span> ${sp.phone} </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Fax</strong></span> ${sp.fax} </li>
+                        <li class="list-group-item  bg-secondary text-light">Address</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>City</strong></span></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>District</strong></span> </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Specific</strong></span>  </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Ward</strong></span> </li>
                     </ul>
 
-                    <div class="panel panel-default">
-                        <div class="list-group-item  bg-secondary text-light">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
-                        <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
-                        <div class="panel-body"><a href="updateaddress">Change Address</a></div>
-                    </div>
+                    
 
 
 
@@ -69,132 +69,13 @@
                 <div class="col-sm-9">
 
                     <ul class="nav nav-tabs" id="myTab">
-                        <!--                <li class=""><a href="#home" data-toggle="tab">Home</a></li>-->
-                        <li><a href="resestpasswordSUP" >Change_Password</a></li>
-                          <li><a href="sendMailSup" >Change_Email</a></li>
-                        <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+<!--                                        <li class=""><a href="#home" data-toggle="tab">Home</a></li>-->
+
+                        <li class="active"><a href="#settings" data-toggle="tab">High Settings</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div class="tab-pane " id="home">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Label 1</th>
-                                            <th>Label 2</th>
-                                            <th>Label 3</th>
-                                            <th>Label </th>
-                                            <th>Label </th>
-                                            <th>Label </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="items">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-4 col-md-offset-4 text-center">
-                                        <ul class="pagination" id="myPager"></ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/table-resp-->
-
-                            <hr>
-
-                        </div>
+                       
                         <!--/tab-pane-->
                        
 
@@ -204,13 +85,13 @@
                         <div class="tab-pane active" id="settings">
 
                             <hr>
-                            <form class="form" action="suppilerProflieController" method="post" id="registrationForm">
+                            <form class="form" action="updateaddress" method="post" id="registrationForm">
                                 <div class="form-group">
 
                                     <div class="col-xs-6">
                                         <label for="first_name">
                                             <h4>First Name</h4></label>
-                                        <input type="text" class="form-control" value="${sp.firstName}"  name="fname" id="first_name" placeholder="${sp.firstName}" title="enter your first name if any.">
+                                        <input type="text" class="form-control" value=""  name="fname" id="first_name" placeholder="${sp.firstName}" title="enter your first name if any.">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -218,7 +99,7 @@
                                     <div class="col-xs-6">
                                         <label for="last_name">
                                             <h4>Last_Name</h4></label>
-                                        <input type="text" class="form-control" value=" ${sp.lastName}" name="lname" id="last_name" placeholder="${sp.lastName}" title="enter your last name if any.">
+                                        <input type="text" class="form-control" value=" " name="lname" id="last_name" placeholder="${sp.lastName}" title="enter your last name if any.">
                                     </div>
                                 </div>
 
@@ -235,7 +116,7 @@
                                     <div class="col-xs-6">
                                         <label for="mobile">
                                             <h4>Phone</h4></label>
-                                        <input type="number" class="form-control" name="phone" id="mobile" placeholder="${sp.phone}" title="enter your mobile number if any.">
+                                        <input type="number" class="form-control" name="phone" id="mobile" placeholder="" title="enter your mobile number if any.">
                                     </div>
                                 </div>
                                 <!--                        <div class="form-group">
@@ -285,19 +166,17 @@
                                         <br>
                                         <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            
                                       
+                                        <button class="btn btn-lg btn-info" href="#Upload" name="submit" type="submit"><i class="glyphicon glyphicon-upload"></i>  UPLOAD NEW AVATAR</button>
                                     </div>
-                                          
                                 </div>  
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
-                                            <p class="success">${noti}</p>
+                                            <p class="success"></p>
                                         </div>
                                     </div>
                                 </div>
-                                        
                             </form>
                         </div>
 

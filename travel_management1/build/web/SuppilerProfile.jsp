@@ -58,7 +58,8 @@
 
                     <div class="panel panel-default">
                         <div class="list-group-item  bg-secondary text-light">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
-                        <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage</a></div>
+                        <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
+                        <div class="panel-body"><a href="updateaddress">Change Address</a></div>
                     </div>
 
 
@@ -284,9 +285,10 @@
                                         <br>
                                         <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                                        <button class="btn btn-lg btn-warning" href="#settings" name="submit" type="submit"><i class="glyphicon gl yphicon-cog"></i> High Setting</button>
-                                        <button class="btn btn-lg btn-light" href="#Upload" name="submit" type="submit"><i class="glyphicon glyphicon-upload"></i> New picture Profile</button>
+                            
+                                      
                                     </div>
+                                          
                                 </div>  
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -295,6 +297,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                        
                             </form>
                         </div>
 

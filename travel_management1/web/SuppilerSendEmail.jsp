@@ -31,11 +31,16 @@
     <body>
         <jsp:include page="Header.jsp"/>
         <section >
+            
             <div class="container">
+                <div style="padding-bottom: 25px ">
+                        <a href="suppilerProflieController">Profile ></a>
+
+                        <a href="sendMailSup">Resest Email</a>
+                    </div>
                 <div class="main-body">
                     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-                    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-                    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                   
                     <!------ Include the above in your HEAD tag ---------->
 
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -48,7 +53,7 @@
                                         <div class="text-center">
                                             <h3><i class="fa fa-lock fa-4x"></i></h3>
                                             <h2 class="text-center">Verify Email</h2>
-                                            <p>Input Your Email.</p>
+                                            
                                             <div class="panel-body">
 
                                                 <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="sendMailSup">
@@ -56,11 +61,11 @@
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                                                            <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                                                            <input id="email" name="email" placeholder="Enter Your Email" class="form-control"  type="email">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Send code" type="submit">
+                                                        <input name="recover-submit" class="btn btn-lg btn-info btn-block" value="Send code" type="submit">
                                                     </div>
 
                                                     <input type="hidden" class="hide" name="token" id="token" value=""> 
