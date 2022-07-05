@@ -8,6 +8,7 @@ import DBContext.connectDB;
 import Entity.HomeStays;
 import Entity.SupplierAddresses;
 import Entity.SupplierHomestays;
+import Entity.SupplierImage;
 import Entity.Suppliers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -81,7 +82,7 @@ public class DAOSupplier extends connectDB {
 //    }
   public int updateSupplierEmail(String email, String accountS) {
         int n = 0;
-        String sql = "Update Supplier set "
+        String sql = "Update Suppliers set "
                 + "email = ? "
                 + "where accountS = ?";
         try {
@@ -199,7 +200,36 @@ public class DAOSupplier extends connectDB {
 
         return n;
     }
-
+public SupplierImage  getSUPImage(String accountS) {
+        String sql = "select img_Avatar from SupplierImage where AccountS= '" + accountS + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new SupplierImage(
+                        rs.getString(1),
+                        rs.getString(2)
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+   public int updateSUPImage(SupplierImage sim) {
+        int n = 0;
+        String sql = "UPDATE [MarketingImage]\n"
+                + "   SET Img_Avatar = ?"
+                + " WHERE AccountM = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(2, sim.getAccountS());
+            pre.setString(1, sim.getImg_Avatar());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public int updateSupplierAddress(SupplierAddresses cusAdd) {
         int n = 0;
         String sql = "Update SupplierAddresses set "

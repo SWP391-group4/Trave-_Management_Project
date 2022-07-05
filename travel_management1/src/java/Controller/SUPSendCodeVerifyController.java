@@ -49,7 +49,7 @@ public class SUPSendCodeVerifyController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         response.sendRedirect("SendCodeVerify.jsp");
+         response.sendRedirect("SUPSendCodeVerify.jsp");
     }
 
     /**
