@@ -8,17 +8,19 @@ import DAO.*;
 import Entity.CustomerAddresses;
 import Entity.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.nio.file.Paths;
+
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
+@MultipartConfig
 /**
  *
  * @author phams
@@ -57,11 +59,11 @@ public class CustomerProfileController extends HttpServlet {
         HttpSession session = request.getSession();
         DAOBooking daoBook = new DAOBooking();
         DAOSupplier daoSup = new DAOSupplier();
-
+        DAOCustomers daoCus = new DAOCustomers();
         DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         String accountC = cus.getAccountC();
-        
+
         //--------Booking-----------
         List<Booking> listBooking = daoBook.getBooking(accountC);
         List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
@@ -78,11 +80,12 @@ public class CustomerProfileController extends HttpServlet {
         request.setAttribute("listHistory", listHistory);
         request.setAttribute("listHomestayHistory", listHomestayHistory);
 
-        
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
-
+        CustomerImage cusImage = daoCus.getImage(accountC);
         request.setAttribute("cus", cus);
         request.setAttribute("cusAddress", cusAddress);
+
+        request.setAttribute("cusImage", cusImage);
         request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
 
     }
@@ -103,6 +106,10 @@ public class CustomerProfileController extends HttpServlet {
         DAOBooking daoBook = new DAOBooking();
         DAOSupplier daoSup = new DAOSupplier();
 
+        Part part = request.getPart("image");
+        String realPart = request.getServletContext().getRealPath("/images");
+        String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+
         DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
@@ -118,8 +125,9 @@ public class CustomerProfileController extends HttpServlet {
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");
         String city = request.getParameter("city");
-//--------Booking-----------
+        //---------Upload image---------------
 
+//--------Booking-----------
         List<Booking> listBooking = daoBook.getBooking(accountC);
         List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
 
@@ -137,6 +145,16 @@ public class CustomerProfileController extends HttpServlet {
 
         CustomerAddresses address_temp = new CustomerAddresses(accountC, city, district, specific, ward);
 
+        if (!filename.isEmpty()) {
+            part.write(realPart + "/" + filename);
+            String image = filename;
+            daoCus.updateCustomerImage(image, accountC);
+            request.setAttribute("cusImage", new CustomerImage(accountC, image));
+        } else {
+            String image = "default_person.jpg";
+            daoCus.updateCustomerImage(image, accountC);
+            request.setAttribute("cusImage", new CustomerImage(accountC, image));
+        }
         int n = daoCus.updateCustomer(cus_temp);
         int m = daoCus.updateCustomerAddress(address_temp);
         if (n == 0 && m == 0) {
@@ -150,6 +168,7 @@ public class CustomerProfileController extends HttpServlet {
             request.setAttribute("cus", cus_temp);
             request.setAttribute("cusAddress", address_temp);
             request.setAttribute("noti", noti);
+
             request.getRequestDispatcher("CustomerProfile.jsp").forward(request, response);
         }
 

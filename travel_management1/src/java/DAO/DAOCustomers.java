@@ -56,6 +56,19 @@ public class DAOCustomers extends connectDB {
         return null;
     }
 
+    public CustomerImage getImage(String accountC) {
+        String sql = "Select * from CustomerImage where accountC = '" + accountC + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new CustomerImage(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
     public int updateCustomer(Customers cus) {
         int n = 0;
         String sql = "Update Customers set "
@@ -74,6 +87,7 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
+//Note image
 
     public int updateCustomerEmail(String email, String accountC) {
         int n = 0;
@@ -83,6 +97,23 @@ public class DAOCustomers extends connectDB {
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, email);
+            pre.setString(2, accountC);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
+    public int updateCustomerImage(String src, String accountC) {
+        int n = 0;
+        String sql = "update CustomerImage set "
+                + "Img_Avatar = ? "
+                + "where AccountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, src);
             pre.setString(2, accountC);
             n = pre.executeUpdate();
         } catch (SQLException ex) {
@@ -128,7 +159,6 @@ public class DAOCustomers extends connectDB {
         return 0;
     }
 
-    
     public int contactAdmin(MessageAdmin mess) {
         int n = 0;
         String sql = "insert into messengerCA (caption, description, messrole, accountC) "
@@ -145,6 +175,7 @@ public class DAOCustomers extends connectDB {
         }
         return n;
     }
+
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
         Customers cus = dao.getCustomer("motnguoithu3");

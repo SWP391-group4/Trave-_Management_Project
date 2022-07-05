@@ -29,7 +29,7 @@ public class connectDB {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try {
                 conn=DriverManager.getConnection(URL, userName, password);
-                System.out.println("connected");
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

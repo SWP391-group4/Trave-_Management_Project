@@ -17,7 +17,7 @@
 
         <link rel="stylesheet" href="css/aos.css">
 
-        <link rel="stylesheet" href="css/ionicons.min.css">
+        <link rel="stylesheet" href="css/image_choose.css">
 
         <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
@@ -59,19 +59,30 @@
                         </div>
                     </nav>
                     <!-- /Breadcrumb -->
-                    <form action="CustomerProfile" method="post" id="profile">
+                    <form action="CustomerProfile" method="post" id="profile" enctype='multipart/form-data' >
                         <div class="row gutters-sm">
                             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                            <c:choose>
+                                                <c:when test="${cusImage.img_Avatar == ''}">
+                                                    <img src="images/default_person.jpg" alt="Admin" class="rounded-circle" width="150">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="images/${cusImage.img_Avatar}" alt="Admin" class="rounded-circle" width="150">
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <hr>
+                                            <input type="file" name="image" value="image" class="custom" accept="image/png, image/jpg, image/jpeg">
+
                                             <div class="mt-3">
                                                 <h4>${cus.firstName} ${cus.lastName}</h4>
                                                 <ul class="list-group list-group-flush">
+
                                                     <li class="list-group-item"><a href="SendMail?EmailService=0">Reset Email</a></li>
                                                     <li class="list-group-item"><a href="SendMail?EmailService=1">Reset Password</a></li>
-                                                    
+
                                                 </ul>
 
                                             </div>
@@ -104,7 +115,7 @@
                                                 <div class="form-group">
                                                     <label for="eMail">Email</label>
                                                     <div class="col-sm-9 text-secondary card form-control">
-                                                        
+
                                                         <div>
                                                             ${cus.email}
                                                         </div>
