@@ -19,8 +19,10 @@ public class HomeStayDetails {
     public String checkOut;
     public double price;
     public double incurredCost;
+    public String description;
+    public String video;
 
-    public HomeStayDetails(String homestayid, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, int bedQty, String checkIn, String checkOut, double price, double incurredCost) {
+    public HomeStayDetails(String homestayid, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, int bedQty, String checkIn, String checkOut, double price, double incurredCost, String description, String video) {
         this.homestayid = homestayid;
         this.bedRoomQty = bedRoomQty;
         this.bathRoomQty = bathRoomQty;
@@ -31,10 +33,32 @@ public class HomeStayDetails {
         this.checkOut = checkOut;
         this.price = price;
         this.incurredCost = incurredCost;
+        this.description = description;
+        this.video = video;
     }
+
+    
 
     public HomeStayDetails() {
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+    
+    
 
     public String getHomestayid() {
         return homestayid;
@@ -118,7 +142,9 @@ public class HomeStayDetails {
 
     @Override
     public String toString() {
-        return "HomeStayDetails{" + "homestayid=" + homestayid + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", bedQty=" + bedQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", incurredCost=" + incurredCost + '}';
+        return "HomeStayDetails{" + "homestayid=" + homestayid + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", bedQty=" + bedQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", incurredCost=" + incurredCost + ", description=" + description + ", video=" + video + '}';
     }
+
+    
     
 }
