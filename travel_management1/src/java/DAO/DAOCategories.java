@@ -7,6 +7,7 @@ package DAO;
 import DBContext.connectDB;
 import Entity.Categories;
 import Entity.HomeStays;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,11 +39,31 @@ public class DAOCategories extends connectDB{
         }
         return vec;
     }
+    
+    public int addCategories(Categories cate) {
+        int n = 0;
+        String sql = "insert into Categories(cateId,cateName) \n"
+                + "values (?,?)";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, cate.getCateId());
+            pre.setString(2, cate.getCateName());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+    
     public static void main(String[] args) {
          DAOCategories dao = new DAOCategories();
           List<Categories> list = dao.ListCate();
            for (Categories o : list) {
             System.out.println(o);
         }
+           
+        int n = dao.addCategories(new Categories("CATID005", "Biet Thu Trong Rung"));
+        System.out.println(n);
     }
 }
