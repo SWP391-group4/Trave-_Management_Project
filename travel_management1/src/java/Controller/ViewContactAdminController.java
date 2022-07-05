@@ -4,8 +4,14 @@
  */
 package Controller;
 
+import DAO.DAOAdmins;
+import DAO.DAOCustomers;
+import Entity.Customers;
+import Entity.MessageAdmin;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +37,7 @@ public class ViewContactAdminController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,6 +53,20 @@ public class ViewContactAdminController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOAdmins daoAdmin = new DAOAdmins();
+        DAOCustomers daoCus = new DAOCustomers();
+        List<MessageAdmin> list = daoAdmin.ListMessage();
+        
+        List<Customers> listCus = new ArrayList<>();
+        
+        for (MessageAdmin o : list) {
+            listCus.add(daoCus.getCustomer(o.getAccountC()));
+        }
+        
+        request.setAttribute("listAd", list);
+        request.setAttribute("listCus", listCus);
+        request.setAttribute("size", list.size());
+        request.getRequestDispatcher("ViewContactAdmin.jsp").forward(request, response);
     }
 
     /**
@@ -61,6 +81,7 @@ public class ViewContactAdminController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**

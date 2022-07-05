@@ -57,21 +57,14 @@
                                     </div>
 
                                     <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="ContactAdmin" method="post">
-                                        <!-- Name Input -->
-                                        <div class="form-floating mb-3">
-                                            <label for="name">Name</label>
-                                            <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
-
-                                            <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
-                                        </div>
-                                        <hr>
+                                        
                                         <!-- Email Input -->
                                         <div class="form-floating mb-3">
                                             
                                             <input class="form-control" type="text" placeholder="Caption" name="caption"/>
 
                                         </div>
-
+                                        <hr>
                                         <!-- Message Input -->
                                         <div class="form-floating mb-3">
                                             <label for="message">Message</label>

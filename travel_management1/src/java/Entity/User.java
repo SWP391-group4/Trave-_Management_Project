@@ -5,7 +5,6 @@
 package Entity;
 
 public class User {
-    
     String email;
     String code;
 

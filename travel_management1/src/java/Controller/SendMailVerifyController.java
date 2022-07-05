@@ -77,8 +77,7 @@ public class SendMailVerifyController extends HttpServlet {
         Accounts acc = (Accounts) session.getAttribute("acc");
         Customers cus = daoCus.getCustomer(acc.getAccount());
         String email = request.getParameter("email");
-        
-        
+
         if (email.equals(cus.getEmail())) {
             //create instance object of the SendEmail Class
             DAOSendMail sm = new DAOSendMail();

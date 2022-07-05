@@ -68,13 +68,11 @@ public class ContactAdminController extends HttpServlet {
         processRequest(request, response);
         HttpSession session = request.getSession();
         DAOCustomers dao = new DAOCustomers();
-
-        String name = request.getParameter("name");
         String caption = request.getParameter("caption");
         String description = request.getParameter("description");
         Accounts acc = (Accounts) session.getAttribute("acc");
 
-        int n = dao.contactAdmin(new MessageAdmin(caption, description, 0, acc.getAccount()));
+        int n = dao.contactAdmin(new MessageAdmin(caption, description, 1, acc.getAccount()));
         if (n > 0) {
             String alert = "Send Success!";
             request.setAttribute("alert", alert);

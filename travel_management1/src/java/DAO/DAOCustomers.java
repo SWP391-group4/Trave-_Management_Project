@@ -137,7 +137,7 @@ public class DAOCustomers extends connectDB {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, mess.getCaption());
             pre.setString(2, mess.getDescription());
-            pre.setInt(3, mess.getMessRole());
+            pre.setInt(3, 1);
             pre.setString(4, mess.getAccountC());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
