@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        
         <meta name="author" content="">
 
         <title>CTU Travel</title>
@@ -48,9 +48,9 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-floating mb-3">
                                             <label for="eMail">Account</label>
-                                            <div class="col-sm-4 text-secondary card form-control">
+                                            <div readonly class="col-sm-4 text-secondary card form-control">
                                                 <div>
-                                                    ${cus.email}
+                                                    ${customer.accountC}
                                                 </div>
                                             </div>
                                         </div>
@@ -58,9 +58,10 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMail">First name</label>
-                                            <div class="col-sm-12 text-secondary card form-control">
+                                            <div readonly class="col-sm-12 text-secondary card form-control">
                                                 <div>
-                                                    ${cus.email}
+                                                    ${customer.firstName}
+
                                                 </div>
                                             </div>
 
@@ -70,43 +71,54 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMail">Last name</label>
-                                            <div class="col-sm-12 text-secondary card form-control">
+                                            <div readonly class="col-sm-12 text-secondary card form-control">
 
                                                 <div>
-                                                    ${cus.email}
+                                                    ${customer.lastName}
+
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
-
+                                    
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-floating mb-3">
-                                            <textarea class="form-control disabled " id="message" placeholder="Message" style="height: 10rem;" name="description"></textarea>
+                                            <label for="eMail">Caption</label>
+                                            <div readonly class="col-sm-4 text-secondary card form-control">
+                                                <div>
+                                                    ${message.caption}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="form-floating mb-3">
+                                            <textarea readonly class="form-control" id="message" style="height: 10rem;">${message.description}</textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <form action="CustomerProfile" method="post" id="profile" enctype='multipart/form-data' >
+                                <form action="ViewContactDetail" method="post" id="profile" data-sb-form-api-token="API_TOKEN" >
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <h6 class="mt-3 mb-2 text-primary">Response</h6>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-floating mb-3">
-                                                <textarea class="form-control disabled" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required" name="description"></textarea>
+                                                <textarea class="form-control"  id="message" placeholder="Message" type="text" style="height: 10rem;" data-sb-validations="required" name="description"></textarea>
                                             </div>
                                         </div>
                                         <div class="row gutters">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
-                                                    <p class="success">${noti}</p>
+                                                    <p class="success">${alert}</p>
                                                     <input type="submit" name="submit" class="btn btn-primary" value="Send">
 
                                                 </div>
                                             </div>
                                         </div>
-                                </form>
-                            </div>
+                                
+                            </div></form>
                         </div>
                     </div>
                 </div>

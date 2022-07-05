@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAO.*;
+import Entity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -47,7 +50,20 @@ public class ViewContactDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOAdmins daoAdmin = new DAOAdmins();
+        DAOCustomers daoCus = new DAOCustomers();
+        HttpSession session = request.getSession();
         
+        String messengerCAId = request.getParameter("messengerCAId");
+        
+        MessageAdmin message = daoAdmin.getMessage(messengerCAId);
+        
+        Customers customer = daoCus.getCustomer(message.getAccountC());
+        
+        request.setAttribute("message", message);
+        request.setAttribute("customer", customer);
+        session.setAttribute("customer", customer);
+        request.getRequestDispatcher("ViewContactAdminDetail.jsp").forward(request, response);
     }
 
     /**
@@ -62,7 +78,24 @@ public class ViewContactDetailController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        DAOAdmins dao = new DAOAdmins();
+        String caption="";
+        String description = request.getParameter("description");
         
+        Customers customer = (Customers) session.getAttribute("customer");
+
+        int n = dao.contactCustomer(new MessageAdmin(caption, description, 1, customer.getAccountC()));
+        if (n > 0) {
+            String alert = "Send Success!";
+            request.setAttribute("alert", alert);
+            request.setAttribute("description", description);
+            request.getRequestDispatcher("ViewContactAdminDetail.jsp").forward(request, response);
+        } else {
+            String alert = "Send fail!";
+            request.setAttribute("alert", alert);
+            request.getRequestDispatcher("ViewContactAdminDetail.jsp").forward(request, response);
+        }
     }
 
     /**

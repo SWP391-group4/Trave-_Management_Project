@@ -8,6 +8,7 @@ import DBContext.connectDB;
 import Entity.AdminImage;
 import Entity.Admins;
 import Entity.MessageAdmin;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -62,12 +63,12 @@ public class DAOAdmins extends connectDB {
         String sql = "select * from messengerCA where messRole = 1";
         ResultSet rs = getData(sql);
         try {
-            while(rs.next()) {
+            while (rs.next()) {
                 l.add(new MessageAdmin(
-                        rs.getInt(1), 
-                        rs.getString(2), 
-                        rs.getString(3), 
-                        rs.getInt(4), 
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
                         rs.getString(5)));
             }
         } catch (SQLException ex) {
@@ -75,6 +76,42 @@ public class DAOAdmins extends connectDB {
         }
         return l;
     }
+
+    public MessageAdmin getMessage(String messengerCAId) {
+        String sql = "select * from MessengerCA where messengerCAId = " + messengerCAId;
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new MessageAdmin(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAdmins.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public int contactCustomer(MessageAdmin mess) {
+        int n = 0;
+        String sql = "insert into messengerCA (caption, description, messrole, accountC) "
+                + "values(?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, mess.getCaption());
+            pre.setString(2, mess.getDescription());
+            pre.setInt(3, 0);
+            pre.setString(4, mess.getAccountC());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOAdmins d = new DAOAdmins();
         Admins a = d.getAdmin("khongkk");

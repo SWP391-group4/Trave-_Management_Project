@@ -76,12 +76,12 @@
                                         <c:set value="${listCus}" var="listCus"/>
                                         <c:forEach begin="0" end="${size-1}" var="i">
                                             <tr>
-                                                <td></td>
+                                                <td>${i+1}</td>
                                                 <td>${listAd.get(i).accountC}</td>
 
                                                 <td>${listAd.get(i).caption}</td>
                                                 <td>${listAd.get(i).description}</td>
-                                                <td><button class="badge bg-success"><a href="ViewContactAdminDetail?accountC=${listAd.get(i).accountC}">View</a></button></td>
+                                                <td><button class="badge bg-success"><a href="ViewContactDetail?messengerCAId=${listAd.get(i).messengerCAId}">View</a></button></td>
                                                 <td><button class="badge bg-warning"><a href="#">Discard</a></button></td>
                                             </tr>
                                         </c:forEach>
