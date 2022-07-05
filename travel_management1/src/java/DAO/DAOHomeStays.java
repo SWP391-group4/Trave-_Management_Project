@@ -46,12 +46,16 @@ public class DAOHomeStays extends connectDB {
 
     public int addHomeStays(HomeStays hs) {
         int n = 0;
-        String sql = "insert into HomeStays(HomeStayId,HomeStayName,CateId) \n"
-                + "values ('" + hs.getHomeStayID() + "','" + hs.getHomeStayname() + "','" + hs.getCateID() + "')";
+        String sql = "insert into HomeStays(homeStayID,homeStayname,cateID,accountS) \n"
+                + "values (?,?,?,?)";
 
         try {
-            Statement state = conn.createStatement();
-            n = state.executeUpdate(sql);
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, hs.getHomeStayID());
+            pre.setString(2, hs.getHomeStayname());
+            pre.setString(3, hs.getCateID());
+            pre.setString(4, hs.getAccountS());
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -480,21 +484,27 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        List<HomeStays> list = dao.getHomeStayforSUP("theanh");
+//        List<HomeStays> list = dao.getHomeStayforSUP("theanh");
 //     HomeStays h=   dao.getHomeStaybyCID("HS0001");
 //        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-        for (HomeStays o : list) {
-            System.out.println(o);
-        }
+//        for (HomeStays o : list) {
+//            System.out.println(o);
+//        }
 //int count = dao.countToDiv();
 //        System.out.println(count);
 //        for (int i = 0; i < l1.size(); i++) {
 //            System.out.println(l.get(i).getHomeStayname()+ "  :  " + l1.get(i).getCity());
 //        }
-//       
+//       //
 //        for (HomeStays o : l) {
 //            System.out.println(o); 
 //       }
+//HomeStays s  = new HomeStays("HS0105", "Nikini World","CATID005", "haianh123");
+        
+   HomeStays s = new HomeStays("HS0105", "Nikini World","CATID005", "haianh123");
+   int n = dao.addHomeStays(s);
+        System.out.println(n);
+        System.out.println(s);
     }
 }
