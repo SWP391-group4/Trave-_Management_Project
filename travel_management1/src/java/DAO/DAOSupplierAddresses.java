@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author phams
  */
 public class DAOSupplierAddresses extends connectDB{
-    public int addSuppliersAddresses(SupplierAddresses sup) {
+    public int addSupplierAddresses(SupplierAddresses sup) {
         int n = 0;
         String sql = "insert into SupplierAddresses(AccountS,city,district,specific,ward) \n"
                 + "values (?,?,?,?,?)";
