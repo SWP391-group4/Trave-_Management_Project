@@ -37,6 +37,7 @@ public int status;
     public String getAccountS() {
         return accountS;
     }
+    
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty,double price, double IncurredCost, String description, String video, String checkIn, String checkOut,  int status) {
         this.homeStayID = homeStayID;
@@ -99,12 +100,11 @@ public int status;
         this.accountS = accountS;
         this.status=status;
     }
-    public HomeStays(String homeStayID, String homeStayname, String accountS, String cateName) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
-        this.cateName = cateName;
+        this.cateID = cateID;
         this.accountS = accountS;
-     
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost) {

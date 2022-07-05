@@ -6,6 +6,7 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.HomeStayAddressses;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,11 +40,34 @@ public class DAOHomeStayAddresses extends connectDB{
         }
         return vec;
     }
+    
+    public int addHomeStayAddresses(HomeStayAddressses hs) {
+        int n = 0;
+        String sql = "insert into HomeStayAddressses(HomeStayId,City,District,Specific,Ward) \n"
+                + "values (?,?,?,?,?)";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, hs.getHomestayid());
+            pre.setString(2, hs.getCity());
+            pre.setString(3, hs.getDistrict());
+            pre.setString(4, hs.getSpecific());
+            pre.setString(5, hs.getWard());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOHomeStayAddresses dao = new DAOHomeStayAddresses();
-       List<HomeStayAddressses> list = dao.HomeStayAddress();
-        for(HomeStayAddressses temp : list ){
-            System.out.println(temp);
-        }
+//        List<HomeStayAddressses> list = dao.HomeStayAddress();
+//        for(HomeStayAddressses temp : list ){
+//            System.out.println(temp);
+//        }
+        HomeStayAddressses s = new HomeStayAddressses("HS0104", "Vinh Yen","Vinh Phuc", "2 Tam Dao", "Thon 1");
+        int n = dao.addHomeStayAddresses(s);
+        System.out.println(n);
+        System.out.println(s);
     }
 }
