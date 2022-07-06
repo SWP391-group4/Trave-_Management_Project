@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOBlogs;
+import DAO.DAOSlider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DAO.DAOVouchers;
 import Entity.Blogs;
+import Entity.Slider;
 import Entity.Vouchers;
 import java.util.List;
 /**
@@ -38,14 +40,17 @@ public class HomeController extends HttpServlet {
         String service = request.getParameter("go");
         DAOVouchers dao1=new DAOVouchers();
         DAOBlogs dao2=new DAOBlogs();
+        DAOSlider dao3=new DAOSlider();
         if (service == null) {//call controller direct
             service = "Show";
         }
         if (service.equals("Show")) {
             List<Vouchers> list3v = dao1.viewtop3Vouchers();
             List<Blogs> list3b = dao2.viewtop3Blogses() ;
+            List<Slider> lists = dao3.viewSlider() ;
             request.setAttribute("list3v",list3v);
             request.setAttribute("list3b",list3b);
+            request.setAttribute("lists",lists);
             request.getRequestDispatcher("/Home.jsp").forward(request, response);
         }
     }
