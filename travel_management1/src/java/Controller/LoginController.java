@@ -81,10 +81,8 @@ public class LoginController extends HttpServlet {
                 case 2:
                     DAOMarketing daoM = new DAOMarketing();
                     Marketing mar = daoM.getMarketing(account);
-                    MarketingImage mark = daoM.getMarketingImage(account);
                     session.setAttribute("acc", acc);
                     session.setAttribute("mar", mar);
-                    session.setAttribute("mark", mark);
                     response.sendRedirect("MarketingProfileController");
                     request.getSession().setMaxInactiveInterval(600);
 
