@@ -50,10 +50,12 @@ public class MarketingProfileController extends HttpServlet {
             if (service.equals("Show")) {
                 //getdata from model
                 HttpSession session = request.getSession();
-                Marketing mar = (Marketing) session.getAttribute("mar");
+                Marketing mar1 = (Marketing) session.getAttribute("mar");
+                String acc=mar1.accountM;
                 // tim cach dung thang vao jsp
+                 Marketing mar = dao.getMarketing(acc);
                 request.setAttribute("mar", mar);
-                MarketingImage mark = (MarketingImage) session.getAttribute("mark");
+                MarketingImage mark = dao.getMarketingImage(acc);
                 // tim cach dung thang vao jsp
                 request.setAttribute("mark", mark);
                 request.getRequestDispatcher("MarketingProfile.jsp").forward(request, response);
