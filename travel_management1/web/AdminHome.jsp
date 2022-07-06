@@ -329,19 +329,21 @@
                                 </div>
 
                                 <div class="col-lg-6 mb-4  col-md-6">
-
                                     <!-- Illustrations -->
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">Pending Register</h6>
+                                            <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
+                                            <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
+                                            <a href="AdminManageCustomerList.jsp">View all</a>
+                                        </div>
                                         </div>
                                         <div class="card-body">
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">#</th>
-                                                        <th scope="col">Supplier</th>
-                                                        <th scope="col">Homestay</th>
+                                                        <th scope="col">Account</th>
+                                                        <th scope="col">Name</th>
                                                         <th scope="col">Email</th>
                                                     </tr>
                                                 </thead>
@@ -364,7 +366,7 @@
                                             <h6 class="m-0 font-weight-bold text-primary">FAQs</h6>
                                         </div>
                                         <div class="card-body">
-                                            <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
                                                 CSS bloat and poor page performance. 
                                                 hihihi
                                             </p>
