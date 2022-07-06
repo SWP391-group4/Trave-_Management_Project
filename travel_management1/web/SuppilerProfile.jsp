@@ -40,7 +40,7 @@
                     <div class="col-sm-10">
                         <h1>User: ${sp.accountS}</h1></div>
                 <div class="col-sm-2">
-                    <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <a href="suppilerProflieController" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
                     </a>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <div class="panel panel-default">
                         <div class="list-group-item  bg-secondary text-light">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
                         <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
-                        <div class="panel-body"><a href="updateaddress">Change Address</a></div>
+                        <div class="panel-body"><a href="updateaddress">Change Address & Avatar</a></div>
                     </div>
 
 
@@ -71,7 +71,7 @@
                     <ul class="nav nav-tabs" id="myTab">
                         <!--                <li class=""><a href="#home" data-toggle="tab">Home</a></li>-->
                         <li><a href="resestpasswordSUP" >Change_Password</a></li>
-                          <li><a href="sendMailSup" >Change_Email</a></li>
+                        <li><a href="sendMailSup" >Change_Email</a></li>
                         <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
                     </ul>
 
@@ -196,10 +196,10 @@
 
                         </div>
                         <!--/tab-pane-->
-                       
 
-                        
-                     
+
+
+
                         <!--/tab-pane-->
                         <div class="tab-pane active" id="settings">
 
@@ -233,9 +233,16 @@
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
-                                        <label for="mobile">
+                                        <label for="">
                                             <h4>Phone</h4></label>
-                                        <input type="number" class="form-control" name="phone" id="mobile" placeholder="${sp.phone}" title="enter your mobile number if any.">
+                                        <input type="number" class="form-control"  value=" " name="phone" id="" placeholder="${sp.phone}" title="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="">
+                                            <h4>Fax</h4></label>
+                                        <input type="number"  class="form-control"  value="" name="fax" id="" placeholder=" ${sp.fax}" title="">
                                     </div>
                                 </div>
                                 <!--                        <div class="form-group">
@@ -285,10 +292,10 @@
                                         <br>
                                         <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            
-                                      
+
+
                                     </div>
-                                          
+
                                 </div>  
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -297,7 +304,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                        
+
                             </form>
                         </div>
 
@@ -325,5 +332,6 @@
 
 
         </script>
+        <jsp:include page="Footer.jsp"/>
     </body>
 </html>

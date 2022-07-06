@@ -80,7 +80,8 @@ public class DAOSupplier extends connectDB {
 //        }
 //        return null;
 //    }
-  public int updateSupplierEmail(String email, String accountS) {
+
+    public int updateSupplierEmail(String email, String accountS) {
         int n = 0;
         String sql = "Update Suppliers set "
                 + "email = ? "
@@ -96,6 +97,7 @@ public class DAOSupplier extends connectDB {
 
         return n;
     }
+
     public List<Suppliers> getHomeStayByAccountS(String accountS) {
         List<Suppliers> list = new ArrayList<>();
         String sql = "select h.HomeStayId,h.homestayname,c.catename from Suppliers s inner join HomeStays h on s.AccountS =h.AccountS inner join Categories c on\n"
@@ -158,12 +160,12 @@ public class DAOSupplier extends connectDB {
         try {
             while (rs.next()) {
                 list.add(new SupplierHomestays(
-                        rs.getString(1), 
-                        rs.getString(2), 
-                        rs.getString(3), 
-                        rs.getString(4), 
-                        rs.getString(5), 
-                        rs.getString(6), 
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
                         rs.getString(7)));
             }
         } catch (SQLException ex) {
@@ -182,17 +184,22 @@ public class DAOSupplier extends connectDB {
         return listTop;
     }
 
-    public int updateSupplier(Suppliers cus) {
+    public int updateSupplier(Suppliers sp) {
         int n = 0;
         String sql = "Update Suppliers set "
                 + "firstname =?,"
-                + "lastname = ? "
+                + "lastname = ?,"
+                + "phone=?,"
+                + "fax=? "
                 + "where accountS = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, cus.getFirstName());
-            pre.setString(2, cus.getLastName());
-            pre.setString(3, cus.getAccountS());
+            pre.setString(1, sp.getFirstName());
+            pre.setString(2, sp.getLastName());
+            pre.setString(3, sp.getPhone());
+            pre.setString(4, sp.getFax());
+            pre.setString(5, sp.getAccountS());
+
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOSupplier.class.getName()).log(Level.SEVERE, null, ex);
@@ -200,7 +207,8 @@ public class DAOSupplier extends connectDB {
 
         return n;
     }
-public SupplierImage  getSUPImage(String accountS) {
+
+    public SupplierImage getSUPImage(String accountS) {
         String sql = "select img_Avatar from SupplierImage where AccountS= '" + accountS + "'";
         ResultSet rs = getData(sql);
         try {
@@ -215,7 +223,8 @@ public SupplierImage  getSUPImage(String accountS) {
         }
         return null;
     }
-   public int updateSUPImage(SupplierImage sim) {
+
+    public int updateSUPImage(SupplierImage sim) {
         int n = 0;
         String sql = "UPDATE [MarketingImage]\n"
                 + "   SET Img_Avatar = ?"
@@ -230,7 +239,8 @@ public SupplierImage  getSUPImage(String accountS) {
         }
         return n;
     }
-    public int updateSupplierAddress(SupplierAddresses cusAdd) {
+
+    public int updateSupplierAddress(SupplierAddresses sa) {
         int n = 0;
         String sql = "Update SupplierAddresses set "
                 + "city =?,"
@@ -240,11 +250,11 @@ public SupplierImage  getSUPImage(String accountS) {
                 + "where accountS = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, cusAdd.getCity());
-            pre.setString(2, cusAdd.getDistrict());
-            pre.setString(3, cusAdd.getSpecific());
-            pre.setString(4, cusAdd.getWard());
-            pre.setString(5, cusAdd.getAccountS());
+            pre.setString(1, sa.getCity());
+            pre.setString(2, sa.getDistrict());
+            pre.setString(3, sa.getSpecific());
+            pre.setString(4, sa.getWard());
+            pre.setString(5, sa.getAccountS());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOSupplier.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,6 +262,7 @@ public SupplierImage  getSUPImage(String accountS) {
 
         return n;
     }
+
     public int addSuppliers(Suppliers sup) {
         int n = 0;
         String sql = "insert into Suppliers(accountS,firstName,lastName,fax,email,phone,status) \n"
@@ -276,8 +287,8 @@ public SupplierImage  getSUPImage(String accountS) {
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
 //        List<Suppliers> list = d.getSuppiler("2convitcon");
-          Suppliers list = d.getSuppiler("2convitcon");
-          System.out.println(list);
+        Suppliers list = d.getSuppiler("2convitcon");
+        System.out.println(list);
 //        for (Suppliers temp : list) {
 //            System.out.println(temp);
 //        }

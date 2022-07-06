@@ -38,29 +38,34 @@
             <div class="container bootstrap snippets bootdey">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h1>User: </h1></div>
+                              <div style="padding-bottom: 25px ">
+                        <a href="suppilerProflieController">Profile ></a>
+                        
+
+                        <a href="updateaddress">Change Address & Avatar</a>
+                    </div>
+                        <h1>User: ${spa.accountS}</h1></div>
                 <div class="col-sm-2">
-                    <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <a href="suppilerProflieController" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
                     </a>
+                    
+                     <input type="file" name="image" value="image" class="custom" accept="image/png, image/jpg, image/jpeg">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <!--left col-->
- <div style="padding-bottom: 25px ">
-                        <a href="suppilerProflieController">Profile ></a>
-
-                        <a href="updateaddress">HighSetting</a>
-                    </div>
+  <div class="container">
+              
+                </div>
                     <ul class="list-group ">
                         <li class="list-group-item  bg-secondary text-light">Address</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>City</strong></span></li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>District</strong></span> </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Specific</strong></span>  </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Ward</strong></span> </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>City</strong></span> ${spa.city} </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>District</strong></span> ${spa.district} </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Specific</strong></span> ${spa.specific} </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Ward</strong></span> ${spa.ward} </li>
                     </ul>
 
-                    
 
 
 
@@ -68,141 +73,81 @@
                 <!--/col-3-->
                 <div class="col-sm-9">
 
-                    <ul class="nav nav-tabs" id="myTab">
-<!--                                        <li class=""><a href="#home" data-toggle="tab">Home</a></li>-->
+                   
+                    <div class="tab-pane active" id="settings">
 
-                        <li class="active"><a href="#settings" data-toggle="tab">High Settings</a></li>
-                    </ul>
+                        <hr>
+                        <form class="form" action="updateaddress" method="post" id="registrationForm">
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name">
+                                        <h4>City</h4></label>
+                                    <input type="text" class="form-control" value=""  name="city" id="first_name" placeholder="${spa.city}" title="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name">
+                                        <h4>Ward</h4></label>
+                                    <input type="text" class="form-control" value=""  name="ward" id="first_name" placeholder="${spa.ward}" title="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name">
+                                        <h4>District</h4></label>
+                                    <input type="text" class="form-control" value=""  name="district" id="first_name" placeholder="${spa.district}" title="">
+                                </div>
+                            </div>
 
-                    <div class="tab-content">
-                       
-                        <!--/tab-pane-->
-                       
-
-                        
-                     
-                        <!--/tab-pane-->
-                        <div class="tab-pane active" id="settings">
-
-                            <hr>
-                            <form class="form" action="updateaddress" method="post" id="registrationForm">
-                                <div class="form-group">
-
-                                    <div class="col-xs-6">
-                                        <label for="first_name">
-                                            <h4>First Name</h4></label>
-                                        <input type="text" class="form-control" value=""  name="fname" id="first_name" placeholder="${sp.firstName}" title="enter your first name if any.">
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name">
+                                        <h4>Specific</h4></label>
+                                    <input type="text" class="form-control" value=""  name="specific" id="first_name" placeholder="${spa.specific}" title="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                  
+                                </div>
+                            </div>  
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <p class="success">${noti}</p>
                                     </div>
                                 </div>
-                                <div class="form-group">
-
-                                    <div class="col-xs-6">
-                                        <label for="last_name">
-                                            <h4>Last_Name</h4></label>
-                                        <input type="text" class="form-control" value=" " name="lname" id="last_name" placeholder="${sp.lastName}" title="enter your last name if any.">
-                                    </div>
-                                </div>
-
-                                <!--                        <div class="form-group">
-                                
-                                                            <div class="col-xs-6">
-                                                                <label for="phone">
-                                                                    <h4>Email</h4></label>
-                                                                <input type="text" class="form-control"   placeholder="" title="">
-                                                            </div>
-                                                        </div>-->
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Phone</h4></label>
-                                        <input type="number" class="form-control" name="phone" id="mobile" placeholder="" title="enter your mobile number if any.">
-                                    </div>
-                                </div>
-                                <!--                        <div class="form-group">
-                                    
-                                                            <div class="col-xs-6">
-                                                                <label for="email">
-                                                                    <h4>Email</h4></label>
-                                                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                                                            </div>
-                                                        </div>-->
-                                <!--                        <div class="form-group">
-                                
-                                                            <div class="col-xs-6">
-                                                                <label for="email">
-                                                                    <h4>Specific</h4></label>
-                                                                <input type="name" value="" class="form-control" id="location" placeholder="" title="enter a location">
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <label for="email">
-                                                                    <h4>Ward</h4></label>
-                                                                <input type="name" value="" class="form-control" id="location" placeholder="" title="enter a location">
-                                                            </div> comment 
-                                                            <div class="col-xs-6">
-                                                                <label for="email">
-                                                                    <h4>Address</h4></label>
-                                                                <input type="name" value="" class="form-control" id="location" placeholder="" title="enter a location">
-                                                            </div>
-                                                        </div>-->
-                                <!--                        <div class="form-group">
-                                
-                                                            <div class="col-xs-6">
-                                                                <label for="password">
-                                                                    <h4>Password</h4></label>
-                                                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                                                            </div>
-                                                        </div>-->
-                                <!--                        <div class="form-group">
-                                
-                                                            <div class="col-xs-6">
-                                                                <label for="password2">
-                                                                    <h4>Verify</h4></label>
-                                                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                                                            </div>
-                                                        </div>-->
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <br>
-                                        <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                                      
-                                        <button class="btn btn-lg btn-info" href="#Upload" name="submit" type="submit"><i class="glyphicon glyphicon-upload"></i>  UPLOAD NEW AVATAR</button>
-                                    </div>
-                                </div>  
-                                <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div class="text-right">
-                                            <p class="success"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
+                            </div>
+                        </form>
                     </div>
-                    <!--/tab-pane-->
+
                 </div>
-                <!--/tab-content-->
-
+                <!--/tab-pane-->
             </div>
-            <!--/col-9-->
+            <!--/tab-content-->
+
         </div>
-        <!--/row-->
+        <!--/col-9-->
+  <jsp:include page="Footer.jsp"/>
+    <!--/row-->
 
-        <style type="text/css">
-            body{
-                margin-top:20px;
-            }
-        </style>
+    <style type="text/css">
+        body{
+            margin-bottom:20px;
+        }
+    </style>
 
-        <script type="text/javascript">
-
-
-
-
+    <script type="text/javascript">
 
 
-        </script>
-    </body>
+
+
+
+
+    </script>
+</body>
 </html>

@@ -81,41 +81,41 @@ public class SuppilerProflieController extends HttpServlet {
 //        String realPart = request.getServletContext().getRealPath("/images");
 //        String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 //        if (filename.isEmpty()) {
-            HttpSession session = request.getSession();
-            
-            Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-                 SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        HttpSession session = request.getSession();
+
+        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
 //            SupplierImage spim=daosup. getSUPImage(sp.getAccountS());
 //            String img =spim.getImg_Avatar();
-            String account = sp.getAccountS();
-            String firstName = request.getParameter("fname");
-            String lastName = request.getParameter("lname");
-            String fax = sp.getFax();
-            String email = sp.getEmail();
-            String phone = sp.getPhone();
+        String account = sp.getAccountS();
+        String firstName = request.getParameter("fname");
+        String lastName = request.getParameter("lname");
+        String email = sp.getEmail();
+        String fax = request.getParameter("fax");
+        String phone = request.getParameter("phone");
 //            String specific = request.getParameter("specific");
 //            String ward = request.getParameter("ward");
 //            String district = request.getParameter("district");
 //            String city = request.getParameter("city");
-            Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
+        Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
 //            SupplierAddresses address_temp = new SupplierAddresses(account, city, district, specific, ward);
-            int n = daosup.updateSupplier(sup_temp);
+        int n = daosup.updateSupplier(sup_temp);
 //            int m = daosup.updateSUPImage(spim);
-            if (n == 0 ) {
-                String noti = "Update fails";
-                request.setAttribute("sp", sp);
+        if (n == 0) {
+            String noti = "Update fails";
+            request.setAttribute("sp", sp);
 //                request.setAttribute("spa", spa);
 //                 request.setAttribute("spim", spim);
-                request.setAttribute("noti", noti);
-                request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
-            } else {
-                String noti = "Update done.";
-                request.setAttribute("sp", sup_temp);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
+        } else {
+            String noti = "Update done.";
+            request.setAttribute("sp", sup_temp);
 //                  request.setAttribute("spim", spim);
 //                request.setAttribute("spa", address_temp);
-                request.setAttribute("noti", noti);
-                request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
-            }
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
+        }
 
 //        } else {
 //
