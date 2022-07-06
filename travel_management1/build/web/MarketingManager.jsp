@@ -36,107 +36,358 @@
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/admin.css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
     </head>
     <body>
-
-        <jsp:include page="Header.jsp"></jsp:include>
+       <jsp:include page="Header.jsp"></jsp:include>
             <!-- END nav -->
-        <br>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-            <a class="navbar-brand active"  href="MarketingProfileController">Account Information</a>
-            <a class="navbar-brand"style="color: #eea236" href="#">Marketing Manager</a>
-            </div>
-        </nav>
-        
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">OhYeah</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
+            <br>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand active"  href="MarketingProfileController">Account Information</a>
+                    <a class="navbar-brand"style="color: #eea236" href="#">Marketing Manager</a>
+                </div>
+            </nav>
+            <section style="padding-top: 10px;margin-top: 10px">
+                <!-- Page Wrapper -->
+                <div id="wrapper">
+
+                    <!-- Sidebar -->
+                    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                        <!-- Sidebar - Brand -->
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider my-0">
+                        <br>
+                        <!-- Nav Item - Dashboard -->
+                        <li class="nav-item active" >
+                            <a class="nav-link" href="adminController">
+                                <i class="fas fa-fw fa-tachometer-alt"></i>
+                                <span>Dashboard</span></a>
+                        </li>
+                        <!-- Nav Item - Charts -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="charts.html">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Charts</span></a>
+                        </li>
+
+                        <!-- Nav Item - Tables -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="tables.html">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Tables</span></a>
+                        </li>
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <!-- Sidebar Toggler (Sidebar) -->
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
                         </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 class="ftco-heading-2">Information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                                <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                                <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                                <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                                <li><a href="#" class="py-2 d-block">Refund policy</a></li>
-                            </ul>
+
+                        <!-- Sidebar Message -->
+
+
+                    </ul>
+
+                    <!-- End of Sidebar -->
+
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex">
+                        <div id="content">
+                            <div class="container">
+                                <!-- Page Heading -->
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4"  style="margin-top: 30px"">
+                                    <h1 class="h3 mb-6 text-gray-800">Dashboard</h1>                               
+                                </div>
+                                <!-- Content Row -->
+                                <div class="row">
+
+                                    <!-- Supplier Card Example -->
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                            Supplier (Total)</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${totalSup}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- User Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        User(Total)</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${totalCus}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pending Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pending Supplier
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                     style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                     aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pending Requests Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        FAQs</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content Row -->
+
+                            <div class="row">
+
+                                <!-- Area Chart -->
+
+
+                                <!-- Content Row -->
+                                <div class="row">
+
+                                    <!-- Content Column -->
+                                    <div class="col-lg-6 mb-4 col-md-6">
+
+                                        <!-- Project Card Example -->
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
+                                                <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
+                                                <a href="AdminManageSupplierList">View all</a>
+                                            </div>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Supplier</th>
+                                                        <th scope="col">Homestay</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <c:forEach items="${listSup}" var="s">
+                                                    <tr>
+                                                        <th scope="row"></th>
+                                                        <td>${s.firstName} ${s.lastName}</td>
+                                                        <td>${s.homestayName}</td>
+                                                        <td>${s.email}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-4  col-md-6">
+                                        <!-- Illustrations -->
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">Pending Register</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                 <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                                    CSS bloat and poor page performance. 
+                                                    hihihi
+                                                </p>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Supplier</th>
+                                                            <th scope="col">Homestay</th>
+                                                            <th scope="col">Email</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Supplier</td>
+                                                            <td>Homestay</td>
+                                                            <td>Email</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.container-fluid -->
+
                         </div>
+                        <!-- End of Main Content -->
+
+
+                        <!-- Logout Modal-->
+
                     </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Experience</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Beach</a></li>
-                                <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                                <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                                <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                                <li><a href="#" class="py-2 d-block">Nature</a></li>
-                                <li><a href="#" class="py-2 d-block">Party</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                                </ul>
+                    <br>
+                    </section> 
+                    <footer class="ftco-footer ftco-bg-dark ftco-section">
+                        <div class="container">
+                            <div class="row mb-5">
+                                <div class="col-md">
+                                    <div class="ftco-footer-widget mb-4">
+                                        <h2 class="ftco-heading-2">OhYeah</h2>
+                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                                        <h2 class="ftco-heading-2">Information</h2>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#" class="py-2 d-block">About Us</a></li>
+                                            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
+                                            <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                                            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
+                                            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                                            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                                            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="ftco-footer-widget mb-4">
+                                        <h2 class="ftco-heading-2">Experience</h2>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#" class="py-2 d-block">Beach</a></li>
+                                            <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                                            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
+                                            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
+                                            <li><a href="#" class="py-2 d-block">Nature</a></li>
+                                            <li><a href="#" class="py-2 d-block">Party</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="ftco-footer-widget mb-4">
+                                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                                        <div class="block-23 mb-3">
+                                            <ul>
+                                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+                    </footer>
 
 
+                    <!-- loader -->
+                    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-        <!-- loader -->
-        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="vendor/jquery/jquery.min.js"></script>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+                    <!-- Core plugin JavaScript-->
+                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery.animateNumber.min.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jquery.timepicker.min.js"></script>
-        <script src="js/scrollax.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="js/google-map.js"></script>
-        <script src="js/main.js"></script>
+                    <!-- Custom scripts for all pages-->
+                    <script src="js/sb-admin-2.min.js"></script>
 
-    </body>
-</html>
+                    <!-- Page level plugins -->
+                    <script src="vendor/chart.js/Chart.min.js"></script>
+
+                    <!-- Page level custom scripts -->
+                    <script src="js/demo/chart-area-demo.js"></script>
+                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script src="js/jquery.min.js"></script>
+                    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+                    <script src="js/popper.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
+                    <script src="js/jquery.easing.1.3.js"></script>
+                    <script src="js/jquery.waypoints.min.js"></script>
+                    <script src="js/jquery.stellar.min.js"></script>
+                    <script src="js/owl.carousel.min.js"></script>
+                    <script src="js/jquery.magnific-popup.min.js"></script>
+                    <script src="js/aos.js"></script>
+                    <script src="js/jquery.animateNumber.min.js"></script>
+                    <script src="js/bootstrap-datepicker.js"></script>
+                    <script src="js/jquery.timepicker.min.js"></script>
+                    <script src="js/scrollax.min.js"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+                    <script src="js/google-map.js"></script>
+                    <script src="js/main.js"></script>
+
+                    </body>
+                    </html>
