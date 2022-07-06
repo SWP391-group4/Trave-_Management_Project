@@ -49,7 +49,7 @@ public class AdminController extends HttpServlet {
             request.setAttribute("totalSup", totalSupplier);
             request.setAttribute("listSup", listSupplier);
             request.setAttribute("listCus", listCus);
-            System.out.println(listCus);
+            
             request.getRequestDispatcher("AdminHome.jsp").forward(request, response);
     }
 

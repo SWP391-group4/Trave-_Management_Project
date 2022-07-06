@@ -4,8 +4,11 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
+import Entity.Customers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +50,30 @@ public class AdminManageCusListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        DAOCustomers daoCus = new DAOCustomers();
+
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+
+        int count = daoCus.totalUser();
+
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
+
+        List<Customers> listCus = daoCus.pagging(index);
+        System.out.println(index);
+        System.out.println(listCus.size());
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listCus);
+        request.setAttribute("tag", index);
+        request.getRequestDispatcher("/AdminManageCustomerList.jsp").forward(request, response);
+
     }
 
     /**

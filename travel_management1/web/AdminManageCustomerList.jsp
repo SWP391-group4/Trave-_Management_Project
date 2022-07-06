@@ -71,12 +71,13 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${list}" var="o">
-                                <form action="preview?homestay${o.homestayId}&index=${tag}" method="get">
+<!--                                <form action="preview?homestay${o.accountC}&index=${tag}" method="get">
                                     <tr>
-                                        <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
+                                        <td><input type="hidden" name="homestay" value="${o.accountC}"></td>-->
                                     <input type="hidden" name="tag" value="${tag}">
+                                    <td></td>
+                                    <td>${o.accountC}</td>
                                     <td>${o.firstName} ${o.lastName}</td>
-                                    <td>${o.homestayName}</td>
                                     <td>${o.email}</td>
                                     <td><button type="submit" class="btn btn-primary" >
                                             Preview
@@ -84,10 +85,10 @@
                                     </td>
                                     <td>
                                         <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail?homestay=${o.homestayId}">Detail</a></button>
+                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail?homestay=${o.accountC}">Detail</a></button>
                                     </td>
                                     </tr>
-                                </form>
+                                <!--</form>-->
                             </c:forEach>
                             </tbody>
 
@@ -100,14 +101,14 @@
                         <c:choose>
                             <c:when test="${tag > 1}">
                                 <li class="page-item ">
-                                    <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
+                                    <a class="page-link" href="AdminManageCustomerList?index=${tag-1}">Previous</a>
                                 </li>
                             </c:when>
                         </c:choose>
                         <c:choose>
                             <c:when test="${tag+4< endPage}">
                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageCustomerList?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
 
@@ -117,7 +118,7 @@
                             <c:when test="${tag+6< endPage}">
                                 <li class="page-item">
                                     <c:set value="${tag+1}" var="n"/>
-                                    <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
+                                    <a class="page-link" href="AdminManageCustomerList?index=${tag+1}">Next</a>
                                 </li>
                             </c:when>
                         </c:choose>
@@ -130,7 +131,7 @@
 
             </div>
 
-            <div class="col-lg-5">
+<!--            <div class="col-lg-5">
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -185,7 +186,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
 
         </div>
 

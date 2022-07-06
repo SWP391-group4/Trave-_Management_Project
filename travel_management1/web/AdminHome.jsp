@@ -183,7 +183,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between;">
                             <h6 class="m-0 font-weight-bold text-primary">Customer</h6>
-                            <a href="AdminManageCustomerList.jsp">View all</a>
+                            <a href="AdminManageCustomerList">View all</a>
                         </div>
                         <table class="table table-striped">
                             <thead>
