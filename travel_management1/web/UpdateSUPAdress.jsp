@@ -50,10 +50,10 @@
                             </a>
                         </c:when>
                         <c:otherwise>
-                           
+                            <img title="cca" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
                         </c:otherwise>
                     </c:choose>
- <img title="cca" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
+
 
                 </div>
             </div>

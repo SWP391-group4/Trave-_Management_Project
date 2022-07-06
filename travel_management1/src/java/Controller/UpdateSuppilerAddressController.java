@@ -85,7 +85,7 @@ public class UpdateSuppilerAddressController extends HttpServlet {
         Part part = request.getPart("image");
         String realPart = request.getServletContext().getRealPath("/images");
         String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-        part.write(realPart + "/" + filename);
+//        part.write(realPart + "/" + filename);
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String accountS = spa.getAccountS();
         String specific = request.getParameter("specific");
@@ -95,38 +95,38 @@ public class UpdateSuppilerAddressController extends HttpServlet {
         SupplierAddresses address_temp = new SupplierAddresses(accountS, city, district, specific, ward);
         int n = daosup.updateSupplierAddress(address_temp);
         String image = filename;
-       int m= daosup.updateSUPImage(accountS, image);
-        
-        if (n == 0 && m==0) {
-
-            String noti = "Update fails";
-            request.setAttribute("spa", spa);
-            request.setAttribute("noti", noti);
-            request.setAttribute("Simg", new SupplierImage(accountS, image));
-            request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
-        } else {
-       
-            String noti = "Update done.";
-            request.setAttribute("spa", address_temp);
-            request.setAttribute("noti", noti);
-            request.setAttribute("Simg", new SupplierImage(accountS, image));
-            request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+        int m = daosup.updateSUPImage(accountS, image);
+        if (!filename.isEmpty()) {
+            part.write(realPart + "/" + filename);
+            if (n == 0 && m == 0) {
+                String noti = "Update fails";
+                request.setAttribute("spa", spa);
+                request.setAttribute("noti", noti);
+                request.setAttribute("Simg", new SupplierImage(accountS, image));
+                request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+            } else {
+                String noti = "Update done.";
+                request.setAttribute("spa", address_temp);
+                request.setAttribute("noti", noti);
+                request.setAttribute("Simg", new SupplierImage(accountS, image));
+                request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+            }
         }
-//
-//        if (!filename.isEmpty()) {
-//
-//            part.write(realPart + "/" + filename);
-//            String image = filename;
-//            n = daosup.updateSUPImage(accountS, image);
-//
-//        } else {
-//            PrintWriter out = response.getWriter();
-//            String image = "1";
-//            n = daosup.updateSUPImage(accountS, image);
-////            request.setAttribute("Simg", new SupplierImage(accountS, image));
-//            out.print(n);
-//        }
-
+        else{
+             if (n == 0 ) {
+                String noti = "Update fails";
+                request.setAttribute("spa", spa);
+                request.setAttribute("noti", noti);
+//                request.setAttribute("Simg", new SupplierImage(accountS, image));
+                request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+            } else {
+                String noti = "Update done.";
+                request.setAttribute("spa", address_temp);
+                request.setAttribute("noti", noti);
+//                request.setAttribute("Simg", new SupplierImage(accountS, image));
+                request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+            }
+        }
     }
 
     /**

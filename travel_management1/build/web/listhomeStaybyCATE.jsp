@@ -216,11 +216,11 @@
                                 <div class="block-27">
 
                                     <ul>
-                                        <c:set items="${listCC}" var="c">
-                                        <c:forEach begin="1" end="${endPage}" var="i" >
-                                            <li class="${tag==i?"active":""}"><a href="category?=index=${i}">${i}</a></li>
+                                        
+                                        <c:forEach  begin="1" end="${endPage}" var="i" >
+                                            <li class="${tag==i?"active":""}"><a href="category?cid=${act}&index=${i}">${i}</a></li>
                                             </c:forEach>
-</c:set>
+
                                     </ul>
 
                                 </div>
