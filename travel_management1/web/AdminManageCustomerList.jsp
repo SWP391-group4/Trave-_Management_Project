@@ -45,11 +45,11 @@
                 <!-- Supplier List -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
-                        <h6 class="m-0 font-weight-bold text-primary"><a href="AdminManageSupplierList">List Suppliers</a></h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
                         <div>
                             <form action="AdminManageSearch">
                                 <input type="text" name="search" placeholder="Search">
-                                <input type="submit" name="submit" value="Search" class="btn btn-success">
+                                <input type="submit" class="btn btn-success" value="Search">
                             </form>
                         </div>
 
@@ -62,8 +62,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Supplier</th>
-                                    <th scope="col">Homestay</th>
+                                    <th scope="col">Account</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -71,11 +71,10 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${list}" var="o">
-                                <form action="PreviewSearch?search=${search}&homestay${o.homestayId}&index=${tag}" method="get">
+                                <form action="preview?homestay${o.homestayId}&index=${tag}" method="get">
                                     <tr>
                                         <td><input type="hidden" name="homestay" value="${o.homestayId}"></td>
                                     <input type="hidden" name="tag" value="${tag}">
-                                    <input type="hidden" name="search" value="${search}">
                                     <td>${o.firstName} ${o.lastName}</td>
                                     <td>${o.homestayName}</td>
                                     <td>${o.email}</td>
@@ -85,7 +84,7 @@
                                     </td>
                                     <td>
                                         <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail.jsp">Detail</a></button>
+                                        <button type="submit" class="btn btn-warning"><a href="SupplierDetail?homestay=${o.homestayId}">Detail</a></button>
                                     </td>
                                     </tr>
                                 </form>
@@ -101,14 +100,14 @@
                         <c:choose>
                             <c:when test="${tag > 1}">
                                 <li class="page-item ">
-                                    <a class="page-link" href="AdminManageSearch?search=${search}&index=${tag-1}">Previous</a>
+                                    <a class="page-link" href="AdminManageSupplierList?index=${tag-1}">Previous</a>
                                 </li>
                             </c:when>
                         </c:choose>
                         <c:choose>
                             <c:when test="${tag+4< endPage}">
                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSearch?search=${search}&index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
 
@@ -118,7 +117,7 @@
                             <c:when test="${tag+6< endPage}">
                                 <li class="page-item">
                                     <c:set value="${tag+1}" var="n"/>
-                                    <a class="page-link" href="AdminManageSearch?search=${search}&index=${tag+1}">Next</a>
+                                    <a class="page-link" href="AdminManageSupplierList?index=${tag+1}">Next</a>
                                 </li>
                             </c:when>
                         </c:choose>
@@ -149,8 +148,7 @@
                                     <div class="text-muted mb-2">${supHome.email}</div>
                                     <div class="text-muted mb-2">Phone: ${supHome.phone}</div>
                                     <div class="text-muted mb-2"></div>
-                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
-                                </div>
+                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
                             </div>
 
 
