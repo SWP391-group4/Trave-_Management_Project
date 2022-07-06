@@ -4,6 +4,9 @@
  */
 package Controller;
 
+import DAO.DAOSupplier;
+import Entity.SupplierAddresses;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,7 +35,7 @@ public class UpdateSuppilerAddressController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     request.getRequestDispatcher("/UpdateSUPAdress.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,6 +51,10 @@ public class UpdateSuppilerAddressController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        request.setAttribute("spa", spa);
+        request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
     }
 
     /**
@@ -61,6 +69,27 @@ public class UpdateSuppilerAddressController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOSupplier daosup = new DAOSupplier();
+        HttpSession session = request.getSession();
+        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        String accountS = spa.getAccountS();
+        String specific = request.getParameter("specific");
+        String ward = request.getParameter("ward");
+        String district = request.getParameter("district");
+        String city = request.getParameter("city");
+        SupplierAddresses address_temp = new SupplierAddresses(accountS, city, district, specific, ward);
+        int n = daosup.updateSupplierAddress(address_temp);
+        if (n == 0) {
+            String noti = "Update fails";
+            request.setAttribute("spa", spa);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+        } else {
+            String noti = "Update done.";
+            request.setAttribute("spa", address_temp);
+            request.setAttribute("noti", noti);
+            request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
+        }
     }
 
     /**
