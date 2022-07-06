@@ -216,7 +216,10 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getInt(9),
-                        rs.getInt(10));
+                        rs.getInt(10),
+                        rs.getString(11),
+                        rs.getString(12));
+                        
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
