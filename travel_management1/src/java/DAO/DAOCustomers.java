@@ -9,6 +9,8 @@ import Entity.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +20,48 @@ import java.util.logging.Logger;
  */
 public class DAOCustomers extends connectDB {
 
+    public List<Customers> listCustomer() {
+        List<Customers> l = new ArrayList<>();
+        String sql = "Select * from customers";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                l.add(new Customers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        0
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+
+        public List<Customers> listTop5Customer() {
+        List<Customers> l = new ArrayList<>();
+        String sql = "Select top 5 * from customers";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                l.add(new Customers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        0
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+        
     public Customers getCustomer(String accountC) {
         String sql = "Select * from customers where accountc = '" + accountC + "'";
         ResultSet rs = getData(sql);
@@ -87,7 +131,6 @@ public class DAOCustomers extends connectDB {
 
         return n;
     }
-//Note image
 
     public int updateCustomerEmail(String email, String accountC) {
         int n = 0;

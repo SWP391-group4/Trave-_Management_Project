@@ -4,10 +4,8 @@
  */
 package Controller;
 
-import DAO.*;
-import Entity.*;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thinh
+ * @author phams
  */
-@WebServlet(name = "AdminController", urlPatterns = {"/adminController"})
-public class AdminController extends HttpServlet {
+@WebServlet(name = "AdminManageCusListController", urlPatterns = {"/AdminManageCustomerList"})
+public class AdminManageCusListController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,24 +31,7 @@ public class AdminController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            /* TODO output your page here. You may use following sample code. */
-            DAOSupplier daoSupplier = new DAOSupplier();
-            DAOSupplierTemp daoSupTemp = new DAOSupplierTemp();
-            DAOCustomers daoCus = new DAOCustomers();
 
-            int totalSupplier = daoSupTemp.totalSupplier();
-            int totalCustomer = daoCus.totalUser();
-
-            List<SupplierHomestays> listSupplier = daoSupplier.listTop10Homestay();
-            List<Customers> listCus = daoCus.listTop5Customer();
-            
-            
-            request.setAttribute("totalCus", totalCustomer);
-            request.setAttribute("totalSup", totalSupplier);
-            request.setAttribute("listSup", listSupplier);
-            request.setAttribute("listCus", listCus);
-            System.out.println(listCus);
-            request.getRequestDispatcher("AdminHome.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

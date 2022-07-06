@@ -274,6 +274,7 @@ public class DAOHomeStays extends connectDB {
         }
         return list;
     }
+
     public List<HomeStays> paggingbYCID(String cateid, int index) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "with x as( select ROW_NUMBER() over ( order by homestayname desc) as numberID,h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,\n"
@@ -281,7 +282,7 @@ public class DAOHomeStays extends connectDB {
                 + "                            ((HomeStays h inner join HomeStayAddressses ha on\n"
                 + "                             h.HomeStayid=ha.HomeStayid )\n"
                 + "                             inner join Categories c on h.CateId=c.CateId )\n"
-                + "                              inner join HomeStayDetails hd on h.HomeStayId=hd.HomeStayId where c.CateId='"+cateid+"')select * from x where numberID between ? and ?";
+                + "                              inner join HomeStayDetails hd on h.HomeStayId=hd.HomeStayId where c.CateId='" + cateid + "')select * from x where numberID between ? and ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, (index - 1) * 6);
@@ -289,7 +290,7 @@ public class DAOHomeStays extends connectDB {
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getDouble(10), rs.getInt(11)));
-               
+
             }
 
         } catch (SQLException ex) {
