@@ -26,6 +26,10 @@ public class SupplierImage {
         this.img_Avatar = img_Avatar;
     }
 
+    public SupplierImage(String img_Avatar) {
+        this.img_Avatar = img_Avatar;
+    }
+
     public SupplierImage(String accountS, String img_ID_front, String img_ID_back, String img_Avatar) {
         this.accountS = accountS;
         this.img_ID_front = img_ID_front;

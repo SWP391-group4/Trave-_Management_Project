@@ -4,23 +4,29 @@
  */
 package Controller;
 
+import DAO.DAOImages;
 import DAO.DAOSupplier;
 import Entity.SupplierAddresses;
+import Entity.SupplierImage;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author thinh
  */
 @WebServlet(name = "UpdateSuppilerAddressController", urlPatterns = {"/updateaddress"})
+@MultipartConfig
 public class UpdateSuppilerAddressController extends HttpServlet {
 
     /**
@@ -51,9 +57,13 @@ public class UpdateSuppilerAddressController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOSupplier daosup = new DAOSupplier();
         HttpSession session = request.getSession();
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+        String accountS = spa.getAccountS();
+        SupplierImage Simg = daosup.getSUPImage(accountS);
         request.setAttribute("spa", spa);
+        request.setAttribute("Simg", Simg);
         request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
     }
 
@@ -69,8 +79,13 @@ public class UpdateSuppilerAddressController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOSupplier daosup = new DAOSupplier();
         HttpSession session = request.getSession();
+        DAOSupplier daosup = new DAOSupplier();
+
+        Part part = request.getPart("image");
+        String realPart = request.getServletContext().getRealPath("/images");
+        String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+        part.write(realPart + "/" + filename);
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String accountS = spa.getAccountS();
         String specific = request.getParameter("specific");
@@ -79,17 +94,39 @@ public class UpdateSuppilerAddressController extends HttpServlet {
         String city = request.getParameter("city");
         SupplierAddresses address_temp = new SupplierAddresses(accountS, city, district, specific, ward);
         int n = daosup.updateSupplierAddress(address_temp);
-        if (n == 0) {
+        String image = filename;
+       int m= daosup.updateSUPImage(accountS, image);
+        
+        if (n == 0 && m==0) {
+
             String noti = "Update fails";
             request.setAttribute("spa", spa);
             request.setAttribute("noti", noti);
+            request.setAttribute("Simg", new SupplierImage(accountS, image));
             request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
         } else {
+       
             String noti = "Update done.";
             request.setAttribute("spa", address_temp);
             request.setAttribute("noti", noti);
+            request.setAttribute("Simg", new SupplierImage(accountS, image));
             request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
         }
+//
+//        if (!filename.isEmpty()) {
+//
+//            part.write(realPart + "/" + filename);
+//            String image = filename;
+//            n = daosup.updateSUPImage(accountS, image);
+//
+//        } else {
+//            PrintWriter out = response.getWriter();
+//            String image = "1";
+//            n = daosup.updateSUPImage(accountS, image);
+////            request.setAttribute("Simg", new SupplierImage(accountS, image));
+//            out.print(n);
+//        }
+
     }
 
     /**
