@@ -4,8 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOCategories;
-import Entity.Categories;
+import DAO.DAOImages;
+import Entity.Images;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "CategoriesInsert", urlPatterns = {"/CategoriesInsert"})
-public class CategoriesInsert extends HttpServlet {
+@WebServlet(name = "ImagesInsert", urlPatterns = {"/ImagesInsert"})
+public class ImagesInsert extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,6 +33,7 @@ public class CategoriesInsert extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,7 +49,7 @@ public class CategoriesInsert extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("InsertCategories.jsp");
+        response.sendRedirect("InsertHomeStayIMG.jsp");
     }
 
     /**
@@ -63,23 +64,24 @@ public class CategoriesInsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOCategories sup = new DAOCategories();
+        DAOImages sup = new DAOImages();
 
-        String CateId = request.getParameter("CateId");
-        String CateName = request.getParameter("CateName");
+        String ImageId = request.getParameter("ImageId");
+        String ImageUrl = request.getParameter("ImageUrl");
+        String HomeStayId = request.getParameter("HomeStayId");
         
         //validation           
 
         
-        int m = sup.addCategories(new Categories(CateId, CateName));
+        int m = sup.addHomeStayImage(new Images(ImageId, ImageUrl, HomeStayId));
         if (m > 0) {
             String a = "Done";
             request.setAttribute("alert", a);
-            request.getRequestDispatcher("InsertCategories.jsp").forward(request, response);
+            request.getRequestDispatcher("InsertHomeStayIMG.jsp").forward(request, response);
         } else {
             String a = "Fails";
             request.setAttribute("alert", a);
-            request.getRequestDispatcher("InsertCategories.jsp").forward(request, response);
+            request.getRequestDispatcher("InsertHomeStayIMG.jsp").forward(request, response);
 
         }
     }
