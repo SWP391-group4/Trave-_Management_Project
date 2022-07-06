@@ -35,27 +35,28 @@ public class CategoriesController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        String indexPage = request.getParameter("index");
-//        if (indexPage == null) {
-//            indexPage = "1";
-//        }
-//       int index = Integer.parseInt(indexPage);
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+       int index = Integer.parseInt(indexPage);
      String cateID=request.getParameter("cid");
         DAOHomeStays dao = new DAOHomeStays();
-//         int count = dao.countToDiv();
-//        int endPage = count / 5;
-//        if (count % 5 != 0) {
-//            endPage++;
-//        }
+         int count = dao.countToDivforCATE(cateID);
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
         
         List<Categories> listC=dao.ListCate();
-        List<HomeStays> list=dao.getHomeStaybyCID(cateID);
-        request.setAttribute("listp", list);
-//         request.setAttribute("endPage", endPage);
+        List<HomeStays> listCC=dao.paggingHomeStaybyCATEID(index,cateID);
+//        request.setAttribute("listBY", list);
+         request.setAttribute("endPage", endPage);
             request.setAttribute("listC", listC);
+                request.setAttribute("listCC", listCC);
              request.setAttribute("act", cateID);
-//            request.setAttribute("tag", index);
-        request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
+            request.setAttribute("tag", index);
+        request.getRequestDispatcher("/listhomeStaybyCATE.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

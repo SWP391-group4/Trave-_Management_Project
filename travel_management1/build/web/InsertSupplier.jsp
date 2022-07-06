@@ -16,72 +16,32 @@
         <form action="SupplierInsert" method="Post">
             <p>${alert}</p>
             <table>
-                <tr>
-                    <td>
-                        <label for="account">account</label>
-                    </td>
-                    <td>
-                        <input type="text" id="account" name="account">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="password">password</label>
-                    </td>
-                    <td>
-                        <input type="text" id="password" name="password">
-                    </td>
-                </tr>
                 
                 <tr>
-                    <td>
-                        <label for="accountS">accountS</label>
-                    </td>
-                    <td>
-                        <input type="text" id="accountS" name="accountS">
-                    </td>
+                    <td><label for="accountS">accountS</label></td>
+                    <td><input type="text" id="accountS" name="accountS"></td>
                 </tr>
                 <tr>
-                    <td>
-                        <label for="firstName">firstName</label>
-                    </td>
-                    <td>
-                        <input type="text" id="firstName" name="firstName">
-                    </td>
+                    <td><label for="firstName">firstName</label></td>
+                    <td><input type="text" id="firstName" name="firstName"></td>
                 </tr>
                 <tr>
-                    <td>
-                        <label for="lastName">lastName</label>
-                    </td>
-                    <td>
-                        <input type="text" id="lastName" name="lastName">
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                        <label for="fax">fax</label>
-                    </td>
-                    <td>
-                        <input type="text" id="fax" name="fax">
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                        <label for="email">email</label>
-                    </td>
-                    <td>
-                        <input type="text" id="email" name="email" >
-                    </td>
+                    <td><label for="lastName">lastName</label></td>
+                    <td><input type="text" id="lastName" name="lastName"></td>
                 </tr>
                 <tr>
-                    <td>
-                        <label for="phone">phone</label>
-                    </td>
-                    <td>
-                        <input type="text" id="phone" name="phone" maxlength="10">
-                    </td>
+                    <td><label for="fax">fax</label></td>
+                    <td><input type="text" id="fax" name="fax"></td>
                 </tr>
-                
+                <tr>
+                    <td><label for="email">email</label></td>
+                    <td><input type="text" id="email" name="email" ></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">phone</label></td>
+                    <td><input type="text" id="phone" name="phone" maxlength="10"></td>
+                </tr>
+
             </table>
             <input type="submit" value="submit">
             <input type="reset" value="reset">

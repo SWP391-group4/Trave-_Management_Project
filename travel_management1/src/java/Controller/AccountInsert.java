@@ -5,9 +5,7 @@
 package Controller;
 
 import DAO.DAOAccounts;
-import DAO.DAOSupplier;
 import Entity.Accounts;
-import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "SupplierInsert", urlPatterns = {"/SupplierInsert"})
-public class SupplierInsert extends HttpServlet {
+@WebServlet(name = "AccountInsert", urlPatterns = {"/AccountInsert"})
+public class AccountInsert extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +34,6 @@ public class SupplierInsert extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,9 +49,7 @@ public class SupplierInsert extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
-        response.sendRedirect("InsertSupplier.jsp");
-
+        response.sendRedirect("InsertAccount.jsp");
     }
 
     /**
@@ -69,27 +64,22 @@ public class SupplierInsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOSupplier sup = new DAOSupplier();
+        DAOAccounts acc = new DAOAccounts();
 
-        String accountS = request.getParameter("accountS");
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String fax = request.getParameter("fax");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
+        int type = Integer.parseInt(checkNumber(request.getParameter("type")));
         //validation           
 
-        
-        int m = sup.addSuppliers(new Suppliers(accountS, firstName, lastName, fax, email, phone, 0));
-        if (m > 0) {
+        int n = acc.insertAccount(new Accounts(account, password, type));
+        if (n > 0) {
             String a = "Done";
             request.setAttribute("alert", a);
-            request.getRequestDispatcher("InsertSupplier.jsp").forward(request, response);
+            request.getRequestDispatcher("InsertAccount.jsp").forward(request, response);
         } else {
             String a = "Fails";
             request.setAttribute("alert", a);
-            request.getRequestDispatcher("InsertSupplier.jsp").forward(request, response);
+            request.getRequestDispatcher("InsertAccount.jsp").forward(request, response);
 
         }
     }
@@ -97,12 +87,18 @@ public class SupplierInsert extends HttpServlet {
     /**
      * Returns a short description of the servlet.
      *
-     *
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    public String checkNumber(String number) {
+        if (number == null || number.isEmpty()) {
+            number = "0";
+        }
+        return number;
+    }
 
 }

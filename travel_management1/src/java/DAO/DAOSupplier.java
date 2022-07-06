@@ -209,13 +209,13 @@ public class DAOSupplier extends connectDB {
     }
 
     public SupplierImage getSUPImage(String accountS) {
-        String sql = "select img_Avatar from SupplierImage where AccountS= '" + accountS + "'";
+        String sql = "select  img_Avatar from SupplierImage where AccountS= '" + accountS + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
                 return new SupplierImage(
-                        rs.getString(1),
-                        rs.getString(2)
+                        rs.getString(1)
+                       
                 );
             }
         } catch (SQLException ex) {
@@ -224,15 +224,15 @@ public class DAOSupplier extends connectDB {
         return null;
     }
 
-    public int updateSUPImage(SupplierImage sim) {
+    public int updateSUPImage(String accountS,String sim) {
         int n = 0;
-        String sql = "UPDATE [MarketingImage]\n"
+        String sql = "UPDATE [SupplierImage]\n"
                 + "   SET Img_Avatar = ?"
-                + " WHERE AccountM = ?";
+                + " WHERE AccountS = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(2, sim.getAccountS());
-            pre.setString(1, sim.getImg_Avatar());
+            pre.setString(1, sim);
+            pre.setString(2, accountS);
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -286,9 +286,11 @@ public class DAOSupplier extends connectDB {
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
+       SupplierImage s=d.getSUPImage("2convitcon");
+        System.out.println(s);
 //        List<Suppliers> list = d.getSuppiler("2convitcon");
-        Suppliers list = d.getSuppiler("2convitcon");
-        System.out.println(list);
+//        Suppliers list = d.updateSUPImage("2convitcon","co.jpg");
+//        System.out.println(list);
 //        for (Suppliers temp : list) {
 //            System.out.println(temp);
 //        }

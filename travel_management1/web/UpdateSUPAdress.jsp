@@ -38,26 +38,31 @@
             <div class="container bootstrap snippets bootdey">
                 <div class="row">
                     <div class="col-sm-10">
-                              <div style="padding-bottom: 25px ">
-                        <a href="suppilerProflieController">Profile ></a>
-                        
-
-                        <a href="updateaddress">Change Address & Avatar</a>
-                    </div>
+                        <div style="padding-bottom: 25px ">
+                            <a href="suppilerProflieController">Profile ></a>
+                            <a href="updateaddress">Change Address & Avatar</a>
+                        </div>
                         <h1>User: ${spa.accountS}</h1></div>
                 <div class="col-sm-2">
-                    <a href="suppilerProflieController" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                    </a>
-                    
-                     <input type="file" name="image" value="image" class="custom" accept="image/png, image/jpg, image/jpeg">
+                    <c:choose>
+                        <c:when test="${Simg.img_Avatar == ''}">
+                            <a href="suppilerProflieController" class="pull-right"><img title="cc" class="img-circle img-responsive" src="images/AvatarDefault.jpg">
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                           
+                        </c:otherwise>
+                    </c:choose>
+ <img title="cca" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <!--left col-->
-  <div class="container">
-              
-                </div>
+                    <div class="container">
+
+                    </div>
                     <ul class="list-group ">
                         <li class="list-group-item  bg-secondary text-light">Address</li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>City</strong></span> ${spa.city} </li>
@@ -73,11 +78,11 @@
                 <!--/col-3-->
                 <div class="col-sm-9">
 
-                   
+
                     <div class="tab-pane active" id="settings">
 
                         <hr>
-                        <form class="form" action="updateaddress" method="post" id="registrationForm">
+                        <form class="form" action="updateaddress" method="post" id="registrationForm" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="first_name">
@@ -112,8 +117,9 @@
                                     <br>
                                     <button class="btn btn-lg btn-success" name="submit" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                     <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                                  
+
                                 </div>
+                                <input type="file" name="image" value="image" class="custom" accept="image/png, image/jpg, image/jpeg,image/n.jpg">
                             </div>  
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -132,22 +138,22 @@
 
         </div>
         <!--/col-9-->
-  <jsp:include page="Footer.jsp"/>
-    <!--/row-->
+        <jsp:include page="Footer.jsp"/>
+        <!--/row-->
 
-    <style type="text/css">
-        body{
-            margin-bottom:20px;
-        }
-    </style>
+        <style type="text/css">
+            body{
+                margin-bottom:20px;
+            }
+        </style>
 
-    <script type="text/javascript">
-
-
+        <script type="text/javascript">
 
 
 
 
-    </script>
-</body>
+
+
+        </script>
+    </body>
 </html>
