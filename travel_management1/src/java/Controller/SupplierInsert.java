@@ -11,6 +11,7 @@ import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
+@WebServlet(name = "SupplierInsert", urlPatterns = {"/SupplierInsert"})
 public class SupplierInsert extends HttpServlet {
 
     /**
@@ -67,22 +69,20 @@ public class SupplierInsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-DAOSupplier sup = new DAOSupplier();
-        DAOAccounts acc = new DAOAccounts();
+        DAOSupplier sup = new DAOSupplier();
 
-        String account = request.getParameter("account");
-        String password = request.getParameter("password");
         String accountS = request.getParameter("accountS");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String fax = request.getParameter("fax");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
+        
         //validation           
 
-        int n = acc.insertAccount(new Accounts(account, password, 3));
+        
         int m = sup.addSuppliers(new Suppliers(accountS, firstName, lastName, fax, email, phone, 0));
-        if (n > 0 && m > 0) {
+        if (m > 0) {
             String a = "Done";
             request.setAttribute("alert", a);
             request.getRequestDispatcher("InsertSupplier.jsp").forward(request, response);

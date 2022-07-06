@@ -16,15 +16,7 @@
         <form action="SupplierInsert" method="Post">
             <p>${alert}</p>
             <table>
-                <tr>
-                    <td><label for="account">account</label></td>
-                    <td><input type="text" id="account" name="account"></td>
-                </tr>
-                <tr>
-                    <td><label for="password">password</label></td>
-                    <td><input type="text" id="password" name="password"></td>
-                </tr>
-
+                
                 <tr>
                     <td><label for="accountS">accountS</label></td>
                     <td><input type="text" id="accountS" name="accountS"></td>
