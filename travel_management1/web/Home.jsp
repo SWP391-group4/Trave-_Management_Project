@@ -104,75 +104,36 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="carousel-testimony owl-carousel ftco-owl">
+                                <c:forEach items="${lists}" var="c">
                                     <div class="item">
                                         <a  href="menu.jsp" >
                                             <div class="testimony-wrap p-4 pb-5">
-                                                <div style="width: 301px;height:336px ;background-image: url(images/HN.png)">
-                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">Ha Noi</h3>
+                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage})">
+                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">${c.sliderName}</h3>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="item">
-                                        <a  href="menu.jsp" >
-                                            <div class="testimony-wrap p-4 pb-5">
-                                                <div style="width: 301px;height:336px ; ;background-image: url(images/HCM.png)">
-                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Ho Chi Minh</h3>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a  href="menu.jsp" >
-                                            <div class="testimony-wrap p-4 pb-5">
-                                                <div style="width: 301px;height:336px ; ;background-image: url(images/DL.png)">
-                                                    <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Lat</h3>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="item">
-                                        <a  href="menu.jsp" >
-                                            <div class="testimony-wrap p-4 pb-5">
-                                                <div>
-                                                    <div style="width: 301px;height:336px ; ;background-image: url(images/QN.png)">
-                                                        <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Quang Ninh</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a  href="menu.jsp" >
-                                            <div class="testimony-wrap p-4 pb-5">
-                                                <div>
-                                                    <div style="width: 301px;height:336px ; ;background-image: url(images/DN.png)">
-                                                        <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold;font-style: italic;">Da Nang</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div> 
+                                </c:forEach>
                             </div> 
-                        </div>
-                </section>
-                <section >
-                    <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
-                        <h3 style="font-weight: bold;font-style: italic">Exclusive Vouchers</h3>
+                        </div> 
                     </div>
-                </section>
-                <p style="margin-left: 90px">Only at CTU Travel, attractive and limited, book now!</p>
+            </section>
+            <section >
+                <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
+                    <h3 style="font-weight: bold;font-style: italic">Exclusive Vouchers</h3>
+                </div>
+            </section>
+            <p style="margin-left: 90px">Only at CTU Travel, attractive and limited, book now!</p>
 
-                <section class="" >
+            <section class="" >
 
-                    <div class="container">
-                        <div class="col-md-12" style="text-align: right;text-decoration: underline;">
-                            <a href="home.jsp">See All</a>
-                        </div>
-                        <br>
-                        <div class="row">
+                <div class="container">
+                    <div class="col-md-12" style="text-align: right;text-decoration: underline;">
+                        <a href="home.jsp">See All</a>
+                    </div>
+                    <br>
+                    <div class="row">
                         <c:forEach items="${list3v}" var="c">
                             <div class="col-md-4">                         
                                 <a href="home.jsp">
