@@ -48,7 +48,7 @@ public class DAOSupplierTemp extends connectDB {
         try {
 
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 10);
+            pre.setInt(1, (index - 1) * 7);
 
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
@@ -85,7 +85,7 @@ public class DAOSupplierTemp extends connectDB {
         try {
 
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 10);
+            pre.setInt(1, (index - 1) * 7);
 
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {

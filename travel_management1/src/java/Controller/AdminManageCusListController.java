@@ -50,7 +50,6 @@ public class AdminManageCusListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
         DAOCustomers daoCus = new DAOCustomers();
 
         String indexPage = request.getParameter("index");
@@ -58,14 +57,29 @@ public class AdminManageCusListController extends HttpServlet {
             indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
-
         int count = daoCus.totalUser();
-
         int endPage = count / 5;
         if (count % 5 != 0) {
             endPage++;
         }
-
+        //-----------------------
+        String accountC = request.getParameter("accountC");
+        if (accountC != null) {
+            Customers cus = daoCus.getCustomer(accountC);
+            String image = daoCus.getImage(accountC).getImg_Avatar();
+            request.setAttribute("cus", cus);
+            request.setAttribute("image", image);
+        }
+        //-----------------------
+        String status = request.getParameter("status");
+        if (status != null) {
+            if (status.equals("1")) {
+                daoCus.updateCustomerStatus(0, accountC);
+            } else {
+                daoCus.updateCustomerStatus(1, accountC);
+            }
+        }
+        //-----------------------
         List<Customers> listCus = daoCus.pagging(index);
         System.out.println(index);
         System.out.println(listCus.size());

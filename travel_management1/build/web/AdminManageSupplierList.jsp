@@ -105,13 +105,17 @@
                             </c:when>
                         </c:choose>
                         <c:choose>
-                            <c:when test="${tag+4< endPage}">
+                            <c:when test="${tag+3< endPage}">
                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
                                     <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
-
-                        </c:choose>
+                                <c:when test="${tag+2>=endPage}">
+                                    <c:forEach begin="${tag}" end="${endPage}" var="i">
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminManageSupplierList?index=${i}">${i}</a></li>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
 
                         <c:choose>
                             <c:when test="${tag+6< endPage}">

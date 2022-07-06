@@ -32,7 +32,7 @@ public class DAOCustomers extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        0
+                        rs.getInt(6)
                 ));
             }
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class DAOCustomers extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        0
+                        rs.getInt(6)
                 ));
             }
         } catch (SQLException ex) {
@@ -73,7 +73,7 @@ public class DAOCustomers extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        0
+                        rs.getInt(6)
                 );
             }
         } catch (SQLException ex) {
@@ -149,6 +149,23 @@ public class DAOCustomers extends connectDB {
         return n;
     }
 
+    public int updateCustomerStatus(int status, String accountC) {
+        int n = 0;
+        String sql = "Update Customers set "
+                + "status = ? "
+                + "where accountC = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, status);
+            pre.setString(2, accountC);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
     public int updateCustomerImage(String src, String accountC) {
         int n = 0;
         String sql = "update CustomerImage set "
@@ -202,16 +219,36 @@ public class DAOCustomers extends connectDB {
         return 0;
     }
 
+    public int totalUser(String str) {
+        String sql = "select count(accountc) from customers "
+                + "where "
+                + "accountC like '%" + str + "%' or "
+                + "firstName like '%" + str + "%' or \n"
+                + "lastName like '%" + str + "%' or \n"
+                + "email like '%" + str + "%' or \n"
+                + "phone like '%" + str + "%'\n";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
     public List<Customers> pagging(int index) {
         List<Customers> l = new ArrayList<>();
         String sql = "Select * from customers\n"
+                
                 + "order by accountC \n"
-                + "offset ?\n"
+                + "offset ? \n"
                 + "rows fetch next 5 rows only;";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 10);
+            pre.setInt(1, (index - 1) * 5);
 
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
@@ -221,7 +258,40 @@ public class DAOCustomers extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        0
+                        rs.getInt(6)
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+
+    public List<Customers> pagging(int index, String str) {
+        List<Customers> l = new ArrayList<>();
+        String sql = "Select * from customers where \n"
+                + "accountC like '%" + str + "%' or "
+                + "firstName like '%" + str + "%' or \n"
+                + "lastName like '%" + str + "%' or \n"
+                + "email like '%" + str + "%' or \n"
+                + "phone like '%" + str + "%'\n"
+                + "order by accountC \n"
+                + "offset ? \n"
+                + "rows fetch next 5 rows only;";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 5);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                l.add(new Customers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6)
                 ));
             }
         } catch (SQLException ex) {
@@ -249,16 +319,8 @@ public class DAOCustomers extends connectDB {
 
     public static void main(String[] args) {
         DAOCustomers dao = new DAOCustomers();
-        Customers cus = dao.getCustomer("motnguoithu3");
-
-        System.out.println(cus);
-
-        cus.setFirstName("new ");
-        cus.setLastName("person");
-
-        int n = dao.updateCustomer(cus);
-
-        System.out.println(cus);
+        List<Customers> l = dao.pagging(2);
+        System.out.println(l.size());
 
     }
 }

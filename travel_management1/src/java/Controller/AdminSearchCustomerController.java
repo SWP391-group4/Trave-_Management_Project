@@ -4,10 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOHomeStays;
-import DAO.DAOSupplierTemp;
-import Entity.HomeStayAddressses;
-import Entity.SupplierHomestays;
+import DAO.DAOCustomers;
+import Entity.Customers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -21,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author phams
  */
-@WebServlet(name = "AdminManageSearchController", urlPatterns = {"/AdminManageSearch"})
-public class AdminManageSearchController extends HttpServlet {
+@WebServlet(name = "AdminSearchCustomerController", urlPatterns = {"/AdminSearchCustomer"})
+public class AdminSearchCustomerController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,47 +34,7 @@ public class AdminManageSearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String indexPage = request.getParameter("index");
-            String search = request.getParameter("search");
 
-            if (indexPage == null) {
-                indexPage = "1";
-            }
-            int index = Integer.parseInt(indexPage);
-
-            /* TODO output your page here. You may use following sample code. */
-            DAOSupplierTemp daoSup = new DAOSupplierTemp();
-            int count = daoSup.countToDivBySearch(search);
-            int endPage = count / 7;
-            if (count % 7 != 0) {
-                endPage++;
-            }
-
-//        --------------------
-            String homestayId = (String) request.getSession().getAttribute("homestayId");
-            if (homestayId != null) {
-                SupplierHomestays supHome = daoSup.getPreview(homestayId);
-                HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
-                int evaluate = daoSup.getEvaluate(homestayId);
-
-                String cateId = supHome.getCateId();
-                String cateName = daoSup.getCategoryName(cateId);
-
-//       --------------------------
-                request.setAttribute("supHome", supHome);
-                request.setAttribute("address", homestayAddress);
-                request.setAttribute("evaluate", evaluate);
-                request.setAttribute("cateName", cateName);
-            }
-            request.setAttribute("search", search);
-            List<SupplierHomestays> listHomeStay = daoSup.paggingSearch(index, search);
-            
-            request.setAttribute("endPage", endPage);
-            request.setAttribute("list", listHomeStay);
-            request.setAttribute("tag", index);
-            request.getRequestDispatcher("/AdminManageSearch.jsp").forward(request, response);
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -92,6 +50,45 @@ public class AdminManageSearchController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOCustomers daoCus = new DAOCustomers();
+
+        String indexPage = request.getParameter("index");
+        String str = request.getParameter("search");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = daoCus.totalUser(str);
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
+        //-----------------------
+        String accountC = request.getParameter("accountC");
+        if (accountC != null) {
+            Customers cus = daoCus.getCustomer(accountC);
+            String image = daoCus.getImage(accountC).getImg_Avatar();
+            request.setAttribute("cus", cus);
+            request.setAttribute("image", image);
+        }
+        //-----------------------
+        String status = request.getParameter("status");
+        if (status != null) {
+            if (status.equals("1")) {
+                daoCus.updateCustomerStatus(0, accountC);
+            } else {
+                daoCus.updateCustomerStatus(1, accountC);
+            }
+        }
+        //-----------------------
+        List<Customers> listCus = daoCus.pagging(index,str);
+        System.out.println(index);
+        System.out.println(listCus.size());
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listCus);
+        request.setAttribute("tag", index);
+        request.getRequestDispatcher("/AdminManageCustomerList.jsp").forward(request, response);
+
     }
 
     /**
