@@ -53,7 +53,7 @@
                     <a class="navbar-brand"style="color: #eea236" href="#">Marketing Manager</a>
                 </div>
             </nav>
-            <section style="padding-top: 10px;margin-top: 10px">
+            <section style="padding-top: 10px;margin-top: 20px;margin-bottom: 0px;padding-bottom: 0px">
                 <!-- Page Wrapper -->
                 <div id="wrapper">
 
@@ -71,20 +71,26 @@
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
                         </li>
-                        <!-- Nav Item - Charts -->
                         <li class="nav-item">
                             <a class="nav-link" href="charts.html">
                                 <i class="fas fa-fw fa-chart-area"></i>
-                                <span>Charts</span></a>
+                                <span>Slider Manager</span></a>
                         </li>
-
-                        <!-- Nav Item - Tables -->
                         <li class="nav-item">
                             <a class="nav-link" href="tables.html">
                                 <i class="fas fa-fw fa-table"></i>
-                                <span>Tables</span></a>
+                                <span>Blogs Manager</span></a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="tables.html">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Voucher Manager</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tables.html">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Change Password</span></a>
+                        </li>
                         <!-- Divider -->
                         <hr class="sidebar-divider d-none d-md-block">
 
@@ -177,7 +183,7 @@
                                 </div>
 
                                 <!-- Pending Requests Card Example -->
-                               
+
                             </div>
 
                             <!-- Content Row -->
@@ -196,8 +202,7 @@
                                         <!-- Project Card Example -->
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
-                                                <h6 class="m-0 font-weight-bold text-primary">List Suppliers</h6>
-                                                <a href="AdminManageSupplierList">View all</a>
+                                                <h6 class="m-0 font-weight-bold text-primary">Top 5 City</h6>
                                             </div>
                                             <table class="table table-striped">
                                                 <thead>
@@ -227,7 +232,7 @@
                                         <!-- Illustrations -->
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Pending Register</h6>
+                                                <h6 class="m-0 font-weight-bold text-primary">Top 10 Suppliers</h6>
                                             </div>
                                             <div class="card-body">
                                                 <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
@@ -271,7 +276,7 @@
                     </div>
                     <br>
                     </section> 
-                    <footer class="ftco-footer ftco-bg-dark ftco-section">
+                    <footer class="ftco-footer ftco-bg-dark ftco-section" >
                         <div class="container">
                             <div class="row mb-5">
                                 <div class="col-md">

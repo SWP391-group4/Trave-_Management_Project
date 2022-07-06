@@ -47,8 +47,8 @@
             MarketingImage mark = (MarketingImage) request.getAttribute("mark");
         %> 
         <br>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light " >
+            <div class="container" style="font-weight: normal">
             <a class="navbar-brand active" style="color: #eea236" href="#">Account Information</a>
             <a class="navbar-brand" href="MarketingManager">Marketing Manager</a>
             </div>
