@@ -154,7 +154,7 @@ public class BookingHistories {
 
     public Calendar getDate() {
         String date_time = this.orderTime;
-//        String date_time = "11/27/2020 05:35:00";
+//        String date_time = "11-27-2020 05:35:00";
         SimpleDateFormat dateParser = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
         {
             try {

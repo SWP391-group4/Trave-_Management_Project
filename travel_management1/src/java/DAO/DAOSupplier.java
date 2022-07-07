@@ -290,6 +290,7 @@ public class DAOSupplier extends connectDB {
                 + "order by count desc";
         return sql;
     }
+
     public int counttotalS() {
         String sql = "select count(*) from Suppliers ";
         ResultSet rs = getData(sql);
@@ -298,10 +299,11 @@ public class DAOSupplier extends connectDB {
                 return rs.getInt(1);
             }
         } catch (SQLException ex) {
-             ex.printStackTrace();
+            ex.printStackTrace();
         }
         return 0;
     }
+
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
         SupplierImage s = d.getSUPImage("2convitcon");
