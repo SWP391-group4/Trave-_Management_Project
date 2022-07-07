@@ -283,7 +283,12 @@ public class DAOSupplier extends connectDB {
         }
         return n;
     }
-
+     public String viewtop5Suppliers() {
+        String sql = "select count(city) as count, city from HomeStayAddressses h\n"
+                + "group by City\n"
+                + "order by count desc";
+        return sql;
+    }
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
        SupplierImage s=d.getSUPImage("2convitcon");
