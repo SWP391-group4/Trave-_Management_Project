@@ -95,7 +95,7 @@
                             <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i>  Categories</div>
                             <ul class="list-group category_block">
                                 <c:forEach items="${listC}" var="c">
-                                    <li class="list-group-item text-white ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    <li class="list-group-item text-white ${act2==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
                                     </c:forEach>
 
                             </ul>
@@ -105,8 +105,8 @@
                             <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i> Status</div>
                             <ul class="list-group category_block">
 
-                                <li class="list-group-item "> <a href="category?cid=">Avaiable</a></li>
-                                <li class="list-group-item "> <a href="category?cid=">Booked</a></li>
+                                <li class="list-group-item "> <a href="getbysts?status=1">Avaiable</a></li>
+                                <li class="list-group-item "> <a href="getbysts?status=0">Booked</a></li>
 
                             </ul>
                         </div>

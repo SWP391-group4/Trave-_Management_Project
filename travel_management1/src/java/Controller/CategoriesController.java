@@ -43,8 +43,8 @@ public class CategoriesController extends HttpServlet {
      String cateID=request.getParameter("cid");
         DAOHomeStays dao = new DAOHomeStays();
          int count = dao.countToDivforCATE(cateID);
-        int endPage = count / 5;
-        if (count % 5 != 0) {
+        int endPage = count / 6;
+        if (count % 6 != 0) {
             endPage++;
         }
         

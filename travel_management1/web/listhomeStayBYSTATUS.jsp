@@ -95,7 +95,7 @@
                             <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i>  Categories</div>
                             <ul class="list-group category_block">
                                 <c:forEach items="${listC}" var="c">
-                                    <li class="list-group-item text-white ${act2==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    <li class="list-group-item text-white ${act1==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
                                     </c:forEach>
 
                             </ul>
@@ -150,7 +150,7 @@
 
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
-                            <c:forEach items="${listCC}" var="o">
+                            <c:forEach items="${listSS}" var="o">
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
@@ -218,7 +218,7 @@
                                     <ul>
                                         
                                         <c:forEach  begin="1" end="${endPage}" var="i" >
-                                            <li class="${tag==i?"active":""}"><a href="category?cid=${act}&index=${i}">${i}</a></li>
+                                            <li class="${tag==i?"active":""}"><a href="getbysts?status=${act}&index=${i}">${i}</a></li>
                                             </c:forEach>
 
                                     </ul>

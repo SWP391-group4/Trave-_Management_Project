@@ -215,7 +215,6 @@ public class DAOSupplier extends connectDB {
             if (rs.next()) {
                 return new SupplierImage(
                         rs.getString(1)
-                       
                 );
             }
         } catch (SQLException ex) {
@@ -224,7 +223,7 @@ public class DAOSupplier extends connectDB {
         return null;
     }
 
-    public int updateSUPImage(String accountS,String sim) {
+    public int updateSUPImage(String accountS, String sim) {
         int n = 0;
         String sql = "UPDATE [SupplierImage]\n"
                 + "   SET Img_Avatar = ?"
@@ -284,9 +283,28 @@ public class DAOSupplier extends connectDB {
         return n;
     }
 
+    public String view5Suppliers() {
+        String sql = "select top 5 count(HomeStayId) as count ,h.AccountS,s.FirstName,s.LastName,s.Phone from HomeStays h\n"
+                + "inner join Suppliers s on s.AccountS=h.AccountS\n"
+                + "group by h.AccountS,s.FirstName,s.LastName,s.Phone\n"
+                + "order by count desc";
+        return sql;
+    }
+    public int counttotalS() {
+        String sql = "select count(*) from Suppliers ";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+             ex.printStackTrace();
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-       SupplierImage s=d.getSUPImage("2convitcon");
+        SupplierImage s = d.getSUPImage("2convitcon");
         System.out.println(s);
 //        List<Suppliers> list = d.getSuppiler("2convitcon");
 //        Suppliers list = d.updateSUPImage("2convitcon","co.jpg");

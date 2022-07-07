@@ -16,7 +16,7 @@
             <li class="nav-item"><a href="contact.html" class="nav-link">FAQs</a></li>
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
-                
+
                 <c:if test="${sessionScope.acc!=null}">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +31,18 @@
                                 Profile
                             </a>
                         </c:if>
-
+                        <c:if test="${sessionScope.acc.type==2}">
+                            <a class="dropdown-item" href="MarketingProfileController">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                        </c:if>
+                         <c:if test="${sessionScope.acc.type==2}">
+                            <a class="dropdown-item" href="MarketingManager">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Manager 
+                            </a>
+                        </c:if>
                         <c:if test="${sessionScope.acc.type==4}">
                             <a class="dropdown-item" href="CustomerProfile">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>

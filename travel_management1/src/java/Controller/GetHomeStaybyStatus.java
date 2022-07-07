@@ -4,12 +4,12 @@
  */
 package Controller;
 
-import DAO.DAOCustomers;
 import DAO.DAOHomeStays;
-import DAO.DAOSupplier;
+import Entity.Categories;
+import Entity.HomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author nam
+ * @author thinh
  */
-@WebServlet(name = "MarketingManager", urlPatterns = {"/MarketingManager"})
-public class MarketingManager extends HttpServlet {
+@WebServlet(name = "GetHomeStaybyStatus", urlPatterns = {"/getbysts"})
+public class GetHomeStaybyStatus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,24 +34,31 @@ public class MarketingManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DAOHomeStays dao1 = new DAOHomeStays();
-        DAOSupplier dao2 = new DAOSupplier();
-        DAOCustomers dao3 = new DAOCustomers();
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            int totalH = dao1.countToDiv();
-            int totalS = dao2.counttotalS();
-            int totalC = dao3.counttotalC();
-            ResultSet rsH = dao1.getData(dao1.view5HomeStays());
-            ResultSet rsS = dao2.getData(dao2.view5Suppliers());
-            request.setAttribute("rsH", rsH);
-            request.setAttribute("rsS", rsS);
-            request.setAttribute("totalH", totalH);
-            request.setAttribute("totalS", totalS);
-            request.setAttribute("totalC", totalC);
-            request.getRequestDispatcher("MarketingManager.jsp").forward(request, response);
+    String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
         }
+       int index = Integer.parseInt(indexPage);
+     int Status=Integer.parseInt(request.getParameter("status"));
+
+        DAOHomeStays dao = new DAOHomeStays();
+         int count = dao.countToDivforStatus(Status);
+        int endPage = count / 10;
+        if (count % 10 != 0) {
+            endPage++;
+        }
+           List<Categories> listC=dao.ListCate();
+             String cateID=request.getParameter("cid");
+        List<HomeStays> listSS=dao.paggingHomeStaybyStatus(index,Status);
+          request.setAttribute("listC", listC);
+          request.setAttribute("act1", cateID);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("listSS", listSS);
+             request.setAttribute("act", Status);
+            request.setAttribute("tag", index);
+        request.getRequestDispatcher("/listhomeStayBYSTATUS.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

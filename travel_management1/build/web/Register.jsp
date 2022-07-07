@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <title>Register</title>
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="css/magnific-popup.css">
-
+        <link rel="icon" href="images/logo.png" type="">
         <link rel="stylesheet" href="css/aos.css">
 
         <link rel="stylesheet" href="css/ionicons.min.css">
@@ -31,38 +31,19 @@
         <!-- Main css -->
         <link rel="stylesheet" href="css/style1.css">
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">CTU Travel</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
+    <body style="padding-top: 0px">
+        <jsp:include page="Header.jsp"></jsp:include>
+            <div class="main">
 
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item "><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
-                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-                        <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item " <i class="fa fa-sign-in" aria-hidden="true"></i><a href="Login.jsp" class="nav-link">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="main">
+                <section class="signup" style="padding-top: 60px">
 
-            <section class="signup">
-
-                <div class="container">
-                    <div class="signup-content">
-                        <form action="registerCustomer" method="POST" id="signup-form" class="signup-form">
-                            <!--                       
-                            -->                        <!--
-                            -->                        <h2 class="form-title">Create account</h2><!--
-                            -->                         <p>${alert}</p> 
+                    <div class="container">
+                        <div class="signup-content">
+                            <form action="registerCustomer" method="POST" id="signup-form" class="signup-form">
+                                <!--                       
+                                -->                        <!--
+                                -->                        <h2 class="form-title">Create account</h2><!--
+                                -->                         <p>${alert}</p> 
                             <p>${alert1}</p>
                             <p>${alert5}</p>
                             <div class="form-group">
