@@ -36,11 +36,11 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/style1.css">
 </head>
-<body>
+<body style="padding-top: 0px">
      <jsp:include page="Header.jsp"></jsp:include>
     <div class="main">
 
-        <section class="signup">
+        <section class="signup" style="padding-top: 60px">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
