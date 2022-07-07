@@ -116,7 +116,7 @@
                                     <h1 class="h3 mb-6 text-gray-800">Dashboard</h1>                               
                                 </div>
                                 <!-- Content Row -->
-                                <div class="row">
+                                <div class="row" "> 
 
                                     <!-- Supplier Card Example -->
                                     <div class="col-xl-4 col-md-6 mb-4">
@@ -178,7 +178,7 @@
 
                             <!-- Content Row -->
 
-                            <div class="row">
+                            <div >
 
                                 <!-- Area Chart -->
 
@@ -191,7 +191,7 @@
 
                                         <!-- Project Card Example -->
                                         <div class="card shadow mb-4" style="text-align: center">
-                                            <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
+                                            <div class="card-header py-3"  style="display: inline-flex; ">
                                                 <h6 class="m-0 font-weight-bold text-primary">Top 5 City</h6>
                                             </div>
                                             <div class="card-body">
@@ -224,29 +224,38 @@
                                     </div>
                                     <div class="col-lg-6 mb-4  col-md-6">
                                         <!-- Illustrations -->
-                                        <div class="card shadow mb-4">
-                                            <div class="card-header py-3">
+                                        <div class="card shadow mb-4" style="text-align: center">
+                                            <div class="card-header py-3" style="display: inline-flex; ">
                                                 <h6 class="m-0 font-weight-bold text-primary">Top 5 Suppliers</h6>
                                             </div>
                                             <div class="card-body">
                                                 <p >Top 5 suppliers with the highest number of homestays in Vietnam
                                                 </p>
+                                                 <% ResultSet rs1 = (ResultSet) request.getAttribute("rsS");
+                                                %>
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">#</th>
                                                             <th scope="col">Supplier</th>
                                                             <th scope="col">Number of homestays</th>
+                                                            <th scope="col">Phone</th>
                                                         </tr>
                                                     </thead>
+                                                    <%int h = 0;%>
                                                     <tbody>
+                                                        <% while (rs1.next()) {%>
+                                                        <%h++;%>
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Supplier</td>
-                                                            <td>Homestay</td>
+                                                            <td><%=h%></td>
+                                                            <td><%=rs1.getString(3) %> <%=rs1.getString(4)%></td>
+                                                            <td><%=rs1.getInt(1)%></td>
+                                                            <td><%=rs1.getString(5) %></td>
+                                                            
                                                         </tr>
-
+                                                        <%}%>
                                                     </tbody>
+                                                </table>
                                                 </table>
                                             </div>
                                         </div>
