@@ -241,7 +241,6 @@ public class DAOCustomers extends connectDB {
     public List<Customers> pagging(int index) {
         List<Customers> l = new ArrayList<>();
         String sql = "Select * from customers\n"
-                
                 + "order by accountC \n"
                 + "offset ? \n"
                 + "rows fetch next 5 rows only;";
@@ -315,6 +314,19 @@ public class DAOCustomers extends connectDB {
             Logger.getLogger(DAOCustomers.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
+    }
+
+    public int counttotalC() {
+        String sql = "select count(*) from customers ";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 
     public static void main(String[] args) {

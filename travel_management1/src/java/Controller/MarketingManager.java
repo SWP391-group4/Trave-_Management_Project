@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOCustomers;
 import DAO.DAOHomeStays;
 import DAO.DAOSupplier;
 import java.io.IOException;
@@ -35,16 +36,20 @@ public class MarketingManager extends HttpServlet {
             throws ServletException, IOException {
         DAOHomeStays dao1 = new DAOHomeStays();
         DAOSupplier dao2 = new DAOSupplier();
-
+        DAOCustomers dao3 = new DAOCustomers();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             int totalH = dao1.countToDiv();
+            int totalS = dao2.counttotalS();
+            int totalC = dao3.counttotalC();
             ResultSet rsH = dao1.getData(dao1.view5HomeStays());
             ResultSet rsS = dao2.getData(dao2.view5Suppliers());
             request.setAttribute("rsH", rsH);
             request.setAttribute("rsS", rsS);
             request.setAttribute("totalH", totalH);
+            request.setAttribute("totalS", totalS);
+            request.setAttribute("totalC", totalC);
             request.getRequestDispatcher("MarketingManager.jsp").forward(request, response);
         }
     }
