@@ -3,7 +3,7 @@
     Created on : Jul 4, 2022, 7:56:36 PM
     Author     : nam
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Entity.MarketingImage"%>
 <%@page import="Entity.Marketing"%>
@@ -124,23 +124,32 @@
                                                 <h6 class="m-0 font-weight-bold text-primary">Slider Home Page</h6>
                                             </div>
                                             <div class="card-body">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Id</th>
-                                                        <th scope="col">Image</th>
-                                                        <th scope="col">Title</th>
-                                                        <th scope="col">Update</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                   
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Id</th>
+                                                            <th scope="col">Image</th>
+                                                            <th scope="col">Title</th>
+                                                            <th scope="col">Update</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    <c:forEach items="${list}" var="c">
+                                                        <tr>
+                                                            <td>${c.sliderID}</td>
+                                                            <td><img src="images/${c.sliderImage}" style="width: 90px ;height:102px "></td>
+                                                            <td>${c.sliderName}</td>
+                                                            <td><a href="SliderManager?go=Update&sliderID=${c.sliderID}">Update</a></td>
+                                                        </tr>
+                                                    </c:forEach>
+
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <!-- /.container-fluid -->
