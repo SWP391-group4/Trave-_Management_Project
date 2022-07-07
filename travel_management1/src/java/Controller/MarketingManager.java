@@ -4,8 +4,10 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,10 +32,15 @@ public class MarketingManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        DAOHomeStays dao1 = new DAOHomeStays();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            response.sendRedirect("MarketingManager.jsp");
+            int totalH = dao1.countToDiv();
+            ResultSet rsH = dao1.getData(dao1.view5HomeStays());
+            request.setAttribute("rsH", rsH);
+            request.setAttribute("totalH", totalH);
+            request.getRequestDispatcher("MarketingManager.jsp").forward(request, response);
         }
     }
 

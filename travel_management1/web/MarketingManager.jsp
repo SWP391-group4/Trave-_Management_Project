@@ -4,6 +4,7 @@
     Author     : nam
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page import="Entity.MarketingImage"%>
 <%@page import="Entity.Marketing"%>
 <%@page import="Entity.Admins"%>
@@ -161,18 +162,7 @@
                                                 <div class="col mr-2">
                                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">HomeStay(Total)
                                                     </div>
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col-auto">
-                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="progress progress-sm mr-2">
-                                                                <div class="progress-bar bg-info" role="progressbar"
-                                                                     style="width: 30%" aria-valuenow="100/4" aria-valuemin="0"
-                                                                     aria-valuemax="100"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${totalH}</div>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -200,52 +190,53 @@
                                     <div class="col-lg-6 mb-4 col-md-6">
 
                                         <!-- Project Card Example -->
-                                        <div class="card shadow mb-4">
+                                        <div class="card shadow mb-4" style="text-align: center">
                                             <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                                                 <h6 class="m-0 font-weight-bold text-primary">Top 5 City</h6>
                                             </div>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Supplier</th>
-                                                        <th scope="col">Homestay</th>
-                                                        <th scope="col">Email</th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                <c:forEach items="${listSup}" var="s">
-                                                    <tr>
-                                                        <th scope="row"></th>
-                                                        <td>${s.firstName} ${s.lastName}</td>
-                                                        <td>${s.homestayName}</td>
-                                                        <td>${s.email}</td>
-                                                    </tr>
-                                                </c:forEach>
-                                                </tbody>
-                                            </table>
+                                            <div class="card-body">
+                                                <p >Top 5 cities with the highest number of homestays in Vietnam
+                                                </p>
+                                                <% ResultSet rs = (ResultSet) request.getAttribute("rsH");
+                                                %>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">City</th>
+                                                            <th scope="col">Number of homestays</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <%int i = 0;%>
+                                                    <tbody>
+                                                        <% while (rs.next()) {%>
+                                                        <%i++;%>
+                                                        <tr>
+                                                            <td><%=i%></td>
+                                                            <td><%=rs.getString(2)%></td>
+                                                            <td><%=rs.getInt(1)%></td>
+                                                        </tr>
+                                                        <%}%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-4  col-md-6">
                                         <!-- Illustrations -->
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Top 10 Suppliers</h6>
+                                                <h6 class="m-0 font-weight-bold text-primary">Top 5 Suppliers</h6>
                                             </div>
                                             <div class="card-body">
-                                                <p >SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                                    CSS bloat and poor page performance. 
-                                                    hihihi
+                                                <p >Top 5 suppliers with the highest number of homestays in Vietnam
                                                 </p>
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">#</th>
                                                             <th scope="col">Supplier</th>
-                                                            <th scope="col">Homestay</th>
-                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Number of homestays</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -253,7 +244,6 @@
                                                             <th scope="row">1</th>
                                                             <td>Supplier</td>
                                                             <td>Homestay</td>
-                                                            <td>Email</td>
                                                         </tr>
 
                                                     </tbody>

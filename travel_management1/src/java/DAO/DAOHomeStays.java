@@ -550,18 +550,25 @@ public class DAOHomeStays extends connectDB {
         return vec;
     }
 
+    public String view5HomeStays() {
+        String sql = "select top 5 count(city) as count, city from HomeStayAddressses h\n"
+                + "group by City\n"
+                + "order by count desc";
+        return sql;
+    }
+
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
 //        int count = dao.countToDivforCATE("CATID001");
 //        System.out.println(count);
-
-        List<HomeStays> list = dao.paggingbYCID("CATID001", 0);
+//
+//        List<HomeStays> list = dao.paggingbYCID("CATID001", 0);
 //     HomeStays h=   dao.getHomeStaybyCID("HS0001");
 //        System.out.println(h);
 //        List<HomeStayAddressses> l1 = dao.getListAddress(l);
-        for (HomeStays o : list) {
-            System.out.println(o);
-        }
+//        for (HomeStays o : list) {
+//            System.out.println(o);
+
 //int count = dao.countToDiv();
 //        System.out.println(count);
 //        for (int i = 0; i < l1.size(); i++) {
@@ -576,5 +583,7 @@ public class DAOHomeStays extends connectDB {
 //        int n = dao.addHomeStays(s);
 //        System.out.println(n);
 //        System.out.println(s);
+        System.out.println(dao.view5HomeStays());
+
     }
 }
