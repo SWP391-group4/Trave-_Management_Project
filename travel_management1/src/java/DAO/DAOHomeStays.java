@@ -556,6 +556,48 @@ public class DAOHomeStays extends connectDB {
                 + "order by count desc";
         return sql;
     }
+    public int countToDivforStatus(int status) {
+        String sql = "select count(*) from HomeStays where Status = ?";
+
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, status);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+    public List<HomeStays> paggingHomeStaybyStatus(int index, int status) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,\n"
+                + "               ha.specific,ha.ward,c.CateName,hd.price,h.Status from \n"
+                + "                ((HomeStays h inner join HomeStayAddressses ha on\n"
+                + "                           h.HomeStayid=ha.HomeStayid )\n"
+                + "               inner join Categories c on h.CateId=c.CateId )\n"
+                + "                inner join HomeStayDetails hd on h.HomeStayId=hd.HomeStayId \n"
+                + "				where h.status='" + status + "'\n"
+                + "            order by HomeStayName offset ? rows fetch next 10 rows only ";
+
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 10);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(rs.getString(1),
+                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDouble(9), rs.getInt(10)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
