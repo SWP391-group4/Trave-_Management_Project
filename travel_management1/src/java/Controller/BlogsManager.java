@@ -4,8 +4,11 @@
  */
 package Controller;
 
+import DAO.DAOBlogs;
+import Entity.Blogs;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,10 +34,34 @@ public class BlogsManager extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            response.sendRedirect("ListBlogManager.jsp");
+        String service = request.getParameter("go");
+        if (service == null) {
+            service = "Show";
         }
+        DAOBlogs daoB = new DAOBlogs();
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            if ("Show".equals(service)) {
+                int count=daoB.counttotalB();
+                String pages=request.getParameter("page");
+                
+                int size=3;
+                int endPage=count/size;
+                if(count%size != 0){
+                   endPage++;
+                }
+                if(pages==null){
+                    pages="1";
+                }
+                int page= Integer.parseInt(pages);
+                List<Blogs> list = daoB.view3PagingBlogses(page);
+                request.setAttribute("list", list);
+                request.setAttribute("endPage", endPage);
+                request.setAttribute("page", pages);
+                request.getRequestDispatcher("ListBlogManager.jsp").forward(request, response);
+            }
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

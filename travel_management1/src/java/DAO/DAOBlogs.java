@@ -88,11 +88,50 @@ public class DAOBlogs extends connectDB {
         return list;
     }
 
+     public List<Blogs> view3PagingBlogses(int index) {
+        List<Blogs> l = new ArrayList<>();
+        String sql = "select * from Blogs\n"
+                + "order by BlogId\n"
+                + "offset ? rows\n"
+                + "fetch next 3 rows only";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 3);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                l.add(new Blogs(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4)
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+    public int counttotalB() {
+        String sql = "select count(*) from blogs ";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+            
+            
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
-        List<Blogs> list = dao.viewtop3Blogses();
+        List<Blogs> list = dao.view3PagingBlogses(1);
         for (Blogs o : list) {
             System.out.println(o);
         }
+        System.out.println(dao.counttotalB());
     }
 }

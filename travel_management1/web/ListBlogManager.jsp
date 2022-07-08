@@ -137,10 +137,10 @@
 
                                                     <c:forEach items="${list}" var="c">
                                                         <tr>
-                                                            <td>${c.sliderID}</td>
-                                                            <td><img src="images/${c.sliderImage}" style="width: 90px ;height:102px "></td>
-                                                            <td>${c.sliderName}</td>
-                                                            <td><a href="SliderManager?go=Update&sliderID=${c.sliderID}">Update</a></td>
+                                                            <td>${c.blogId}</td>
+                                                            <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
+                                                            <td>${c.title}</td>
+                                                            <td><a href="BlogsManager?go=Update&blogId=${c.blogId}">Update</a></td>
                                                         </tr>
                                                     </c:forEach>
 
@@ -149,7 +149,19 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="container">
+                                    <div class="row mt-5">
+                                        <div class="col text-center">
+                                            <div class="block-27">                                           
+                                                <ul>
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <li class="${page==i?"active":""}"><a href="BlogsManager?page=${i}">${i}</a></li>
+                                                        </c:forEach>                                                   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- /.container-fluid -->
