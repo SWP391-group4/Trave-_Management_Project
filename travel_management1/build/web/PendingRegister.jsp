@@ -16,15 +16,16 @@
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">   
+            rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/style.css">
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <link href="css/pendingRegister.css" rel="stylesheet">
-        <script src="js/pendingRegister.js"></script>
+
+
     </head>
 
     <body id="page-top">
@@ -35,98 +36,47 @@
         <jsp:include page="AdminHeader.jsp"></jsp:include>
 
     </nav>
-    <!-- End of Topbar -->
 
-    <!-- Begin Page Content -->
-    <div class="container">
-        
-        <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-            <div class="row user-row">
-                <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                    <img class="img-circle"
-                         src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                         alt="User Pic">
-                </div>
-                <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                    <strong>Cyruxx</strong><br>
-                    <span class="text-muted">User level: Administrator</span>
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".cyruxx">
-                    <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-                </div>
-            </div>
-            <div class="row user-infos cyruxx">
-                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">User information</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                                    <img class="img-circle"
-                                         src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                                         alt="User Pic">
-                                </div>
-                                <div class="col-xs-12 col-sm-10 hidden-md hidden-lg">
-                                    <strong>Cyruxx</strong><br>
-                                    <dl>
-                                        <dt>User level:</dt>
-                                        <dd>Administrator</dd>
-                                        <dt>Registered since:</dt>
-                                        <dd>11/12/2013</dd>
-                                        <dt>Topics</dt>
-                                        <dd>15</dd>
-                                        <dt>Warnings</dt>
-                                        <dd>0</dd>
-                                    </dl>
-                                </div>
-                                <div class=" col-md-12 col-lg-12 hidden-xs hidden-sm">
-                                    <strong>Cyruxx</strong><br>
-                                    <table class="table table-user-information">
-                                        <tbody>
-                                            <tr>
-                                                <td>User level:</td>
-                                                <td>Administrator</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Registered since:</td>
-                                                <td>11/12/2013</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Topics</td>
-                                                <td>15</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Warnings</td>
-                                                <td>0</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+    <div class="row">
+        <div class="col-lg-10 mb-4 col-md-6">
+            <div id="accordion" role="tablist" class="col-md-12">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+                            <div class="table-container">
+                                <table class="table table-hover table-dark">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>
+                                                <<img src="images/default_person.jpg" alt="alt"/>>
+                                            </td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </a>
                             </div>
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-sm btn-primary" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
-                            <span class="pull-right">
-                                <button class="btn btn-sm btn-warning" type="button"
-                                        data-toggle="tooltip"
-                                        data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
-                                <button class="btn btn-sm btn-danger" type="button"
-                                        data-toggle="tooltip"
-                                        data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
-                            </span>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            ...............................................................................#1
                         </div>
                     </div>
                 </div>
+
             </div>
-
-
 
         </div>
     </div>
+
+
     <!-- /.container-fluid -->
 
 </div>
@@ -185,6 +135,11 @@
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 
 <!-- Page level custom scripts -->
 <script src="js/demo/chart-area-demo.js"></script>
