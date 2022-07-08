@@ -34,7 +34,7 @@ public class SliderManager extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String service = request.getParameter("go");
-        if (service == null) {//call controller direct
+        if (service == null) {
             service = "Show";
         }
         DAO.DAOSlider daoS = new DAOSlider();
