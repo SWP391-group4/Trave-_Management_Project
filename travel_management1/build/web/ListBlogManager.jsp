@@ -72,12 +72,12 @@
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="SliderManager">
                                 <i class="fas fa-fw fa-chart-area"></i>
                                 <span>Slider Manager</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="BlogsManager">
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Blogs Manager</span></a>
@@ -121,7 +121,7 @@
                                         <!-- Project Card Example -->
                                         <div class="card shadow mb-4" style="text-align: center">
                                             <div class="card-header py-3"  >
-                                                <h6 class="m-0 font-weight-bold text-primary">Slider Home Page</h6>
+                                                <h6 class="m-0 font-weight-bold text-primary">Blogs Home Page</h6>
                                             </div>
                                             <div class="card-body">
                                                 <table class="table table-striped">
