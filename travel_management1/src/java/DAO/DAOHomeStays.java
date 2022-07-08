@@ -46,15 +46,15 @@ public class DAOHomeStays extends connectDB {
 
     public int addHomeStays(HomeStays hs) {
         int n = 0;
-        String sql = "insert into HomeStays(homeStayID,homeStayname,cateID,accountS) \n"
-                + "values (?,?,?,?)";
+        String sql = "insert into HomeStays(homeStayID,homeStayname,Status,cateID,accountS) \n"
+                + "values (?,?,2,?,?)";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, hs.getHomeStayID());
             pre.setString(2, hs.getHomeStayname());
-            pre.setString(3, hs.getCateID());
-            pre.setString(4, hs.getAccountS());
+            pre.setString(4, hs.getCateID());
+            pre.setString(5, hs.getAccountS());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
