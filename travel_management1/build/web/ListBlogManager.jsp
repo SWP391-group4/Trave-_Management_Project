@@ -123,7 +123,12 @@
                                             <div class="card-header py-3"  >
                                                 <h6 class="m-0 font-weight-bold text-primary">Blogs Home Page</h6>
                                             </div>
-                                            <div class="card-body">
+                                             <div class="card-body" style="padding:10px">
+                                                <a href="BlogsManager?go=Insert">
+                                                    <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Insert</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body" style="padding-top:0px">
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
@@ -131,6 +136,7 @@
                                                             <th scope="col">Image</th>
                                                             <th scope="col">Title</th>
                                                             <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -141,6 +147,7 @@
                                                             <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
                                                             <td>${c.title}</td>
                                                             <td><a href="BlogsManager?go=Update&blogId=${c.blogId}">Update</a></td>
+                                                            <td><a href="BlogsManager?go=Delete&blogId=${c.blogId}">Delete</a></td>
                                                         </tr>
                                                     </c:forEach>
 

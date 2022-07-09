@@ -4,8 +4,12 @@
  */
 package Controller;
 
+
+import DAO.DAOVouchers;
+import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,10 +34,33 @@ public class VoucherManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         response.setContentType("text/html;charset=UTF-8");
+        String service = request.getParameter("go");
+        if (service == null) {
+            service = "Show";
+        }
+        DAOVouchers daoV = new DAOVouchers();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-           response.sendRedirect("ListVoucherManager.jsp");
+            if ("Show".equals(service)) {
+                int count=daoV.counttotalV();
+                String pages=request.getParameter("page");
+                
+                int size=5;
+                int endPage=count/size;
+                if(count%size != 0){
+                   endPage++;
+                }
+                if(pages==null){
+                    pages="1";
+                }
+                int page= Integer.parseInt(pages);
+                List<Vouchers> list = daoV.view5PagingVouchers(page);
+                request.setAttribute("list", list);
+                request.setAttribute("endPage", endPage);
+                request.setAttribute("page", pages);
+                request.getRequestDispatcher("ListVoucherManager.jsp").forward(request, response);
+            }
         }
     }
 

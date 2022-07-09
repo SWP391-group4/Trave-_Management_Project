@@ -123,24 +123,31 @@
                                             <div class="card-header py-3"  >
                                                 <h6 class="m-0 font-weight-bold text-primary">Voucher Home Page</h6>
                                             </div>
-                                            <div class="card-body">
+                                            <div class="card-body" style="padding:10px">
+                                                <a href="VoucherManager?go=Insert">
+                                                    <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;;padding-left: 10px;padding-right: 10px">Insert</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body" style="padding-top:0px">
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Id</th>
-                                                            <th scope="col">Image</th>
-                                                            <th scope="col">Title</th>
+                                                            <th scope="col">Discount(%)</th>
+                                                                <th scope="col">Quantity</th>
                                                             <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
                                                     <c:forEach items="${list}" var="c">
                                                         <tr>
-                                                            <td>${c.blogId}</td>
-                                                            <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
-                                                            <td>${c.title}</td>
-                                                            <td><a href="BlogsManager?go=Update&blogId=${c.blogId}">Update</a></td>
+                                                            <td>${c.voucherId}</td>
+                                                            <td>${c.discount}</td>
+                                                            <td>${c.quantity}</td>
+                                                            <td><a href="VoucherManager?go=Update&voucherId=${c.voucherId}">Update</a></td>
+                                                            <td><a href="VoucherManager?go=Delete&voucherId=${c.voucherId}">Delete</a></td>
                                                         </tr>
                                                     </c:forEach>
 
@@ -155,7 +162,7 @@
                                             <div class="block-27">                                           
                                                 <ul>
                                                     <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <li class="${page==i?"active":""}"><a href="BlogsManager?page=${i}">${i}</a></li>
+                                                        <li class="${page==i?"active":""}"><a href="VoucherManager?page=${i}">${i}</a></li>
                                                         </c:forEach>                                                   
                                                 </ul>
                                             </div>
