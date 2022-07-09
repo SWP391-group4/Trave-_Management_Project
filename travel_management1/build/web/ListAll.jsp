@@ -110,41 +110,7 @@
 
                             </ul>
                         </div>
-                        <div class="sidebar-wrap ftco-animate ">
-                            <h3 class="heading mb-4">Star Rating</h3>
-                            <form method="post" class="star-rating">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                                    </label>
-                                </div>
-                            </form>
-                        </div>
+                        
                     </div><!-- END-->
 
 
@@ -166,6 +132,67 @@
                                                 <div class="one">
                                                     <h3><a href="#"></a>${o.getHomeStayname()}</h3>
                                                         ${o.cateName}
+                                                        <c:if test="${o.star==1}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                     <c:if test="${(o.star<2)&&(o.star>1)}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                       <i class="icon-star-half"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                         <c:if test="${o.star==2}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                    <c:if test="${(o.star<3)&&(o.star>2)}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                       <i class="icon-star"></i>
+                                                        <i class="icon-star-half"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                           <c:if test="${o.star==3}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                            <c:if test="${(o.star<4)&&(o.star>3)}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                       <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-half"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                    <c:if test="${o.star==4}">
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -174,6 +201,28 @@
                                                         <i class="icon-star-o"></i>
                                                         <span>8 Rating</span>
                                                     </p>
+                                                </c:if>
+                                                          <c:if test="${o.star==5}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                      <c:if test="${(o.star<5)&&(o.star>4)}">
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                       <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-half"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </c:if>
+                                                    
                                                     <c:if test="${o.status==1}">
                                                         <span class="badge bg-success text-light">
 

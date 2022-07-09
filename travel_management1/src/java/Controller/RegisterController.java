@@ -43,8 +43,7 @@ public class RegisterController extends HttpServlet {
              request.getRequestDispatcher("Register.jsp").forward(request, response);
                
         }
-        if(!password.equals(re_password)){
-               
+        if(!password.equals(re_password)){        
              String alert1 = "Password is not match re_password";
             request.setAttribute("alert1", alert1);
              request.getRequestDispatcher("Register.jsp").forward(request, response);
@@ -53,7 +52,7 @@ public class RegisterController extends HttpServlet {
             Accounts a=dao.checkAccount(user);
             if(a==null){
                 dao.signUp(user, password);
-                response.sendRedirect("");
+                response.sendRedirect("login");
             }
             else {
               String alert = "Account have exit,please try again!";
