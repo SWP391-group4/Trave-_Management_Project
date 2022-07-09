@@ -4,22 +4,25 @@
  */
 package Controller;
 
-
 import DAO.DAOVouchers;
 import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author nam
  */
+@MultipartConfig
 @WebServlet(name = "VoucherManager", urlPatterns = {"/VoucherManager"})
 public class VoucherManager extends HttpServlet {
 
@@ -34,7 +37,7 @@ public class VoucherManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         String service = request.getParameter("go");
         if (service == null) {
             service = "Show";
@@ -43,26 +46,41 @@ public class VoucherManager extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             if ("Show".equals(service)) {
-                int count=daoV.counttotalV();
-                String pages=request.getParameter("page");
-                
-                int size=5;
-                int endPage=count/size;
-                if(count%size != 0){
-                   endPage++;
+                int count = daoV.counttotalV();
+                String pages = request.getParameter("page");
+
+                int size = 5;
+                int endPage = count / size;
+                if (count % size != 0) {
+                    endPage++;
                 }
-                if(pages==null){
-                    pages="1";
+                if (pages == null) {
+                    pages = "1";
                 }
-                int page= Integer.parseInt(pages);
+                int page = Integer.parseInt(pages);
                 List<Vouchers> list = daoV.view5PagingVouchers(page);
                 request.setAttribute("list", list);
                 request.setAttribute("endPage", endPage);
                 request.setAttribute("page", pages);
                 request.getRequestDispatcher("ListVoucherManager.jsp").forward(request, response);
             }
-            if ("Insert".equals(service)) {
-                response.sendRedirect("");
+            if (service.equals("Insert")) {
+                String title = request.getParameter("title");
+                String description = request.getParameter("description");
+                String discount = request.getParameter("discount");
+                String quantity = request.getParameter("quantity");
+                int discounts = Integer.parseInt(discount);
+                int quantitys = Integer.parseInt(quantity);
+                Part part = request.getPart("image");
+                String realPart = request.getServletContext().getRealPath("/images");
+                String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                part.write(realPart + "/" + filename);
+//                String lastId1=daoV.lastVoucherId();
+//                String lastId2=daoV.lastVoucherId();
+//                lastId.substring(1,4);
+//                int lid=Integer.parseInt(lastId.substring(3))+1;
+                
+                
             }
         }
     }

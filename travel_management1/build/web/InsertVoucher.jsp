@@ -127,21 +127,22 @@
 
                                         <div class="container">
                                             <div class="login-box">
-                                                <form>
+                                                <form  action="VoucherManager" method="post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="go" value="Insert">
                                                     <div class="user-box">
-                                                        <input type="text" name="" required="" maxlength="50">
+                                                        <input type="text" name="title" required="" maxlength="50">
                                                         <label>Title</label>
                                                     </div>
                                                     <div class="user-box">
-                                                        <input type="text" required="" maxlength="500">
+                                                        <input type="text" name="description" required="" maxlength="500">
                                                         <label>Description</label>
                                                     </div>
                                                     <div class="user-box">
-                                                        <input type="number" name="" required="" min="0" max="100" >
+                                                        <input type="number" name="discount" required="" min="0" max="100" >
                                                         <label>Discount</label>
                                                     </div>
                                                     <div class="user-box">
-                                                        <input type="number" name="" required="" min="0">
+                                                        <input type="number" name="quantity" required="" min="0">
                                                         <label>Quantity</label>
                                                     </div>
                                                     <div class="user-box">
@@ -150,15 +151,14 @@
                                                     <br>
                                                     <br>
                                                     <div  style="font-size:14px;text-align: left;background: #fff"> 
-                                                        <input type="file" name="" required="">
+                                                        <input type="file" name="image" required="">
                                                     </div>                                                
-                                                    <a href="#">
+                                                    
                                                         <span></span>
                                                         <span></span>
                                                         <span></span>
                                                         <span></span>
-                                                        Insert
-                                                    </a>
+                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Insert" name="submit">                                                   
                                                 </form>
                                             </div>
 

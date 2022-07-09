@@ -100,10 +100,12 @@ public class DAOVouchers extends DBContext.connectDB {
 
     public static void main(String[] args) {
         DAOVouchers dao = new DAOVouchers();
-        List<Vouchers> list = dao.view5PagingVouchers(1);
-        for (Vouchers o : list) {
-            System.out.println(o);
-        }
-        System.out.println(dao.lastVoucherId());
+        String lastId1 = dao.lastVoucherId().substring(0,6);
+        String s1=lastId1.substring(0,3);
+        String s2=lastId1.substring(3);
+        int numnews=Integer.parseInt(s2)+90;
+        String n=Integer.toString(numnews);
+        String newID=s1.concat(n);
+        System.out.println(newID);
     }
 }
