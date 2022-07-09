@@ -92,6 +92,7 @@ public int status;
         this.description = description;
         this.video = video;
         this.status = status;
+        
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price, double IncurredCost, String description, String video) {
