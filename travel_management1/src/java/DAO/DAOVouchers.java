@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * @author Nam
  */
 public class DAOVouchers extends DBContext.connectDB {
+
     public List<Vouchers> viewtop3Vouchers() {
         List<Vouchers> list = new ArrayList<Vouchers>();
         String sql = "select  top 3 * from voucher\n"
@@ -33,7 +34,7 @@ public class DAOVouchers extends DBContext.connectDB {
                 int discount = rs.getInt(5);
                 int quantity = rs.getInt(6);
                 String accountM = rs.getString(7);
-                Vouchers obj = new Vouchers(voucherId, title, description,image,discount,quantity,accountM);
+                Vouchers obj = new Vouchers(voucherId, title, description, image, discount, quantity, accountM);
                 list.add(obj);
             }
         } catch (SQLException ex) {
@@ -41,7 +42,8 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return list;
     }
-     public List<Vouchers> view5PagingVouchers(int index) {
+
+    public List<Vouchers> view5PagingVouchers(int index) {
         List<Vouchers> l = new ArrayList<>();
         String sql = "select * from Voucher\n"
                 + "order by VoucherId\n"
@@ -68,6 +70,7 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return l;
     }
+
     public int counttotalV() {
         String sql = "select count(*) from Voucher ";
         ResultSet rs = getData(sql);
@@ -80,12 +83,27 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return 0;
     }
+
+    public String lastVoucherId() {
+        String sql = "select top 1 VoucherId from Voucher\n"
+                + "order by VoucherId desc";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
-        DAOVouchers dao=new DAOVouchers();
-        List<Vouchers> list=dao.view5PagingVouchers(1);
-        for (Vouchers o: list) {
+        DAOVouchers dao = new DAOVouchers();
+        List<Vouchers> list = dao.view5PagingVouchers(1);
+        for (Vouchers o : list) {
             System.out.println(o);
         }
-        System.out.println(dao.counttotalV());
+        System.out.println(dao.lastVoucherId());
     }
 }
