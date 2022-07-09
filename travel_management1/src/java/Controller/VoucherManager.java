@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOVouchers;
+import Entity.Marketing;
 import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -83,7 +85,13 @@ public class VoucherManager extends HttpServlet {
                 int numnews = Integer.parseInt(s2) + 1;
                 String n = Integer.toString(numnews);
                 String newID = s1.concat(n);
-                
+                //marketingid
+                HttpSession session = request.getSession();
+                Marketing mar = (Marketing) session.getAttribute("mar");
+                String marketingid=mar.getAccountM();
+                Vouchers voucher =new Vouchers(newID,title,description,filename,discounts,quantitys,marketingid);
+                daoV.addVouchers(voucher);
+                response.sendRedirect("VoucherManager");
             }
         }
     }

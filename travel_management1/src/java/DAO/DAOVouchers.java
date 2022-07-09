@@ -18,6 +18,33 @@ import java.util.ArrayList;
  */
 public class DAOVouchers extends DBContext.connectDB {
 
+    public int addVouchers(Vouchers v) {
+        int n = 0;
+        String sql = "INSERT INTO [dbo].[Voucher]\n"
+                + "           ([VoucherId]\n"
+                + "           ,[Title]\n"
+                + "           ,[Description]\n"
+                + "           ,[Image]\n"
+                + "           ,[Discount]\n"
+                + "           ,[Quantity]\n"
+                + "           ,[AccountM])"
+                + "     VALUES(?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, v.getVoucherId() );
+            pre.setString(2, v.getTitle() );
+            pre.setString(3, v.getDescription());
+            pre.setString(4, v.getImage());
+            pre.setInt(5, v.getDiscount());
+            pre.setInt(6, v.getQuantity());
+            pre.setString(7, v.getAccountM());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+
     public List<Vouchers> viewtop3Vouchers() {
         List<Vouchers> list = new ArrayList<Vouchers>();
         String sql = "select  top 3 * from voucher\n"
@@ -100,12 +127,13 @@ public class DAOVouchers extends DBContext.connectDB {
 
     public static void main(String[] args) {
         DAOVouchers dao = new DAOVouchers();
-        String lastId1 = dao.lastVoucherId().substring(0,6);
-        String s1=lastId1.substring(0,3);
-        String s2=lastId1.substring(3);
-        int numnews=Integer.parseInt(s2)+111;
-        String n=Integer.toString(numnews);
-        String newID=s1.concat(n);
+        String lastId1 = dao.lastVoucherId().substring(0, 6);
+        String s1 = lastId1.substring(0, 3);
+        String s2 = lastId1.substring(3);
+        int numnews = Integer.parseInt(s2) + 111;
+        String n = Integer.toString(numnews);
+        String newID = s1.concat(n);
         System.out.println(newID);
+        dao.addVouchers(new Vouchers("h1","h","h","h",3,4,"bautroikhongem"));
     }
 }
