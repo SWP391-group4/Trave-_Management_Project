@@ -61,6 +61,9 @@ public class VoucherManager extends HttpServlet {
                 request.setAttribute("page", pages);
                 request.getRequestDispatcher("ListVoucherManager.jsp").forward(request, response);
             }
+            if ("Insert".equals(service)) {
+                response.sendRedirect("InsertVoucher.jsp");
+            }
         }
     }
 
