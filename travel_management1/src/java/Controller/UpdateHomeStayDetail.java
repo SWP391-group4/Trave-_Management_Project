@@ -4,8 +4,11 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
+import Entity.Categories;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +36,9 @@ public class UpdateHomeStayDetail extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
          HttpSession session = request.getSession();
+           DAOHomeStays dao = new DAOHomeStays();
+          List<Categories> listC=dao.ListCate();
+            request.setAttribute("listC", listC);
      request.getRequestDispatcher("/HomeStayUpdate.jsp").forward(request, response);
     }
 

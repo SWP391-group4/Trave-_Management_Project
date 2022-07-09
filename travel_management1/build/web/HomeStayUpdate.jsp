@@ -47,13 +47,14 @@
                         <label for="firstname">HomeStay Name</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Brown" />
                     </div>
+                <c:forEach items="${listC}" var="c">
                     <div class="form-group col-md-6">
                         <label for="inputState6">Categories</label>
                         <select id="inputState6" class="form-control">
-                            <option selected="">Choose...</option>
-                            <option>...</option>
+                            <option selected="${c.cateId}">${c.cateName}</option>
                         </select>
                     </div>
+                    </c:forEach>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail4">City</label>

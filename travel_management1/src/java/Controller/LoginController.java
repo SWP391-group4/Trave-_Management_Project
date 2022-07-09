@@ -55,6 +55,9 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOAccounts dao = new DAOAccounts();
+
+        HttpSession session = request.getSession();
+
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         Accounts acc = dao.search(account, password);
@@ -64,7 +67,6 @@ public class LoginController extends HttpServlet {
             request.setAttribute("noti", noti);
             response.sendRedirect("Login.jsp");
         } else {
-            HttpSession session = request.getSession();
             int type = acc.getType();
             request.getSession().setMaxInactiveInterval(600);
 
@@ -112,7 +114,12 @@ public class LoginController extends HttpServlet {
                 default:
                     throw new AssertionError();
             }
-
+            account = (String) session.getAttribute("userid");
+            if (account == null) {
+                response.sendRedirect("Login.jsp");
+                return; 
+            }
+            
         }
 
     }

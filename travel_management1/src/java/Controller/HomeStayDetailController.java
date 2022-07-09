@@ -65,6 +65,8 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("detail", h);
         request.setAttribute("extion", e);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
+////insert Comment
+
 
     }
 
