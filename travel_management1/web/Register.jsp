@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Register</title>
@@ -43,7 +43,7 @@
                                 <!--                       
                                 -->                        <!--
                                 -->                        <h2 class="form-title">Create account</h2><!--
-                                -->                         <p>${alert}</p> 
+                                -->                      
                             <p>${alert1}</p>
                             <p>${alert5}</p>
                             <div class="form-group">
@@ -60,9 +60,12 @@
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
+                        
                             <div class="form-group">
-                                <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
-                            </div>
+                                  
+                                      <input  onclick="" type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                          
+                                  </div>
                         </form>
                         <p class="loginhere">
                             Have already an account ? <a href="Login.jsp" class="loginhere-link">Login here</a>
@@ -70,7 +73,13 @@
                     </div>
                 </div>
             </section>
+<script type="text/javascript">
 
+         function testAlertDialog()  {
+              alert("Something Error!");
+         }
+
+      </script>
         </div>
 
         <!-- JS -->
