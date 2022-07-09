@@ -88,16 +88,16 @@ public class DAOBlogs extends connectDB {
         return list;
     }
 
-     public List<Blogs> view3PagingBlogses(int index) {
+     public List<Blogs> view5PagingBlogses(int index) {
         List<Blogs> l = new ArrayList<>();
         String sql = "select * from Blogs\n"
                 + "order by BlogId\n"
                 + "offset ? rows\n"
-                + "fetch next 3 rows only";
+                + "fetch next 5 rows only";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 3);
+            pre.setInt(1, (index - 1) * 5);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 l.add(new Blogs(
@@ -128,7 +128,7 @@ public class DAOBlogs extends connectDB {
             
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
-        List<Blogs> list = dao.view3PagingBlogses(1);
+        List<Blogs> list = dao.view5PagingBlogses(1);
         for (Blogs o : list) {
             System.out.println(o);
         }

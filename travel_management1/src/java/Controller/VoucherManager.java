@@ -4,11 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOBlogs;
-import Entity.Blogs;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nam
  */
-@WebServlet(name = "BlogsManager", urlPatterns = {"/BlogsManager"})
-public class BlogsManager extends HttpServlet {
+@WebServlet(name = "VoucherManager", urlPatterns = {"/VoucherManager"})
+public class VoucherManager extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,34 +31,10 @@ public class BlogsManager extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String service = request.getParameter("go");
-        if (service == null) {
-            service = "Show";
-        }
-        DAOBlogs daoB = new DAOBlogs();
-        response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            if ("Show".equals(service)) {
-                int count=daoB.counttotalB();
-                String pages=request.getParameter("page");
-                
-                int size=5;
-                int endPage=count/size;
-                if(count%size != 0){
-                   endPage++;
-                }
-                if(pages==null){
-                    pages="1";
-                }
-                int page= Integer.parseInt(pages);
-                List<Blogs> list = daoB.view5PagingBlogses(page);
-                request.setAttribute("list", list);
-                request.setAttribute("endPage", endPage);
-                request.setAttribute("page", pages);
-                request.getRequestDispatcher("ListBlogManager.jsp").forward(request, response);
-            }
+            /* TODO output your page here. You may use following sample code. */
+           response.sendRedirect("ListVoucherManager.jsp");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

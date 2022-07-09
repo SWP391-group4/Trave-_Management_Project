@@ -5,6 +5,7 @@
 package DAO;
 
 import Entity.Vouchers;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,11 +41,51 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return list;
     }
+     public List<Vouchers> view5PagingVouchers(int index) {
+        List<Vouchers> l = new ArrayList<>();
+        String sql = "select * from Voucher\n"
+                + "order by VoucherId\n"
+                + "offset ? rows\n"
+                + "fetch next 5 rows only";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 5);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                l.add(new Vouchers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+    public int counttotalV() {
+        String sql = "select count(*) from Voucher ";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOVouchers dao=new DAOVouchers();
-        List<Vouchers> list=dao.viewtop3Vouchers();
+        List<Vouchers> list=dao.view5PagingVouchers(1);
         for (Vouchers o: list) {
             System.out.println(o);
         }
+        System.out.println(dao.counttotalV());
     }
 }
