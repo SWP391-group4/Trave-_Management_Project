@@ -103,7 +103,7 @@ public class DAOVouchers extends DBContext.connectDB {
         String lastId1 = dao.lastVoucherId().substring(0,6);
         String s1=lastId1.substring(0,3);
         String s2=lastId1.substring(3);
-        int numnews=Integer.parseInt(s2)+90;
+        int numnews=Integer.parseInt(s2)+111;
         String n=Integer.toString(numnews);
         String newID=s1.concat(n);
         System.out.println(newID);

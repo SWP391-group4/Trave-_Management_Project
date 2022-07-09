@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/java/Controller/CustomerProfileController.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>147</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminManageCustomerList.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminSearchCustomer.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminManageSupplierList.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/DAO/DAOCustomers.java</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/web/AdminManageSearch.jsp</file>
-            <file>file:/D:/FPTU/Semester_5/SWP391/SWP_Project/Trave-_Management_Project/travel_management1/src/java/Controller/AdminSearchCustomerController.java</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/src/java/Controller/VoucherManager.java</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/web/css/insertnew.css</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/src/java/DAO/DAOVouchers.java</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/web/MarketingProfile.jsp</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/web/InsertVoucher.jsp</file>
+            <file>file:/D:/FPTU/Sem5/SWP391/Travel/Trave-_Management_Project/travel_management1/src/java/Controller/MarketingProfileController.java</file>
         </group>
     </open-files>
 </project-private>

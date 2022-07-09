@@ -71,15 +71,18 @@ public class VoucherManager extends HttpServlet {
                 String quantity = request.getParameter("quantity");
                 int discounts = Integer.parseInt(discount);
                 int quantitys = Integer.parseInt(quantity);
+                //image
                 Part part = request.getPart("image");
                 String realPart = request.getServletContext().getRealPath("/images");
                 String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                 part.write(realPart + "/" + filename);
-//                String lastId1=daoV.lastVoucherId();
-//                String lastId2=daoV.lastVoucherId();
-//                lastId.substring(1,4);
-//                int lid=Integer.parseInt(lastId.substring(3))+1;
-                
+                //id
+                String lastId1 = daoV.lastVoucherId().substring(0, 6);
+                String s1 = lastId1.substring(0, 3);
+                String s2 = lastId1.substring(3);
+                int numnews = Integer.parseInt(s2) + 1;
+                String n = Integer.toString(numnews);
+                String newID = s1.concat(n);
                 
             }
         }
