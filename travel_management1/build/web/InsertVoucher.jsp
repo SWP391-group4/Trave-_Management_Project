@@ -122,52 +122,13 @@
                                         <div class="card shadow mb-4" style="text-align: center">
                                             <div class="card-header py-3"  >
                                                 <h6 class="m-0 font-weight-bold text-primary"> Insert Voucher </h6>
-                                            </div>
-                                            <div class="card-body" style="padding:10px">
-                                                <a href="VoucherManager?go=Insert">
-                                                    <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;;padding-left: 10px;padding-right: 10px">Insert</button>
-                                                </a>
-                                            </div>
-                                            <div class="card-body" style="padding-top:0px">
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Id</th>
-                                                            <th scope="col">Discount(%)</th>
-                                                                <th scope="col">Quantity</th>
-                                                            <th scope="col">Update</th>
-                                                            <th scope="col">Delete</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                    <c:forEach items="${list}" var="c">
-                                                        <tr>
-                                                            <td>${c.voucherId}</td>
-                                                            <td>${c.discount}</td>
-                                                            <td>${c.quantity}</td>
-                                                            <td><a href="VoucherManager?go=Update&voucherId=${c.voucherId}">Update</a></td>
-                                                            <td><a href="VoucherManager?go=Delete&voucherId=${c.voucherId}">Delete</a></td>
-                                                        </tr>
-                                                    </c:forEach>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row mt-5">
-                                        <div class="col text-center">
-                                            <div class="block-27">                                           
-                                                <ul>
-                                                    <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <li class="${page==i?"active":""}"><a href="VoucherManager?page=${i}">${i}</a></li>
-                                                        </c:forEach>                                                   
-                                                </ul>
+                                            </div>                                           
+                                            <div class="container">
+                                                hí
                                             </div>
                                         </div>
                                     </div>
+                                  
                                 </div>
                             </div>
                         </div>
