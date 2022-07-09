@@ -78,7 +78,7 @@ public class VoucherManager extends HttpServlet {
                 String realPart = request.getServletContext().getRealPath("/images");
                 String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                 part.write(realPart + "/" + filename);
-                //id
+                //voucherid
                 String lastId1 = daoV.lastVoucherId().substring(0, 6);
                 String s1 = lastId1.substring(0, 4);
                 String s2 = lastId1.substring(4);
