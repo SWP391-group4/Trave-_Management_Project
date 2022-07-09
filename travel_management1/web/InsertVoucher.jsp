@@ -123,17 +123,26 @@
                                     <div class="card shadow mb-4" style="text-align: center">
                                         <div class="card-header py-3"  >
                                             <h6 class="m-0 font-weight-bold text-primary"> Insert Voucher </h6>
-                                        </div>                                           
+                                        </div>                 
+
                                         <div class="container">
                                             <div class="login-box">
                                                 <form>
                                                     <div class="user-box">
-                                                        <input type="text" name="" required="">
-                                                        <label>Username</label>
+                                                        <input type="text" name="" required="" maxlength="50">
+                                                        <label>Title</label>
                                                     </div>
                                                     <div class="user-box">
-                                                        <input type="text" name="" required="">
-                                                        <label>Password</label>
+                                                        <input type="text" required="" maxlength="500">
+                                                        <label>Description</label>
+                                                    </div>
+                                                    <div class="user-box">
+                                                        <input type="number" name="" required="" min="0" max="100" >
+                                                        <label>Discount</label>
+                                                    </div>
+                                                    <div class="user-box">
+                                                        <input type="number" name="" required="" min="0">
+                                                        <label>Quantity</label>
                                                     </div>
                                                     <div class="user-box">
                                                         <label>Image</label>
@@ -142,7 +151,7 @@
                                                     <br>
                                                     <div  style="font-size:14px;text-align: left;background: #fff"> 
                                                         <input type="file" name="" required="">
-                                                    </div>
+                                                    </div>                                                
                                                     <a href="#">
                                                         <span></span>
                                                         <span></span>
@@ -152,8 +161,8 @@
                                                     </a>
                                                 </form>
                                             </div>
-                                        </div>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
