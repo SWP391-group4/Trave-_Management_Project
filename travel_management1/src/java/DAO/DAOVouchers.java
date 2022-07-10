@@ -31,8 +31,8 @@ public class DAOVouchers extends DBContext.connectDB {
                 + "     VALUES(?,?,?,?,?,?,?)";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, v.getVoucherId() );
-            pre.setString(2, v.getTitle() );
+            pre.setString(1, v.getVoucherId());
+            pre.setString(2, v.getTitle());
             pre.setString(3, v.getDescription());
             pre.setString(4, v.getImage());
             pre.setInt(5, v.getDiscount());
@@ -123,6 +123,19 @@ public class DAOVouchers extends DBContext.connectDB {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public int removeVoucher(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[Voucher]\n"
+                + "      WHERE VoucherId='" + id+"'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
     }
 
     public static void main(String[] args) {

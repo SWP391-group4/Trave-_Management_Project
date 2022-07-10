@@ -67,7 +67,7 @@ public class VoucherManager extends HttpServlet {
                 request.getRequestDispatcher("ListVoucherManager.jsp").forward(request, response);
             }
             if (service.equals("Insert")) {
-                String title = request.getParameter("title");
+                String title = request.getParameter("title");               
                 String description = request.getParameter("description");
                 String discount = request.getParameter("discount");
                 String quantity = request.getParameter("quantity");
@@ -88,9 +88,14 @@ public class VoucherManager extends HttpServlet {
                 //marketingid
                 HttpSession session = request.getSession();
                 Marketing mar = (Marketing) session.getAttribute("mar");
-                String marketingid=mar.getAccountM();
-                Vouchers voucher =new Vouchers(newID,title,description,filename,discounts,quantitys,marketingid);
+                String marketingid = mar.getAccountM();
+                Vouchers voucher = new Vouchers(newID, title, description, filename, discounts, quantitys, marketingid);
                 daoV.addVouchers(voucher);
+                response.sendRedirect("VoucherManager");
+            }
+            if (service.equals("Delete")) {
+                String voucherId = request.getParameter("voucherId");    
+                int n = daoV.removeVoucher(voucherId);
                 response.sendRedirect("VoucherManager");
             }
         }

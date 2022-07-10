@@ -134,7 +134,8 @@
                                                         <tr>
                                                             <th scope="col">Id</th>
                                                             <th scope="col">Discount(%)</th>
-                                                                <th scope="col">Quantity</th>
+                                                            <th scope="col">Quantity</th>
+                                                            <th scope="col">Image</th>
                                                             <th scope="col">Update</th>
                                                             <th scope="col">Delete</th>
                                                         </tr>
@@ -146,6 +147,7 @@
                                                             <td>${c.voucherId}</td>
                                                             <td>${c.discount}</td>
                                                             <td>${c.quantity}</td>
+                                                            <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
                                                             <td><a href="VoucherManager?go=Update&voucherId=${c.voucherId}">Update</a></td>
                                                             <td><a href="VoucherManager?go=Delete&voucherId=${c.voucherId}">Delete</a></td>
                                                         </tr>
