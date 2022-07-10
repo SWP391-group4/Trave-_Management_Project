@@ -480,8 +480,7 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getHomeStayforSUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select h.HomeStayId, h.HomeStayName,  h.AccountS,\n"
-                + "cat.CateName,h.status \n"
+        String sql = "select * \n"
                 + "from HomeStays h \n"
                 + "inner join Categories cat\n"
                 + "on h.CateId = cat.CateId\n"
@@ -495,8 +494,9 @@ public class DAOHomeStays extends connectDB {
                 list.add(new HomeStays(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4), rs.getInt(5)));
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

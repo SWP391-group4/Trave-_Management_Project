@@ -7,6 +7,7 @@ package Controller;
 import DAO.DAOAdmins;
 import DAO.DAOSupplier;
 import DAO.DAOSupplierTemp;
+import Entity.HomeStays;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -65,6 +66,12 @@ public class AdminPendingRegisterController extends HttpServlet {
             endPage++;
         }
        
+        //-----------------------
+        String supplierId = request.getParameter("supplierId");
+        if(supplierId!=null) {
+            List<HomeStays> list = daoSup.getListHoneStayBySupplierId(supplierId);
+            request.setAttribute("listHomestay", list);
+        }
         //-----------------------
         List<Suppliers> listSup = daoSup.paggingPending(index);
         

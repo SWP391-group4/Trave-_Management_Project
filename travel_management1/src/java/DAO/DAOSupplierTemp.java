@@ -430,9 +430,30 @@ public class DAOSupplierTemp extends connectDB {
         return l;
     }
 
+    public List<HomeStays> getListHoneStayBySupplierId(String supplierId) {
+        List<HomeStays> l = new ArrayList<>();
+        String sql = "Select * from homestays where accountS = '" + supplierId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                l.add(new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5)));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
+
     public static void main(String[] args) {
         DAOSupplierTemp dao = new DAOSupplierTemp();
-         List<Suppliers> list = dao.paggingPending(1);
-         System.out.println(list.size());
+        List<Suppliers> list = dao.paggingPending(1);
+        System.out.println(list.size());
     }
 }

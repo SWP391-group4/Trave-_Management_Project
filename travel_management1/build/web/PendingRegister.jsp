@@ -89,6 +89,7 @@
                                         <td>
                                             <form action="AdminPendingRegister">
                                                 <input type="hidden" name="supplierId" value="${o.accountS}">
+                                                <input type="hidden" name="index" value="${tag}">
                                                 <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
                                                     <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
                                                     </svg></button>
@@ -148,52 +149,27 @@
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Pending Homestay</h6>
                     </div>
-                    <div class="card-body " id="supplierPreview" style="display: block" >
+                    <c:forEach items="${listHomestay}" var="o">
+                        <div class="card-body " id="supplierPreview" style="display: block" >
 
-                        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-                        <div class="container bootdey flex-grow-1 container-p-y ">
+                            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+                            <div class="container bootdey flex-grow-1 container-p-y ">
 
-                            <div class="media align-items-center py-3 mb-3 ">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
-                                <div class="media-body ml-4 col-md-8">
-                                    <h4 class="font-weight-bold mb-0">a</h4>
-                                    <div class="text-muted mb-2">a}</div>
-                                    <div class="text-muted mb-2">a</div>
-                                    <div class="text-muted mb-2"></div>
-                                    <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
-                            </div>
-
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <table class="table user-view-table m-0">
-                                        <tbody>
-                                            <tr>
-                                                <td>Service name:</td>
-                                                <td>a</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Type:</td>
-                                                <td>aa</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Evaluate:</td>
-                                                <td>a</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>City:</td>
-                                                <td>Ha Noi</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="media align-items-center py-3 mb-3 ">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
+                                    <div class="media-body ml-4 col-md-8">
+                                        <h4 class="font-weight-bold mb-0">${o.homeStayname}</h4>
+                                        <div class="text-muted mb-2">${o.homeStayname}</div>
+                                        <div class="text-muted mb-2">${o.homeStayname}</div>
+                                        <div class="text-muted mb-2"></div>
+                                        <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
                                 </div>
-
-                            </div>
-                            <div>
-                                <input type="submit" class="btn btn-success" value="View Detail" src="SupplierDetail.jsp">
+                                <div>
+                                    <input type="submit" class="btn btn-success" value="View Detail" src="SupplierDetail.jsp">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
 
             </div>
