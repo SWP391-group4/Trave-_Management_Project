@@ -66,32 +66,62 @@
                     <div class="form-group col-md-6">
                         <label for="inputCompany5">Specific</label>
                         <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
-                        <label for="inputState5">Status</label>
-                        <select id="inputState5" class="form-control">
-                            <option selected="">Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-                   <div class="form-group col-md-6">
-                        <label   for="inputCompany5">Ward</label>
-                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
                         <label for="inputState6">Categories</label>    
                         <select id="inputState6" class="form-control">
                               <c:forEach items="${listC}" var="c">
                             <option selected="${c.cateId}">${c.cateName}</option>
                                </c:forEach>
                         </select> 
-                    </div>                  
-                     <div class="form-group col-md-2 "> 
-                         <label for="inputState5">BedQ</label>                      
-                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
-                            <label for="inputState5">BedRoomQ</label>                      
-                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
-                            <label for="inputState5">BathRoomQ</label>                      
-                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
-                       
+                        
                     </div>
+                   <div class="form-group col-md-6">
+                        <label   for="inputCompany5">Ward</label>
+                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
+                        <label for="inputState5">Status</label>
+                        <select id="inputState5" class="form-control">
+                            <option selected="">Choose...(present status)</option>
+                            <option>0 : </option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>                  
+                    
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 "> 
+                            <label for="inputState5">Kitchen</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Kitchen" />
+                            <label for="inputState5">LivingRoomQty</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Living Room" />
+                    </div>
+                    <div class="form-group col-md-4">
+                            <label for="inputState5">BedRoomQ</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed Room" />
+                            <label for="inputState5">BedQty</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed" />
+                    </div> 
+                    <div class="form-group col-md-4">
+                            <label for="inputState5">BathRoomQ</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bath Room" />
+                    </div> 
+                    <div class="form-group col-md-6">
+                            <label for="inputState5">CheckIn</label>                      
+                                <input type="datetime-local" class="form-control" id="inputCompany5" placeholder="Check-in Date and time" />
+                            <label for="inputState5">Price</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" />
+                    </div> 
+                    <div class="form-group col-md-6">
+                            <label for="inputState5">CheckOut</label>                      
+                                <input type="datetime-local" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" />
+                            <label for="inputState5">IncurredCost</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="" />
+                    </div>  
+                </div>
+                <div class="form-row">
+                    <label for="inputState5">Video</label>                      
+                                <input type="url" class="form-control" id="inputCompany5" placeholder="Input URL video" />
+                </div>
+                
 <!--                <hr class="my-4" />
                 <div class="row mb-4">
                     <div class="col-md-6">
