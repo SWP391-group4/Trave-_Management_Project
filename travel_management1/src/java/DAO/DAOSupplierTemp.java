@@ -439,22 +439,21 @@ public class DAOSupplierTemp extends connectDB {
                 l.add(new HomeStays(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5)));
+                        rs.getInt(5)));
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOSupplierTemp.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return l;
     }
 
-    
     public static void main(String[] args) {
         DAOSupplierTemp dao = new DAOSupplierTemp();
         List<Suppliers> list = dao.paggingPending(1);
-        System.out.println(list.size());
+        List<HomeStays> l = dao.getListHoneStayBySupplierId("123456cainha");
+        System.out.println(l.size());
     }
 }

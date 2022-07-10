@@ -72,32 +72,33 @@
                             <tbody>
                                 <c:forEach items="${list}" var="o">                               
                                     <tr>
+                                <form action="AdminPendingRegister" method="get">
+                                    <td>${o.firstName} ${o.lastName}</td>
+                                    <td>${o.email}</td>
+                                    <td>${o.phone}</td>
+                                    <td><button type="submit" class="btn btn-warning" >
+                                            <a href="PendingSupplier.jsp">
+                                                View
+                                            </a>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                        <button type="submit" class="btn btn-success">Accept</button>
+                                    </td>
+                                    <td>
 
-                                        <td>${o.firstName} ${o.lastName}</td>
-                                        <td>${o.email}</td>
-                                        <td>${o.phone}</td>
-                                        <td><button type="submit" class="btn btn-warning" >
-                                                <a href="SupplierDetail?homestay=">
-                                                    View
-                                                </a>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                            <button type="submit" class="btn btn-success">Accept</button>
-                                        </td>
-                                        <td>
-                                            <form action="AdminPendingRegister" method="get">
-                                                <input type="hidden" name="supplierId" value="${o.accountS}">
-                                                <input type="hidden" name="index" value="${tag}">
-                                                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                                                    </svg></button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <input type="hidden" name="supplierId" value="${o.accountS}">
+                                        <input type="hidden" name="index" value="${tag}">
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                            </svg></button>
 
-                                </c:forEach>
+                                    </td>
+                                </form>
+                                </tr>
+
+                            </c:forEach>
                             </tbody>
 
                         </table>
@@ -157,7 +158,6 @@
                             <div class="card-body " id="supplierPreview" style="display: block" >
                                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                                 <div class="container bootdey flex-grow-1 container-p-y ">
-
                                     <div class="media align-items-center py-3 mb-3 ">
                                         <img src="images/hotel-1.jpg" alt="" class="col-md-5">
                                         <div class="media-body ml-4 col-md-7">
