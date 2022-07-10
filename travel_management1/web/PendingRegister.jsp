@@ -36,12 +36,10 @@
 
     <div class="container-fluid">
 
-
-
         <div class="row">
 
             <div class="col-lg-7">
-
+                
                 <!-- Supplier List -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
@@ -57,8 +55,6 @@
                     <div class="card-body col-md-12">
 
                         <table class="table table-striped">
-
-
                             <thead>
                                 <tr>
 
@@ -77,7 +73,7 @@
                                     <td>${o.email}</td>
                                     <td>${o.phone}</td>
                                     <td><button type="submit" class="btn btn-warning" >
-                                            <a href="PendingSupplier.jsp">
+                                            <a href="PendingSupplier?supplierId=${o.accountS}">
                                                 View
                                             </a>
                                         </button>

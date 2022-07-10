@@ -15,6 +15,9 @@
 
         <div class="container">
             <div class="row">
+                <div class="row">
+                    <a href="AdminPendingRegister">< Back</a>
+                </div>
                 <div class="col-12">
                     <!-- Page title -->
                     <div class="my-5">
@@ -32,33 +35,33 @@
                                         <!-- First Name -->
                                         <div class="col-md-6">
                                             <label readonly class="form-label">Supplier Account</label>
-                                            <input readonly type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="First name" value="${supplier.accountS}">
                                         </div>
                                         <div class="col-md-6">
                                         </div>
                                         <div class="col-md-6">
                                             <label readonly class="form-label">First Name *</label>
-                                            <input readonly type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="First name" value="${supplier.firstName}">
                                         </div>
                                         <!-- Last name -->
                                         <div class="col-md-6">
                                             <label readonly class="form-label">Last Name *</label>
-                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Last name" value="${supplier.lastName}">
                                         </div>
                                         <!-- Phone number -->
                                         <div class="col-md-6">
                                             <label readonly class="form-label">Phone number *</label>
-                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="${supplier.phone}">
                                         </div>
                                         <!-- Mobile number -->
                                         <div class="col-md-6">
                                             <label readonly class="form-label">Fax</label>
-                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="${supplier.fax}">
                                         </div>
                                         <!-- Email -->
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">Email *</label>
-                                            <input readonly type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
+                                            <input readonly type="email" class="form-control" id="inputEmail4" value="${supplier.email}">
                                         </div>
 
 
@@ -83,24 +86,59 @@
                                 </div>
                             </div>
                         </div> <!-- Row END -->
-                        <div class="container">
-                            <div class="row col-md-10">
-                                <div class="col-md-6 mb-4">
-                                    <img src="images/hotel-1.jpg" alt="alt" class="w-100"/>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <img src="images/hotel-1.jpg" alt="alt" class="w-100"/>
+
+                        <div class="row mb-5 gx-5">
+                            <!-- Contact detail -->
+                            <div class="col-xxl-8 mb-5 mb-xxl-0">
+                                <div class="bg-secondary-soft px-4 py-5 rounded">
+                                    <div class="row g-3">
+                                        <h4 class="mb-4 mt-0">Address</h4>
+                                        <!-- First Name -->
+
+                                        <div class="col-md-6">
+                                            <label readonly class="form-label">City *</label>
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="First name" value="${supAddress.city}">
+                                        </div>
+                                        <!-- Last name -->
+                                        <div class="col-md-6">
+                                            <label readonly class="form-label">District *</label>
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Last name" value="${supAddress.district}">
+                                        </div>
+                                        <!-- Phone number -->
+                                        <div class="col-md-6">
+                                            <label readonly class="form-label">Ward *</label>
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="${supAddress.ward}">
+                                        </div>
+                                        <!-- Mobile number -->
+                                        <div class="col-md-6">
+                                            <label readonly class="form-label">Specific</label>
+                                            <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="${supAddress.specific}">
+                                        </div>
+                                        <!-- Email -->
+
+
+
+                                    </div> <!-- Row END -->
                                 </div>
                             </div>
-                        </div>
-
+                            <!-- Upload profile -->
+                            <div class="col-xxl-4">
+                                <div class="bg-secondary-soft px-4 py-5 rounded">
+                                    <h4 class="mb-4 mt-0 text-center">Citizen Identify</h4>
+                                    <div class="row g-3">
+                                        <img src="images/hotel-1.jpg" alt="alt" class="w-100"/>
+                                        <img src="images/hotel-2.jpg" alt="alt" class="w-100"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
 
 
                 </div> <!-- Row END -->
+                
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                    <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                    <button type="button" class="btn btn-success btn-lg">Activate Account</button>
                 </div>
                 </form> <!-- Form END -->
             </div>

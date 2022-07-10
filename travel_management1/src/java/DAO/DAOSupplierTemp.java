@@ -324,6 +324,28 @@ public class DAOSupplierTemp extends connectDB {
         return null;
     }
 
+    public Suppliers getSupplierById(String supplierId) {
+        String sql = "select * from suppliers where accountS = '" + supplierId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Suppliers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public Suppliers getSupplier(String homestayId) {
         String sql = "select * from suppliers s inner join homestays h on s.accountS = h.accountS where homestayId = '" + homestayId + "'";
         ResultSet rs = getData(sql);
