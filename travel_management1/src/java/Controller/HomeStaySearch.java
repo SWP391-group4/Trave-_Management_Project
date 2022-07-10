@@ -35,15 +35,33 @@ public class HomeStaySearch extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String txtSearch = request.getParameter("txt"); // get du lieu nhap vao
-           String txtSearchname = request.getParameter("txtname"); // get du lieu nhap vao
+        String txtSearch = request.getParameter("txt"); // get du lieu nhap vao
+        String txtSearchname = request.getParameter("txtname"); 
+        String cateID = request.getParameter("cid");
+        String indexPage = request.getParameter("index");
         DAOHomeStays dao = new DAOHomeStays();
-       List<HomeStays> list=dao.SearchbyProvince(txtSearch);
-           List<Categories> listC = dao.ListCate();
-           request.setAttribute("listC", listC);
-       request.setAttribute("list", list);
+        
+        //pagging
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = dao.countoDivforSearchCity(txtSearch);
+        int endPage = count / 6;
+        if (count % 6 != 0) {
+            endPage++;
+        }
+        request.setAttribute("endPage", endPage);
+        //Search
+        List<HomeStays> listSearch = dao.SearchbyProvince(index, txtSearch);
+        
+        List<Categories> listC = dao.ListCate();
+        request.setAttribute("listC", listC);
+        request.setAttribute("listSearch", listSearch);
         request.setAttribute("txtsearch", txtSearch);
-         request.getRequestDispatcher("/ListAll.jsp").forward(request, response);
+         request.setAttribute("txtSearchname", txtSearchname);
+        request.setAttribute("tag", index);
+        request.getRequestDispatcher("/listAllBySearchCity.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

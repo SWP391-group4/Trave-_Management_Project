@@ -48,11 +48,10 @@
                         <div class="col-lg-3 sidebar  ftco-animate"style="">
                             <div class="sidebar-wrap ftco-animate">
                                 <h3 class="heading mb-4">Find City</h3>
-
-                                <form  action="searchHomeStay">
+                                <form action="searchHomeStay">
                                     <div class="fields">
                                         <div class="form-group">
-                                            <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination, City">
+                                            <input type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination,HomeStayName">
                                     </div>
                                     <div class="form-group">
                                         <div class="range-slider">
@@ -67,8 +66,6 @@
                                     </div>
                                 </div>
                             </form>
-
-
                         </div>
 
                         <div class="card bg-dark mb-3">
@@ -96,7 +93,7 @@
 
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
-                            <c:forEach items="${listp}" var="o">
+                            <c:forEach items="${listSearch}" var="o">
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
@@ -221,7 +218,7 @@
                                             </div>
                                             <span class="ml-auto"><svg xmlns="" width="1" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
 
-                                                </svg><i class="icon-map-o ml-auto"></i>  ${o.specific},${o.ward},${o.city} </span>
+                                                </svg><i class="icon-map-o ml-auto"></i> ${o.specific},${o.specific},${o.ward},${o.city} </span>
 
                                             <hr>
                                             <p class="bottom-area d-sm-flex">
@@ -246,7 +243,7 @@
 
                                     <ul>
                                         <c:forEach begin="1" end="${endPage}" var="i">
-                                            <li class="${tag==i?"active":""}"><a href="ListAllHomeStayController?index=${i}">${i}</a></li>
+                                            <li class="${tag==i?"active":""}"><a href="searchHomeStay?txt=${txtsearch}&index=${i}">${i}</a></li>
                                             </c:forEach>
 
                                     </ul>

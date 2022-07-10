@@ -124,7 +124,13 @@ public class HomeStays {
         this.accountS = accountS;
         this.status = status;
     }
-
+public HomeStays(String homeStayID, String homeStayname,String accountS, String cateName, int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.accountS = accountS;
+        this.status = status;
+    }
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
