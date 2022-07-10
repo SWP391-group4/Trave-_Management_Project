@@ -39,6 +39,24 @@ public class DAOReviews extends connectDB{
         }
         return list;
     }
+     public int addComment(Reviews r) {
+        int n = 0;
+        String sql = "INSERT INTO [dbo].Reviews(ReviewId,Cus_Name,Star,Feedback,HomeStayId)\n" +
+"       VALUES(?,?,?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, r.getReviewID());
+            pre.setString(2, r.getCus_name());
+            pre.setInt(3, r.getStar());
+            pre.setString(4, r.getFeedBack());
+            pre.setString(5, r.getHomeStayID());
+                      n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+   
     public static void main(String[] args) {
         DAOReviews dao = new DAOReviews();
          List<Reviews> list=dao.getFeedbackByHID("HS0002");
@@ -46,4 +64,5 @@ public class DAOReviews extends connectDB{
              System.out.println(temp);
          }
     }
+    
 }

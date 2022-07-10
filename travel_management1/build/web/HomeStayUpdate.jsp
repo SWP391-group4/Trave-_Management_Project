@@ -42,41 +42,55 @@
             <form>
                
                 <hr class="my-4" />
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="firstname">HomeStay Name</label>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="firstname">Description</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Brown" />
+                        
                     </div>
-                <c:forEach items="${listC}" var="c">
-                    <div class="form-group col-md-6">
-                        <label for="inputState6">Categories</label>
-                        <select id="inputState6" class="form-control">
-                            <option selected="${c.cateId}">${c.cateName}</option>
-                        </select>
-                    </div>
-                    </c:forEach>
+              
+                    
+                
                 </div>
-                <div class="form-group">
+                
+                <div class="form-group ">
                     <label for="inputEmail4">City</label>
                     <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me" />
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="inputAddress5">District</label>
                     <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue" />
+
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-6">
                         <label for="inputCompany5">Specific</label>
                         <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState5">Ward</label>
+                        <label for="inputState5">Status</label>
                         <select id="inputState5" class="form-control">
                             <option selected="">Choose...</option>
                             <option>...</option>
                         </select>
                     </div>
-                    
+                   <div class="form-group col-md-6">
+                        <label   for="inputCompany5">Ward</label>
+                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
+                        <label for="inputState6">Categories</label>    
+                        <select id="inputState6" class="form-control">
+                              <c:forEach items="${listC}" var="c">
+                            <option selected="${c.cateId}">${c.cateName}</option>
+                               </c:forEach>
+                        </select> 
+                    </div>                  
+                     <div class="form-group col-md-2 "> 
+                         <label for="inputState5">BedQ</label>                      
+                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
+                            <label for="inputState5">BedRoomQ</label>                      
+                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
+                            <label for="inputState5">BathRoomQ</label>                      
+                            <input type="number" class="form-control" id="inputCompany5" placeholder="" />
+                       
+                    </div>
                 </div>
 <!--                <hr class="my-4" />
                 <div class="row mb-4">
