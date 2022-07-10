@@ -174,7 +174,8 @@
                                             <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
                                     </div>
                                     <div>
-                                        <input type="submit" class="btn btn-success" value="View Detail" src="SupplierDetail.jsp">
+                                        <input type="submit" class="btn btn-primary" value="View Detail" src="PendingHomstay?homeStayId=${homestay.get(i).homeStayId}">
+                                        <input type="submit" class="btn btn-success" value="Accept" src="SupplierDetail.jsp">
                                     </div>
                                 </div>
                             </div>
