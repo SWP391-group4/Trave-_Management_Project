@@ -114,11 +114,11 @@ public class LoginController extends HttpServlet {
                 default:
                     throw new AssertionError();
             }
-            account = (String) session.getAttribute("userid");
-            if (account == null) {
-                response.sendRedirect("Login.jsp");
-                return; 
-            }
+//            account = (String) session.getAttribute("account");
+//            if (account == null) {
+//                response.sendRedirect("Login.jsp");
+//                return;     
+//            }
             
         }
 
