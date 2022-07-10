@@ -451,6 +451,7 @@ public class DAOSupplierTemp extends connectDB {
         return l;
     }
 
+    
     public static void main(String[] args) {
         DAOSupplierTemp dao = new DAOSupplierTemp();
         List<Suppliers> list = dao.paggingPending(1);

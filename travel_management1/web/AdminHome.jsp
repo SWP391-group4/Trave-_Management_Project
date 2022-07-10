@@ -88,7 +88,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="PendingRegister.jsp">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="AdminPendingRegister">
                                         Pending Supplier</a>
                                 </div>
                                 <div class="row no-gutters align-items-center">

@@ -7,10 +7,13 @@ package Controller;
 import DAO.DAOAdmins;
 import DAO.DAOSupplier;
 import DAO.DAOSupplierTemp;
+import Entity.Categories;
+import Entity.HomeStayAddressses;
 import Entity.HomeStays;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -70,11 +73,20 @@ public class AdminPendingRegisterController extends HttpServlet {
         String supplierId = request.getParameter("supplierId");
         if(supplierId!=null) {
             List<HomeStays> list = daoSup.getListHoneStayBySupplierId(supplierId);
+            List<HomeStayAddressses> listAddress = new ArrayList<>();
+            List<Categories> listCat = new ArrayList<>();
+            for (HomeStays o : list) {
+                listAddress.add(daoSup.getHomeStay(o.getHomeStayID()));
+                listCat.add(daoSup.getCategories(o.getHomeStayID()));
+            }
             request.setAttribute("listHomestay", list);
+            request.setAttribute("listCat", listCat);
+            request.setAttribute("listAddress", listAddress);
+            request.setAttribute("size", listAddress.size());
         }
         //-----------------------
         List<Suppliers> listSup = daoSup.paggingPending(index);
-        
+        request.setAttribute("supplierId", supplierId);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listSup);
         request.setAttribute("tag", index);
