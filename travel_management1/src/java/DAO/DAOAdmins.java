@@ -8,6 +8,7 @@ import DBContext.connectDB;
 import Entity.AdminImage;
 import Entity.Admins;
 import Entity.MessageAdmin;
+import Entity.Suppliers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,6 +113,28 @@ public class DAOAdmins extends connectDB {
         return n;
     }
 
+    public List<Suppliers> listPendingSupplier() {
+        List<Suppliers> l = new ArrayList<>();
+        String sql = "select * from suppliers where status = 1";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                l.add(new Suppliers(
+                        rs.getString(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getString(5), 
+                        rs.getInt(6))
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAdmins.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
+    
     public static void main(String[] args) {
         DAOAdmins d = new DAOAdmins();
         Admins a = d.getAdmin("khongkk");

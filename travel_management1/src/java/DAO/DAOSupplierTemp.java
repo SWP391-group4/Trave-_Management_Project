@@ -33,6 +33,19 @@ public class DAOSupplierTemp extends connectDB {
         return 0;
     }
 
+    public int totalPending() {
+        String sql = "select count(accounts) from suppliers s where s.status = 1";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
     public List<SupplierHomestays> pagging(int index) {
         List<SupplierHomestays> list = new ArrayList<>();
         String sql = "select s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId,h.homestayName\n"
@@ -63,6 +76,38 @@ public class DAOSupplierTemp extends connectDB {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<Suppliers> paggingPending(int index) {
+        List<Suppliers> list = new ArrayList<>();
+        String sql = "select * from Suppliers s \n"
+                + "where s.status = 1 \n"
+                + "order by s.AccountS \n"
+                + "offset ?\n"
+                + "rows fetch\n"
+                + "next 7 rows \n"
+                + "only;";
+
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 7);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Suppliers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return list;
     }
@@ -219,7 +264,7 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getInt(10),
                         rs.getString(11),
                         rs.getString(12));
-                        
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
@@ -384,5 +429,10 @@ public class DAOSupplierTemp extends connectDB {
         }
         return l;
     }
-    
+
+    public static void main(String[] args) {
+        DAOSupplierTemp dao = new DAOSupplierTemp();
+         List<Suppliers> list = dao.paggingPending(1);
+         System.out.println(list.size());
+    }
 }
