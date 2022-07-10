@@ -47,7 +47,7 @@
                     <h4 class="font-weight-bold mb-0">${supplier.firstName} ${supplier.lastName}</h4>
                     <div><span class="text-muted font-weight-normal">Email: ${supplier.email}</span></div>
                     <div class="text-muted mb-2">Fax: ${supplier.fax}</div>
-
+                    <div class="text-muted mb-2">Phone: ${supplier.phone}</div>
                 </div>
             </div>
             <!--Homestay-->
@@ -127,7 +127,7 @@
                             <th>Extension:</th>
                             <td></td>
                             </thead>
-                            <c:forEach items="${listExtentions}" var="list">
+                            <c:forEach items="${extension}" var="list">
                                 <tr>
                                     <td></td>
                                     <td> ${list}</td>

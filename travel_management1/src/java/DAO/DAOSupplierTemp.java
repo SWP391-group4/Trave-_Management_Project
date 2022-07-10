@@ -282,7 +282,7 @@ public class DAOSupplierTemp extends connectDB {
                 return new Categories(rs.getString(1), rs.getString(2));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return null;
     }
@@ -476,6 +476,7 @@ public class DAOSupplierTemp extends connectDB {
         DAOSupplierTemp dao = new DAOSupplierTemp();
         List<Suppliers> list = dao.paggingPending(1);
         List<HomeStays> l = dao.getListHoneStayBySupplierId("123456cainha");
-        System.out.println(l.size());
+       Categories c = dao.getCategories("123456cainha");
+        System.out.println(c);
     }
 }

@@ -89,6 +89,7 @@ public class AdminPendingRegisterController extends HttpServlet {
         request.setAttribute("supplierId", supplierId);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listSup);
+        System.out.println(listSup.size());
         request.setAttribute("tag", index);
         
         request.getRequestDispatcher("PendingRegister.jsp").forward(request, response);

@@ -39,7 +39,7 @@
         <div class="row">
 
             <div class="col-lg-7">
-                
+
                 <!-- Supplier List -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
@@ -67,32 +67,34 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${list}" var="o">                               
-                                    <tr>
+
                                 <form action="AdminPendingRegister" method="get">
-                                    <td>${o.firstName} ${o.lastName}</td>
-                                    <td>${o.email}</td>
-                                    <td>${o.phone}</td>
-                                    <td><button type="submit" class="btn btn-warning" >
-                                            <a href="PendingSupplier?supplierId=${o.accountS}">
-                                                View
-                                            </a>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                        <button type="submit" class="btn btn-success">Accept</button>
-                                    </td>
-                                    <td>
+                                    <tr>
+                                        <td>${o.firstName} ${o.lastName}</td>
+                                        <td>${o.email}</td>
+                                        <td>${o.phone}</td>
+                                        <td><button type="submit" class="btn btn-warning" >
+                                                <a href="PendingSupplier?supplierId=${o.accountS}">
+                                                    View
+                                                </a>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                            <button type="submit" class="btn btn-success">Accept</button>
+                                        </td>
+                                        <td>
 
-                                        <input type="hidden" name="supplierId" value="${o.accountS}">
-                                        <input type="hidden" name="index" value="${tag}">
-                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                                            </svg></button>
+                                            <input type="hidden" name="supplierId" value="${o.accountS}">
+                                            <input type="hidden" name="index" value="${tag}">
+                                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                                </svg></button>
 
-                                    </td>
+                                        </td>
+                                    </tr>
                                 </form>
-                                </tr>
+
 
                             </c:forEach>
                             </tbody>

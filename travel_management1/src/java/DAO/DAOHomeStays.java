@@ -186,7 +186,7 @@ public class DAOHomeStays extends connectDB {
         return null;
     }
 
-    public HomeStays getHomestay(String homestayId) {
+    public HomeStays getHomestayById(String homestayId) {
         String sql = "select * from homestays where homestayId = '" + homestayId + "'";
         ResultSet rs = getData(sql);
         try {
@@ -231,6 +231,16 @@ public class DAOHomeStays extends connectDB {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public List<String> getExtenstion(Extensions e) {
+        String listExtenstions = e.getListExtentions();
+        String[] list = listExtenstions.split(",");
+        List<String> l = new ArrayList<>();
+        for (String o : list) {
+            l.add(o);
+        }
+        return l;
     }
 
     public Rules getRule(String homestayId) {
