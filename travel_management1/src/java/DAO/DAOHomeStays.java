@@ -6,9 +6,12 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.Categories;
+import Entity.Extensions;
 import Entity.HomeStayAddressses;
 
 import Entity.HomeStays;
+import Entity.Images;
+import Entity.Rules;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -176,6 +179,83 @@ public class DAOHomeStays extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public HomeStays getHomestay(String homestayId) {
+        String sql = "select * from homestays where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Categories getCategory(String homestayId) {
+        String sql = "select c.cateId, c.cateName from homestays h "
+                + "inner join categories c "
+                + "on c.cateId = h.cateId "
+                + "where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Categories(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Extensions getExtension(String homestayId) {
+        String sql = "select * from Extensions where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Extensions(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Rules getRule(String homestayId) {
+        String sql = "select * from Rules where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Rules(rs.getString(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public List<Images> getImage(String homestayId) {
+        List<Images> list = new ArrayList<>();
+        String sql = "select c.cateId, c.cateName from homestays h "
+                + "inner join images i "
+                + "on c.homestayId = h.homestayId "
+                + "where homestayId = '" + homestayId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                list.add(new Images(rs.getString(1), rs.getString(2), rs.getString(3)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
