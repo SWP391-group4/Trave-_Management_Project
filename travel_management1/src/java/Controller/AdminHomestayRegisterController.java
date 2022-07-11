@@ -4,14 +4,8 @@
  */
 package Controller;
 
-import DAO.DAOSupplierTemp;
-import Entity.Categories;
-import Entity.HomeStayAddressses;
-import Entity.HomeStays;
-import Entity.Suppliers;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author phams
  */
-@WebServlet(name = "AdminPendingRegisterController", urlPatterns = {"/AdminPendingRegister"})
-public class AdminPendingRegisterController extends HttpServlet {
+@WebServlet(name = "AdminHomestayRegisterController", urlPatterns = {"/AdminHomestayRegister"})
+public class AdminHomestayRegisterController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,7 +31,18 @@ public class AdminPendingRegisterController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AdminHomestayRegisterController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AdminHomestayRegisterController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,50 +58,6 @@ public class AdminPendingRegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        DAOSupplierTemp daoSup = new DAOSupplierTemp();
-
-        String indexPage = request.getParameter("index");
-        if (indexPage == null) {
-            indexPage = "1";
-        }
-        int index = Integer.parseInt(indexPage);
-        int count = daoSup.totalPending();
-        int endPage = count / 5;
-        if (count % 5 != 0) {
-            endPage++;
-        }
-
-        //-----------------------
-        String supplierId = request.getParameter("supplierId");
-        if (supplierId != null) {
-            List<HomeStays> list = daoSup.getListHoneStayBySupplierId(supplierId);
-            List<HomeStayAddressses> listAddress = new ArrayList<>();
-            List<Categories> listCat = new ArrayList<>();
-            for (HomeStays o : list) {
-                listAddress.add(daoSup.getHomeStay(o.getHomeStayID()));
-                listCat.add(daoSup.getCategories(o.getHomeStayID()));
-            }
-            //-----------------------
-            String update = request.getParameter("update");
-            if (update != null) {
-                int n = daoSup.updateSupplierStatus(supplierId);
-            }
-            //-----------------------
-            request.setAttribute("listHomestay", list);
-            request.setAttribute("listCat", listCat);
-            request.setAttribute("listAddress", listAddress);
-            request.setAttribute("size", listAddress.size());
-        }
-        //-----------------------
-
-        List<Suppliers> listSup = daoSup.paggingPending(index);
-        request.setAttribute("supplierId", supplierId);
-        request.setAttribute("endPage", endPage);
-        request.setAttribute("list", listSup);
-        request.setAttribute("tag", index);
-        request.getSession().setAttribute("tag", index);
-
-        request.getRequestDispatcher("PendingRegister.jsp").forward(request, response);
     }
 
     /**
@@ -111,7 +72,6 @@ public class AdminPendingRegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**

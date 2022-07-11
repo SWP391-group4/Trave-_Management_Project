@@ -45,7 +45,7 @@
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                         <h6 class="m-0 font-weight-bold text-primary">Pending Supplier</h6>
                         <div>
-                            <form action="AdminSearchPending">
+                            <form action="AdminSearchPending" >
                                 
                                 <input type="text" name="search" placeholder="Search">
                                 <input type="submit" class="btn btn-success" value="Search">
@@ -69,7 +69,7 @@
                             <tbody>
                                 <c:forEach items="${list}" var="o">                               
 
-                                <form action="AdminPendingRegister" method="get">
+                                <form action="AdminSearchPending" method="get">
                                     <tr>
                                         <td>${o.firstName} ${o.lastName}</td>
                                         <td>${o.email}</td>
@@ -83,13 +83,14 @@
                                 </form>
                                 <td>
                                     <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                    <a href="AdminPendingRegister?update=1&supplierId=${o.accountS}"><button type="submit" class="btn btn-success">Accept</button></a>
+                                    <a href="AdminSearchPending?update=1&supplierId=${o.accountS}"><button type="submit" class="btn btn-success">Accept</button></a>
                                 </td>
-                                <form action="AdminPendingRegister" method="get">
+                                <form action="AdminSearchPending" method="get">
                                     <td>
 
                                         <input type="hidden" name="supplierId" value="${o.accountS}">
                                         <input type="hidden" name="index" value="${tag}">
+                                        <input type="hidden" name="search" value="${sessionScope.search}">
                                         <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
                                             <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
                                             </svg></button>
@@ -111,19 +112,19 @@
                         <c:choose>
                             <c:when test="${tag > 1}">
                                 <li class="page-item ">
-                                    <a class="page-link" href="AdminPendingRegister?index=${tag-1}">Previous</a>
+                                    <a class="page-link" href="AdminSearchPending?index=${tag-1}">Previous</a>
                                 </li>
                             </c:when>
                         </c:choose>
                         <c:choose>
                             <c:when test="${tag+3< endPage}">
                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingRegister?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminSearchPending?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
                                 <c:when test="${tag+2>=endPage}">
                                     <c:forEach begin="${tag}" end="${endPage}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingRegister?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminSearchPending?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
                             </c:choose>
@@ -132,7 +133,7 @@
                             <c:when test="${tag+6< endPage}">
                                 <li class="page-item">
                                     <c:set value="${tag+1}" var="n"/>
-                                    <a class="page-link" href="AdminPendingRegister?index=${tag+1}">Next</a>
+                                    <a class="page-link" href="AdminSearchPending?index=${tag+1}">Next</a>
                                 </li>
                             </c:when>
                         </c:choose>

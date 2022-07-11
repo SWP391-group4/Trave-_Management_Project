@@ -10,6 +10,7 @@ import Entity.HomeStayAddressses;
 import Entity.HomeStays;
 import Entity.Suppliers;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -22,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author phams
  */
-@WebServlet(name = "AdminPendingRegisterController", urlPatterns = {"/AdminPendingRegister"})
-public class AdminPendingRegisterController extends HttpServlet {
+@WebServlet(name = "AdminSearchPendingController", urlPatterns = {"/AdminSearchPending"})
+public class AdminSearchPendingController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,12 +56,14 @@ public class AdminPendingRegisterController extends HttpServlet {
         processRequest(request, response);
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
 
+        String search = request.getParameter("search");
+        request.getSession().setAttribute("search", search);
         String indexPage = request.getParameter("index");
         if (indexPage == null) {
             indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
-        int count = daoSup.totalPending();
+        int count = daoSup.totalPending(search);
         int endPage = count / 5;
         if (count % 5 != 0) {
             endPage++;
@@ -79,7 +82,7 @@ public class AdminPendingRegisterController extends HttpServlet {
             //-----------------------
             String update = request.getParameter("update");
             if (update != null) {
-                int n = daoSup.updateSupplierStatus(supplierId);
+                daoSup.updateSupplierStatus(supplierId);
             }
             //-----------------------
             request.setAttribute("listHomestay", list);
@@ -89,14 +92,14 @@ public class AdminPendingRegisterController extends HttpServlet {
         }
         //-----------------------
 
-        List<Suppliers> listSup = daoSup.paggingPending(index);
+        List<Suppliers> listSup = daoSup.paggingPending(index, search);
         request.setAttribute("supplierId", supplierId);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listSup);
         request.setAttribute("tag", index);
         request.getSession().setAttribute("tag", index);
 
-        request.getRequestDispatcher("PendingRegister.jsp").forward(request, response);
+        request.getRequestDispatcher("SearchPendingRegister.jsp").forward(request, response);
     }
 
     /**
@@ -111,7 +114,6 @@ public class AdminPendingRegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**
