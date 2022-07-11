@@ -128,7 +128,7 @@ public class DAOVouchers extends DBContext.connectDB {
     public int removeVoucher(String id) {
         int n = 0;
         String sql = "DELETE FROM [dbo].[Voucher]\n"
-                + "      WHERE VoucherId='" + id+"'";
+                + "      WHERE VoucherId='" + id + "'";
         try {
             Statement state = conn.createStatement();
             n = state.executeUpdate(sql);
@@ -136,6 +136,20 @@ public class DAOVouchers extends DBContext.connectDB {
             ex.printStackTrace();
         }
         return n;
+    }
+
+    public String getVoucherbyId(String id) {
+        String sql = "select * from voucher\n"
+                + "where VoucherId='"+id+"'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -147,5 +161,6 @@ public class DAOVouchers extends DBContext.connectDB {
         String n = Integer.toString(numnews);
         String newID = s1.concat(n);
         System.out.println(newID);
+        System.out.println(dao.getVoucherbyId("VCM001    "));
     }
 }
