@@ -8,6 +8,7 @@ import DBContext.connectDB;
 import Entity.Categories;
 import Entity.Extensions;
 import Entity.HomeStayAddressses;
+import Entity.HomeStayDetails;
 
 import Entity.HomeStays;
 import Entity.Images;
@@ -745,14 +746,104 @@ public class DAOHomeStays extends connectDB {
         return list;
     }
 
+    public int updateHomeStayStatus(HomeStays h) {
+        int n = 0;
+        String sql = "Update HomeStays set "
+                + "status = ?,"
+                + "cateid=? "
+                + "where homeStayID = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, h.getStatus());
+            pre.setString(2, h.getCateID());
+            pre.setString(3, h.homeStayID);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
+    public int updateHomeStayDetail(HomeStayDetails hd) {
+        int n = 0;
+        String sql = "Update HomeStayDetails set\n"
+                + "                BedQty=?,\n"
+                + "		   BathRoomQty=?,\n"
+                + "		   LivingRoomQty=?,\n"
+                + "		   KitchenQty=?,\n"
+                + "		   BedRoomQty=?,\n"
+                + "		   CheckIn=?,\n"
+                + "		   CheckOut=?,\n"
+                + "		   price=?,\n"
+                + "		   IncurredCost=?,[Description]=?,\n"
+                + "		   Video=?\n"
+                + "		   where HomeStayId=?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, hd.getBedQty());
+            pre.setInt(2, hd.getBathRoomQty());
+            pre.setInt(3, hd.getLivingRoomQty());
+            pre.setInt(4, hd.getKitchenQty());
+            pre.setInt(5, hd.getBedRoomQty());
+            pre.setString(6, hd.getCheckIn());
+            pre.setString(7, hd.getCheckOut());
+            pre.setDouble(8, hd.getPrice());
+            pre.setDouble(9, hd.getIncurredCost());
+            pre.setString(10, hd.getDescription());
+            pre.setString(11, hd.getVideo());
+            pre.setString(12, hd.getHomestayid());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
+    public int updateRules(Rules r) {
+        int n = 0;
+        String sql = "Update Rules set\n"
+                + "          ListRules=?\n"
+                + "		   where HomeStayId=?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, r.getListRules());
+            pre.setString(2, r.getHomeStayId());
+
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
+    public int updateExtensions(Extensions e) {
+        int n = 0;
+        String sql = "Update Extensions set\n"
+                + "          ListExtensions=?\n"
+                + "		   where HomeStayId=?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, e.getListExtentions());
+            pre.setString(2, e.getHomeStayId());
+
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        int count = dao.countToDivforCATE("CATID001");
+        int count = dao.updateExtensions(new Extensions("HS0002", "All basic Extension, Free bicycles, Free breakfast, Golf course"));
         System.out.println(count);
 //
         List<HomeStays> list = dao.SearchbyProvince(1, "Giang");
-        
-        
+
         for (HomeStays o : list) {
             System.out.println(o);
         }

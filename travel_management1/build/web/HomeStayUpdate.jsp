@@ -53,18 +53,10 @@
                 
                 </div>
                 
-                <div class="form-group ">
-                    <label for="inputEmail4">City</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me" />
-                </div>
-                <div class="form-group ">
-                    <label for="inputAddress5">District</label>
-                    <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue" />
-
-                </div>
+               
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCompany5">Specific</label>
+                        <label for="inputCompany5">Rule</label>
                         <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
                         <label for="inputState6">Categories</label>    
                         <select id="inputState6" class="form-control">
@@ -75,14 +67,13 @@
                         
                     </div>
                    <div class="form-group col-md-6">
-                        <label   for="inputCompany5">Ward</label>
-                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
+                         <label for="inputState5">Price</label>                      
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" />
                         <label for="inputState5">Status</label>
                         <select id="inputState5" class="form-control">
-                            <option selected="">Choose...(present status)</option>
-                            <option>0 : </option>
-                            <option>1</option>
-                            <option>2</option>
+                            <option selected="${h.status==1}">Available</option>
+                             <option selected="${h.status==0}">Booked</option>
+                          
                         </select>
                     </div>                  
                     
@@ -106,13 +97,13 @@
                     </div> 
                     <div class="form-group col-md-6">
                             <label for="inputState5">CheckIn</label>                      
-                                <input type="datetime-local" class="form-control" id="inputCompany5" placeholder="Check-in Date and time" />
-                            <label for="inputState5">Price</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" />
+                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-in Date and time" />
+                            <label for="inputState5">Extensions</label>                      
+                                <input type="text" class="form-control" id="inputCompany5" placeholder="" />
                     </div> 
                     <div class="form-group col-md-6">
                             <label for="inputState5">CheckOut</label>                      
-                                <input type="datetime-local" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" />
+                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" />
                             <label for="inputState5">IncurredCost</label>                      
                                 <input type="number" class="form-control" id="inputCompany5" placeholder="" />
                     </div>  
