@@ -138,20 +138,64 @@ public class DAOVouchers extends DBContext.connectDB {
         return n;
     }
 
-    public String getVoucherbyId(String id) {
+    public List<Vouchers> getVoucherbyId(String id) {
         String sql = "select * from voucher\n"
-                + "where VoucherId='"+id+"'";
-        ResultSet rs = getData(sql);
+                + "where VoucherId='" + id + "'";
+        List<Vouchers> list = new ArrayList<Vouchers>();
         try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
             while (rs.next()) {
-                return rs.getString(1);
+                String voucherId = rs.getString(1);
+                String title = rs.getString(2);
+                String description = rs.getString(3);
+                String image = rs.getString(4);
+                int discount = rs.getInt(5);
+                int quantity = rs.getInt(6);
+                String accountM = rs.getString(7);
+                Vouchers obj = new Vouchers(voucherId, title, description, image, discount, quantity, accountM);
+                list.add(obj);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return list;
     }
 
+    public String getImagebyId(String id) {
+        String sql = "select Image from voucher where voucherId='"+id+"'";
+        String image="";
+        try {
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state.executeQuery(sql);
+            if(rs.next()){
+                 image = rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return image;
+    }
+     public int updateVoucher(Vouchers v) {
+        int n = 0;
+        String sql = "UPDATE [Voucher]\n"
+                + "   SET Title = ?, Description = ?, Image = ?, Discount = ?, Quantity = ?, AccountM = ?"
+                + " WHERE VoucherId = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(7, v.getVoucherId());
+            pre.setString(1, v.getTitle());
+            pre.setString(2, v.getDescription());
+            pre.setString(3, v.getImage());
+            pre.setInt(4, v.getDiscount());
+            pre.setInt(5, v.getQuantity());
+            pre.setString(6, v.getAccountM());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOVouchers dao = new DAOVouchers();
         String lastId1 = dao.lastVoucherId().substring(0, 6);
@@ -161,6 +205,8 @@ public class DAOVouchers extends DBContext.connectDB {
         String n = Integer.toString(numnews);
         String newID = s1.concat(n);
         System.out.println(newID);
-        System.out.println(dao.getVoucherbyId("VCM001    "));
+        System.out.println(dao.getVoucherbyId("VCM010    "));
+        System.out.println(dao.getImagebyId("VCM010    "));
+        dao.updateVoucher(new Vouchers("VCM011","2","2","2",2,3,"bautroikhongem"));
     }
 }
