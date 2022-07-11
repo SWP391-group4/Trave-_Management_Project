@@ -260,14 +260,14 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getInt(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getInt(9),
-                        rs.getInt(10),
-                        rs.getString(11),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getDouble(11),
                         rs.getString(12));
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return null;
     }
@@ -345,7 +345,7 @@ public class DAOSupplierTemp extends connectDB {
         }
         return null;
     }
-    
+
     public Suppliers getSupplier(String homestayId) {
         String sql = "select * from suppliers s inner join homestays h on s.accountS = h.accountS where homestayId = '" + homestayId + "'";
         ResultSet rs = getData(sql);
@@ -476,7 +476,8 @@ public class DAOSupplierTemp extends connectDB {
         DAOSupplierTemp dao = new DAOSupplierTemp();
         List<Suppliers> list = dao.paggingPending(1);
         List<HomeStays> l = dao.getListHoneStayBySupplierId("123456cainha");
-       Categories c = dao.getCategories("123456cainha");
-        System.out.println(c);
+        Categories c = dao.getCategories("123456cainha");
+        HomeStayDetails hd = dao.getHomestayDetails("HS0007");
+        System.out.println(hd);
     }
 }

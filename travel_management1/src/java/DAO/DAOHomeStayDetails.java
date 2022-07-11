@@ -37,7 +37,7 @@ public class DAOHomeStayDetails extends connectDB{
                   double incurredCost=rs.getDouble(10);
                   String description=rs.getString(11);
                   String video = rs.getString(12);
-                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price, incurredCost, description, video);
+                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price,  description,incurredCost, video);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
@@ -86,9 +86,8 @@ public class DAOHomeStayDetails extends connectDB{
     
     public static void main(String[] args) {
         DAOHomeStayDetails dao = new DAOHomeStayDetails();
-        HomeStayDetails s = new HomeStayDetails("HS0104", 2, 2, 1, 1, 3, "02:30:00.0000000", "21:00:00.0000000", 2399000.0, 350000.0, "There are many seafoo❤d restaurants near the beach. Our side has a service of renting motorbikes, cars, transporting guests to tourist attractions around with reasonable prices. It is very easy to move from the accommodation. Only 100m to Blue Whale Park. Go to Dragon Bridge 3.5Km. Go to Con Market 4.5Km.", "https://www.youtube.com/watch?v=ub9nfM_X1lE&t=14s");
-        int n = dao.addHomeStayDetails(s);
-        System.out.println(n);
-        System.out.println(s);
+        
+        
+        
     }
 }

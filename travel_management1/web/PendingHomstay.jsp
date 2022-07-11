@@ -95,9 +95,23 @@
                     <hr class="border-light m-0">
 
                     <div class="card-body">
-
                         <table class="m-0 user-view-table">
                             <tbody>
+                            <thead>
+                            <th>Describe:</th>
+                            <td> ${homestayDetail.description}</td>
+                            </thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                
+                            </tr>
+                            </tbody>
+
+                        </table>
+                            <hr>
+                        <table class="m-0 user-view-table">
+
                             <thead>
                             <th>Furniture:</th>
                             <td> ${homestayDetail.livingRoomQty} Living room</td>
@@ -145,7 +159,7 @@
                             <tbody>
                             <thead>
                             <th>Rule:</th>
-                            <td> ${rule}</td>
+                            <td> ${rule.listRules}</td>
                             </thead>
 
                             <tr>
@@ -156,8 +170,9 @@
                         </table>
 
                         <table class="table user-view-table m-0">
-                            <th>Price: </th>
-                            <td ></td>
+                            <th>Price: ${homestayDetail.price}</th>
+                            <th>Incurred Cost: ${homestayDetail.incurredCost}</th>
+                            <td></td>
                         </table>
                     </div>
                     <button class="btn btn-success">Activate Homestay</button>

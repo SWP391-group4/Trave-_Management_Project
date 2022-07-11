@@ -9,6 +9,7 @@ package Entity;
  * @author thinh
  */
 public class HomeStayDetails {
+
     public String homestayid;
     public int bedRoomQty;
     public int bathRoomQty;
@@ -18,11 +19,11 @@ public class HomeStayDetails {
     public String checkIn;
     public String checkOut;
     public double price;
-    public double incurredCost;
     public String description;
+    public double incurredCost;
     public String video;
 
-    public HomeStayDetails(String homestayid, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, int bedQty, String checkIn, String checkOut, double price, double incurredCost, String description, String video) {
+    public HomeStayDetails(String homestayid, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, int bedQty, String checkIn, String checkOut, double price, String description, double incurredCost, String video) {
         this.homestayid = homestayid;
         this.bedRoomQty = bedRoomQty;
         this.bathRoomQty = bathRoomQty;
@@ -36,8 +37,6 @@ public class HomeStayDetails {
         this.description = description;
         this.video = video;
     }
-
-    
 
     public HomeStayDetails() {
     }
@@ -57,8 +56,6 @@ public class HomeStayDetails {
     public void setVideo(String video) {
         this.video = video;
     }
-    
-    
 
     public String getHomestayid() {
         return homestayid;
@@ -145,6 +142,4 @@ public class HomeStayDetails {
         return "HomeStayDetails{" + "homestayid=" + homestayid + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", bedQty=" + bedQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", incurredCost=" + incurredCost + ", description=" + description + ", video=" + video + '}';
     }
 
-    
-    
 }

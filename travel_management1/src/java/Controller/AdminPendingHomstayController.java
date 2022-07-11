@@ -48,12 +48,15 @@ public class AdminPendingHomstayController extends HttpServlet {
         Rules rule = daoHome.getRule(homeStayId);
 //        List<Images> image = daoHome.getImage(homeStayId);
         Suppliers supplier = daoSup.getSupplier(homeStayId);
+        Categories category = daoSup.getCategories(homeStayId);
         HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
 
         request.setAttribute("supplier", supplier);
         request.setAttribute("homestay", homestay);
+        request.setAttribute("category", category);
         request.setAttribute("homestayAddress", homeAddress);
         request.setAttribute("homestayDetail", homestayDetail);
+        System.out.println(homestayDetail);
         request.setAttribute("extension", extension);
         request.setAttribute("rule", rule);
 //        request.setAttribute("image", image);
