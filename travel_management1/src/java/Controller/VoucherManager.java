@@ -67,7 +67,7 @@ public class VoucherManager extends HttpServlet {
                 request.getRequestDispatcher("ListVoucherManager.jsp").forward(request, response);
             }
             if (service.equals("Insert")) {
-                String title = request.getParameter("title");               
+                String title = request.getParameter("title");
                 String description = request.getParameter("description");
                 String discount = request.getParameter("discount");
                 String quantity = request.getParameter("quantity");
@@ -94,14 +94,50 @@ public class VoucherManager extends HttpServlet {
                 response.sendRedirect("VoucherManager");
             }
             if (service.equals("Delete")) {
-                String voucherId = request.getParameter("voucherId");    
+                String voucherId = request.getParameter("voucherId");
                 int n = daoV.removeVoucher(voucherId);
                 response.sendRedirect("VoucherManager");
             }
             if (service.equals("Update")) {
-                String submit= request.getParameter("submit");
-                
-                
+                String submit = request.getParameter("submit");
+                String voucherId = request.getParameter("voucherId");
+                String id = voucherId;
+                if (submit == null) {
+                    List<Vouchers> v = daoV.getVoucherbyId(voucherId);
+                    request.setAttribute("list", v);
+                    request.getRequestDispatcher("UpdateVoucher.jsp").forward(request, response);
+                } else {
+                    String VoucherId = request.getParameter("VoucherId");
+                    String title = request.getParameter("title");
+                    String description = request.getParameter("description");
+                    String discount = request.getParameter("discount");
+                    String quantity = request.getParameter("quantity");
+                    int discounts = Integer.parseInt(discount);
+                    int quantitys = Integer.parseInt(quantity);
+                    //image
+                    Part part = request.getPart("image");
+                    String realPart = request.getServletContext().getRealPath("/images");
+                    String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                    if (filename.isEmpty()) {
+                        filename = daoV.getImagebyId(VoucherId);
+                        //marketingid
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        String marketingid = mar.getAccountM();
+                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
+                        int n = daoV.updateVoucher(voucher);
+                        response.sendRedirect("VoucherManager");
+                    } else {
+                        part.write(realPart + "/" + filename);
+                        //marketingid
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        String marketingid = mar.getAccountM();
+                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
+                        int n = daoV.updateVoucher(voucher);
+                        response.sendRedirect("VoucherManager");
+                    }
+                }
             }
         }
     }
