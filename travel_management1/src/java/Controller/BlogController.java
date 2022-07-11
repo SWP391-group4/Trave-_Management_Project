@@ -38,7 +38,7 @@ public class BlogController extends HttpServlet {
 //            indexPage = "1";
 //        }
 //        int index = Integer.parseInt(indexPage);
-        
+         
         DAOBlogs dao = new DAOBlogs();
         List<Blogs> ve = dao.viewallBlogs();
                 // pre some other date
