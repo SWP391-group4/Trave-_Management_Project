@@ -13,7 +13,6 @@
             <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="ContactAdmin.jsp" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">FAQs</a></li>
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
 
