@@ -98,6 +98,11 @@ public class VoucherManager extends HttpServlet {
                 int n = daoV.removeVoucher(voucherId);
                 response.sendRedirect("VoucherManager");
             }
+            if (service.equals("Update")) {
+                String submit= request.getParameter("submit");
+                
+                
+            }
         }
     }
 
