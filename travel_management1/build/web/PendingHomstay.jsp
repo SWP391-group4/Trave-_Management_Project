@@ -104,12 +104,12 @@
                             <tr>
                                 <td></td>
                                 <td></td>
-                                
+
                             </tr>
                             </tbody>
 
                         </table>
-                            <hr>
+                        <hr>
                         <table class="m-0 user-view-table">
 
                             <thead>
@@ -175,7 +175,12 @@
                             <td></td>
                         </table>
                     </div>
-                    <button class="btn btn-success">Activate Homestay</button>
+                    <c:if test="${supplier.status != 0}">
+                        <button class="btn btn-success">Activate Homestay</button>
+                    </c:if>
+                        <c:if test="${supplier.status == 0}">
+                        <div class="btn btn-secondary">Activate Homestay</div>
+                    </c:if>
                 </div>  
 
             </div>

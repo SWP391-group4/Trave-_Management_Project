@@ -38,7 +38,7 @@
 
         <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-8">
 
                 <!-- Supplier List -->
                 <div class="card shadow mb-4">
@@ -79,19 +79,21 @@
                                                 </a>
                                             </button>
                                         </td>
-                                        <td>
-                                            <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
-                                            <button type="submit" class="btn btn-success">Accept</button>
-                                        </td>
-                                        <td>
+                                </form>
+                                <td>
+                                    <!--<input type="button" class="btn btn-warning" value="Detail" src="SupplierDetail.jsp">-->
+                                    <a href="AdminPendingRegister?update=1&supplierId=${o.accountS}"><button type="submit" class="btn btn-success">Accept</button></a>
+                                </td>
+                                <form action="AdminPendingRegister" method="get">
+                                    <td>
 
-                                            <input type="hidden" name="supplierId" value="${o.accountS}">
-                                            <input type="hidden" name="index" value="${tag}">
-                                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                                                </svg></button>
+                                        <input type="hidden" name="supplierId" value="${o.accountS}">
+                                        <input type="hidden" name="index" value="${tag}">
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                            </svg></button>
 
-                                        </td>
+                                    </td>
                                     </tr>
                                 </form>
 
@@ -142,7 +144,7 @@
 
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-4">
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -182,9 +184,7 @@
                                                 <a href="PendingHomstay?homeStayId=${homestay.get(i).homeStayID}">
                                                     <button class="btn btn-primary">View Detail</button></a>
                                             </td>
-                                            <td>
-                                                <input type="submit" class="btn btn-success" value="Accept" src="SupplierDetail.jsp">
-                                            </td>
+                                           
                                             </tbody>
                                         </table>
 

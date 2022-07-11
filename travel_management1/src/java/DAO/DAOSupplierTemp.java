@@ -34,7 +34,7 @@ public class DAOSupplierTemp extends connectDB {
     }
 
     public int totalPending() {
-        String sql = "select count(accounts) from suppliers s where s.status = 1";
+        String sql = "select count(accounts) from suppliers s where s.status = 0";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
@@ -83,7 +83,7 @@ public class DAOSupplierTemp extends connectDB {
     public List<Suppliers> paggingPending(int index) {
         List<Suppliers> list = new ArrayList<>();
         String sql = "select * from Suppliers s \n"
-                + "where s.status = 1 \n"
+                + "where s.status = 0 \n"
                 + "order by s.AccountS \n"
                 + "offset ?\n"
                 + "rows fetch\n"
@@ -423,6 +423,18 @@ public class DAOSupplierTemp extends connectDB {
         return 0;
     }
 
+    public int updateSupplierStatus(String supplierId) {
+        String sql = "update suppliers set status = 1 where accountS = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, supplierId);
+            int n = pre.executeUpdate();
+            return n;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     public List<SupplierHomestays> search(String str) {
         List<SupplierHomestays> l = new ArrayList<>();
         String sql = "select s.accountS, firstName,lastName,email, phone, homestayId, homestayName, cateId\n"
