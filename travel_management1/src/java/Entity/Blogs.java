@@ -16,6 +16,7 @@ public class Blogs {
 
     public Blogs() {
     }
+    
 
     public Blogs(String blogId, String image, String title, String accountM) {
         this.blogId = blogId;
@@ -24,11 +25,13 @@ public class Blogs {
         this.accountM = accountM;
     }
 
-    public Blogs(String image, String title, String accountM) {
+    public Blogs(String blogId, String image, String title) {
+        this.blogId = blogId;
         this.image = image;
         this.title = title;
-        this.accountM = accountM;
     }
+
+    
 
     public String getBlogId() {
         return blogId;

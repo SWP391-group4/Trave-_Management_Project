@@ -6,7 +6,6 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.Blogs;
-import Entity.HomeStays;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -124,6 +123,27 @@ public class DAOBlogs extends connectDB {
         }
         return 0;
     }
+    public List<Blogs> viewallBlogs() {
+        List<Blogs> vec = new ArrayList<Blogs>();
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[Blogs]";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String BlogId = rs.getString(1);
+                String Image = rs.getString(2);
+                String Title = rs.getString(3);
+                Blogs obj = new Blogs(BlogId, Image, Title);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
+    }
+    
+    
             
             
     public static void main(String[] args) {

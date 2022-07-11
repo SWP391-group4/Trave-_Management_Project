@@ -5,11 +5,15 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.Categories;
 import Entity.Marketing;
 import Entity.MarketingImage;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -87,6 +91,28 @@ public class DAOMarketing extends connectDB {
             ex.printStackTrace();
         }
         return n;
+    }
+    public List<Marketing> ListMKT() {
+        List<Marketing> vec = new ArrayList<Marketing>();
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[Marketing]";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String AccountM = rs.getString(1);
+                String FirstName = rs.getString(2);
+                String LastName = rs.getString(3);
+                int Age = rs.getInt(3);
+                String Email = rs.getString(3);
+                String Phone = rs.getString(3);
+                Marketing obj = new Marketing(AccountM, FirstName, LastName, Age, Email, Phone);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
     }
 
     public static void main(String[] args) {
