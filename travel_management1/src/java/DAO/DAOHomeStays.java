@@ -200,7 +200,7 @@ public class DAOHomeStays extends connectDB {
                         rs.getInt(5));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+           ex.printStackTrace();
         }
         return null;
     }
@@ -843,7 +843,8 @@ public class DAOHomeStays extends connectDB {
         System.out.println(count);
 //
         List<HomeStays> list = dao.SearchbyProvince(1, "Giang");
-
+  HomeStays h = dao.getHomestayById("HS0001"); 
+        System.out.println(h);
         for (HomeStays o : list) {
             System.out.println(o);
         }
