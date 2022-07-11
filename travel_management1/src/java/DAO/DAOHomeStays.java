@@ -270,7 +270,7 @@ public class DAOHomeStays extends connectDB {
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return list;
     }
 
     public List<HomeStayAddressses> getListAddress(List<HomeStays> list) {
@@ -751,27 +751,11 @@ public class DAOHomeStays extends connectDB {
         System.out.println(count);
 //
         List<HomeStays> list = dao.SearchbyProvince(1, "Giang");
-//     HomeStays h=   dao.getHomestay("HS0001");
-//        System.out.println(h);
-//        List<HomeStayAddressses> l1 = dao.getListAddress(l);
+        
+        
         for (HomeStays o : list) {
             System.out.println(o);
         }
-//        count = dao.countoDivforSearchName("T");
-//        System.out.println(count);
-//        for (int i = 0; i < l1.size(); i++) {
-//            System.out.println(l.get(i).getHomeStayname()+ "  :  " + l1.get(i).getCity());
-//        }
-//       //
-//        for (HomeStays o : l) {
-//            System.out.println(o); 
-//       }
-//HomeStays s  = new HomeStays("HS0105", "Nikini World","CATID005", "haianh123");
-//        HomeStays s = new HomeStays("HS0105", "Nikini World", "CATID005", "haianh123");
-//        int n = dao.addHomeStays(s);
-//        System.out.println(n);
-//        System.out.println(s);
-//        System.out.println(dao.view5HomeStays());
 
     }
 }

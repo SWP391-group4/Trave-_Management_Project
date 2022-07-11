@@ -176,8 +176,18 @@
                                             <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a></div>
                                     </div>
                                     <div>
-                                        <input type="submit" class="btn btn-primary" value="View Detail" src="PendingHomstay?homeStayId=${homestay.get(i).homeStayId}">
-                                        <input type="submit" class="btn btn-success" value="Accept" src="SupplierDetail.jsp">
+                                        <table>
+                                            <tbody>
+                                            <td>
+                                                <a href="PendingHomstay?homeStayId=${homestay.get(i).homeStayID}">
+                                                    <button class="btn btn-primary">View Detail</button></a>
+                                            </td>
+                                            <td>
+                                                <input type="submit" class="btn btn-success" value="Accept" src="SupplierDetail.jsp">
+                                            </td>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
                             </div>

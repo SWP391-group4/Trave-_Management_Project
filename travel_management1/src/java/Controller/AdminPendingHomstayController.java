@@ -37,27 +37,29 @@ public class AdminPendingHomstayController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOHomeStays daoHome = new DAOHomeStays();
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
-        
+
         String homeStayId = request.getParameter("homeStayId");
+        String index = request.getParameter("index");
 
         HomeStays homestay = daoHome.getHomestayById(homeStayId);
         HomeStayAddressses homeAddress = daoHome.searchByHomeStay(homeStayId);
         Extensions extension_temp = daoHome.getExtension(homeStayId);
         List<String> extension = daoHome.getExtenstion(extension_temp);
         Rules rule = daoHome.getRule(homeStayId);
-        List<Images> image = daoHome.getImage(homeStayId);
+//        List<Images> image = daoHome.getImage(homeStayId);
         Suppliers supplier = daoSup.getSupplier(homeStayId);
         HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
-        
+
         request.setAttribute("supplier", supplier);
         request.setAttribute("homestay", homestay);
         request.setAttribute("homestayAddress", homeAddress);
         request.setAttribute("homestayDetail", homestayDetail);
         request.setAttribute("extension", extension);
         request.setAttribute("rule", rule);
-        request.setAttribute("image", image);
+//        request.setAttribute("image", image);
+        request.setAttribute("index", index);
 
-        response.sendRedirect("PendingHomstay.jsp");
+        request.getRequestDispatcher("PendingHomstay.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
