@@ -8,7 +8,6 @@ import DAO.DAOHomeStays;
 import DAO.DAOSupplierTemp;
 import Entity.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,6 +50,7 @@ public class AdminPendingHomstayController extends HttpServlet {
         Categories category = daoSup.getCategories(homeStayId);
         HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
 
+        
         request.setAttribute("supplier", supplier);
         request.setAttribute("homestay", homestay);
         request.setAttribute("category", category);

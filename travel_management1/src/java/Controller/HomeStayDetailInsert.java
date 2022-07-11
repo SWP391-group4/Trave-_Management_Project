@@ -82,7 +82,7 @@ public class HomeStayDetailInsert extends HttpServlet {
         //validation           
 
         
-        int m = sup.addHomeStayDetails(new HomeStayDetails(HomeStayId, BedRoomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, CheckIn, CheckOut, Price, IncurredCost, Description, Video));
+        int m = sup.addHomeStayDetails(new HomeStayDetails(HomeStayId, BedRoomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, CheckIn, CheckOut, Price,  Description,IncurredCost, Video));
         if (m > 0) {
             String a = "Done";
             request.setAttribute("alert", a);

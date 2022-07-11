@@ -87,7 +87,5 @@ public class DAOHomeStayDetails extends connectDB{
     public static void main(String[] args) {
         DAOHomeStayDetails dao = new DAOHomeStayDetails();
         
-        
-        
     }
 }

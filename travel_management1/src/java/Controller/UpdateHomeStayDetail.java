@@ -114,7 +114,7 @@ public class UpdateHomeStayDetail extends HttpServlet {
         double IncurredCost=Double.parseDouble(incurredCost);
         //////GetTemp
         HomeStays h_temp=new HomeStays(homeStayID, homeStayName, cateId, Status);
-        HomeStayDetails hd_temp=new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, IncurredCost, description, video);
+        HomeStayDetails hd_temp=new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, description,  IncurredCost,video);
         Rules r_temp=new Rules(homeStayID, status);
         Extensions e_temp=new Extensions(homeStayID, listextensions);
         
