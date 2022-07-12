@@ -41,6 +41,8 @@ public class BlogController extends HttpServlet {
          
         DAOBlogs dao = new DAOBlogs();
         List<Blogs> ve = dao.viewallBlogs();
+        String title = request.getParameter("txt");
+        List<Blogs> listSearch = dao.BlogsSearch(title);
                 // pre some other date
 //                String authorPage = "Author manager";
 //                String authorTable = "List all Authors";
@@ -50,6 +52,7 @@ public class BlogController extends HttpServlet {
 //                request.setAttribute("authortable", authorTable);
 //        request.setAttribute("listp", viewallBlogs);
         request.getRequestDispatcher("/ListAllBlogs.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
