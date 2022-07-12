@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thinh
+ * @author phams
  */
-@WebServlet(name = "RegisterController", urlPatterns = {"/registerCustomer"})
-public class RegisterController extends HttpServlet {
+@WebServlet(name = "RegisterSupplierAccountController", urlPatterns = {"/RegisterSupplierAccount"})
+public class RegisterSupplierAccountController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,35 +33,32 @@ public class RegisterController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String user = request.getParameter("user");
+        String user = request.getParameter("user");
             String password = request.getParameter("password");
             String re_password = request.getParameter("re_password");
-            if (user.isEmpty() || password.isEmpty()) {
+            if (user == null || password == null) {
                 String alert5 = "Please enter all your text filed";
                 request.setAttribute("alert5", alert5);
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
+                request.getRequestDispatcher("RegisterSupplierAccount.jsp").forward(request, response);
 
             }
             if (!password.equals(re_password)) {
                 String alert1 = "Password is not match re_password";
                 request.setAttribute("alert1", alert1);
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
+                request.getRequestDispatcher("RegisterSupplierAccount.jsp").forward(request, response);
             } else {
                 DAOAccounts dao = new DAOAccounts();
                 Accounts a = dao.checkAccount(user);
                 if (a == null) {
-                    dao.signUp(user, password);
-                    response.sendRedirect("login");
+                    dao.signUpSupplier(user, password);
+                    response.sendRedirect("SupplierRegister");
                 } else {
                     String alert = "Account have exit,please try again!";
                     request.setAttribute("alert", alert);
-                    request.getRequestDispatcher("Register.jsp").forward(request, response);
+                    request.getRequestDispatcher("RegisterSupplierAccount.jsp").forward(request, response);
 
                 }
             }
-
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -76,7 +73,7 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("Register.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

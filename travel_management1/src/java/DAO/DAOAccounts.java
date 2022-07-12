@@ -83,7 +83,18 @@ public class DAOAccounts extends connectDB {
             Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    public void signUpSupplier(String account, String pass) {
+        String sql = "insert into Accounts\n"
+                + "values(?,?,3)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, account);
+            pre.setString(2, pass);
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public String getPassword(String account) {
         String sql = "select password from accounts where account = '" + account + "'";
         ResultSet rs = getData(sql);

@@ -42,7 +42,7 @@
                             <form action="registerCustomer" method="POST" id="signup-form" class="signup-form">
                                 <!--                       
                                 -->                        <!--
-                                -->                        <h2 class="form-title">Create account</h2><!--
+                                -->                        <h2 class="form-title">Register Supplier account</h2><!--
                                 -->                      
                                 <p>${alert1}</p>
                             <p>${alert5}</p>
@@ -56,10 +56,7 @@
                             <div class="form-group">
                                 <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
+                            
 
                             <div class="form-group">
 
