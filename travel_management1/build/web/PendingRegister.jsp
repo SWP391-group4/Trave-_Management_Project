@@ -45,7 +45,8 @@
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                         <h6 class="m-0 font-weight-bold text-primary">Pending Supplier</h6>
                         <div>
-                            <form action="AdminManageSearch">
+                            <form action="AdminSearchPending">
+                                
                                 <input type="text" name="search" placeholder="Search">
                                 <input type="submit" class="btn btn-success" value="Search">
                             </form>

@@ -6,12 +6,16 @@ package DAO;
 
 import DBContext.connectDB;
 import Entity.Blogs;
+import Entity.HomeStays;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.UIManager.getString;
 
 /**
  *
@@ -143,6 +147,24 @@ public class DAOBlogs extends connectDB {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return vec;
+    }
+    public List<Blogs> BlogsSearch( String title) {
+        List<Blogs> vec = new ArrayList<Blogs>();
+        String sql = "select * from Blogs where "
+                + "Title = '" + title + "'";
+//        ResultSet rs = getData(sql);
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                Blogs obj = new Blogs(rs.getString(1), getString(2), getString(3));
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return vec;
     }
     
