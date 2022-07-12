@@ -53,9 +53,7 @@
                                         <div class="form-group">
                                             <input type="text" value=""${txtsearch} method="get" name="txt" class="form-control" placeholder="Destination, City">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text"  value=""${txtSearchname} method="get" name="txtname" class="form-control" placeholder="HomeStay Name">
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <div class="select-wrap one-third">
                                             <div class="icon"><span></span></div>

@@ -82,12 +82,12 @@
                                                                         <c:if test="${o.status==1}">
 									<td><span class="badge bg-success">Active</span></td>
                                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
-                                                                        <td><a href="update?homeStayID=${o.homeStayID}">Edit</a></td>
+                                                                        <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
                                                                          </c:if>
                                                                          <c:if test="${o.status==0}">
                                                                              <td><span class="badge bg-secondary">Booked</span></td>
                                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
-                                                                        <td><a href="update?homeStayID=${o.homeStayID}">Edit</a></td>
+                                                                        <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
                                                                          </c:if>
                                                                         <c:if test="${(o.status!=1)&&(o.status!=0)}">
                                                                             <td><span class="badge bg-warning">Pendding</span></td>

@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOExtensions;
 import DAO.DAOHomeStayDetails;
 import DAO.DAOHomeStays;
 import Entity.Categories;
@@ -26,7 +27,7 @@ import sun.font.EAttribute;
  *
  * @author thinh
  */
-@WebServlet(name = "UpdateHomeStayDetail", urlPatterns = {"/update"})
+@WebServlet(name = "UpdateHomeStayDetail", urlPatterns = {"/updatehomestay"})
 public class UpdateHomeStayDetail extends HttpServlet {
 
     /**
@@ -41,7 +42,7 @@ public class UpdateHomeStayDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-   
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,25 +59,29 @@ public class UpdateHomeStayDetail extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOHomeStays dao = new DAOHomeStays();
-          DAOHomeStayDetails daod=new DAOHomeStayDetails();
+        DAOHomeStayDetails daod = new DAOHomeStayDetails();
+        DAOExtensions daoe = new DAOExtensions();
         HttpSession session = request.getSession();
-        String homestayid=request.getParameter("homeStayID");
-        HomeStays h = dao.getHomestay(homestayid); 
-        
+        String homestayid = request.getParameter("homeStayID");
+        HomeStays h = dao.getHomestay2(homestayid);
+
         HomeStayDetails hd = (HomeStayDetails) session.getAttribute("homestaydetails");
-        hd=daod.getCheckInOut(homestayid);
+        hd = daod.getCheckInOut(homestayid);
         Rules r = (Rules) session.getAttribute("rules");
-        r=dao.getRule(homestayid);
+        r = dao.getRule(homestayid);
         Extensions e = (Extensions) session.getAttribute("extensions");
-         List<Categories> listC = dao.ListCate();
+        e = daoe.getExtensions(homestayid);
+        List<Categories> listC = dao.ListCate();
         request.setAttribute("listC", listC);
         request.setAttribute("h", h);
         request.setAttribute("r", r);
         request.setAttribute("hd", hd);
+        request.setAttribute("e", e);
         System.out.println(h);
         request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
     }
 ///Tam Dung o CHECKIN
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -90,14 +95,14 @@ public class UpdateHomeStayDetail extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOHomeStays dao = new DAOHomeStays();
-        DAOHomeStayDetails daod=new DAOHomeStayDetails();
+        DAOHomeStayDetails daod = new DAOHomeStayDetails();
         HttpSession session = request.getSession();
         HomeStays h = (HomeStays) session.getAttribute("HomeStays");
         HomeStayDetails hd = (HomeStayDetails) session.getAttribute("HomeStayDetails");
         Rules r = (Rules) session.getAttribute("Rules");
         Extensions e = (Extensions) session.getAttribute("Extensions");
         //get homestayid
-        String homeStayID =request.getParameter("homeStayID");
+        String homeStayID = request.getParameter("homeStayID");
         String homeStayName = request.getParameter("homeStayName");
         String cateId = request.getParameter("catid");
         String checkin = request.getParameter("checkin");
@@ -124,10 +129,9 @@ public class UpdateHomeStayDetail extends HttpServlet {
         double IncurredCost = Double.parseDouble(incurredCost);
         //////GetTemp
         HomeStays h_temp = new HomeStays(homeStayID, homeStayName, cateId, Status);
-        HomeStayDetails hd_temp = new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, IncurredCost, description, video);
+        HomeStayDetails hd_temp = new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, description, IncurredCost, video);
         Rules r_temp = new Rules(homeStayID, listrules);
         Extensions e_temp = new Extensions(homeStayID, listextensions);
-
         //
         int n = dao.updateHomeStayStatus(h_temp);
         int m = dao.updateHomeStayDetail(hd_temp);
