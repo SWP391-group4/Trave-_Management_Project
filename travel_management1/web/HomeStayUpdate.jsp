@@ -36,28 +36,26 @@
         <div class="container">
 <div class="row justify-content-center">
     <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-        <h2 class="h3 mb-4 page-title">Update</h2>
+        <h2 class="h3 mb-4 page-title">Update:${h.homeStayname}</h2>
         <div class="my-4">
           
             <form>
                
                 <hr class="my-4" />
-                <div class="form">
+                <div class="form" action="updatehomestay" method="post">
                     <div class="form-group">
                         <label for="firstname">Description</label>
-                        <input type="text" id="firstname" class="form-control" placeholder="Brown" />
+                        <input type="text" id="firstname" class="form-control" placeholder="Brown" name="description" value="${h.description}"/>
                         
                     </div>
-              
-                    
-                
+
                 </div>
                 
                
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCompany5">Rule</label>
-                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
+                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" name="listrules" value="${r.listRules}" />
                         <label for="inputState6">Categories</label>    
                         <select id="inputState6" class="form-control">
                               <c:forEach items="${listC}" var="c">
@@ -68,7 +66,7 @@
                     </div>
                    <div class="form-group col-md-6">
                          <label for="inputState5">Price</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" name="price" value="${h.price}" />
                         <label for="inputState5">Status</label>
                         <select id="inputState5" class="form-control">
                             <option selected="${h.status==1}">Available</option>
@@ -81,36 +79,36 @@
                 <div class="form-row">
                     <div class="form-group col-md-4 "> 
                             <label for="inputState5">Kitchen</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Kitchen" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Kitchen"  name="kitchenQty" value="${h.kitchenQty}"/>
                             <label for="inputState5">LivingRoomQty</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Living Room" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Living Room" name="livingRoomQty" value="${h.livingRoomQty}" />
                     </div>
                     <div class="form-group col-md-4">
                             <label for="inputState5">BedRoomQ</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed Room" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed Room"  name="bedroomQty" value="${h.bedRoomQty}"/>
                             <label for="inputState5">BedQty</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bed" name="bedQty" value="${h.bedQty}" />
                     </div> 
                     <div class="form-group col-md-4">
                             <label for="inputState5">BathRoomQ</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bath Room" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="Number of Bath Room" name="bathRoomQty" value="${h.bathRoomQty}" />
                     </div> 
                     <div class="form-group col-md-6">
                             <label for="inputState5">CheckIn</label>                      
-                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-in Date and time" />
+                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-in Date and time" name="checkin" value="${hd.checkIn}" />
                             <label for="inputState5">Extensions</label>                      
-                                <input type="text" class="form-control" id="inputCompany5" placeholder="" />
+                                <input type="text" class="form-control" id="inputCompany5" placeholder="" name="listextensions" value="${e.listExtentions}" />
                     </div> 
                     <div class="form-group col-md-6">
                             <label for="inputState5">CheckOut</label>                      
-                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" />
+                            <input type="time" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" name="checkout" value="${hd.checkOut}" />
                             <label for="inputState5">IncurredCost</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="" />
+                                <input type="number" class="form-control" id="inputCompany5" placeholder="${hd.incurredCost}" name="incurredCost"  />
                     </div>  
                 </div>
                 <div class="form-row">
                     <label for="inputState5">Video</label>                      
-                                <input type="url" class="form-control" id="inputCompany5" placeholder="Input URL video" />
+                                <input type="url" class="form-control" id="inputCompany5" placeholder="Input URL video"  name="video" value="${hd.video}"/>
                 </div>
                 
 <!--                <hr class="my-4" />

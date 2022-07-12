@@ -32,7 +32,7 @@ public class DAOExtensions extends connectDB{
                         );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOExtensions.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -55,12 +55,10 @@ public class DAOExtensions extends connectDB{
     
     public static void main(String[] args) {
         DAOExtensions dao = new DAOExtensions();
-//        Extensions e = dao.getExtensions("HS0001");
-//        System.out.println(e);
-        Extensions s = new Extensions("HS0104", "All basic Extension, Reception 24/24, View of the forest, Fishing");
-        int n = dao.addExtensions(s);
-        System.out.println(n);
-        System.out.println(s);
+        Extensions e = dao.getExtensions("HS0001");
+        System.out.println(e);
+       
+    
 
     }
     

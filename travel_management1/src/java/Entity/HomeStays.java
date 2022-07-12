@@ -236,6 +236,28 @@ public class HomeStays {
         return cateName;
     }
 
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, double price,  String description,double IncurredCost, String video, int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.accountS = accountS;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.bedQty = bedQty;
+        this.bedRoomQty = bedRoomQty;
+        this.bathRoomQty = bathRoomQty;
+        this.livingRoomQty = livingRoomQty;
+        this.kitchenQty = kitchenQty;
+        this.price = price;
+        this.IncurredCost = IncurredCost;
+        this.description = description;
+        this.video = video;
+        this.status = status;
+    }
+
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost, double star, String feedBack) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -483,7 +505,9 @@ public class HomeStays {
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", price=" + price + ", star=" + star + ", status=" + status + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", accountS=" + accountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", bedQty=" + bedQty + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", IncurredCost=" + IncurredCost + ", star=" + star + ", feedBack=" + feedBack + ", description=" + description + ", video=" + video + ", status=" + status + '}';
     }
+
+    
 
 }

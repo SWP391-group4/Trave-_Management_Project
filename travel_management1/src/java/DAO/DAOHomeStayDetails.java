@@ -41,7 +41,7 @@ public class DAOHomeStayDetails extends connectDB {
                 double incurredCost = rs.getDouble(10);
                 String description = rs.getString(11);
                 String video = rs.getString(12);
-                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price, incurredCost, description, video);
+                HomeStayDetails obj = new HomeStayDetails(homeStayID, bedroomQty, bathroomQty, livingroomQty, kitchenroomQty, bedQty, checkin, CheckOut, price,  description,incurredCost, video);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
@@ -90,7 +90,7 @@ public class DAOHomeStayDetails extends connectDB {
 
     public HomeStayDetails getCheckInOut(String homestayID) {
         String sql = "select homestayid,bedRoomQty,bathRoomQty,livingRoomQty,kitchenQty,"
-                + "bedQty,checkIn,checkOut,price,incurredCost,description,video from HomeStayDetails where HomeStayId='" + homestayID + "'";
+                + "bedQty,checkIn,checkOut,price,description,incurredCost,video from HomeStayDetails where HomeStayId='" + homestayID + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
@@ -101,7 +101,7 @@ public class DAOHomeStayDetails extends connectDB {
                         rs.getInt(3),
                          rs.getInt(4),
                          rs.getInt(5),
-                         rs.getInt(6),rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getDouble(10),rs.getString(11),rs.getString(12));
+                         rs.getInt(6),rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getString(10),rs.getDouble(11),rs.getString(12));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
