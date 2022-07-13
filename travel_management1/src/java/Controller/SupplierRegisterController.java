@@ -1,8 +1,13 @@
+package Controller;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import DAO.DAOSupplierTemp;
+import Entity.Accounts;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,7 +34,6 @@ public class SupplierRegisterController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("RegisterSupplier.jsp");
         
     }
 
@@ -46,6 +50,7 @@ public class SupplierRegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.sendRedirect("RegisterSupplier.jsp");
     }
 
     /**
@@ -60,6 +65,20 @@ public class SupplierRegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        DAOSupplierTemp daoTemp = new DAOSupplierTemp();
+        
+        Accounts account = (Accounts)request.getSession().getAttribute("acc");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String phone  = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String fax = request.getParameter("fax");
+        
+        Suppliers sup = new Suppliers(account.getAccount(), firstName, lastName, fax, email, phone);
+        int n = daoTemp.addSupplier(sup);
+        
+        
     }
 
     /**

@@ -39,7 +39,7 @@
 
                     <div class="container">
                         <div class="signup-content">
-                            <form action="registerCustomer" method="POST" id="signup-form" class="signup-form">
+                            <form action="RegisterSupplierAccount" id="signup-form" class="signup-form">
                                 <!--                       
                                 -->                        <!--
                                 -->                        <h2 class="form-title">Register Supplier account</h2><!--

@@ -50,7 +50,9 @@ public class RegisterSupplierAccountController extends HttpServlet {
                 DAOAccounts dao = new DAOAccounts();
                 Accounts a = dao.checkAccount(user);
                 if (a == null) {
+                    Accounts acc = new Accounts(user, password, 3);
                     dao.signUpSupplier(user, password);
+                    request.getSession().setAttribute("acc", acc);
                     response.sendRedirect("SupplierRegister");
                 } else {
                     String alert = "Account have exit,please try again!";

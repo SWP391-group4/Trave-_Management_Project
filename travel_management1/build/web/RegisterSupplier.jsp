@@ -40,7 +40,7 @@
                     <div class="my-4">
                         <hr class="my-4" />
                         <h2 class="h3 mb-4 page-title ">User Information</h2>
-                        <form>
+                        <form action="SupplierRegister" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCompany5">First name: </label>
