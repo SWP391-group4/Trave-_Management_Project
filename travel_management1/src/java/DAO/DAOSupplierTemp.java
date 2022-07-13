@@ -538,7 +538,7 @@ public class DAOSupplierTemp extends connectDB {
     }
 
     public int addSupplier(Suppliers suppliers) {
-        String sql = "insert into suppliers set(?,?,?,?,?,?,?)";
+        String sql = "insert into suppliers values (?,?,?,?,?,?,?)";
         PreparedStatement pre;
         try {
             pre = conn.prepareStatement(sql);
@@ -548,7 +548,7 @@ public class DAOSupplierTemp extends connectDB {
             pre.setString(4, suppliers.getFax());
             pre.setString(5, suppliers.getEmail());
             pre.setString(6, suppliers.getPhone());
-            pre.setInt(6, 0);
+            pre.setInt(7, 0);
             return pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
@@ -557,7 +557,7 @@ public class DAOSupplierTemp extends connectDB {
         return 0;
     }
     public int addSupplierAddress(SupplierAddresses address) {
-        String sql = "insert into SupplierAddresses set(?,?,?,?,?)";
+        String sql = "insert into SupplierAddresses values (?,?,?,?,?)";
         PreparedStatement pre;
         try {
             pre = conn.prepareStatement(sql);
