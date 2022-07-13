@@ -14,10 +14,9 @@ public class Blogs {
     public String title;
     public String accountM;
     public String news;
-
+    public String img2;
     public Blogs() {
     }
-    
 
 //    public Blogs(String blogId, String image, String title, String accountM) {
 //        this.blogId = blogId;
@@ -30,6 +29,15 @@ public class Blogs {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
+    }
+
+    public Blogs(String blogId, String image, String title, String accountM, String news, String img2) {
+        this.blogId = blogId;
+        this.image = image;
+        this.title = title;
+        this.accountM = accountM;
+        this.news = news;
+        this.img2 = img2;
     }
     
     public Blogs(String blogId, String image, String title, String news, String accountM) {
@@ -46,6 +54,29 @@ public class Blogs {
         this.news = news;
     }
 
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public String getNews() {
+        return news;
+    }
+
+    public void setNews(String news) {
+        this.news = news;
+    }
+
+    public String getAccountM() {
+        return accountM;
+    }
+
+    public void setAccountM(String accountM) {
+        this.accountM = accountM;
+    }
     
 
     public String getBlogId() {
@@ -72,18 +103,14 @@ public class Blogs {
         this.title = title;
     }
 
-    public String getaccountM() {
-        return accountM;
-    }
-
-    public void setaccountM(String accountM) {
-        this.accountM = accountM;
-    }
-
     @Override
     public String toString() {
-        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", title=" + title + ", accountM=" + accountM + ", news=" + news + '}';
+        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", title=" + title + ", accountM=" + accountM + ", news=" + news + ", img2=" + img2 + '}';
     }
+
+
+  
+  
 
     
 

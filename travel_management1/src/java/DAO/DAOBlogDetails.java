@@ -7,6 +7,7 @@ package DAO;
 import Entity.BlogDetails;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -58,9 +59,21 @@ public class DAOBlogDetails extends DBContext.connectDB{
         }
         return n;
     }
+    public int removeBlogDetails(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[BlogDetails]"
+                + "      WHERE BlogId='" + id + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
     public static void main(String[] args) {
         DAOBlogDetails dao=new DAOBlogDetails();
-        int n=dao.updateBlogDetails(new BlogDetails( "6", "1", "BL0001"));
+        int n=dao.addBlogDetails(new BlogDetails("2", "1", "1", "BL0001    "));
         System.out.println(n);
     }
 }

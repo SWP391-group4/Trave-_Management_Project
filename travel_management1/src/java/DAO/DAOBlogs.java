@@ -41,7 +41,7 @@ public class DAOBlogs extends connectDB {
             pre.setString(1, b.getBlogId());
             pre.setString(2, b.getImage());
             pre.setString(3, b.getTitle());
-            pre.setString(4, b.getaccountM());
+            pre.setString(4, b.getAccountM());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -63,7 +63,7 @@ public class DAOBlogs extends connectDB {
             pre.setString(4, b.getBlogId());
             pre.setString(1, b.getImage());
             pre.setString(2, b.getTitle());
-            pre.setString(3, b.getaccountM() );
+            pre.setString(3, b.getAccountM());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -105,7 +105,7 @@ public class DAOBlogs extends connectDB {
         return list;
     }
 
-     public List<Blogs> view5PagingBlogses(int index) {
+    public List<Blogs> view5PagingBlogses(int index) {
         List<Blogs> l = new ArrayList<>();
         String sql = "select * from Blogs\n"
                 + "order by BlogId\n"
@@ -129,6 +129,7 @@ public class DAOBlogs extends connectDB {
         }
         return l;
     }
+
     public int counttotalB() {
         String sql = "select count(*) from blogs ";
         ResultSet rs = getData(sql);
@@ -141,6 +142,7 @@ public class DAOBlogs extends connectDB {
         }
         return 0;
     }
+
     public List<Blogs> viewallBlogs() {
         List<Blogs> vec = new ArrayList<Blogs>();
         String sql = "select a.BlogId, a.[Image],a.Title , b.News, a.AccountM\n"
@@ -163,7 +165,8 @@ public class DAOBlogs extends connectDB {
         }
         return vec;
     }
-    public List<Blogs> BlogsSearch( String title) {
+
+    public List<Blogs> BlogsSearch(String title) {
         List<Blogs> vec = new ArrayList<Blogs>();
         String sql = "select * from Blogs where "
                 + "Title = '" + title + "'";
@@ -181,19 +184,42 @@ public class DAOBlogs extends connectDB {
 
         return vec;
     }
-    
-    
-    
-            
-            
+
+    public List<Blogs> viewBlogsDetail(String id) {
+        List<Blogs> vec = new ArrayList<Blogs>();
+        String sql = "select a.BlogId, a.[Image],a.Title,b.[image] , b.News, a.AccountM\n"
+                + "from Blogs a inner join BlogDetails b\n"
+                + "on a.BlogId = b.BlogId\n"
+                + "where a.BlogId='"+id+"'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String blogId = rs.getString(1);
+                String image = rs.getString(2);
+                String title = rs.getString(3);
+                String accountM = rs.getString(4);
+                String news = rs.getString(5);
+                String img2 = rs.getString(6);
+                Blogs obj = new Blogs( blogId,  image,  title, accountM,  news,  img2);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
+    }
+
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
-//        List<Blogs> list = dao.view5PagingBlogses(1);
+//        List<Blogs> list = dao.viewallBlogs();
 //        for (Blogs o : list) {
 //            System.out.println(o);
 //        }
+        List<Blogs> list = dao.viewBlogsDetail("BL0001");
+        for (Blogs o : list) {
+            System.out.println(o);
+        }
 //        System.out.println(dao.counttotalB());
-        int n = dao.removeBlogs("1");
-        System.out.println(n);
     }
 }
