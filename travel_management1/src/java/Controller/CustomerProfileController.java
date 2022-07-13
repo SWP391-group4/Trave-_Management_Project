@@ -106,10 +106,6 @@ public class CustomerProfileController extends HttpServlet {
         DAOBooking daoBook = new DAOBooking();
         DAOSupplier daoSup = new DAOSupplier();
 
-        Part part = request.getPart("image");
-        String realPart = request.getServletContext().getRealPath("/images");
-        String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-
         DAOBookingHistories daoHis = new DAOBookingHistories();
         Customers cus = (Customers) session.getAttribute("customer");
         CustomerAddresses cusAddress = (CustomerAddresses) session.getAttribute("customerAddress");
@@ -126,8 +122,10 @@ public class CustomerProfileController extends HttpServlet {
         String district = request.getParameter("district");
         String city = request.getParameter("city");
         //---------Upload image---------------
-
-//--------Booking-----------
+        Part part = request.getPart("image");
+        String realPart = request.getServletContext().getRealPath("/images");
+        String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+        //--------Booking-----------
         List<Booking> listBooking = daoBook.getBooking(accountC);
         List<HomeStays> listHomestay = daoBook.getHomestay(listBooking);
 
