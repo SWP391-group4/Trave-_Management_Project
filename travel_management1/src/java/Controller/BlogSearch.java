@@ -7,6 +7,7 @@ package Controller;
 import DAO.DAOBlogs;
 import Entity.Blogs;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thinh
+ * @author Admin
  */
-@WebServlet(name = "BlogController", urlPatterns = {"/blogController"})
-public class BlogController extends HttpServlet {
+@WebServlet(name = "BlogSearch", urlPatterns = {"/BlogSearch"})
+public class BlogSearch extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +34,15 @@ public class BlogController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        String indexPage = request.getParameter("index");
-//        if (indexPage == null) {
-//            indexPage = "1";
-//        }
-//        int index = Integer.parseInt(indexPage);
-         
         DAOBlogs dao = new DAOBlogs();
         List<Blogs> ve = dao.viewallBlogs();
-//        String title = request.getParameter("txt");
-//        List<Blogs> listSearch = dao.BlogsSearch(title);
-                // pre some other date
-//                String authorPage = "Author manager";
-//                String authorTable = "List all Authors";
-                //set value for jsp by request
-                request.setAttribute("list", ve);
-//                request.setAttribute("authorpage", authorPage);
-//                request.setAttribute("authortable", authorTable);
-//        request.setAttribute("listp", viewallBlogs);
-        request.getRequestDispatcher("/ListAllBlogs.jsp").forward(request, response);
+        String title = request.getParameter("txt");
+        List<Blogs> listSearch = dao.BlogsSearch(title);
+        request.setAttribute("listSearch", listSearch);
+        request.setAttribute("txtsearch", title);
+        request.getRequestDispatcher("/ListAllBlogbySearchtitle.jsp").forward(request, response);
+        
+        
         
     }
 

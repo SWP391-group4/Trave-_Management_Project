@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+    <title>CTU - Travel Booking</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -38,29 +38,50 @@
 		
 		<section class="ftco-section">
       <div class="container">
+          <div class="col-lg-4 sidebar order-md-last ftco-animate">
+                <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Search Blog</h3>
+                    <form action="BlogSearch">
+                        <div class="fields">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Blog Title">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
         <div class="row">
             
-<!--        	<div class="col-lg-3 sidebar order-md-last ftco-animate">
-        		<div class="sidebar-wrap ftco-animate">
-        			<h3 class="heading mb-4">Find City</h3>
-        			<form action="#">
-        				<div class="fields">
-		              <div class="form-group">
-		                <div class="form-group">
-                                            <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination, City">
-                                    </div>
-		              </div>
-		              
-		              
-		              <div class="form-group">
-		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-		              </div>
-		            </div>
-	            </form>
-        		</div>
-        		
-          </div> END-->
-            <div class="col-lg-12">
+<!--            <div class="col-lg-3 sidebar order-md-last ftco-animate">
+                <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Find City</h3>
+                    <form action="BlogSearch">
+                        <div class="fields">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination, City">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div> -->
+<!--                            END-->
+            <div class="col-lg-12 order-md-last">
           	<div class="row">
                 <c:forEach items="${list}" var="a">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
@@ -75,7 +96,7 @@
 		    							<div class="one">
 				    						<h3><a href="#">${a.title}</a></h3>
                                                                                 
-                                                                                <h4 style="font-size: 15px">Author</h4>
+                                                                                <h4 style="font-size: 15px">Author:</h4>
 				    						<p class="rate">
 				    							${a.accountM}
 				    							
@@ -85,8 +106,8 @@
 			    							
 		    							</div>
 		    						</div>
-		    						<div style="width: 50px; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">asd
-                                                                </div>
+<!--		    						<div style="width: 50px; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">
+                                                                </div>-->
 		    						<hr>
 		    						<p class="bottom-area d-flex">
 		    							<span><i class="icon-map-o"></i> Date</span> 
