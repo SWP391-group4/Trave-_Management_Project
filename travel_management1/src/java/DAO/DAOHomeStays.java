@@ -883,7 +883,7 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        int count = dao.updateExtensions(new Extensions("HS0002", "All basic Extension, Free bicycles, Free breakfast, Golf course"));
+        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ",0));
         System.out.println(count);
 //
         List<HomeStays> list = dao.SearchbyProvince(1, "Giang");

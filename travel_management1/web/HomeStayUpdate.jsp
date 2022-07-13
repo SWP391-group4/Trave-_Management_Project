@@ -39,11 +39,12 @@
         <h2 class="h3 mb-4 page-title">Update:${h.homeStayname}</h2>
         <div class="my-4">
           
-            <form>
+            <form  action="updatehomestay" method="post">
                
-                <hr class="my-4" />
-                <div class="form" action="updatehomestay" method="post">
+                
+                <div class="form">
                     <div class="form-group">
+                        <input type="hidden" name="homeStayID" value="${h.homeStayID}">
                         <label for="firstname">Description</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Brown" name="description" value="${h.description}"/>
                         
@@ -57,9 +58,9 @@
                         <label for="inputCompany5">Rule</label>
                         <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" name="listrules" value="${r.listRules}" />
                         <label for="inputState6">Categories</label>    
-                        <select id="inputState6" class="form-control">
+                        <select id="inputState6" class="form-control" name="catid" >
                               <c:forEach items="${listC}" var="c">
-                            <option selected="${c.cateId}">${c.cateName}</option>
+                            <option value="${c.cateId}">${c.cateName}</option>
                                </c:forEach>
                         </select> 
                         
@@ -67,11 +68,16 @@
                    <div class="form-group col-md-6">
                          <label for="inputState5">Price</label>                      
                                 <input type="number" class="form-control" id="inputCompany5" placeholder="VNÐ" name="price" value="${h.price}" />
-                        <label for="inputState5">Status</label>
-                        <select id="inputState5" class="form-control">
-                            <option selected="${h.status==1}">Available</option>
-                             <option selected="${h.status==0}">Booked</option>
-                          
+                        <label for="inputState5" >Status</label>
+                        <select id="inputState5" class="form-control" name="status">
+                            <c:if test="${h.status==1}">
+                            <option value="1"selected >Available</option>
+                             <option value="0">Booked</option>
+                          </c:if>   
+                              <c:if test="${h.status==0}">
+                            <option value="1" >Available</option>
+                            <option value="0" selected>Booked</option>
+                          </c:if>
                         </select>
                     </div>                  
                     
@@ -103,7 +109,7 @@
                             <label for="inputState5">CheckOut</label>                      
                             <input type="time" class="form-control" id="inputCompany5" placeholder="Check-out Date and time" name="checkout" value="${hd.checkOut}" />
                             <label for="inputState5">IncurredCost</label>                      
-                                <input type="number" class="form-control" id="inputCompany5" placeholder="${hd.incurredCost}" name="incurredCost"  />
+                                <input type="number" class="form-control" id="inputCompany5" value="${hd.incurredCost}" name="incurredCost"/>
                     </div>  
                 </div>
                 <div class="form-row">
@@ -138,7 +144,14 @@
                         </ul>
                     </div>
                 </div>-->
-                <button type="submit" class="btn btn-primary">Save Change</button>
+                <button name="submit" type="submit" class="btn btn-primary">Save Change</button>
+                 <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="text-right">
+                                            <p class="success">${alert}</p>
+                                        </div>
+                                    </div>
+                                </div>
             </form>
         </div>
     </div>

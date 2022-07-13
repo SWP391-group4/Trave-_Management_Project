@@ -96,13 +96,22 @@ public class UpdateHomeStayDetail extends HttpServlet {
         processRequest(request, response);
         DAOHomeStays dao = new DAOHomeStays();
         DAOHomeStayDetails daod = new DAOHomeStayDetails();
+        DAOExtensions daoe = new DAOExtensions();
         HttpSession session = request.getSession();
         HomeStays h = (HomeStays) session.getAttribute("HomeStays");
         HomeStayDetails hd = (HomeStayDetails) session.getAttribute("HomeStayDetails");
         Rules r = (Rules) session.getAttribute("Rules");
         Extensions e = (Extensions) session.getAttribute("Extensions");
+        List<Categories> listC = dao.ListCate();
+        request.setAttribute("listC", listC);
         //get homestayid
         String homeStayID = request.getParameter("homeStayID");
+
+        hd = daod.getCheckInOut(homeStayID);
+        h = dao.getHomestay2(homeStayID);
+        r = dao.getRule(homeStayID);
+        e = daoe.getExtensions(homeStayID);
+        /////
         String homeStayName = request.getParameter("homeStayName");
         String cateId = request.getParameter("catid");
         String checkin = request.getParameter("checkin");
@@ -129,6 +138,7 @@ public class UpdateHomeStayDetail extends HttpServlet {
         double IncurredCost = Double.parseDouble(incurredCost);
         //////GetTemp
         HomeStays h_temp = new HomeStays(homeStayID, homeStayName, cateId, Status);
+    
         HomeStayDetails hd_temp = new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, description, IncurredCost, video);
         Rules r_temp = new Rules(homeStayID, listrules);
         Extensions e_temp = new Extensions(homeStayID, listextensions);
@@ -154,7 +164,11 @@ public class UpdateHomeStayDetail extends HttpServlet {
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
         }
-
+        System.out.println(h);
+        System.out.println(hd);
+        System.out.println(r);
+        System.out.println(e);
+        System.out.println(listC);
     }
 
     /**
