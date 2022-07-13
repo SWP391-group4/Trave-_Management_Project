@@ -113,7 +113,7 @@
                                     <div class="col-xs-6">
                                         <label for="first_name">
                                             <h4>First Name</h4></label>
-                                        <input type="text" class="form-control" value="${sp.firstName}"  name="fname" id="first_name" placeholder="${sp.firstName}" title="enter your first name if any.">
+                                        <input type="text" class="form-control" value="${sp.firstName}"  name="fname" id="first_name" placeholder="" title="enter your first name if any.">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -121,7 +121,7 @@
                                     <div class="col-xs-6">
                                         <label for="last_name">
                                             <h4>Last_Name</h4></label>
-                                        <input type="text" class="form-control" value=" ${sp.lastName}" name="lname" id="last_name" placeholder="${sp.lastName}" title="enter your last name if any.">
+                                        <input type="text" class="form-control" value=" ${sp.lastName}" name="lname" id="last_name" placeholder="" title="enter your last name if any.">
                                     </div>
                                 </div>
 
@@ -138,14 +138,14 @@
                                     <div class="col-xs-6">
                                         <label for="">
                                             <h4>Phone</h4></label>
-                                        <input type="number" class="form-control"  value=" " name="phone" id="" placeholder="${sp.phone}" title="">
+                                        <input type="number" class="form-control"  value="${sp.phone}" name="phone" id="" placeholder="${sp.phone}" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <label for="">
                                             <h4>Fax</h4></label>
-                                        <input type="number"  class="form-control"  value="" name="fax" id="" placeholder=" ${sp.fax}" title="">
+                                        <input type="number"  class="form-control"  value="${sp.fax}" name="fax" id="" placeholder="${sp.fax}" title="">
                                     </div>
                                 </div>
                                 <!--                        <div class="form-group">

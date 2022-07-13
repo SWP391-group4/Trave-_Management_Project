@@ -60,7 +60,7 @@
                         <label for="inputState6">Categories</label>    
                         <select id="inputState6" class="form-control" name="catid" >
                               <c:forEach items="${listC}" var="c">
-                            <option value="${c.cateId}">${c.cateName}</option>
+                                  <option selected="${h.homeStayID}" value="${c.cateId}">${c.cateName}</option>
                                </c:forEach>
                         </select> 
                         

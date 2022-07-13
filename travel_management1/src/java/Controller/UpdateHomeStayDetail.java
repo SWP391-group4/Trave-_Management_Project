@@ -7,11 +7,13 @@ package Controller;
 import DAO.DAOExtensions;
 import DAO.DAOHomeStayDetails;
 import DAO.DAOHomeStays;
+import DAO.DAOSupplier;
 import Entity.Categories;
 import Entity.Extensions;
 import Entity.HomeStayDetails;
 import Entity.HomeStays;
 import Entity.Rules;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -42,7 +44,11 @@ public class UpdateHomeStayDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        HttpSession session = request.getSession();
+        String accountS = request.getParameter("accountS");
+        DAOSupplier daos = new DAOSupplier();
+        Suppliers sup = daos.getSuppiler(accountS);
+        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,19 +71,17 @@ public class UpdateHomeStayDetail extends HttpServlet {
         String homestayid = request.getParameter("homeStayID");
         HomeStays h = dao.getHomestay2(homestayid);
 
-        HomeStayDetails hd = (HomeStayDetails) session.getAttribute("homestaydetails");
-        hd = daod.getCheckInOut(homestayid);
-        Rules r = (Rules) session.getAttribute("rules");
-        r = dao.getRule(homestayid);
-        Extensions e = (Extensions) session.getAttribute("extensions");
-        e = daoe.getExtensions(homestayid);
+        HomeStayDetails hd = daod.getCheckInOut(homestayid);
+
+        Rules r = dao.getRule(homestayid);
+
+        Extensions e = daoe.getExtensions(homestayid);
         List<Categories> listC = dao.ListCate();
         request.setAttribute("listC", listC);
         request.setAttribute("h", h);
         request.setAttribute("r", r);
         request.setAttribute("hd", hd);
         request.setAttribute("e", e);
-        System.out.println(h);
         request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
     }
 ///Tam Dung o CHECKIN
@@ -94,23 +98,20 @@ public class UpdateHomeStayDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
         DAOHomeStays dao = new DAOHomeStays();
         DAOHomeStayDetails daod = new DAOHomeStayDetails();
         DAOExtensions daoe = new DAOExtensions();
-        HttpSession session = request.getSession();
-        HomeStays h = (HomeStays) session.getAttribute("HomeStays");
-        HomeStayDetails hd = (HomeStayDetails) session.getAttribute("HomeStayDetails");
-        Rules r = (Rules) session.getAttribute("Rules");
-        Extensions e = (Extensions) session.getAttribute("Extensions");
+
         List<Categories> listC = dao.ListCate();
         request.setAttribute("listC", listC);
         //get homestayid
         String homeStayID = request.getParameter("homeStayID");
-
-        hd = daod.getCheckInOut(homeStayID);
-        h = dao.getHomestay2(homeStayID);
-        r = dao.getRule(homeStayID);
-        e = daoe.getExtensions(homeStayID);
+//
+//        hd = daod.getCheckInOut(homeStayID);
+//        h = dao.getHomestay2(homeStayID);
+//        r = dao.getRule(homeStayID);
+//        e = daoe.getExtensions(homeStayID);
         /////
         String homeStayName = request.getParameter("homeStayName");
         String cateId = request.getParameter("catid");
@@ -137,38 +138,58 @@ public class UpdateHomeStayDetail extends HttpServlet {
         int KitchenQty = Integer.parseInt(kitchenQty);
         double IncurredCost = Double.parseDouble(incurredCost);
         //////GetTemp
-        HomeStays h_temp = new HomeStays(homeStayID, homeStayName, cateId, Status);
-    
-        HomeStayDetails hd_temp = new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, description, IncurredCost, video);
-        Rules r_temp = new Rules(homeStayID, listrules);
-        Extensions e_temp = new Extensions(homeStayID, listextensions);
+        String accountS = request.getParameter("accountS");
+        HomeStays h = new HomeStays(homeStayID, cateId, Status);
+        DAOSupplier daos = new DAOSupplier();
+        Suppliers sup = daos.getSuppiler(accountS);
+        HomeStayDetails hd = new HomeStayDetails(homeStayID, BedroomQty, BathRoomQty, LivingRoomQty, KitchenQty, BedQty, checkin, checkout, Price, description, IncurredCost, video);
+        Rules r = new Rules(homeStayID, listrules);
+        Extensions e = new Extensions(homeStayID, listextensions);
         //
-        int n = dao.updateHomeStayStatus(h_temp);
-        int m = dao.updateHomeStayDetail(hd_temp);
-        int p = dao.updateRules(r_temp);
-        int q = dao.updateExtensions(e_temp);
+        int n = dao.updateHomeStayStatus(h);
+        int m = dao.updateHomeStayDetail(hd);
+        int p = dao.updateRules(r);
+        int q = dao.updateExtensions(e);
         if (n == 0 && m == 0 && p == 0 && q == 0) {
             String alert = "Update fail";
-            request.setAttribute("h", h);
-            request.setAttribute("hd", hd);
-            request.setAttribute("r", r);
-            request.setAttribute("e", e);
+            request.setAttribute("cateId", cateId);
+            request.setAttribute("checkin", checkin);
+            request.setAttribute("checkout", checkout);
+            request.setAttribute("description", description);
+            request.setAttribute("bedQty", bedQty);
+            request.setAttribute("bedroomQty", bedroomQty);
+            request.setAttribute("bathRoomQty", bathRoomQty);
+            request.setAttribute("livingRoomQty", livingRoomQty);
+            request.setAttribute("kitchenQty", kitchenQty);
+            request.setAttribute("price", price);
+            request.setAttribute("incurredCost", incurredCost);
+            request.setAttribute("status", status);
+            request.setAttribute("listextensions", listextensions);
+            request.setAttribute("video", video);
+            request.setAttribute("listrules", listrules);
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
         } else {
             String alert = "Update done.";
-            request.setAttribute("h", h_temp);
-            request.setAttribute("hd", hd_temp);
-            request.setAttribute("r", r_temp);
-            request.setAttribute("e", e_temp);
+            request.setAttribute("cateId", cateId);
+            request.setAttribute("checkin", checkin);
+            request.setAttribute("checkout", checkout);
+            request.setAttribute("description", description);
+            request.setAttribute("bedQty", bedQty);
+            request.setAttribute("bedroomQty", bedroomQty);
+            request.setAttribute("bathRoomQty", bathRoomQty);
+            request.setAttribute("livingRoomQty", livingRoomQty);
+            request.setAttribute("kitchenQty", kitchenQty);
+            request.setAttribute("price", price);
+            request.setAttribute("incurredCost", incurredCost);
+            request.setAttribute("status", status);
+            request.setAttribute("listextensions", listextensions);
+            request.setAttribute("video", video);
+            request.setAttribute("listrules", listrules);
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
         }
-        System.out.println(h);
-        System.out.println(hd);
-        System.out.println(r);
-        System.out.println(e);
-        System.out.println(listC);
+
     }
 
     /**
