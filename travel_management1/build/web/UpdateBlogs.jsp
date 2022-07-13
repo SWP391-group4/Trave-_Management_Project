@@ -124,46 +124,49 @@
                                         <div class="card-header py-3"  >
                                             <h6 class="m-0 font-weight-bold text-primary"> Update Blogs </h6>
                                         </div>                 
-                                        
+
                                         <div class="container">
-                                            <div class="login-box"  style="margin-top: 350px">
-                                                <form  action="VoucherManager" method="post" enctype="multipart/form-data">
+                                            <div class="login-box"  style="margin-top: 430px">
+                                                <form  action="BlogsManager" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="go" value="Update">
-                                                
                                                     <div class="user-box">
-                                                        <input style="color:#000" type="text" name="title" required="" maxlength="50" value="">
-                                                        <label>Title</label>
+                                                        <label> Main Image</label>
                                                     </div>
-                                                        <input type="hidden" name="VoucherId" value="${}">
-                                                    <div class="user-box">
-                                                        <input style="color:#000"type="text" name="description" required="" maxlength="500" value="">
-                                                        <label>Description</label>
-                                                    </div>
-                                                    <div class="user-box">
-                                                        <input style="color:#000" type="number" name="discount" required="" min="0" max="100" value="">
-                                                        <label>Discount</label>
-                                                    </div>
-                                                    <div class="user-box">
-                                                        <input style="color:#000" type="number" name="quantity" required="" min="0" value="">
-                                                        <label>Quantity</label>
-                                                    </div>
-                                                    <div class="user-box">
-                                                        <label>Image</label>
-                                                    </div>
-                                                       <img src="images/" style="width: 90px ;height:102px ">
+                                                    <img src="images/" style="width: 90px ;height:102px ">                                                    
                                                     <br>
                                                     <br>
                                                     <div  style="font-size:14px;text-align: center;background: #fff"> 
                                                         <input type="file" name="image" >
-                                                    </div>                                                
-                                                    
-                                                        <span></span>
-                                                        <span></span>
-                                                        <span></span>
-                                                        <span></span>
-                                                        <hr>
-                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit">     
-                                                    </c:forEach>
+                                                    </div>  
+                                                    <input type="hidden" name="Img1" value="">
+                                                    <div class="user-box">
+                                                        <input style="color:#000"type="text" name="description" required="" maxlength="500" value="">
+                                                        <label>Title</label>
+                                                    </div>
+                                                    <div class="user-box">                                                       
+                                                        <label> News Image</label>
+                                                    </div>
+                                                    <img src="images/" style="width: 90px ;height:102px ">  
+                                                    <br>
+                                                    <br>
+                                                    <div  style="font-size:14px;text-align: center;background: #fff"> 
+                                                        <input type="file" name="image" >
+                                                    </div>   
+
+                                                    <div class="user-box" style="margin-bottom: 38px">
+
+                                                        <label> News Text</label>
+                                                    </div>
+                                                    <textarea style="text-align: left;width:891px;height: 171px "></textarea>
+
+
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <hr>
+                                                    <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit">     
+
                                                 </form>
                                             </div>
 

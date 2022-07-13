@@ -164,7 +164,11 @@ public class UpdateHomeStayDetail extends HttpServlet {
             request.setAttribute("alert", alert);
             request.getRequestDispatcher("HomeStayUpdate.jsp").forward(request, response);
         }
-
+        System.out.println(h);
+        System.out.println(hd);
+        System.out.println(r);
+        System.out.println(e);
+        System.out.println(listC);
     }
 
     /**
