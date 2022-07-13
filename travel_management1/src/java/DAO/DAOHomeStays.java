@@ -886,9 +886,12 @@ public class DAOHomeStays extends connectDB {
         int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ",0));
         System.out.println(count);
 //
-        List<HomeStays> list = dao.SearchbyProvince(1, "Giang");
+        List<HomeStays> list = dao.getHomeStayforSUP("2convitcon");
         HomeStays h = dao.getHomestay2("HS0001");
         System.out.println(h);
+        for(HomeStays temp:list){
+            System.out.println(temp);
+        }
 
     }
 }

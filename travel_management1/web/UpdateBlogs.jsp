@@ -129,6 +129,7 @@
                                             <div class="login-box"  style="margin-top: 430px">
                                                 <form  action="BlogsManager" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="go" value="Update">
+                                                    <input type="hidden" name="BlogsId" value="">
                                                     <div class="user-box">
                                                         <label> Main Image</label>
                                                     </div>
@@ -137,8 +138,7 @@
                                                     <br>
                                                     <div  style="font-size:14px;text-align: center;background: #fff"> 
                                                         <input type="file" name="image" >
-                                                    </div>  
-                                                    <input type="hidden" name="Img1" value="">
+                                                    </div>                                                    
                                                     <div class="user-box">
                                                         <input style="color:#000"type="text" name="description" required="" maxlength="500" value="">
                                                         <label>Title</label>
@@ -158,24 +158,18 @@
                                                         <label> News Text</label>
                                                     </div>
                                                     <textarea style="text-align: left;width:891px;height: 171px "></textarea>
-
-
                                                     <span></span>
                                                     <span></span>
                                                     <span></span>
                                                     <span></span>
                                                     <hr>
                                                     <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit">     
-
                                                 </form>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.container-fluid -->
-
                         </div>
                         <!-- End of Main Content -->
 

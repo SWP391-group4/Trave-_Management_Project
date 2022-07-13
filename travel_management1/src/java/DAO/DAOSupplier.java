@@ -308,6 +308,8 @@ public class DAOSupplier extends connectDB {
         DAOSupplier d = new DAOSupplier();
         SupplierImage s = d.getSUPImage("2convitcon");
         System.out.println(s);
+        int count=d.updateSupplier(new Suppliers("2convitcon", "thinh", "quang", "0123123123",  "031312312"));
+        System.out.println(count);
 //        List<Suppliers> list = d.getSuppiler("2convitcon");
 //        Suppliers list = d.updateSUPImage("2convitcon","co.jpg");
 //        System.out.println(list);

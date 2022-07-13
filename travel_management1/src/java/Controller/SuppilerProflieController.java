@@ -92,7 +92,7 @@ public class SuppilerProflieController extends HttpServlet {
         String fax = request.getParameter("fax");
         String phone = request.getParameter("phone");
 
-        Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, email, phone);
+        Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, phone);
         int n = daosup.updateSupplier(sup_temp);
 
         if (n == 0) {

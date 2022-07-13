@@ -123,8 +123,8 @@
                                             <div class="card-header py-3"  >
                                                 <h6 class="m-0 font-weight-bold text-primary">Blogs Home Page</h6>
                                             </div>
-                                             <div class="card-body" style="padding:10px">
-                                                <a href="BlogsManager?go=Insert">
+                                            <div class="card-body" style="padding:10px">
+                                                <a href="InsertBlogs.jsp">
                                                     <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Insert</button>
                                                 </a>
                                             </div>

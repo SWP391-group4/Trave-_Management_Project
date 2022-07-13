@@ -44,18 +44,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCompany5">First name: </label>
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="First name" name="firstName" />
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder="First name" name="firstName" value="${firstName}"/>
                                     <label for="inputState6">Contact Phone</label>    
                                     <input type="text" class="form-control" id="inputCompany5" placeholder="(+84)" name="phone" />
                                     <label for="inputState6">Contact Email</label>    
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="userName123@email.com" name="email" />
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder="userName123@email.com" name="email" value="${email}"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState5">Last name</label>                      
-                                    <input type="text" class="form-control" id="Last name" placeholder="VNÐ" name="lastName" />
+                                    <input type="text" class="form-control" id="Last name" placeholder="Last name" name="lastName" value="${lastName}"/>
 
                                     <label for="inputState6">Fax</label>    
-                                    <input type="text" class="form-control" id="inputCompany5" name="fax" />
+                                    <input type="text" class="form-control" id="inputCompany5" name="fax" value="${fax}"/>
                                 </div>                  
 
                             </div>
@@ -64,17 +64,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4 "> 
                                     <label for="inputState5">City</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"/>
-                                    <label for="inputState5">Specific</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" name="specific"/>
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
+                                    <label for="inputState5">Specific</label>
+                                    <input type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">District</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" name="district" />
+                                    <input type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
                                 </div> 
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">Ward</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" />
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
                                 </div> 
                             </div>
                             <hr class="my-4" />
@@ -89,9 +89,10 @@
                                     <input type="file" name="imageAfter" class="custom" accept="image/png, image/jpg, image/jpeg">
                                 </div> 
                             </div>
-                            <button type="preview" class="btn btn-primary">Preview</button>
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" name="preview" value="preview" class="btn btn-primary">Preview</button>
+                            <button type="submit" name="register" class="btn btn-primary">Register</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -171,6 +172,11 @@
 
         <script type="text/javascript">
 
+        </script>
+        <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
         </script>
     </body>
 </html>

@@ -556,6 +556,23 @@ public class DAOSupplierTemp extends connectDB {
         
         return 0;
     }
+    public int addSupplierAddress(SupplierAddresses address) {
+        String sql = "insert into SupplierAddresses set(?,?,?,?,?)";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setString(1, address.getAccountS());
+            pre.setString(2, address.getCity());
+            pre.setString(3, address.getDistrict());
+            pre.setString(4, address.getWard());
+            pre.setString(5, address.getSpecific());
+            return pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 0;
+    }
 
     public static void main(String[] args) {
         DAOSupplierTemp dao = new DAOSupplierTemp();
