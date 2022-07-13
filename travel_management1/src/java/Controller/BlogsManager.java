@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOBlogDetails;
 import DAO.DAOBlogs;
 import Entity.Blogs;
 import java.io.IOException;
@@ -39,29 +40,39 @@ public class BlogsManager extends HttpServlet {
             service = "Show";
         }
         DAOBlogs daoB = new DAOBlogs();
+        DAOBlogDetails daoBD = new DAOBlogDetails();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             if ("Show".equals(service)) {
-                int count=daoB.counttotalB();
-                String pages=request.getParameter("page");
-                
-                int size=5;
-                int endPage=count/size;
-                if(count%size != 0){
-                   endPage++;
+                int count = daoB.counttotalB();
+                String pages = request.getParameter("page");
+
+                int size = 5;
+                int endPage = count / size;
+                if (count % size != 0) {
+                    endPage++;
                 }
-                if(pages==null){
-                    pages="1";
+                if (pages == null) {
+                    pages = "1";
                 }
-                int page= Integer.parseInt(pages);
+                int page = Integer.parseInt(pages);
                 List<Blogs> list = daoB.view5PagingBlogses(page);
                 request.setAttribute("list", list);
                 request.setAttribute("endPage", endPage);
                 request.setAttribute("page", pages);
                 request.getRequestDispatcher("ListBlogManager.jsp").forward(request, response);
             }
+            if (service.equals("Insert")) {
+                response.sendRedirect("UpdateBlogs.jsp");
+            }
             if (service.equals("update")) {
                 response.sendRedirect("UpdateBlogs.jsp");
+            }
+            if (service.equals("Delete")) {
+                String blogId = request.getParameter("blogId");
+                int m = daoBD.removeBlogDetails(blogId);
+                int n = daoB.removeBlogs(blogId);
+                response.sendRedirect("BlogsManager");
             }
         }
 
