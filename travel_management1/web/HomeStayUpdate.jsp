@@ -58,7 +58,7 @@
                         <label for="inputCompany5">Rule</label>
                         <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" name="listrules" value="${r.listRules}" />
                         <label for="inputState6">Categories</label>    
-                        <select id="inputState6" class="form-control" nam="catid" >
+                        <select id="inputState6" class="form-control" name="catid" >
                               <c:forEach items="${listC}" var="c">
                             <option value="${c.cateId}">${c.cateName}</option>
                                </c:forEach>
