@@ -146,7 +146,7 @@
                                                             <td>${c.blogId}</td>
                                                             <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
                                                             <td>${c.title}</td>
-                                                            <td><a href="BlogsManager?go=Update&blogId=${c.blogId}">Update</a></td>
+                                                            <td><a href="UpdateBlogs.jsp">Update</a></td>
                                                             <td><a href="BlogsManager?go=Delete&blogId=${c.blogId}">Delete</a></td>
                                                         </tr>
                                                     </c:forEach>
