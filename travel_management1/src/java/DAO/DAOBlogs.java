@@ -142,6 +142,20 @@ public class DAOBlogs extends connectDB {
         }
         return 0;
     }
+    public int countoDivforSearchName(String txtSearchName) {
+        String sql = "select count(*) from blogs where Title like ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, "%" + txtSearchName + "%");
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
 
     public List<Blogs> viewallBlogs() {
         List<Blogs> vec = new ArrayList<Blogs>();
@@ -166,20 +180,21 @@ public class DAOBlogs extends connectDB {
         return vec;
     }
 
-    public List<Blogs> BlogsSearch(String title) {
+    public List<Blogs> BlogsSearch(int index, String title) {
         List<Blogs> vec = new ArrayList<Blogs>();
         String sql = "select * from Blogs where "
                 + "Title = '" + title + "'";
 //        ResultSet rs = getData(sql);
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 4);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                Blogs obj = new Blogs(rs.getString(1), getString(2), getString(3));
-                vec.add(obj);
+                vec.add(new Blogs(rs.getString(1), getString(2), getString(3), getString(4)));
+                
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return vec;

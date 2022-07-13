@@ -34,14 +34,29 @@ public class BlogSearch extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String title = request.getParameter("txt"); // get du lieu nhap vao
+        String txtSearchname = request.getParameter("txtname");
+        String indexPage = request.getParameter("index");
         DAOBlogs dao = new DAOBlogs();
-        List<Blogs> ve = dao.viewallBlogs();
-        String title = request.getParameter("txt");
-        List<Blogs> listSearch = dao.BlogsSearch(title);
+        
+        //paggong
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = dao.countoDivforSearchName(title);
+        int endPage = count / 6;
+        if (count % 6 != 0) {
+            endPage++;
+        }
+        request.setAttribute("endPage", endPage);
+        
+        List<Blogs> listSearch = dao.BlogsSearch(index, title);
         request.setAttribute("listSearch", listSearch);
         request.setAttribute("txtsearch", title);
+        request.setAttribute("txtSearchname", txtSearchname);
+        request.setAttribute("tag", index);
         request.getRequestDispatcher("/ListAllBlogbySearchtitle.jsp").forward(request, response);
-        
         
         
     }

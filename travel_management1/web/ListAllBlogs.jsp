@@ -27,37 +27,33 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/BlogSearch.css">
+    <jsp:include page="Header.jsp"></jsp:include>
   </head>
   <body>
     
-	<jsp:include page="Header.jsp"></jsp:include>
-    <!-- END nav -->
-    
-
+    <div class="s004">
+      <form action="BlogSearch">
+        <div>
+          <legend>WHAT ARE YOU LOOKING FOR?</legend>
+          <div class="inner-form">
+            <div class="input-field">
+              <input type="text" value="${txtsearch}" method="get" name="txt" class="form-control"  id="choices-text-preset-values" type="text" placeholder="Type to search..." />
+              <button class="btn-search" type="submit" value="Search" name="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </form>
+    </div>
 
     <section class="ftco-section">
         <div class="container">
-            <div class="col-lg-4 sidebar order-md-last ftco-animate">
-                <div class="sidebar-wrap ftco-animate">
-                    <h3 class="heading mb-4">Search Blog</h3>
-                    <form action="BlogSearch">
-                        <div class="fields">
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Blog Title">
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+            
         <div class="row">
 
             <!--            <div class="col-lg-3 sidebar order-md-last ftco-animate">
@@ -110,7 +106,7 @@
                                                                                                     </div>-->
                                     <hr>
                                     <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i> Date</span> 
+<!--                                        <span><i class="icon-map-o"></i> Date</span> -->
                                         <span class="ml-auto"><a href="#">Detail</a></span>
                                     </p>
                                 </div>
