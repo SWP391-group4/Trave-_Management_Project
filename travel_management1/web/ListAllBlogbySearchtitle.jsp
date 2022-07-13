@@ -46,63 +46,108 @@
                 <div class="container ">
                     <div class="row">
                         <div class="col-lg-3 sidebar  ftco-animate"style="">
-                            <div class="sidebar-wrap ftco-animate">
-                                <h3 class="heading mb-4">Search Blog</h3>
-                                <form action="BlogSearch">
+<!--                            <div class="sidebar-wrap ftco-animate">
+                                <h3 class="heading mb-4">Find City</h3>
+
+                                <form  action="searchHomeStay">
                                     <div class="fields">
                                         <div class="form-group">
-                                            <input type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Blog Title">
+                                            <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination, City">
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="range-slider">
+                                            <span>
+                                                <input type="number" value="25000" min="0" max="120000"/>	-
+                                                <input type="number" value="50000" min="0" max="120000"/>
+                                            </span>           
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
                                     </div>
                                 </div>
                             </form>
+
+
                         </div>
 
-                    </div><!-- END-->
+                        <div class="card bg-dark mb-3">
+                            <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i>  Categories</div>
+                            <ul class="list-group category_block">
+                                <c:forEach items="${list}" var="c">
+                                    <li class="list-group-item text-white ${act==c.cateId ?"active":""}"> <a href="category?cid=${c.cateId}">${c.cateName}</a></li>
+                                    </c:forEach>
+
+                            </ul>
+
+                        </div>
+                        <div class="card bg-dark mb-3">
+                            <div class="card-header bg-warning text-dark text-uppercase"><i class="fa fa-list"></i> Status</div>
+                            <ul class="list-group category_block">
+
+                                <li class="list-group-item "> <a href="getbysts?status=1">Avaiable</a></li>
+                                <li class="list-group-item "> <a href="getbysts?status=0">Booked</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div> END-->
 
 
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
-                            <c:forEach items="${listSearch}" var="a">
-                                <div class="col-sm col-md-6 col-lg-4 ftco-animate">
-                                    <div class="destination">
-                                        <a href="#detail" class="img img-2 d-flex justify-content-center align-items-center"  style="border-radius: 10px;background-image: url(images/${a.getImage()});">
+                            <c:forEach items="${list}" var="o">
+                                <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
+                                    <div class="destination" style="display: inline-flex">
+                                        <a href="#=${o.blogId}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
+
                                                 <span class="icon-link"></span>
                                             </div>
                                         </a>
-                                        <div class="text p-3">
+
+                                        <div class="text p-3 col-lg-8">
                                             <div class="d-flex">
+
                                                 <div class="one">
-                                                    <h3><a href="#">${a.getTitle()}</a></h3>
-
-                                                    <h4 style="font-size: 15px">Author:</h4>
-                                                    <p class="rate">
-                                                        ${a.getaccountM()}
-
-                                                    </p>
+                                                    <h3><a href="#"></a>${o.getTitle()}</h3>
+                                                        
+                                                    <p> Author: ${o.accountM}</p>
                                                 </div>
-                                                <div class="two">
 
-                                                </div>
                                             </div>
-                                            <!--		    						<div style="width: 50px; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">
-                                                                                                            </div>-->
+                                            
                                             <hr>
-                                            <p class="bottom-area d-flex">
-                                                <span><i class="icon-map-o"></i> Date</span> 
-                                                <span class="ml-auto"><a href="#">Detail</a></span>
+                                            <p class="bottom-area d-sm-flex">
+
+                                                <span class="ml-auto"><i class="" style="display: inline" >
+                                                    </i>
+
+                                                    <a href="blogController?blogId=${o.blogId}">tont</a></span>
                                             </p>
                                         </div>
+
                                     </div>
+
                                 </div>
                             </c:forEach>
                         </div> 
 
+                        <div class="row mt-5">
+                            <div class="col text-center">
 
+                                <div class="block-27">
+
+                                    <ul>
+                                        <c:forEach begin="1" end="${endPage}" var="i">
+                                            <li class="${tag==i?"active":""}"><a href="blogController?index=${i}">${i}</a></li>
+                                            </c:forEach>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

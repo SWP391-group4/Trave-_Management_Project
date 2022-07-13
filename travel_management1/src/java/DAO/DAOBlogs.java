@@ -209,6 +209,26 @@ public class DAOBlogs extends connectDB {
         }
         return vec;
     }
+    public List<Blogs> paggingBlog(int index) {
+        List<Blogs> list = new ArrayList<>();
+        String sql = "select * from Blogs\n"
+                + "order by BlogId\n"
+                + "offset ? rows\n"
+                + "fetch next 3 rows only";
+        try {
+
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 3);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Blogs(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();

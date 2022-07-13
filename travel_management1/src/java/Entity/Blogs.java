@@ -47,11 +47,11 @@ public class Blogs {
         this.news = news;
         this.accountM = accountM;
     }
-    public Blogs(String blogId, String image, String title, String news) {
+    public Blogs(String blogId, String image, String title, String accountM) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
-        this.news = news;
+        this.accountM = accountM;
     }
 
     public String getImg2() {

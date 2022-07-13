@@ -33,21 +33,30 @@ public class BlogController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        String indexPage = request.getParameter("index");
-//        if (indexPage == null) {
-//            indexPage = "1";
-//        }
-//        int index = Integer.parseInt(indexPage);
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
          
         DAOBlogs dao = new DAOBlogs();
-        List<Blogs> ve = dao.viewallBlogs();
+        int count = dao.counttotalB();
+//        List<Blogs> ve = dao.viewallBlogs();
+        int endPage = count / 3;
+        if (count % 3 != 0) {
+            endPage++;
+        }
 //        String title = request.getParameter("txt");
 //        List<Blogs> listSearch = dao.BlogsSearch(title);
                 // pre some other date
 //                String authorPage = "Author manager";
 //                String authorTable = "List all Authors";
                 //set value for jsp by request
-                request.setAttribute("list", ve);
+        List<Blogs> list = dao.paggingBlog(index);
+        request.setAttribute("endPage", endPage);
+//        request.setAttribute("list", ve);
+        request.setAttribute("list", list);
+        request.setAttribute("tag", index);
 //                request.setAttribute("authorpage", authorPage);
 //                request.setAttribute("authortable", authorTable);
 //        request.setAttribute("listp", viewallBlogs);
