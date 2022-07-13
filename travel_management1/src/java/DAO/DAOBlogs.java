@@ -23,33 +23,47 @@ import static javax.swing.UIManager.getString;
  */
 public class DAOBlogs extends connectDB {
 
-    public int addBlogs(Blogs bl) {
+    public int addBlogs(Blogs b) {
         int n = 0;
-        String sql = "insert into Blogs(BlogId,Image,Title) \n"
-                + "values ('" + bl.getBlogId() + "','" + bl.getImage() + "','" + bl.getTitle() + "')";
+        String sql = "INSERT INTO [dbo].[Blogs]\n"
+                + "           ([BlogId]\n"
+                + "           ,[Image]\n"
+                + "           ,[Title]\n"
+                + "           ,[AccountM])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?)";
 
         try {
-            Statement state = conn.createStatement();
-            n = state.executeUpdate(sql);
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, b.getBlogId());
+            pre.setString(2, b.getImage());
+            pre.setString(3, b.getTitle());
+            pre.setString(4, b.getaccountM());
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return n;
     }
 
-    public int updateBlogs(Blogs bl) {
+    public int updateBlogs(Blogs b) {
         int n = 0;
 
-        String sql = "UPDATE [dbo].[Blogs]"
+        String sql = "UPDATE [dbo].[Blogs]\n"
                 + "   SET \n"
-                + "      [BlogId] = ?"
-                + "      ,[Image] = ?"
-                + " WHERE [Title] = ?";
+                + "      [Image] = ?\n"
+                + "      ,[Title] = ?\n"
+                + "      ,[AccountM] = ?\n"
+                + " WHERE [BlogId] = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, bl.getBlogId());
-            pre.setString(2, bl.getImage());
-            pre.setString(3, bl.getTitle());
+            pre.setString(4, b.getBlogId());
+            pre.setString(1, b.getImage());
+            pre.setString(2, b.getTitle());
+            pre.setString(3, b.getaccountM() );
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -174,10 +188,12 @@ public class DAOBlogs extends connectDB {
             
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
-        List<Blogs> list = dao.viewallBlogs();
-        for (Blogs o : list) {
-            System.out.println(o);
-        }
+//        List<Blogs> list = dao.view5PagingBlogses(1);
+//        for (Blogs o : list) {
+//            System.out.println(o);
+//        }
 //        System.out.println(dao.counttotalB());
+        int n = dao.removeBlogs("1");
+        System.out.println(n);
     }
 }

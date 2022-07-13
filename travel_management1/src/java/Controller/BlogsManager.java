@@ -60,6 +60,9 @@ public class BlogsManager extends HttpServlet {
                 request.setAttribute("page", pages);
                 request.getRequestDispatcher("ListBlogManager.jsp").forward(request, response);
             }
+            if (service.equals("Insert")) {
+                
+            }
         }
 
     }
