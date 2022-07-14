@@ -182,16 +182,20 @@ public class DAOBlogs extends connectDB {
     }
 
     public List<Blogs> BlogsSearch(int index, String title) {
-        List<Blogs> vec = new ArrayList<Blogs>();
+        List<Blogs> vec = new ArrayList<>();
         String sql = "select * from Blogs where "
-                + "Title = '" + title + "'";
+                + "Title = '" + title + "' "
+                + "order by BlogId\n"
+                + "offset ? rows\n"
+                + "fetch next 3 rows only";
 //        ResultSet rs = getData(sql);
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, (index - 1) * 4);
             ResultSet rs = pre.executeQuery();
+            
             while (rs.next()) {
-                vec.add(new Blogs(rs.getString(1), getString(2), getString(3), getString(4)));
+                vec.add(new Blogs(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 
             }
         } catch (SQLException ex) {
@@ -272,12 +276,14 @@ public class DAOBlogs extends connectDB {
 //            System.out.println(o);
 //        }
 //        System.out.println(dao.counttotalB());
-        String lastId1 = dao.lastblogIḌ().substring(0, 6);
-        String s1 = lastId1.substring(0, 5);
-        String s2 = lastId1.substring(4);
-        int numnews = Integer.parseInt(s2) + 1;
-        String n = Integer.toString(numnews);
-        String newID = s1.concat(n);
-        System.out.println(newID);
+//        String lastId1 = dao.lastblogIḌ().substring(0, 6);
+//        String s1 = lastId1.substring(0, 5);
+//        String s2 = lastId1.substring(4);
+//        int numnews = Integer.parseInt(s2) + 1;
+//        String n = Integer.toString(numnews);
+//        String newID = s1.concat(n);
+//        System.out.println(newID);
+        List<Blogs> list = dao.BlogsSearch(1, "Summer Hike");
+        System.out.println(list);
     }
 }

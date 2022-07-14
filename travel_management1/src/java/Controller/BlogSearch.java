@@ -52,6 +52,7 @@ public class BlogSearch extends HttpServlet {
         request.setAttribute("endPage", endPage);
         
         List<Blogs> listSearch = dao.BlogsSearch(index, title);
+        System.out.println(listSearch);
         request.setAttribute("listSearch", listSearch);
         request.setAttribute("txtsearch", title);
         request.setAttribute("txtSearchname", txtSearchname);
