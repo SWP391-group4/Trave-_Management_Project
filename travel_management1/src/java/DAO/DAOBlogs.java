@@ -244,6 +244,19 @@ public class DAOBlogs extends connectDB {
         }
         return list;
     }
+    public String lastblogIḌ() {
+        String sql = "select top 1 blogId from blogs\n"
+                + "order by blogId desc";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
@@ -251,10 +264,17 @@ public class DAOBlogs extends connectDB {
 //        for (Blogs o : list) {
 //            System.out.println(o);
 //        }
-        List<Blogs> list = dao.viewBlogsDetail("BL0001");
-        for (Blogs o : list) {
-            System.out.println(o);
-        }
+//        List<Blogs> list = dao.viewBlogsDetail("BL0001");
+//        for (Blogs o : list) {
+//            System.out.println(o);
+//        }
 //        System.out.println(dao.counttotalB());
+        String lastId1 = dao.lastblogIḌ().substring(0, 6);
+        String s1 = lastId1.substring(0, 5);
+        String s2 = lastId1.substring(4);
+        int numnews = Integer.parseInt(s2) + 1;
+        String n = Integer.toString(numnews);
+        String newID = s1.concat(n);
+        System.out.println(newID);
     }
 }
