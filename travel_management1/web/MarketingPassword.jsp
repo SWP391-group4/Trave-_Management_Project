@@ -1,5 +1,5 @@
 <%-- 
-    Document   : MarketingManager.jsp
+    Document   : MarketingPassword.jsp
     Created on : Jul 4, 2022, 7:56:36 PM
     Author     : nam
 --%>
@@ -78,7 +78,7 @@
                             <i class="fas fa-fw fa-chart-area"></i>
                             <span>Slider Manager</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="BlogsManager">
                             <i class="fas fa-fw fa-table"></i>
                             <span>Blogs Manager</span></a>
@@ -88,7 +88,7 @@
                             <i class="fas fa-fw fa-table"></i>
                             <span>Voucher Manager</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="MarketingPassword">
                             <i class="fas fa-fw fa-table"></i>
                             <span>Change Password</span></a>
