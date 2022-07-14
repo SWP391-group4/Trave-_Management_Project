@@ -89,18 +89,30 @@ public class BlogsManager extends HttpServlet {
                     String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
 
                     //blogid
-                    String lastId1 = daoB.lastblogIḌ().substring(0, 6);
+                    String lastId1 = "BL0000";
+                    if (daoB.lastblogIḌ() != null) {
+                        lastId1 = daoB.lastblogIḌ().substring(0, 6);
+                    }
                     String s1 = lastId1.substring(0, 4);
                     String s2 = lastId1.substring(4);
                     int numnews = Integer.parseInt(s2) + 1;
                     String n = Integer.toString(numnews);
+                    if (numnews < 10) {
+                        n = "0".concat(n);
+                    }
                     String newID = s1.concat(n);
+                    String lastId1d1 = "BLD0000";
                     //blogdetailid
-                    String lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                    if (daoBD.lastblogdetailIḌ() != null) {
+                        lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                    }
                     String s1d1 = lastId1d1.substring(0, 5);
                     String s2d1 = lastId1d1.substring(5);
                     int numnewsd1 = Integer.parseInt(s2d1) + 1;
                     String nd1 = Integer.toString(numnewsd1);
+                    if (numnewsd1 < 10) {
+                        nd1 = "0".concat(nd1);
+                    }
                     String newIDd1 = s1d1.concat(nd1);
                     //marketingid
                     HttpSession session = request.getSession();
@@ -118,6 +130,9 @@ public class BlogsManager extends HttpServlet {
                         String s2d2 = lastId1d2.substring(5);
                         int numnewsd2 = Integer.parseInt(s2d2) + 1;
                         String nd2 = Integer.toString(numnewsd2);
+                        if (numnewsd2 < 10) {
+                            nd2 = "0".concat(nd2);
+                        }
                         String newIDd2 = s1d2.concat(nd2);
                         BlogDetails blogd2 = new BlogDetails(newIDd2, filename2, new2, newID);
                         daoBD.addBlogDetails(blogd2);
