@@ -136,7 +136,6 @@
                                                             <th scope="col">Id</th>
                                                             <th scope="col">Image</th>
                                                             <th scope="col">Title</th>
-                                                            <th scope="col">Update</th>
                                                             <th scope="col">Delete</th>
                                                         </tr>
                                                     </thead>
@@ -147,7 +146,6 @@
                                                             <td>${c.blogId}</td>
                                                             <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
                                                             <td>${c.title}</td>
-                                                            <td><a href="">Update</a></td>
                                                             <td><a href="BlogsManager?go=Delete&blogId=${c.blogId}">Delete</a></td>
                                                         </tr>
                                                     </c:forEach>

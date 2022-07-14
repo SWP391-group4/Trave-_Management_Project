@@ -31,7 +31,7 @@ public class Blogs {
         this.title = title;
     }
 
-    public Blogs(String blogId, String image, String title, String accountM, String news, String img2) {
+    public Blogs(String blogId, String image, String title, String img2 , String news, String accountM ) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;

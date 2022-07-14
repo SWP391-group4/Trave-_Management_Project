@@ -87,7 +87,7 @@ public class BlogsManager extends HttpServlet {
                     //image 2
                     Part part2 = request.getPart("image2");
                     String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
-                    
+
                     //blogid
                     String lastId1 = daoB.lastblogIḌ().substring(0, 6);
                     String s1 = lastId1.substring(0, 4);
@@ -106,7 +106,7 @@ public class BlogsManager extends HttpServlet {
                     HttpSession session = request.getSession();
                     Marketing mar = (Marketing) session.getAttribute("mar");
                     String marketingid = mar.getAccountM();
-                    Blogs blogs = new Blogs(newID,filename, title, marketingid);
+                    Blogs blogs = new Blogs(newID, filename, title, marketingid);
                     daoB.addBlogs(blogs);
                     BlogDetails blogd1 = new BlogDetails(newIDd1, filename1, new1, newID);
                     daoBD.addBlogDetails(blogd1);
@@ -124,45 +124,6 @@ public class BlogsManager extends HttpServlet {
                         response.sendRedirect("BlogsManager");
                     } else {
                         response.sendRedirect("BlogsManager");
-                    }
-                }
-            }
-            if (service.equals("update")) {
-                String submit = request.getParameter("submit");
-                String blogId = request.getParameter("blogId");
-                if (submit == null) {
-                    List<Blogs> v = daoB.viewBlogsDetail(blogId);
-                    request.setAttribute("list", v);
-                    request.getRequestDispatcher("UpdateBlogs.jsp").forward(request, response);
-                } else {
-                    String BlogId = request.getParameter("BlogId");
-                    String title = request.getParameter("title");
-                    String news = request.getParameter("news");
-                    //image
-                    Part part = request.getPart("image");
-                    String realPart = request.getServletContext().getRealPath("/images");
-                    String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-                    //image
-                    Part part1 = request.getPart("image1");
-                    String filename1 = Paths.get(part1.getSubmittedFileName()).getFileName().toString();
-                    if (filename.isEmpty()) {
-                        filename = daoB.viewBlogsDetail(BlogId).get(2).getImage();
-                        //marketingid
-                        HttpSession session = request.getSession();
-                        Marketing mar = (Marketing) session.getAttribute("mar");
-                        String marketingid = mar.getAccountM();
-                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
-                        int n = daoV.updateVoucher(voucher);
-                        response.sendRedirect("VoucherManager");
-                    } else {
-                        part.write(realPart + "/" + filename);
-                        //marketingid
-                        HttpSession session = request.getSession();
-                        Marketing mar = (Marketing) session.getAttribute("mar");
-                        String marketingid = mar.getAccountM();
-                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
-                        int n = daoV.updateVoucher(voucher);
-                        response.sendRedirect("VoucherManager");
                     }
                 }
             }
