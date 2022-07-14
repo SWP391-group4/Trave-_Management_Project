@@ -184,7 +184,7 @@ public class DAOBlogs extends connectDB {
     public List<Blogs> BlogsSearch(int index, String title) {
         List<Blogs> vec = new ArrayList<>();
         String sql = "select * from Blogs where "
-                + "Title like '" + title + "%' "
+                + "Title like '%" + title + "%' "
                 + "order by BlogId\n"
                 + "offset ? rows\n"
                 + "fetch next 3 rows only";
