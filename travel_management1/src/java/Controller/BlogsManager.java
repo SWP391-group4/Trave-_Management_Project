@@ -79,15 +79,12 @@ public class BlogsManager extends HttpServlet {
                 //image 1
                 Part part1 = request.getPart("image1");
                 String filename1 = Paths.get(part1.getSubmittedFileName()).getFileName().toString();
-                part.write(realPart + "/" + filename1);
+                part1.write(realPart + "/" + filename1);
                 //image 2
                 Part part2 = request.getPart("image2");
                 String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
-                if (filename2.isEmpty()) {
-                    filename2 = "h";
-                } else {
-                    part.write(realPart + "/" + filename2);
-                }
+                part2.write(realPart + "/" + filename2);
+               
                 //blogid
                 String lastId1 = daoB.lastblogIḌ().substring(0, 6);
                 String s1 = lastId1.substring(0, 5);
@@ -120,8 +117,7 @@ public class BlogsManager extends HttpServlet {
                     String newIDd2 = s1d2.concat(nd2);
                     BlogDetails blogd2 = new BlogDetails(newIDd2, new2, filename2, newID);
                     daoBD.addBlogDetails(blogd2);
-                }
-                
+                }              
                 response.sendRedirect("BlogsManager");
             }
             if (service.equals("update")) {
