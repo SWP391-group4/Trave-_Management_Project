@@ -142,6 +142,7 @@ public class DAOBlogs extends connectDB {
         }
         return 0;
     }
+
     public int countoDivforSearchName(String txtSearchName) {
         String sql = "select count(*) from blogs where Title like ?";
         try {
@@ -191,7 +192,7 @@ public class DAOBlogs extends connectDB {
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 vec.add(new Blogs(rs.getString(1), getString(2), getString(3), getString(4)));
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);
@@ -205,7 +206,7 @@ public class DAOBlogs extends connectDB {
         String sql = "select a.BlogId, a.[Image],a.Title,b.[image] , b.News, a.AccountM\n"
                 + "from Blogs a inner join BlogDetails b\n"
                 + "on a.BlogId = b.BlogId\n"
-                + "where a.BlogId='"+id+"'";
+                + "where a.BlogId='" + id + "'";
         try {
             Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = state1.executeQuery(sql);
@@ -216,7 +217,7 @@ public class DAOBlogs extends connectDB {
                 String accountM = rs.getString(4);
                 String news = rs.getString(5);
                 String img2 = rs.getString(6);
-                Blogs obj = new Blogs( blogId,  image,  title, accountM,  news,  img2);
+                Blogs obj = new Blogs(blogId, image, title, accountM, news, img2);
                 vec.add(obj);
             }
         } catch (SQLException ex) {
@@ -224,6 +225,7 @@ public class DAOBlogs extends connectDB {
         }
         return vec;
     }
+
     public List<Blogs> paggingBlog(int index) {
         List<Blogs> list = new ArrayList<>();
         String sql = "select * from Blogs\n"
@@ -244,6 +246,7 @@ public class DAOBlogs extends connectDB {
         }
         return list;
     }
+
     public String lastblogIḌ() {
         String sql = "select top 1 blogId from blogs\n"
                 + "order by blogId desc";

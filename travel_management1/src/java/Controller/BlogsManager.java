@@ -6,6 +6,7 @@ package Controller;
 
 import DAO.DAOBlogDetails;
 import DAO.DAOBlogs;
+import Entity.BlogDetails;
 import Entity.Blogs;
 import Entity.Marketing;
 import java.io.IOException;
@@ -70,9 +71,6 @@ public class BlogsManager extends HttpServlet {
                 String title = request.getParameter("title");
                 String new1 = request.getParameter("new1");
                 String new2 = request.getParameter("new2");
-                String new3 = request.getParameter("new3");
-                String new4 = request.getParameter("new4");
-                String new5 = request.getParameter("new5");
                 //image main
                 Part part = request.getPart("image");
                 String realPart = request.getServletContext().getRealPath("/images");
@@ -85,36 +83,11 @@ public class BlogsManager extends HttpServlet {
                 //image 2
                 Part part2 = request.getPart("image2");
                 String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
-                if(filename2.isEmpty()){
-                   filename2="h";
-                }else{
-                part.write(realPart + "/" + filename2);
+                if (filename2.isEmpty()) {
+                    filename2 = "h";
+                } else {
+                    part.write(realPart + "/" + filename2);
                 }
-                //image 3
-                Part part3 = request.getPart("image3");
-                String filename3 = Paths.get(part3.getSubmittedFileName()).getFileName().toString();
-                if(filename3.isEmpty()){
-                   filename3="h";
-                }else{
-                part.write(realPart + "/" + filename3);
-                }
-                //image 4
-                Part part4 = request.getPart("image4");
-                String filename4 = Paths.get(part4.getSubmittedFileName()).getFileName().toString();
-                if(filename4.isEmpty()){
-                   filename4="h";
-                }else{
-                part.write(realPart + "/" + filename4);
-                }
-                //image 5
-                Part part5 = request.getPart("image5");
-                String filename5 = Paths.get(part5.getSubmittedFileName()).getFileName().toString();
-                if(filename5.isEmpty()){
-                   filename5="h";
-                }else{
-                part.write(realPart + "/" + filename5);
-                }
-                
                 //blogid
                 String lastId1 = daoB.lastblogIḌ().substring(0, 6);
                 String s1 = lastId1.substring(0, 5);
@@ -122,20 +95,33 @@ public class BlogsManager extends HttpServlet {
                 int numnews = Integer.parseInt(s2) + 1;
                 String n = Integer.toString(numnews);
                 String newID = s1.concat(n);
-                
                 //blogdetailid
-                String lastId1d = daoBD.lastblogdetailIḌ().substring(0, 7);
-                String s1d = lastId1d.substring(0, 5);
-                String s2d = lastId1d.substring(4);
-                int numnewsd = Integer.parseInt(s2d) + 1;
-                String nd = Integer.toString(numnewsd);
-                String newIDd = s1.concat(nd);
+                String lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                String s1d1 = lastId1d1.substring(0, 6);
+                String s2d1 = lastId1d1.substring(4);
+                int numnewsd1 = Integer.parseInt(s2d1) + 1;
+                String nd1 = Integer.toString(numnewsd1);
+                String newIDd1 = s1d1.concat(nd1);
                 //marketingid
                 HttpSession session = request.getSession();
                 Marketing mar = (Marketing) session.getAttribute("mar");
                 String marketingid = mar.getAccountM();
-                Blogs blogs = new Blogs(newID, title,filename, marketingid);
+                Blogs blogs = new Blogs(newID, title, filename, marketingid);
                 daoB.addBlogs(blogs);
+                BlogDetails blogd1 = new BlogDetails(newIDd1, new1, filename1, newID);
+                daoBD.addBlogDetails(blogd1);
+                if (!new2.isEmpty()) {
+                    //blogdetailid
+                    String lastId1d2 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                    String s1d2 = lastId1d2.substring(0, 6);
+                    String s2d2 = lastId1d2.substring(4);
+                    int numnewsd2 = Integer.parseInt(s2d2) + 1;
+                    String nd2 = Integer.toString(numnewsd2);
+                    String newIDd2 = s1d2.concat(nd2);
+                    BlogDetails blogd2 = new BlogDetails(newIDd2, new2, filename2, newID);
+                    daoBD.addBlogDetails(blogd2);
+                }
+                
                 response.sendRedirect("BlogsManager");
             }
             if (service.equals("update")) {

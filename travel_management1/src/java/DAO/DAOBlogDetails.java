@@ -93,12 +93,12 @@ public class DAOBlogDetails extends DBContext.connectDB {
         DAOBlogDetails dao = new DAOBlogDetails();
 //        int n=dao.addBlogDetails(new BlogDetails("2", "1", "1", "BL0001    "));
 //        System.out.println(n);
-        String lastId1 = dao.lastblogdetailIḌ().substring(0, 7);
-        String s1 = lastId1.substring(0, 5);
-        String s2 = lastId1.substring(4);
-        int numnews = Integer.parseInt(s2) + 1;
-        String n = Integer.toString(numnews);
-        String newID = s1.concat(n);
-        System.out.println(newID);
+        String lastId1d1 = dao.lastblogdetailIḌ().substring(0, 7);
+        String s1d1 = lastId1d1.substring(0, 6);
+        String s2d1 = lastId1d1.substring(4);
+        int numnewsd1 = Integer.parseInt(s2d1) + 1;
+        String nd1 = Integer.toString(numnewsd1);
+        String newIDd1 = s1d1.concat(nd1);
+        System.out.println(newIDd1);
     }
 }

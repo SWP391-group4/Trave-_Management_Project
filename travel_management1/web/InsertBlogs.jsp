@@ -126,7 +126,7 @@
                                         </div>                 
 
                                         <div class="container">
-                                            <div class="login-box"  style="margin-top: 1230px" >
+                                            <div class="login-box"  style="margin-top: 640px" >
                                                 <form  action="BlogsManager" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="go" value="Insert">
                                                     <div class="user-box">
@@ -174,71 +174,15 @@
                                                     <br>
                                                     <br>
                                                     <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image2" >
+                                                        <input type="file" name="image2" required="">
                                                     </div>   
 
                                                     <div class="user-box" style="margin-bottom: 42px">
                                                         <label> News Text</label>
                                                     </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new2" ></textarea>
+                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new2" required=""></textarea>
                                                     <hr>
-                                                    <div class="user-box">
-                                                        <br>
-                                                        <br>
-                                                        <h4 style="color: darkgrey;text-align: center">The third paragraph</h4>
-                                                    </div>
-                                                    <div class="user-box">                                                       
-                                                        <label> News Image</label>
-                                                    </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image3" >
-                                                    </div>   
-
-                                                    <div class="user-box" style="margin-bottom: 42px">
-                                                        <label> News Text</label>
-                                                    </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new3"></textarea>
-                                                    <hr>
-                                                    <div class="user-box">
-                                                        <br>
-                                                        <br>
-                                                        <h4 style="color: darkgrey;text-align: center">The fourth paragraph</h4>
-                                                    </div>
-                                                    <div class="user-box">                                                       
-                                                        <label> News Image</label>
-                                                    </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image4" >
-                                                    </div>   
-
-                                                    <div class="user-box" style="margin-bottom: 42px">
-                                                        <label> News Text</label>
-                                                    </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new4"></textarea>
-                                                    <hr>
-                                                    <div class="user-box">
-                                                        <br>
-                                                        <br>
-                                                        <h4 style="color: darkgrey;text-align: center">The fifth paragraph</h4>
-                                                    </div>
-                                                    <div class="user-box">                                                       
-                                                        <label> News Image</label>
-                                                    </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image5" >
-                                                    </div>   
-
-                                                    <div class="user-box" style="margin-bottom: 42px">
-                                                        <label> News Text</label>
-                                                    </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new5" ></textarea>
-                                                    <hr>
+                                                    
                                                     <div style="text-align: center">
                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Insert" name="submit"> 
                                                     </div>
