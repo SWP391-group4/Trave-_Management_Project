@@ -127,7 +127,7 @@
 
                                         <div class="container">
                                             <div class="login-box"  style="margin-top: 640px" >
-                                                <form  action="BlogsManager" method="post" enctype="multipart/form-data">
+                                                <form  action="BlogsManager" method="Post" enctype="multipart/form-data">
                                                     <input type="hidden" name="go" value="Insert">
                                                     <div class="user-box">
                                                         <label> Main Image</label>

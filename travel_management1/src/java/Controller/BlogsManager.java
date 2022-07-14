@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ import javax.servlet.http.Part;
  *
  * @author nam
  */
+@MultipartConfig
 @WebServlet(name = "BlogsManager", urlPatterns = {"/BlogsManager"})
 public class BlogsManager extends HttpServlet {
 
@@ -46,12 +48,10 @@ public class BlogsManager extends HttpServlet {
         }
         DAOBlogs daoB = new DAOBlogs();
         DAOBlogDetails daoBD = new DAOBlogDetails();
-        response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             if ("Show".equals(service)) {
                 int count = daoB.counttotalB();
                 String pages = request.getParameter("page");
-
                 int size = 5;
                 int endPage = count / size;
                 if (count % size != 0) {
@@ -68,60 +68,66 @@ public class BlogsManager extends HttpServlet {
                 request.getRequestDispatcher("ListBlogManager.jsp").forward(request, response);
             }
             if (service.equals("Insert")) {
-                String title = request.getParameter("title");
-                String new1 = request.getParameter("new1");
-                String new2 = request.getParameter("new2");
-                //image main
-                Part part = request.getPart("image");
-                String realPart = request.getServletContext().getRealPath("/images");
-                String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-                part.write(realPart + "/" + filename);
-                //image 1
-                Part part1 = request.getPart("image1");
-                String filename1 = Paths.get(part1.getSubmittedFileName()).getFileName().toString();
-                part1.write(realPart + "/" + filename1);
-                //image 2
-                Part part2 = request.getPart("image2");
-                String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
-                part2.write(realPart + "/" + filename2);
-               
-                //blogid
-                String lastId1 = daoB.lastblogIḌ().substring(0, 6);
-                String s1 = lastId1.substring(0, 5);
-                String s2 = lastId1.substring(4);
-                int numnews = Integer.parseInt(s2) + 1;
-                String n = Integer.toString(numnews);
-                String newID = s1.concat(n);
-                //blogdetailid
-                String lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
-                String s1d1 = lastId1d1.substring(0, 6);
-                String s2d1 = lastId1d1.substring(4);
-                int numnewsd1 = Integer.parseInt(s2d1) + 1;
-                String nd1 = Integer.toString(numnewsd1);
-                String newIDd1 = s1d1.concat(nd1);
-                //marketingid
-                HttpSession session = request.getSession();
-                Marketing mar = (Marketing) session.getAttribute("mar");
-                String marketingid = mar.getAccountM();
-                Blogs blogs = new Blogs(newID, title, filename, marketingid);
-                daoB.addBlogs(blogs);
-                BlogDetails blogd1 = new BlogDetails(newIDd1, new1, filename1, newID);
-                daoBD.addBlogDetails(blogd1);
-                if (!new2.isEmpty()) {
+                String submit = request.getParameter("submit");
+                if (submit == null) {
+                    response.sendRedirect("InsertBlogs.jsp");
+                } else {
+                    String title = request.getParameter("title");
+                    String new1 = request.getParameter("new1");
+                    String new2 = request.getParameter("new2");
+                    //image main
+                    Part part = request.getPart("image");
+                    String realPart = request.getServletContext().getRealPath("/images");
+                    String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                    part.write(realPart + "/" + filename);
+                    //image 1
+                    Part part1 = request.getPart("image1");
+                    String filename1 = Paths.get(part1.getSubmittedFileName()).getFileName().toString();
+                    part1.write(realPart + "/" + filename1);
+                    //image 2
+                    Part part2 = request.getPart("image2");
+                    String filename2 = Paths.get(part2.getSubmittedFileName()).getFileName().toString();
+                    
+                    //blogid
+                    String lastId1 = daoB.lastblogIḌ().substring(0, 6);
+                    String s1 = lastId1.substring(0, 5);
+                    String s2 = lastId1.substring(5);
+                    int numnews = Integer.parseInt(s2) + 1;
+                    String n = Integer.toString(numnews);
+                    String newID = s1.concat(n);
                     //blogdetailid
-                    String lastId1d2 = daoBD.lastblogdetailIḌ().substring(0, 7);
-                    String s1d2 = lastId1d2.substring(0, 6);
-                    String s2d2 = lastId1d2.substring(4);
-                    int numnewsd2 = Integer.parseInt(s2d2) + 1;
-                    String nd2 = Integer.toString(numnewsd2);
-                    String newIDd2 = s1d2.concat(nd2);
-                    BlogDetails blogd2 = new BlogDetails(newIDd2, new2, filename2, newID);
-                    daoBD.addBlogDetails(blogd2);
-                }              
-                response.sendRedirect("BlogsManager");
+                    String lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                    String s1d1 = lastId1d1.substring(0, 6);
+                    String s2d1 = lastId1d1.substring(6);
+                    int numnewsd1 = Integer.parseInt(s2d1) + 1;
+                    String nd1 = Integer.toString(numnewsd1);
+                    String newIDd1 = s1d1.concat(nd1);
+                    //marketingid
+                    HttpSession session = request.getSession();
+                    Marketing mar = (Marketing) session.getAttribute("mar");
+                    String marketingid = mar.getAccountM();
+                    Blogs blogs = new Blogs(newID,filename, title, marketingid);
+                    daoB.addBlogs(blogs);
+                    BlogDetails blogd1 = new BlogDetails(newIDd1, filename1, new1, newID);
+                    daoBD.addBlogDetails(blogd1);
+                    if (new2 != null && filename2 != null) {
+                        //blogdetailid
+                        part2.write(realPart + "/" + filename2);
+                        String lastId1d2 = daoBD.lastblogdetailIḌ().substring(0, 7);
+                        String s1d2 = lastId1d2.substring(0, 6);
+                        String s2d2 = lastId1d2.substring(6);
+                        int numnewsd2 = Integer.parseInt(s2d2) + 1;
+                        String nd2 = Integer.toString(numnewsd2);
+                        String newIDd2 = s1d2.concat(nd2);
+                        BlogDetails blogd2 = new BlogDetails(newIDd2, filename2, new2, newID);
+                        daoBD.addBlogDetails(blogd2);
+                        response.sendRedirect("BlogsManager");
+                    } else {
+                        response.sendRedirect("BlogsManager");
+                    }
+                }
             }
             if (service.equals("update")) {
-                response.sendRedirect("UpdateBlogs.jsp");
             }
             if (service.equals("Delete")) {
                 String blogId = request.getParameter("blogId");

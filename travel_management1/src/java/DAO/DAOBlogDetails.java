@@ -95,8 +95,8 @@ public class DAOBlogDetails extends DBContext.connectDB {
 //        System.out.println(n);
         String lastId1d1 = dao.lastblogdetailIḌ().substring(0, 7);
         String s1d1 = lastId1d1.substring(0, 6);
-        String s2d1 = lastId1d1.substring(4);
-        int numnewsd1 = Integer.parseInt(s2d1) + 1;
+        String s2d1 = lastId1d1.substring(6);
+        int numnewsd1 = Integer.parseInt(s2d1) + 2;
         String nd1 = Integer.toString(numnewsd1);
         String newIDd1 = s1d1.concat(nd1);
         System.out.println(newIDd1);

@@ -124,9 +124,10 @@
                                                 <h6 class="m-0 font-weight-bold text-primary">Blogs Home Page</h6>
                                             </div>
                                             <div class="card-body" style="padding:10px">
-                                                <a href="InsertBlogs.jsp">
-                                                    <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Insert</button>
-                                                </a>
+                                                <form action="BlogsManager">
+                                                    <input type="hidden" name="go" value="Insert">
+                                                    <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Insert</button>                                               
+                                                </form>
                                             </div>
                                             <div class="card-body" style="padding-top:0px">
                                                 <table class="table table-striped">
@@ -146,7 +147,7 @@
                                                             <td>${c.blogId}</td>
                                                             <td><img src="images/${c.image}" style="width: 90px ;height:102px "></td>
                                                             <td>${c.title}</td>
-                                                            <td><a href="UpdateBlogs.jsp">Update</a></td>
+                                                            <td><a href="">Update</a></td>
                                                             <td><a href="BlogsManager?go=Delete&blogId=${c.blogId}">Delete</a></td>
                                                         </tr>
                                                     </c:forEach>
