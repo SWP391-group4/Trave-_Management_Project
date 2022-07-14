@@ -90,15 +90,15 @@ public class BlogsManager extends HttpServlet {
                     
                     //blogid
                     String lastId1 = daoB.lastblogIḌ().substring(0, 6);
-                    String s1 = lastId1.substring(0, 5);
-                    String s2 = lastId1.substring(5);
+                    String s1 = lastId1.substring(0, 4);
+                    String s2 = lastId1.substring(4);
                     int numnews = Integer.parseInt(s2) + 1;
                     String n = Integer.toString(numnews);
                     String newID = s1.concat(n);
                     //blogdetailid
                     String lastId1d1 = daoBD.lastblogdetailIḌ().substring(0, 7);
-                    String s1d1 = lastId1d1.substring(0, 6);
-                    String s2d1 = lastId1d1.substring(6);
+                    String s1d1 = lastId1d1.substring(0, 5);
+                    String s2d1 = lastId1d1.substring(5);
                     int numnewsd1 = Integer.parseInt(s2d1) + 1;
                     String nd1 = Integer.toString(numnewsd1);
                     String newIDd1 = s1d1.concat(nd1);
@@ -114,8 +114,8 @@ public class BlogsManager extends HttpServlet {
                         //blogdetailid
                         part2.write(realPart + "/" + filename2);
                         String lastId1d2 = daoBD.lastblogdetailIḌ().substring(0, 7);
-                        String s1d2 = lastId1d2.substring(0, 6);
-                        String s2d2 = lastId1d2.substring(6);
+                        String s1d2 = lastId1d2.substring(0, 5);
+                        String s2d2 = lastId1d2.substring(5);
                         int numnewsd2 = Integer.parseInt(s2d2) + 1;
                         String nd2 = Integer.toString(numnewsd2);
                         String newIDd2 = s1d2.concat(nd2);
