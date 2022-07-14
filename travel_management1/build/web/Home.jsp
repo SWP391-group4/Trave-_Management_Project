@@ -154,7 +154,7 @@
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right;text-decoration: underline;">
-                        <a href="home.jsp">See All</a>
+                        <a href="blogController">See All</a>
                     </div>
                     <br>
                     <div class="row">
