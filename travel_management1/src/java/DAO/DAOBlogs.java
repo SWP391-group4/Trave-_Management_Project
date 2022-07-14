@@ -285,6 +285,6 @@ public class DAOBlogs extends connectDB {
         System.out.println(newID);
 //        List<Blogs> list = dao.BlogsSearch(1, "Summer Hike");
 //        System.out.println(list);
-          dao.addBlogs(new Blogs("BL0002", "1", "1", "bautroikhongem"));
+         System.out.println(dao.viewBlogsDetail("BL0010    "));
     }
 }

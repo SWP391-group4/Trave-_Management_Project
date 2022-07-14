@@ -128,6 +128,43 @@ public class BlogsManager extends HttpServlet {
                 }
             }
             if (service.equals("update")) {
+                String submit = request.getParameter("submit");
+                String blogId = request.getParameter("blogId");
+                if (submit == null) {
+                    List<Blogs> v = daoB.viewBlogsDetail(blogId);
+                    request.setAttribute("list", v);
+                    request.getRequestDispatcher("UpdateBlogs.jsp").forward(request, response);
+                } else {
+                    String BlogId = request.getParameter("BlogId");
+                    String title = request.getParameter("title");
+                    String news = request.getParameter("news");
+                    //image
+                    Part part = request.getPart("image");
+                    String realPart = request.getServletContext().getRealPath("/images");
+                    String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                    //image
+                    Part part1 = request.getPart("image1");
+                    String filename1 = Paths.get(part1.getSubmittedFileName()).getFileName().toString();
+                    if (filename.isEmpty()) {
+                        filename = daoB.viewBlogsDetail(BlogId).get(2).getImage();
+                        //marketingid
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        String marketingid = mar.getAccountM();
+                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
+                        int n = daoV.updateVoucher(voucher);
+                        response.sendRedirect("VoucherManager");
+                    } else {
+                        part.write(realPart + "/" + filename);
+                        //marketingid
+                        HttpSession session = request.getSession();
+                        Marketing mar = (Marketing) session.getAttribute("mar");
+                        String marketingid = mar.getAccountM();
+                        Vouchers voucher = new Vouchers(VoucherId, title, description, filename, discounts, quantitys, marketingid);
+                        int n = daoV.updateVoucher(voucher);
+                        response.sendRedirect("VoucherManager");
+                    }
+                }
             }
             if (service.equals("Delete")) {
                 String blogId = request.getParameter("blogId");

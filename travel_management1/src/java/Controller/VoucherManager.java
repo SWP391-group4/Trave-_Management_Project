@@ -80,8 +80,8 @@ public class VoucherManager extends HttpServlet {
                 part.write(realPart + "/" + filename);
                 //voucherid
                 String lastId1 = daoV.lastVoucherId().substring(0, 6);
-                String s1 = lastId1.substring(0, 4);
-                String s2 = lastId1.substring(4);
+                String s1 = lastId1.substring(0, 5);
+                String s2 = lastId1.substring(5);
                 int numnews = Integer.parseInt(s2) + 1;
                 String n = Integer.toString(numnews);
                 String newID = s1.concat(n);

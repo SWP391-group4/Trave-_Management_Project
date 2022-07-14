@@ -174,13 +174,13 @@
                                                     <br>
                                                     <br>
                                                     <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image2" >
+                                                        <input type="file" name="image2" required="" >
                                                     </div>   
 
                                                     <div class="user-box" style="margin-bottom: 42px">
                                                         <label> News Text</label>
                                                     </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new2" ></textarea>
+                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new2" required=""></textarea>
                                                     <hr>
                                                     
                                                     <div style="text-align: center">
