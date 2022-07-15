@@ -42,8 +42,16 @@ public class SliderManager extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             if ("Show".equals(service)) {
                 List<Slider> list = daoS.viewSlider();
-                request.setAttribute("list",list);
+                request.setAttribute("list", list);
                 request.getRequestDispatcher("ListSlider.jsp").forward(request, response);
+            }
+            if ("Update".equals(service)) {
+                String submit = request.getParameter("submit");
+                if (submit == null) {
+                    request.getRequestDispatcher("UpdateSlider.jsp").forward(request, response);
+                } else {
+
+                }
             }
         }
     }
