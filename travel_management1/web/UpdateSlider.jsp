@@ -3,6 +3,7 @@
     Created on : Jul 4, 2022, 7:56:36 PM
     Author     : nam
 --%>
+<%@page import="Entity.Slider"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
@@ -127,10 +128,13 @@
                                             </div>                 
                                         <% String s = (String) request.getAttribute("s");%>
                                         <% String img = (String) request.getAttribute("img");%>
+                                        <% String sliderID = (String) request.getAttribute("sliderID");%>
                                         <% List<String> list = (List<String>) request.getAttribute("list");%>
                                         <div class="container">
                                             <div class="login-box"  style="margin-top: 260px;width: 50%" >
-                                                <form  action="MarketingPassword" method="Post" >                                             
+                                                <form  action="SliderManager" method="Post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="go" value="Update">
+                                                    <input type="hidden" name="sliderID" value="<%=sliderID %>">
                                                     <label style="font-size: 18px;color: #4e73df">City</label>
                                                     <select style="margin-left: 15px" name="city"> 
                                                         <%for (String c : list) {
