@@ -122,70 +122,30 @@
                                     <!-- Project Card Example -->
                                     <div class="card shadow mb-4" >
                                         <div class="card-header py-3"  style="text-align: center ">
-                                            <h6 class="m-0 font-weight-bold text-primary"> Insert Blogs </h6>
+                                            <h6 class="m-0 font-weight-bold text-primary"> Change Password </h6>
                                         </div>                 
 
                                         <div class="container">
-                                            <div class="login-box"  style="margin-top: 640px" >
+                                            <div class="login-box"  style="margin-top: 300px;width: 50%" >
                                                 <form  action="BlogsManager" method="Post" enctype="multipart/form-data">
-                                                    <input type="hidden" name="go" value="Insert">
-                                                    <div class="user-box">
-                                                        <label> Main Image</label>
+                                                    <input type="hidden" name="go" value="MarketingPassword">                                                   
+                                                    <label style="font-size: 14px;color: #4e73df">Old Password</label>
+                                                    <div class="user-box">                                                          
+                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
                                                     </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image" required="" >
-                                                    </div>  
-                                                    <br>
-                                                    <div class="user-box">
-                                                        
-                                                        <input style="color:#000"type="text" name="title" required="" maxlength="500" value="">
-                                                        <label>Title</label>
+                                                    <label style="font-size: 14px;color: #4e73df">New Password</label>
+                                                    <div class="user-box">                                                          
+                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
                                                     </div>
-                                                    <hr>
-                                                    <div class="user-box">
-                                                        <br>
-                                                        <br>
-                                                        <h4 style="color: darkgrey;text-align: center">The first paragraph</h4>
+                                                    <label style="font-size: 14px;color: #4e73df">Re-Enter Password</label>
+                                                    <div class="user-box">                                                          
+                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
                                                     </div>
-                                                    <div class="user-box">                                                       
-                                                        <label> News Image</label>
-                                                    </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image1" required="">
-                                                    </div>   
-
-                                                    <div class="user-box" style="margin-bottom: 42px">
-                                                        <label> News Text</label>
-                                                    </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new1" required=""></textarea>
-                                                    <hr>
-                                                    <div class="user-box">
-                                                        <br>
-                                                        <br>
-                                                        <h4 style="color: darkgrey;text-align: center">The second paragraph</h4>
-                                                    </div>
-                                                    <div class="user-box">                                                       
-                                                        <label> News Image</label>
-                                                    </div>
-                                                    <br>
-                                                    <br>
-                                                    <div  style="font-size:14px;background: #fff"> 
-                                                        <input type="file" name="image2" required="" >
-                                                    </div>   
-
-                                                    <div class="user-box" style="margin-bottom: 42px">
-                                                        <label> News Text</label>
-                                                    </div>
-                                                    <textarea style="text-align: left;width:891px;height: 171px" name="new2" required=""></textarea>
-                                                    <hr>
-                                                    
+                                                    <hr>                                                   
                                                     <div style="text-align: center">
-                                                        <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Insert" name="submit"> 
+                                                        <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Save" name="submit"> 
                                                     </div>
+
                                                 </form>
                                             </div>
                                         </div>
