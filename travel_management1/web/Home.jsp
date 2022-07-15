@@ -108,7 +108,7 @@
                                     <div class="item">
                                         <a  href="searchHomeStay?txt=${c.sliderName}" >
                                             <div class="testimony-wrap p-4 pb-5">
-                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage});background-size: cover ">
+                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage});background-size: cover;border-radius: 5px">
                                                     <h3 style="color: #FFF;padding-left: 40px;padding-top: 250px;font-weight: bold; font-style: italic; ">${c.sliderName}</h3>
                                                 </div>
                                             </div>
