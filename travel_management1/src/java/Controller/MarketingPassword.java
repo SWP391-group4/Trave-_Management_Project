@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAO.DAOAccounts;
+import Entity.Accounts;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sun.swing.SwingUtilities2;
 
 /**
  *
@@ -33,7 +36,34 @@ public class MarketingPassword extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            response.sendRedirect("MarketingPassword.jsp");
+            String submit = request.getParameter("submit");
+            if (submit == null) {
+                response.sendRedirect("MarketingPassword.jsp");
+            } else {
+                Accounts account = (Accounts) request.getSession().getAttribute("acc");
+                DAOAccounts daoAccount = new DAOAccounts();
+                String oldPasswordDB = daoAccount.getPassword(account.getAccount());
+                String oldPassword = request.getParameter("oldPassword");
+                String newPassword = request.getParameter("newPassword");
+                String confirm = request.getParameter("confirmPassword");
+
+                if (oldPassword.equals(oldPasswordDB)) {
+                    if (newPassword.equals(confirm)) {
+                        daoAccount.updatePassword(account.getAccount(), newPassword);
+                        request.getRequestDispatcher("login").forward(request, response);
+
+                    } else {
+                        String alert = "Wrong confirm password";
+                        request.setAttribute("alert", alert);
+                        request.getRequestDispatcher("MarketingPassword.jsp").forward(request, response);
+                    }
+                } else {
+                    String alert = "Wrong old password";
+                    request.setAttribute("alert", alert);
+                    request.getRequestDispatcher("MarketingPassword.jsp").forward(request, response);
+
+                }
+            }
         }
     }
 
@@ -50,6 +80,7 @@ public class MarketingPassword extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**

@@ -127,21 +127,21 @@
 
                                         <div class="container">
                                             <div class="login-box"  style="margin-top: 300px;width: 50%" >
-                                                <form  action="BlogsManager" method="Post" enctype="multipart/form-data">
-                                                    <input type="hidden" name="go" value="MarketingPassword">                                                   
+                                                <form  action="MarketingPassword" method="Post" >                                             
                                                     <label style="font-size: 14px;color: #4e73df">Old Password</label>
                                                     <div class="user-box">                                                          
-                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
+                                                        <input style="color:#000"type="password" name="oldPassword" required="" maxlength="500" value="">                                                        
                                                     </div>
                                                     <label style="font-size: 14px;color: #4e73df">New Password</label>
                                                     <div class="user-box">                                                          
-                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
+                                                        <input style="color:#000"type="password" name="newPassword" required="" maxlength="500" value="">                                                        
                                                     </div>
                                                     <label style="font-size: 14px;color: #4e73df">Re-Enter Password</label>
                                                     <div class="user-box">                                                          
-                                                        <input style="color:#000"type="password" name="title" required="" maxlength="500" value="">                                                        
+                                                        <input style="color:#000"type="password" name="confirmPassword" required="" maxlength="500" value="">                                                        
                                                     </div>
-                                                    <hr>                                                   
+                                                    <hr>    
+                                                    <p class="alert">${alert}</p>
                                                     <div style="text-align: center">
                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Save" name="submit"> 
                                                     </div>
