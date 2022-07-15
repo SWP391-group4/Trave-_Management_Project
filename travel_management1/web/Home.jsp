@@ -107,8 +107,8 @@
                                 <c:forEach items="${lists}" var="c">
                                     <div class="item">
                                         <a  href="searchHomeStay?txt=${c.sliderName}" >
-                                            <div class="testimony-wrap p-4 pb-5" >
-                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage});background-size: cover">
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage});background-size: cover ">
                                                     <h3 style="color: #FFF;padding-left: 40px;padding-top: 250px;font-weight: bold; font-style: italic; ">${c.sliderName}</h3>
                                                 </div>
                                             </div>
