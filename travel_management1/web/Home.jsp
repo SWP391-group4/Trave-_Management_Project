@@ -72,8 +72,8 @@
                     <div class="container">
                         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-                                <form action="menu.jsp" class="searchcheck" >
-                                    <input type="search" name="search" placeholder="        Where do you want to go ?" pattern=".*\S.*" required>
+                                <form action="searchHomeStay" class="searchcheck" >
+                                    <input type="search" name="txt" placeholder="        Where do you want to go ?" pattern=".*\S.*" required>
                                     <button class="search-btn" type="submit">
                                         <span></span>
                                     </button>
@@ -106,7 +106,7 @@
                                 <div class="carousel-testimony owl-carousel ftco-owl">
                                 <c:forEach items="${lists}" var="c">
                                     <div class="item">
-                                        <a  href="menu.jsp" >
+                                        <a  href="searchHomeStay?txt=${c.sliderName}" >
                                             <div class="testimony-wrap p-4 pb-5">
                                                 <div style="width: 301px;height:336px ;background-image: url(images/${c.sliderImage})">
                                                     <h3 style="color: #FFF;padding-left: 40px;padding-top: 240px;font-weight: bold; font-style: italic; ">${c.sliderName}</h3>
