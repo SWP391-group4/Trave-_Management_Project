@@ -41,8 +41,8 @@ public class DAOHomeStayAddresses extends connectDB {
         return vec;
     }
 
-    public List<HomeStayAddressses> HomeStayAddressCity() {
-        List<HomeStayAddressses> vec = new ArrayList<HomeStayAddressses>();
+    public List<String> HomeStayAddressCity() {
+        List<String> vec = new ArrayList<String>();
         String sql = "select city from HomeStayAddressses\n"
                 + "group by city";
         try {
@@ -50,9 +50,7 @@ public class DAOHomeStayAddresses extends connectDB {
             ResultSet rs = state1.executeQuery(sql);
             while (rs.next()) {
                 String city = rs.getString(1);
-                HomeStayAddressses obj = new HomeStayAddressses();
-                obj.setCity(city);
-                vec.add(obj);
+                vec.add(city);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -81,11 +79,11 @@ public class DAOHomeStayAddresses extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStayAddresses dao = new DAOHomeStayAddresses();
-        List<HomeStayAddressses> list = dao.HomeStayAddressCity();
-        for(HomeStayAddressses temp : list ){
+        List<String> list = dao.HomeStayAddressCity();
+        for (String temp : list) {
             System.out.println(temp);
         }
-         System.out.println(list.size());
+        System.out.println(list.size());
 //        HomeStayAddressses s = new HomeStayAddressses("HS0104", "Vinh Yen", "Vinh Phuc", "2 Tam Dao", "Thon 1");
 //        int n = dao.addHomeStayAddresses(s);
 //        System.out.println(n);

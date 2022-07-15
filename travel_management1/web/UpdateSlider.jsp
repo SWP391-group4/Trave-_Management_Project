@@ -3,6 +3,7 @@
     Created on : Jul 4, 2022, 7:56:36 PM
     Author     : nam
 --%>
+<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Entity.MarketingImage"%>
@@ -73,8 +74,8 @@
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="SliderManager">
+                        <li class="nav-item active">
+                            <a class="nav-link " href="SliderManager">
                                 <i class="fas fa-fw fa-chart-area"></i>
                                 <span>Slider Manager</span></a>
                         </li>
@@ -83,7 +84,7 @@
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Blogs Manager</span></a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="VoucherManager">
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Voucher Manager</span></a>
@@ -124,23 +125,21 @@
                                             <div class="card-header py-3"  style="text-align: center ">
                                                 <h6 class="m-0 font-weight-bold text-primary"> Update Slider </h6>
                                             </div>                 
-
-                                            <div class="container">
-                                                <div class="login-box"  style="margin-top: 300px;width: 50%" >
-                                                    <form  action="MarketingPassword" method="Post" >                                             
-                                                        <label style="font-size: 14px;color: #4e73df">City</label>
-                                                        <select name="city"> 
-
-                                                        <c:forEach  items="${listc}" var="o" >
-
-                                                            <c:if test="${o.city}==${s.sliderName}">
-                                                                <option selected value="${s.sliderName}">${s.sliderName}</option>
-                                                            </c:if>
-                                                            <c:if test="${o.city}!=${s.sliderName}">
-                                                                <option value="${s.sliderName}">${s.sliderName}</option>
-                                                            </c:if>
-
-                                                        </c:forEach>
+                                        <% String s = (String) request.getAttribute("s");%>
+                                        <% List<String> list = (List<String>) request.getAttribute("list");%>
+                                        <div class="container">
+                                            <div class="login-box"  style="margin-top: 150px;width: 50%" >
+                                                <form  action="MarketingPassword" method="Post" >                                             
+                                                    <label style="font-size: 18px;color: #4e73df">City</label>
+                                                    <select style="margin-left: 15px" name="city"> 
+                                                        <%for (String c : list) {
+                                                                if (c.equals(s)) {
+                                                        %>
+                                                        <option selected value="<%=c%>"><%=c%></option>
+                                                        <%} else {%>
+                                                        <option value="<%=c%>"><%=c%></option>
+                                                        <%}
+                                                            }%>
                                                     </select>
                                                     <div style="text-align: center">
                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit"> 

@@ -52,9 +52,9 @@ public class SliderManager extends HttpServlet {
                 String submit = request.getParameter("submit");
                 if (submit == null) {
                     String sliderID = request.getParameter("sliderID");
-                    List<HomeStayAddressses> listc = dao.HomeStayAddressCity();
+                    List<String> list = dao.HomeStayAddressCity();
                     String s = daoS.getSliderName(sliderID);
-                    request.setAttribute("listc", listc);
+                    request.setAttribute("list", list);
                     request.setAttribute("s", s);
                     request.getRequestDispatcher("UpdateSlider.jsp").forward(request, response);
                 } else {
