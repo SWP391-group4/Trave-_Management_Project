@@ -120,7 +120,7 @@
                     </div>
             </section>
             <section >
-                <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
+                <div class="row" style="margin-top:80px ;margin-left: 90px;color: #000000">
                     <h3 style="font-weight: bold;font-style: italic">Exclusive Vouchers</h3>
                 </div>
             </section>
@@ -130,7 +130,7 @@
 
                 <div class="container">
                     <div class="col-md-12" style="text-align: right;text-decoration: underline;">
-                        <a href="home.jsp">See All</a>
+                        <a href="ListAllVoucher">See All</a>
                     </div>
                     <br>
                     <div class="row">

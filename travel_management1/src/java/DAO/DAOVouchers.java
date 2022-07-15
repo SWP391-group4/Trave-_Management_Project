@@ -98,6 +98,34 @@ public class DAOVouchers extends DBContext.connectDB {
         return l;
     }
 
+    public List<Vouchers> view9PagingVouchers(int index) {
+        List<Vouchers> l = new ArrayList<>();
+        String sql = "select * from Voucher\n"
+                + "order by VoucherId\n"
+                + "offset ? rows\n"
+                + "fetch next 9 rows only";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 9);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                l.add(new Vouchers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+
     public int counttotalV() {
         String sql = "select count(*) from Voucher ";
         ResultSet rs = getData(sql);
@@ -163,20 +191,21 @@ public class DAOVouchers extends DBContext.connectDB {
     }
 
     public String getImagebyId(String id) {
-        String sql = "select Image from voucher where voucherId='"+id+"'";
-        String image="";
+        String sql = "select Image from voucher where voucherId='" + id + "'";
+        String image = "";
         try {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = state.executeQuery(sql);
-            if(rs.next()){
-                 image = rs.getString(1);
+            if (rs.next()) {
+                image = rs.getString(1);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return image;
     }
-     public int updateVoucher(Vouchers v) {
+
+    public int updateVoucher(Vouchers v) {
         int n = 0;
         String sql = "UPDATE [Voucher]\n"
                 + "   SET Title = ?, Description = ?, Image = ?, Discount = ?, Quantity = ?, AccountM = ?"
@@ -196,17 +225,22 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return n;
     }
+
     public static void main(String[] args) {
         DAOVouchers dao = new DAOVouchers();
-        String lastId1 = dao.lastVoucherId().substring(0, 6);
-        String s1 = lastId1.substring(0, 4);
-        String s2 = lastId1.substring(4);
-        int numnews = Integer.parseInt(s2) + 111;
-        String n = Integer.toString(numnews);
-        String newID = s1.concat(n);
-        System.out.println(newID);
-        System.out.println(dao.getVoucherbyId("VCM010    "));
-        System.out.println(dao.getImagebyId("VCM010    "));
-        dao.updateVoucher(new Vouchers("VCM011","2","2","2",2,3,"bautroikhongem"));
+//        String lastId1 = dao.lastVoucherId().substring(0, 6);
+//        String s1 = lastId1.substring(0, 4);
+//        String s2 = lastId1.substring(4);
+//        int numnews = Integer.parseInt(s2) + 111;
+//        String n = Integer.toString(numnews);
+//        String newID = s1.concat(n);
+//        System.out.println(newID);
+//        System.out.println(dao.getVoucherbyId("VCM010    "));
+//        System.out.println(dao.getImagebyId("VCM010    "));
+//        dao.updateVoucher(new Vouchers("VCM011", "2", "2", "2", 2, 3, "bautroikhongem"));
+          List<Vouchers> list= dao.view9PagingVouchers(1);
+          for(Vouchers o : list){
+          System.out.println(o);
+          }
     }
 }
