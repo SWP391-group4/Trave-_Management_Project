@@ -4,8 +4,11 @@
  */
 package Controller;
 
+import DAO.DAOVouchers;
+import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,17 +34,28 @@ public class SearchListVoucher extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        DAOVouchers daoV = new DAOVouchers();
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SearchListVoucher</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SearchListVoucher at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String name = request.getParameter("name"); // get du lieu nhap vao
+            int count = daoV.counttotalV();
+            String pages = request.getParameter("page");
+
+            int size = 9;
+            int endPage = count / size;
+            if (count % size != 0) {
+                endPage++;
+            }
+            if (pages == null) {
+                pages = "1";
+            }
+            int page = Integer.parseInt(pages);
+            List<Vouchers> list = daoV.view9SearchPagingVouchers(name,page);
+            request.setAttribute("name", name);
+            request.setAttribute("list", list);
+            request.setAttribute("endPage", endPage);
+            request.setAttribute("page", pages);
+            request.getRequestDispatcher("SearchListVoucher.jsp").forward(request, response);
         }
     }
 

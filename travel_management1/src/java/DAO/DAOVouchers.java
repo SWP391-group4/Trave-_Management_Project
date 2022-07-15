@@ -126,6 +126,35 @@ public class DAOVouchers extends DBContext.connectDB {
         return l;
     }
 
+    public List<Vouchers> view9SearchPagingVouchers(String name,int index) {
+        List<Vouchers> l = new ArrayList<>();
+        String sql = "select * from Voucher\n"                
+                + "where title like '"+name+"%'\n"
+                + "order by VoucherId\n"
+                + "offset ? rows\n"
+                + "fetch next 9 rows only ";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 9);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                l.add(new Vouchers(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return l;
+    }
+
     public int counttotalV() {
         String sql = "select count(*) from Voucher ";
         ResultSet rs = getData(sql);
@@ -238,9 +267,9 @@ public class DAOVouchers extends DBContext.connectDB {
 //        System.out.println(dao.getVoucherbyId("VCM010    "));
 //        System.out.println(dao.getImagebyId("VCM010    "));
 //        dao.updateVoucher(new Vouchers("VCM011", "2", "2", "2", 2, 3, "bautroikhongem"));
-          List<Vouchers> list= dao.view9PagingVouchers(1);
-          for(Vouchers o : list){
-          System.out.println(o);
-          }
+        List<Vouchers> list = dao.view9SearchPagingVouchers("h", 1);
+        for (Vouchers o : list) {
+            System.out.println(o);
+        }
     }
 }

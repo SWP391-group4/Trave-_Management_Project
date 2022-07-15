@@ -37,22 +37,22 @@ public class ListAllVoucher extends HttpServlet {
         DAOVouchers daoV = new DAOVouchers();
         try ( PrintWriter out = response.getWriter()) {
             int count = daoV.counttotalV();
-                String pages = request.getParameter("page");
+            String pages = request.getParameter("page");
 
-                int size = 9;
-                int endPage = count / size;
-                if (count % size != 0) {
-                    endPage++;
-                }
-                if (pages == null) {
-                    pages = "1";
-                }
-                int page = Integer.parseInt(pages);
-                List<Vouchers> list = daoV.view9PagingVouchers(page);
-                request.setAttribute("list", list);
-                request.setAttribute("endPage", endPage);
-                request.setAttribute("page", pages);
-                request.getRequestDispatcher("ListAllVoucher.jsp").forward(request, response);
+            int size = 9;
+            int endPage = count / size;
+            if (count % size != 0) {
+                endPage++;
+            }
+            if (pages == null) {
+                pages = "1";
+            }
+            int page = Integer.parseInt(pages);
+            List<Vouchers> list = daoV.view9PagingVouchers(page);
+            request.setAttribute("list", list);
+            request.setAttribute("endPage", endPage);
+            request.setAttribute("page", pages);
+            request.getRequestDispatcher("ListAllVoucher.jsp").forward(request, response);
         }
     }
 
