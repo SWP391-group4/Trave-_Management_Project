@@ -36,7 +36,6 @@ public class ListAllVoucher extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOVouchers daoV = new DAOVouchers();
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             int count = daoV.counttotalV();
                 String pages = request.getParameter("page");
 
