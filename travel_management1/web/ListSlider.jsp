@@ -141,7 +141,6 @@
                                                             <td><img src="images/${c.sliderImage}" style="width: 90px ;height:102px "></td>
                                                             <td>${c.sliderName}</td>
                                                             <td><a href="SliderManager?go=Update&sliderID=${c.sliderID}">Update</a></td>
-                                                            <td><a href="UpdateSlider.jsp">Update</a></td>
                                                         </tr>
                                                     </c:forEach>
 

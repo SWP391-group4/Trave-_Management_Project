@@ -47,90 +47,100 @@
     </head>
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
-        <!-- END nav -->
-        <br>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand active"  href="MarketingProfileController">Account Information</a>
-                <a class="navbar-brand"style="color: #eea236" href="#">Marketing Manager</a>
-            </div>
-        </nav>
-        <section style="padding-top: 10px;margin-top: 20px;margin-bottom: 0px;padding-bottom: 0px">
-            <!-- Page Wrapper -->
-            <div id="wrapper">
+            <!-- END nav -->
+            <br>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand active"  href="MarketingProfileController">Account Information</a>
+                    <a class="navbar-brand"style="color: #eea236" href="#">Marketing Manager</a>
+                </div>
+            </nav>
+            <section style="padding-top: 10px;margin-top: 20px;margin-bottom: 0px;padding-bottom: 0px">
+                <!-- Page Wrapper -->
+                <div id="wrapper">
 
-                <!-- Sidebar -->
-                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                    <br>
-                    <!-- Sidebar - Brand -->
-                    <h4 style="color: #fff;text-align: center">Manager Bar</h4>
-                    <!-- Divider -->
-                    <hr class="sidebar-divider my-0">
+                    <!-- Sidebar -->
+                    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                        <br>
+                        <!-- Sidebar - Brand -->
+                        <h4 style="color: #fff;text-align: center">Manager Bar</h4>
+                        <!-- Divider -->
+                        <hr class="sidebar-divider my-0">
 
-                    <!-- Nav Item - Dashboard -->
-                    <li class="nav-item " >
-                        <a class="nav-link" href="MarketingManager">
-                            <i class="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Dashboard</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="SliderManager">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>Slider Manager</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="BlogsManager">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Blogs Manager</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="VoucherManager">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Voucher Manager</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="MarketingPassword">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Change Password</span></a>
-                    </li>
-                    <!-- Divider -->
-                    <hr class="sidebar-divider d-none d-md-block">
+                        <!-- Nav Item - Dashboard -->
+                        <li class="nav-item " >
+                            <a class="nav-link" href="MarketingManager">
+                                <i class="fas fa-fw fa-tachometer-alt"></i>
+                                <span>Dashboard</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="SliderManager">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Slider Manager</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="BlogsManager">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Blogs Manager</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="VoucherManager">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Voucher Manager</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="MarketingPassword">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Change Password</span></a>
+                        </li>
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
 
-                    <!-- Sidebar Toggler (Sidebar) -->
-                    <div class="text-center d-none d-md-inline">
-                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                    </div>
-
-                    <!-- Sidebar Message -->
-
-
-                </ul>
-
-                <!-- End of Sidebar -->
-
-                <!-- Content Wrapper -->
-                <div id="content-wrapper" class="d-flex">
-                    <div id="content">
-                        <div class="container">
+                        <!-- Sidebar Toggler (Sidebar) -->
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
                         </div>
-                        <div >
-                            <div class="row">
 
-                                <!-- Content Column -->
-                                <div class="col-lg-12 mb-4 col-md-6">
+                        <!-- Sidebar Message -->
 
-                                    <!-- Project Card Example -->
-                                    <div class="card shadow mb-4" >
-                                        <div class="card-header py-3"  style="text-align: center ">
-                                            <h6 class="m-0 font-weight-bold text-primary"> Update Slider </h6>
-                                        </div>                 
 
-                                        <div class="container">
-                                            <div class="login-box"  style="margin-top: 300px;width: 50%" >
-                                                <form  action="MarketingPassword" method="Post" >                                             
-                                                    <label style="font-size: 14px;color: #4e73df">City</label>
-                                                    <select>
-                                                        <option></option>
+                    </ul>
+
+                    <!-- End of Sidebar -->
+
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex">
+                        <div id="content">
+                            <div class="container">
+                            </div>
+                            <div >
+                                <div class="row">
+
+                                    <!-- Content Column -->
+                                    <div class="col-lg-12 mb-4 col-md-6">
+
+                                        <!-- Project Card Example -->
+                                        <div class="card shadow mb-4" >
+                                            <div class="card-header py-3"  style="text-align: center ">
+                                                <h6 class="m-0 font-weight-bold text-primary"> Update Slider </h6>
+                                            </div>                 
+
+                                            <div class="container">
+                                                <div class="login-box"  style="margin-top: 300px;width: 50%" >
+                                                    <form  action="MarketingPassword" method="Post" >                                             
+                                                        <label style="font-size: 14px;color: #4e73df">City</label>
+                                                        <select name="city"> 
+
+                                                        <c:forEach  items="${listc}" var="o" >
+
+                                                            <c:if test="${o.city}==${s.sliderName}">
+                                                                <option selected value="${s.sliderName}">${s.sliderName}</option>
+                                                            </c:if>
+                                                            <c:if test="${o.city}!=${s.sliderName}">
+                                                                <option value="${s.sliderName}">${s.sliderName}</option>
+                                                            </c:if>
+
+                                                        </c:forEach>
                                                     </select>
                                                     <div style="text-align: center">
                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit"> 

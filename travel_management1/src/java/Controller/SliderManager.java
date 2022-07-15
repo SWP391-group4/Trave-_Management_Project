@@ -4,7 +4,9 @@
  */
 package Controller;
 
+import DAO.DAOHomeStayAddresses;
 import DAO.DAOSlider;
+import Entity.HomeStayAddressses;
 import Entity.Slider;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,6 +36,7 @@ public class SliderManager extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String service = request.getParameter("go");
+        DAOHomeStayAddresses dao = new DAOHomeStayAddresses();
         if (service == null) {
             service = "Show";
         }
@@ -48,6 +51,11 @@ public class SliderManager extends HttpServlet {
             if ("Update".equals(service)) {
                 String submit = request.getParameter("submit");
                 if (submit == null) {
+                    String sliderID = request.getParameter("sliderID");
+                    List<HomeStayAddressses> listc = dao.HomeStayAddressCity();
+                    String s = daoS.getSliderName(sliderID);
+                    request.setAttribute("listc", listc);
+                    request.setAttribute("s", s);
                     request.getRequestDispatcher("UpdateSlider.jsp").forward(request, response);
                 } else {
 
