@@ -54,6 +54,22 @@ public class DAOSlider extends DBContext.connectDB {
         }
         return n;
     }
+     public String getSliderImage(String id) {
+        String n = null;
+
+        String sql = "select sliderimage from slider\n"
+                + "where sliderId='" + id + "'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            if (rs.next()) {
+                 n = rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
 
     public int updateSlider(Slider s) {
         int n = 0;
@@ -85,6 +101,6 @@ public class DAOSlider extends DBContext.connectDB {
 //        }
 //        int n = dao.updateSlider(new Slider("S01", "Ha Noi", "HN.png", "bautroikhongem"));
 //        System.out.println(n);
-         System.out.println(dao.getSliderName("S01") );
+         System.out.println(dao.getSliderImage("s01") );
     }
 }

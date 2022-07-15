@@ -126,9 +126,10 @@
                                                 <h6 class="m-0 font-weight-bold text-primary"> Update Slider </h6>
                                             </div>                 
                                         <% String s = (String) request.getAttribute("s");%>
+                                        <% String img = (String) request.getAttribute("img");%>
                                         <% List<String> list = (List<String>) request.getAttribute("list");%>
                                         <div class="container">
-                                            <div class="login-box"  style="margin-top: 150px;width: 50%" >
+                                            <div class="login-box"  style="margin-top: 260px;width: 50%" >
                                                 <form  action="MarketingPassword" method="Post" >                                             
                                                     <label style="font-size: 18px;color: #4e73df">City</label>
                                                     <select style="margin-left: 15px" name="city"> 
@@ -141,6 +142,17 @@
                                                         <%}
                                                             }%>
                                                     </select>
+                                                    <div class="user-box">
+                                                        <label  style="font-size: 18px">Image</label>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                    <img src="images/<%=img%>" style="width: 160px ;height:172px ">
+                                                    <br>
+                                                    <br>
+                                                    <div  style="font-size:14px;background: #fff"> 
+                                                        <input type="file" name="image" >
+                                                    </div> 
                                                     <div style="text-align: center">
                                                         <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit"> 
                                                     </div>

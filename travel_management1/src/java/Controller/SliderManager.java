@@ -54,8 +54,10 @@ public class SliderManager extends HttpServlet {
                     String sliderID = request.getParameter("sliderID");
                     List<String> list = dao.HomeStayAddressCity();
                     String s = daoS.getSliderName(sliderID);
+                    String img = daoS.getSliderImage(sliderID);
                     request.setAttribute("list", list);
                     request.setAttribute("s", s);
+                    request.setAttribute("img", img);
                     request.getRequestDispatcher("UpdateSlider.jsp").forward(request, response);
                 } else {
 
