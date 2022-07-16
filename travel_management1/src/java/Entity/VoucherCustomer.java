@@ -13,14 +13,14 @@ public class VoucherCustomer {
     public String title;
     public String image;
     public int discount;
-    public String accountM;
+    public String accountC;
 
     public VoucherCustomer(String voucherId, String title, String image, int discount, String accountM) {
         this.voucherId = voucherId;
         this.title = title;
         this.image = image;
         this.discount = discount;
-        this.accountM = accountM;
+        this.accountC = accountM;
     }
 
     public String getVoucherId() {
@@ -55,17 +55,17 @@ public class VoucherCustomer {
         this.discount = discount;
     }
 
-    public String getAccountM() {
-        return accountM;
+    public String getAccountC() {
+        return accountC;
     }
 
-    public void setAccountM(String accountM) {
-        this.accountM = accountM;
+    public void setAccountM(String accountC) {
+        this.accountC = accountC;
     }
 
     @Override
     public String toString() {
-        return "VoucherCustomer{" + "voucherId=" + voucherId + ", title=" + title + ", image=" + image + ", discount=" + discount + ", accountM=" + accountM + '}';
+        return "VoucherCustomer{" + "voucherId=" + voucherId + ", title=" + title + ", image=" + image + ", discount=" + discount + ", accountM=" + accountC + '}';
     }
     
 }
