@@ -11,6 +11,7 @@ import Entity.HomeStayDetails;
 import Entity.HomeStays;
 import Entity.Images;
 import Entity.Rules;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -169,17 +170,28 @@ public class DAOHomeStaysTest {
 //    /**
 //     * Test of getCategory method, of class DAOHomeStays.
 //     */
-//    @Test
-//    public void testGetCategory() {
-//        System.out.println("getCategory");
-//        String homestayId = "";
-//        DAOHomeStays instance = new DAOHomeStays();
-//        Categories expResult = null;
-//        Categories result = instance.getCategory(homestayId);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testGetCategory() {
+        System.out.println("getCategory");
+        String homestayId = "HS0002";
+        DAOHomeStays instance = new DAOHomeStays();
+        String expResult = "Nha Rieng";
+        String result = instance.getCategory(homestayId).cateName;
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+     
+    }
+      @Test
+    public void testGetCategoryUT2() {
+        System.out.println("getCategory");
+        String homestayId = "HS0004";
+        DAOHomeStays instance = new DAOHomeStays();
+        String expResult = "Can Ho Dich Vu";
+        String result = instance.getCategory(homestayId).cateName;
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+     
+    }
 //
 //    /**
 //     * Test of getExtension method, of class DAOHomeStays.
@@ -523,17 +535,39 @@ public class DAOHomeStaysTest {
 //    /**
 //     * Test of getHomestaybyAccountS method, of class DAOHomeStays.
 //     */
-//    @Test
-//    public void testGetHomestaybyAccountS() {
-//        System.out.println("getHomestaybyAccountS");
-//        String accountS = "";
-//        DAOHomeStays instance = new DAOHomeStays();
-//        HomeStays expResult = null;
-//        HomeStays result = instance.getHomestaybyAccountS(accountS);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testGetHomestaybyAccountSUT1() {
+        System.out.println("getHomestaybyAccountS");
+        String accountS = "2convitcon";
+        DAOHomeStays instance = new DAOHomeStays();
+        String expResult = "Nayara Tented Camp";
+        String result = instance.getHomestaybyAccountS(accountS).getHomeStayname();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    
+    }
+      @Test
+    public void testGetHomestaybyAccountSUT2() {
+        System.out.println("getHomestaybyAccountS");
+        String accountS = "1danvit";
+        DAOHomeStays instance = new DAOHomeStays();
+        String expResult = "Mahali Mzuri";
+        String result = instance.getHomestaybyAccountS(accountS).getHomeStayname();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    
+    }
+      @Test
+    public void testGetHomestaybyAccountSUT3() {
+        System.out.println("getHomestaybyAccountS");
+        String accountS = "1danvit";
+        DAOHomeStays instance = new DAOHomeStays();
+        String expResult = "CATID002  ";
+        String result = instance.getHomestaybyAccountS(accountS).getCateID();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    
+    }
 //
 //    /**
 //     * Test of getRandomHomeStaybySuppiler method, of class DAOHomeStays.
@@ -543,8 +577,12 @@ public class DAOHomeStaysTest {
 //        System.out.println("getRandomHomeStaybySuppiler");
 //        String accountS = "2convitcon";
 //        DAOHomeStays instance = new DAOHomeStays();
-//        String expResult = "CATID002  ";
-//        String result = instance.getRandomHomeStaybySuppiler(accountS);
+//         List<HomeStays> expResult = Arrays.asList(
+//                 new HomeStays("HS0002", "Nayara Tented Camp", "CATID002", null, "Ha Noi", "Hoan Kiem", "2/14 Hang Bun",
+//                         "Phuc Tan", "Nha Rieng", 0, 0, 0, 0, 0, 9091194.0, 0, null, null, null, null, 0)
+//         
+//         );
+//        List<HomeStays> result = instance.getRandomHomeStaybySuppiler(accountS);
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
