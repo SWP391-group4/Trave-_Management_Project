@@ -69,7 +69,7 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
 //        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
-       System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
+          System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
 //          System.out.println(dao.lastVoucherCusId());
     }
 }
