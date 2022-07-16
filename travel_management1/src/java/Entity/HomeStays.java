@@ -145,11 +145,12 @@ public class HomeStays {
 
 
 
-    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS,String cateName) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
         this.accountS = accountS;
+        this.cateName=cateName;
     }
 
     public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, String city, String district, String specific, String ward, String cateName, int bedQty, int bedRoomQty, int bathRoomQty, int livingRoomQty, int kitchenQty, String checkIn, String checkOut, double price, double IncurredCost) {
@@ -511,8 +512,10 @@ public class HomeStays {
 
     @Override
     public String toString() {
-        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", accountS=" + accountS + ", cateName=" + cateName + ", status=" + status + '}';
+        return "HomeStays{" + "homeStayID=" + homeStayID + ", homeStayname=" + homeStayname + ", cateID=" + cateID + ", accountS=" + accountS + ", city=" + city + ", district=" + district + ", specific=" + specific + ", ward=" + ward + ", cateName=" + cateName + ", bedQty=" + bedQty + ", bedRoomQty=" + bedRoomQty + ", bathRoomQty=" + bathRoomQty + ", livingRoomQty=" + livingRoomQty + ", kitchenQty=" + kitchenQty + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", price=" + price + ", IncurredCost=" + IncurredCost + ", star=" + star + ", feedBack=" + feedBack + ", description=" + description + ", video=" + video + ", status=" + status + '}';
     }
+
+ 
 
     
 
