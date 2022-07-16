@@ -60,7 +60,7 @@
                             <c:forEach items="${list}" var="a">
                                 <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                                     <div class="destination">
-                                        <a href="blogDetailController" class="img img-2 d-flex justify-content-center align-items-center"  style="border-radius: 10px;background-image: url(images/${a.image});">
+                                        <a href="blogDetailController?blogId=${a.blogId}" class="img img-2 d-flex justify-content-center align-items-center"  style="border-radius: 10px;background-image: url(images/${a.image});">
                                             <div class="icon d-flex justify-content-center align-items-center">
                                                 <span class="icon-link"></span>
                                             </div>

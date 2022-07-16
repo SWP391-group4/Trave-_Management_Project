@@ -264,6 +264,27 @@ public class DAOBlogs extends connectDB {
         }
         return null;
     }
+    
+    public Blogs getAllbyBlogID(String BlogId) {
+        String sql = "select a.BlogId, a.Image, a.Title, b.News, b.Image,a.AccountM\n"
+                + "from Blogs a inner join BlogDetails b\n"
+                + "on a.BlogId = b.BlogId"
+                + "where a.BlogId='"+BlogId+"'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Blogs(rs.getString(1), rs.getString(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6));
+                        
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 
     public static void main(String[] args) {
         DAOBlogs dao = new DAOBlogs();
@@ -275,16 +296,17 @@ public class DAOBlogs extends connectDB {
 //        for (Blogs o : list) {
 //            System.out.println(o);
 //        }
-        System.out.println(dao.counttotalB());
-        String lastId1 = dao.lastblogIḌ().substring(0, 6);
-        String s1 = lastId1.substring(0, 5);
-        String s2 = lastId1.substring(4);
-        int numnews = Integer.parseInt(s2) + 9;
-        String n = Integer.toString(numnews);
-        String newID = s1.concat(n);
-        System.out.println(newID);
-//        List<Blogs> list = dao.BlogsSearch(1, "Summer Hike");
-//        System.out.println(list);
+//        System.out.println(dao.counttotalB());
+//        String lastId1 = dao.lastblogIḌ().substring(0, 6);
+//        String s1 = lastId1.substring(0, 5);
+//        String s2 = lastId1.substring(4);
+//        int numnews = Integer.parseInt(s2) + 9;
+//        String n = Integer.toString(numnews);
+//        String newID = s1.concat(n);
+//        System.out.println(newID);
+////        List<Blogs> list = dao.BlogsSearch(1, "Summer Hike");
+////        System.out.println(list);
+        
          System.out.println(dao.viewBlogsDetail("BL0010    "));
     }
 }

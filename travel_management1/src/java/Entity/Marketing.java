@@ -28,6 +28,16 @@ public class Marketing {
         this.phone = phone;
     }
 
+    public Marketing(String accountM, String firstName, String lastName, String email, String phone) {
+        this.accountM = accountM;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
+    
+    
+
     public String getAccountM() {
         return accountM;
     }
