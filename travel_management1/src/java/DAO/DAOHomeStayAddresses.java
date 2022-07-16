@@ -17,8 +17,8 @@ import java.util.List;
  *
  * @author phams
  */
-public class DAOHomeStayAddresses extends connectDB{
-    
+public class DAOHomeStayAddresses extends connectDB {
+
     public List<HomeStayAddressses> HomeStayAddress() {
         List<HomeStayAddressses> vec = new ArrayList<HomeStayAddressses>();
         String sql = "SELECT *\n"
@@ -30,8 +30,8 @@ public class DAOHomeStayAddresses extends connectDB{
                 String homeStayID = rs.getString(1);
                 String city = rs.getString(2);
                 String district = rs.getString(3);
-                    String Specific = rs.getString(4);
-                   String  ward = rs.getString(5);
+                String Specific = rs.getString(4);
+                String ward = rs.getString(5);
                 HomeStayAddressses obj = new HomeStayAddressses(homeStayID, city, district, Specific, ward);
                 vec.add(obj);
             }
@@ -40,7 +40,24 @@ public class DAOHomeStayAddresses extends connectDB{
         }
         return vec;
     }
-    
+
+    public List<String> HomeStayAddressCity() {
+        List<String> vec = new ArrayList<String>();
+        String sql = "select city from HomeStayAddressses\n"
+                + "group by city";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String city = rs.getString(1);
+                vec.add(city);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
+    }
+
     public int addHomeStayAddresses(HomeStayAddressses hs) {
         int n = 0;
         String sql = "insert into HomeStayAddressses(HomeStayId,City,District,Specific,Ward) \n"
@@ -59,15 +76,17 @@ public class DAOHomeStayAddresses extends connectDB{
         }
         return n;
     }
+
     public static void main(String[] args) {
         DAOHomeStayAddresses dao = new DAOHomeStayAddresses();
-//        List<HomeStayAddressses> list = dao.HomeStayAddress();
-//        for(HomeStayAddressses temp : list ){
-//            System.out.println(temp);
-//        }
-        HomeStayAddressses s = new HomeStayAddressses("HS0104", "Vinh Yen","Vinh Phuc", "2 Tam Dao", "Thon 1");
-        int n = dao.addHomeStayAddresses(s);
-        System.out.println(n);
-        System.out.println(s);
+        List<String> list = dao.HomeStayAddressCity();
+        for (String temp : list) {
+            System.out.println(temp);
+        }
+        System.out.println(list.size());
+//        HomeStayAddressses s = new HomeStayAddressses("HS0104", "Vinh Yen", "Vinh Phuc", "2 Tam Dao", "Thon 1");
+//        int n = dao.addHomeStayAddresses(s);
+//        System.out.println(n);
+//        System.out.println(s);
     }
 }

@@ -1,9 +1,11 @@
 <%-- 
-    Document   : MarketingManager.jsp
+    Document   : MarketingPassword.jsp
     Created on : Jul 4, 2022, 7:56:36 PM
     Author     : nam
 --%>
-
+<%@page import="Entity.Slider"%>
+<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Entity.MarketingImage"%>
 <%@page import="Entity.Marketing"%>
@@ -37,6 +39,7 @@
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="css/insertnew.css">
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -67,27 +70,27 @@
                         <hr class="sidebar-divider my-0">
 
                         <!-- Nav Item - Dashboard -->
-                        <li class="nav-item active" >
+                        <li class="nav-item " >
                             <a class="nav-link" href="MarketingManager">
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="SliderManager">
+                        <li class="nav-item active">
+                            <a class="nav-link " href="SliderManager">
                                 <i class="fas fa-fw fa-chart-area"></i>
                                 <span>Slider Manager</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" href="BlogsManager">
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Blogs Manager</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" href="VoucherManager">
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Voucher Manager</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" href="MarketingPassword">
                                 <i class="fas fa-fw fa-table"></i>
                                 <span>Change Password</span></a>
@@ -111,161 +114,59 @@
                     <div id="content-wrapper" class="d-flex">
                         <div id="content">
                             <div class="container">
-                                <!-- Page Heading -->
-                                <div class="d-sm-flex align-items-center justify-content-between mb-4"  style="margin-top: 30px"">
-                                    <h1 class="h3 mb-6 text-gray-800">Dashboard</h1>                               
-                                </div>
-                                <!-- Content Row -->
-                                <div class="row" "> 
-
-                                    <!-- Supplier Card Example -->
-                                    <div class="col-xl-4 col-md-6 mb-4">
-                                        <div class="card border-left-primary shadow h-100 py-2">
-                                            <div class="card-body">
-                                                <div class="row no-gutters align-items-center">
-                                                    <div class="col mr-2">
-                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                            Supplier (Total)</div>
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${totalS}</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- User Card Example -->
-                                <div class="col-xl-4 col-md-6 mb-4">
-                                    <div class="card border-left-success shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                        Customer(Total)</div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${totalC}</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Pending Card Example -->
-                                <div class="col-xl-4 col-md-6 mb-4">
-                                    <div class="card border-left-info shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">HomeStay(Total)
-                                                    </div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${totalH}</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Pending Requests Card Example -->
-
                             </div>
-
-                            <!-- Content Row -->
-
                             <div >
-
-                                <!-- Area Chart -->
-
-
-                                <!-- Content Row -->
                                 <div class="row">
 
                                     <!-- Content Column -->
-                                    <div class="col-lg-6 mb-4 col-md-6">
+                                    <div class="col-lg-12 mb-4 col-md-6">
 
                                         <!-- Project Card Example -->
-                                        <div class="card shadow mb-4" style="text-align: center">
-                                            <div class="card-header py-3"  style="display: inline-flex; ">
-                                                <h6 class="m-0 font-weight-bold text-primary">Top 5 City</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <p >Top 5 cities with the highest number of homestays in Vietnam
-                                                </p>
-                                                <% ResultSet rs = (ResultSet) request.getAttribute("rsH");
-                                                %>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">City</th>
-                                                            <th scope="col">Number of homestays</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <%int i = 0;%>
-                                                    <tbody>
-                                                        <% while (rs.next()) {%>
-                                                        <%i++;%>
-                                                        <tr>
-                                                            <td><%=i%></td>
-                                                            <td><%=rs.getString(2)%></td>
-                                                            <td><%=rs.getInt(1)%></td>
-                                                        </tr>
-                                                        <%}%>
-                                                    </tbody>
-                                                </table>
+                                        <div class="card shadow mb-4" >
+                                            <div class="card-header py-3"  style="text-align: center ">
+                                                <h6 class="m-0 font-weight-bold text-primary"> Update Slider </h6>
+                                            </div>                 
+                                        <% String s = (String) request.getAttribute("s");%>
+                                        <% String img = (String) request.getAttribute("img");%>
+                                        <% String sliderID = (String) request.getAttribute("sliderID");%>
+                                        <% List<String> list = (List<String>) request.getAttribute("list");%>
+                                        <div class="container">
+                                            <div class="login-box"  style="margin-top: 260px;width: 50%" >
+                                                <form  action="SliderManager" method="Post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="go" value="Update">
+                                                    <input type="hidden" name="sliderID" value="<%=sliderID %>">
+                                                    <label style="font-size: 18px;color: #4e73df">City</label>
+                                                    <select style="margin-left: 15px" name="city"> 
+                                                        <%for (String c : list) {
+                                                                if (c.equals(s)) {
+                                                        %>
+                                                        <option selected value="<%=c%>"><%=c%></option>
+                                                        <%} else {%>
+                                                        <option value="<%=c%>"><%=c%></option>
+                                                        <%}
+                                                            }%>
+                                                    </select>
+                                                    <div class="user-box">
+                                                        <label  style="font-size: 18px">Image</label>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                    <img src="images/<%=img%>" style="width: 160px ;height:172px ">
+                                                    <br>
+                                                    <br>
+                                                    <div  style="font-size:14px;background: #fff"> 
+                                                        <input type="file" name="image" >
+                                                    </div> 
+                                                    <div style="text-align: center">
+                                                        <input class="btn btn-info" style="margin-top: 20px;background: #4e73df;border-style: unset"  type="submit" value="Update" name="submit"> 
+                                                    </div>
+
+                                                </form>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-4  col-md-6">
-                                        <!-- Illustrations -->
-                                        <div class="card shadow mb-4" style="text-align: center">
-                                            <div class="card-header py-3" style="display: inline-flex; ">
-                                                <h6 class="m-0 font-weight-bold text-primary">Top 5 Suppliers</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <p >Top 5 suppliers with the highest number of homestays in Vietnam
-                                                </p>
-                                                 <% ResultSet rs1 = (ResultSet) request.getAttribute("rsS");
-                                                %>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Supplier</th>
-                                                            <th scope="col">Number of homestays</th>
-                                                            <th scope="col">Phone</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <%int h = 0;%>
-                                                    <tbody>
-                                                        <% while (rs1.next()) {%>
-                                                        <%h++;%>
-                                                        <tr>
-                                                            <td><%=h%></td>
-                                                            <td><%=rs1.getString(3) %> <%=rs1.getString(4)%></td>
-                                                            <td><%=rs1.getInt(1)%></td>
-                                                            <td><%=rs1.getString(5) %></td>
-                                                            
-                                                        </tr>
-                                                        <%}%>
-                                                    </tbody>
-                                                </table>
-                                                </table>
-                                            </div>
-                                        </div>
-
-
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.container-fluid -->
-
                         </div>
                         <!-- End of Main Content -->
 

@@ -24,6 +24,10 @@ public class HomeStayAddressses {
         this.ward = ward;
     }
 
+    public HomeStayAddressses(String city) {
+        this.city = city;
+    }
+
     public HomeStayAddressses() {
     }
 

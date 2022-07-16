@@ -79,11 +79,17 @@ public class VoucherManager extends HttpServlet {
                 String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                 part.write(realPart + "/" + filename);
                 //voucherid
-                String lastId1 = daoV.lastVoucherId().substring(0, 6);
-                String s1 = lastId1.substring(0, 5);
-                String s2 = lastId1.substring(5);
+                String lastId1 = "VCM000";
+                if (daoV.lastVoucherId() != null) {
+                    lastId1 = daoV.lastVoucherId().substring(0, 6);
+                }
+                String s1 = lastId1.substring(0, 4);
+                String s2 = lastId1.substring(4);
                 int numnews = Integer.parseInt(s2) + 1;
                 String n = Integer.toString(numnews);
+                 if (numnews < 10) {
+                        n = "0".concat(n);
+                    }
                 String newID = s1.concat(n);
                 //marketingid
                 HttpSession session = request.getSession();
