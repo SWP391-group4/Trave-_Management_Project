@@ -90,35 +90,35 @@ public class SupplierRegisterController extends HttpServlet {
         SupplierAddresses supAddress = new SupplierAddresses(account.getAccount(), city, district, specific, ward);
 
         //----------image---------
-//        Part partBefore = request.getPart("imageBefore");
-//        String realPartBefore = request.getServletContext().getRealPath("/images");
-//        String filenameBefore = Paths.get(partBefore.getSubmittedFileName()).getFileName().toString();
-//
-//        Part partAfter = request.getPart("imageAfter");
-//        String realPartAfter = request.getServletContext().getRealPath("/images");
-//        String filenameAfter = Paths.get(partBefore.getSubmittedFileName()).getFileName().toString();
-//        //------------------------
-//        int statusBefore = 0;
-//        int statusAfter = 0;
-//        String imageBefore;
-//        String imageAfter;
-//        if (!filenameBefore.isEmpty()) {
-//            partBefore.write(realPartBefore + "/" + filenameBefore);
-//            imageBefore = filenameBefore;
-//            statusBefore = 1;
-//        } else {
-//            imageBefore = "default_person.jpg";
-//            //daoCus.updateCustomerImage(image, accountC);
-//        }
-//        
-//        if (!filenameAfter.isEmpty()) {
-//            partAfter.write(realPartAfter + "/" + filenameAfter);
-//            imageAfter = filenameAfter;
-//            statusAfter = 1;
-//        } else {
-//            imageAfter = "default_person.jpg";
-//            //daoCus.updateCustomerImage(image, accountC);
-//        }
+        Part partBefore = request.getPart("imageBefore");
+        String realPartBefore = request.getServletContext().getRealPath("/images");
+        String filenameBefore = Paths.get(partBefore.getSubmittedFileName()).getFileName().toString();
+
+        Part partAfter = request.getPart("imageAfter");
+        String realPartAfter = request.getServletContext().getRealPath("/images");
+        String filenameAfter = Paths.get(partAfter.getSubmittedFileName()).getFileName().toString();
+        //------------------------
+        int statusBefore = 0;
+        int statusAfter = 0;
+        String imageBefore;
+        String imageAfter;
+        if (!filenameBefore.isEmpty()) {
+            partBefore.write(realPartBefore + "/" + filenameBefore);
+            imageBefore = filenameBefore;
+            statusBefore = 1;
+        } else {
+            imageBefore = "default_person.jpg";
+            //daoCus.updateCustomerImage(image, accountC);
+        }
+        
+        if (!filenameAfter.isEmpty()) {
+            partAfter.write(realPartAfter + "/" + filenameAfter);
+            imageAfter = filenameAfter;
+            statusAfter = 1;
+        } else {
+            imageAfter = "default_person.jpg";
+            //daoCus.updateCustomerImage(image, accountC);
+        }
         request.setAttribute("firstName", firstName);
         request.setAttribute("lastName", lastName);
         request.setAttribute("phone", phone);
@@ -134,30 +134,34 @@ public class SupplierRegisterController extends HttpServlet {
         if (preview == null) {
             int n = daoTemp.addSupplier(sup);
             int m = daoTemp.addSupplierAddress(supAddress);
-            if (m != 0 && n != 0) {
+            int k = daoTemp.addSupplierImage(new SupplierImage(account.getAccount(), imageBefore, imageAfter, "default_person.jpg"));
+            if (m != 0 && n != 0 && k != 0) {
                 String alert = "Register done.";
                 String continues = "Continue";
                 request.setAttribute("alert", alert);
                 request.setAttribute("continues", continues);
                 request.getRequestDispatcher("RegisterSupplier.jsp").forward(request, response);
+            } else {
+                String alert = "Something was wrong.";
+                request.setAttribute("alert", alert);
+                request.getRequestDispatcher("RegisterSupplier.jsp").forward(request, response);
             }
-
         }
-//        else {
-//            request.setAttribute("firstName", firstName);
-//            request.setAttribute("lastName", lastName);
-//            request.setAttribute("phone", phone);
-//            request.setAttribute("email", email);
-//            request.setAttribute("fax", fax);
-//
-//            request.setAttribute("city", city);
-//            request.setAttribute("district", district);
-//            request.setAttribute("ward", ward);
-//            request.setAttribute("specific", specific);
-//
-//            request.setAttribute("cusImage", new SupplierImage(account.getAccount(), imageBefore, imageAfter, ""));
-//            request.getRequestDispatcher("RegisterSupplier.jsp").forward(request, response);
-//        }
+        else {
+            request.setAttribute("firstName", firstName);
+            request.setAttribute("lastName", lastName);
+            request.setAttribute("phone", phone);
+            request.setAttribute("email", email);
+            request.setAttribute("fax", fax);
+
+            request.setAttribute("city", city);
+            request.setAttribute("district", district);
+            request.setAttribute("ward", ward);
+            request.setAttribute("specific", specific);
+
+            request.setAttribute("cusImage", new SupplierImage(account.getAccount(), imageBefore, imageAfter, ""));
+            request.getRequestDispatcher("RegisterSupplier.jsp").forward(request, response);
+        }
     }
 
     /**

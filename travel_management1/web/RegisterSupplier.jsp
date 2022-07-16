@@ -74,7 +74,7 @@
                                             <img src="images/${cusImage.img_ID_front}" alt="alt" style="width: 100%; height: 75% "/>
                                         </c:otherwise>
                                     </c:choose>
-                                    <input type="file" name="imageBefore" class="custom" accept="image/png, image/jpg, image/jpeg">
+                                    <input type="file" name="imageBefore" class="custom" value="${cusImage.img_ID_front}" accept="image/png, image/jpg, image/jpeg">
                                 </div> 
                                 <div class="form-group col-md-6">
                                     <c:choose>
@@ -85,9 +85,9 @@
                                             <img src="images/${cusImage.img_ID_back}" alt="alt"style="width: 100%; height: 75% "/>
                                         </c:otherwise>
                                     </c:choose>
-                                    <input type="file" name="imageAfter" class="custom" accept="image/png, image/jpg, image/jpeg">
+                                            <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
                                 </div>
-
+                                
                             </div>
                             <div class="text-warning">${alert}</div>
                             <div>

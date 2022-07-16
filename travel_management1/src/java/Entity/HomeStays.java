@@ -122,20 +122,14 @@ public class HomeStays {
         this.video = video;
     }
 
-//    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status) {
-//        this.homeStayID = homeStayID;
-//        this.homeStayname = homeStayname;
-//        this.cateID = cateID;
-//        this.accountS = accountS;
-//        this.status = status;
-//    }
- public HomeStays(String homeStayID, String homeStayname, String accountS,String cateName , int status) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
-        this.cateName = cateName;
+        this.cateID = cateID;
         this.accountS = accountS;
         this.status = status;
     }
+
     public HomeStays(String homeStayID, String homeStayname, String cateID, int status) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
