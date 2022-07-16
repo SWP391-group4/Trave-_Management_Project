@@ -212,10 +212,15 @@ public class DAOHomeStays extends connectDB {
     }
 
     public Categories getCategory(String homestayId) {
-        String sql = "select c.cateId, c.cateName from homestays h "
-                + "inner join categories c "
+        String sql = "select "
+                + "c.cateId, "
+                + "c.cateName "
+                + "from homestays h "
+                + "inner join "
+                + "categories c "
                 + "on c.cateId = h.cateId "
-                + "where homestayId = '" + homestayId + "'";
+                + "where homestayId"
+                + " = '" + homestayId + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
@@ -460,7 +465,16 @@ public class DAOHomeStays extends connectDB {
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDouble(9), rs.getInt(10), rs.getDouble(11)));
+                        rs.getString(2),
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5),
+                        rs.getString(6), 
+                        rs.getString(7), 
+                        rs.getString(8), 
+                        rs.getDouble(9),
+                        rs.getInt(10),
+                        rs.getDouble(11)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
@@ -649,7 +663,7 @@ public class DAOHomeStays extends connectDB {
 
     public HomeStays getHomestaybyAccountS(String accountS) {
         String sql = "select h.HomeStayId, h.HomeStayName, h.CateId, h.AccountS,\n"
-                + "cat.CateName,\n"
+                + "cat.CateName\n"
                 + "from HomeStays h \n"
                 + "inner join Categories cat\n"
                 + "on h.CateId = cat.CateId\n"
@@ -662,7 +676,7 @@ public class DAOHomeStays extends connectDB {
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getString(4));
+                        rs.getString(4), rs.getString(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
@@ -674,14 +688,22 @@ public class DAOHomeStays extends connectDB {
     public List<HomeStays> getRandomHomeStaybySuppiler(String accountS) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select top 3  h.HomeStayid,h.homestayname,h.cateID \n"
-                + "                          ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName,c.Price,h.Status,avg(r.star) as starAVG\n"
-                + "                        from \n"
-                + "               HomeStays h inner join HomeStayAddressses ha on h.HomeStayid=ha.HomeStayid \n"
-                + "             inner join HomeStayDetails c on h.HomeStayId=c.HomeStayId \n"
-                + "            inner join Reviews r on h.HomeStayId=r.HomeStayId\n"
-                + "      inner join Categories cs on cs.CateId=h.CateId where AccountS='" + accountS + "' group by  h.HomeStayid,h.homestayname,h.cateID \n"
-                + "                          ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName,c.Price,h.Status \n"
-                + "	  ORDER BY NEWID()";
+                + "  ,ha.city,ha.district,"
+                + "ha.specific,ha.ward,"
+                + "cs.CateName,c.Price,"
+                + "h.Status,avg(r.star) as starAVG\n"
+                + "from \n"
+                + "               HomeStays h inner join HomeStayAddressses ha "
+                + "on h.HomeStayid=ha.HomeStayid \n"
+                + "             inner join HomeStayDetails c "
+                + "on h.HomeStayId=c.HomeStayId \n"
+                + "            inner join Reviews r "
+                + "on h.HomeStayId=r.HomeStayId\n"
+                + "      inner join Categories cs "
+                + "on cs.CateId=h.CateId where AccountS='" + accountS + "' group by "
+                + " h.HomeStayid,h.homestayname,h.cateID \n"
+                + " ,ha.city,ha.district,ha.specific,ha.ward,cs.CateName,c.Price,h.Status \n"
+                + " ORDER BY NEWID()";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -700,8 +722,11 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getHomeStayforSUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select h.HomeStayId, h.HomeStayName,  h.AccountS,\n"
-                + "cat.CateName,h.status \n"
+        String sql = "select h.HomeStayId,"
+                + " h.HomeStayName, "
+                + " h.AccountS,\n"
+                + "cat.CateName,"
+                + "h.status \n"
                 + "from HomeStays h \n"
                 + "inner join Categories cat\n"
                 + "on h.CateId = cat.CateId\n"
@@ -907,9 +932,16 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ", 0));
-        System.out.println(count);
+//        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ", 0));
+//        System.out.println(count);
 //
-
+        List<HomeStays> list = dao.getRandomHomeStaybySuppiler("2convitcon");
+        for (HomeStays temp : list) {
+            System.out.println(temp);
+        }
+        HomeStays h = new HomeStays();
+//h=dao.getHomestaybyAccountS("2convitcon");
+//        System.out.println(h);
+//    }
     }
 }
