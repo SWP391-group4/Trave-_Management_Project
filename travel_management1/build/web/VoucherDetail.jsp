@@ -63,7 +63,12 @@
                             <p style="color: #f71926">Discount: ${c.discount}%</p>
                             <br>                        
                             <c:if test="${sessionScope.acc.type==4}">
-                                <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Save</button>    
+                                <c:if test="${quanC==0}">
+                                    <input style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px" name="submit" value="Save" type="submit">  
+                                </c:if>
+                                <c:if test="${quanC==1}">
+                                     <div style="color: #f71926;background: #f71926;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Saved</div>    
+                                </c:if>
                             </c:if>
                             <c:if test="${sessionScope.acc.type!=4}">      
                                 <h5 style="color:#f71926"> Please login as customer to save the voucher</h5>

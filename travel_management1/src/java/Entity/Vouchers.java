@@ -18,6 +18,11 @@ public class Vouchers {
     public int quantity;
     public String accountM;
 
+    public Vouchers(String voucherId, int quantity) {
+        this.voucherId = voucherId;
+        this.quantity = quantity;
+    }
+
     public Vouchers(String title, String description, String image, int discount, int quantity, String accountM) {
         this.title = title;
         this.description = description;

@@ -4,8 +4,10 @@
  */
 package Controller;
 
+import DAO.DAOVoucherCustomer;
 import DAO.DAOVouchers;
 import Entity.Customers;
+import Entity.VoucherCustomer;
 import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,6 +42,7 @@ public class VoucherDetail extends HttpServlet {
             service = "Show";
         }
         DAOVouchers daoV = new DAOVouchers();
+        DAOVoucherCustomer daoVC = new DAOVoucherCustomer();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             if (service.equals("Show")) {
@@ -50,18 +53,23 @@ public class VoucherDetail extends HttpServlet {
             }
             if (service.equals("Insert")) {
                 String submit = request.getParameter("submit");
+
                 if (submit == null) {
                     response.sendRedirect("VoucherDetail");
+
                 } else {
                     String voucherID = request.getParameter("voucherID");
-                    String title = request.getParameter("title");
-                    String discount = request.getParameter("discount");
-                    String image = request.getParameter("image");
-                    String quantity = request.getParameter("quantity");
                     HttpSession session = request.getSession();
                     Customers cus = (Customers) session.getAttribute("mar");
                     String cusid = cus.getAccountC();
-                    
+                    String title = request.getParameter("title");
+                    String discount = request.getParameter("discount");
+                    int dis=Integer.parseInt(discount);
+                    String image = request.getParameter("image");
+                    String quantity = request.getParameter("quantity");
+                    int quanC = daoVC.getQuantityVoucherbyAcc(cusid, voucherID);  
+                    daoVC.addVoucherCus(new VoucherCustomer(voucherID, title, image, dis, cusid));
+
                 }
             }
         }

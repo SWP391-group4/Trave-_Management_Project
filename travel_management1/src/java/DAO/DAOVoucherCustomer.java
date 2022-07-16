@@ -40,23 +40,23 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         return n;
     }
 
-    public String getQuantityVoucherbyAcc(String acc, String id) {
+    public int getQuantityVoucherbyAcc(String acc, String id) {
         String sql = "select quantity from VoucherCustomer\n"
                 + "where AccountC='" + acc + "' and VoucherId='" + id + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
-                return rs.getString(1);
+                return rs.getInt(1);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
-        //dao.addVoucherCus(new VoucherCustomer("1", "1", "1", 1, "caoboimiennui"));
+        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
         System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
     }
 }

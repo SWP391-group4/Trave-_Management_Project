@@ -194,6 +194,18 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return n;
     }
+    public int removeVoucher2(int qty) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[Voucher]\n"
+                + "      WHERE Quantity='" + qty + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
 
     public List<Vouchers> getVoucherbyId(String id) {
         String sql = "select * from voucher\n"
@@ -254,6 +266,21 @@ public class DAOVouchers extends DBContext.connectDB {
         }
         return n;
     }
+    public int updateQuantity(Vouchers v) {
+        int n = 0;
+        String sql = "UPDATE [Voucher]\n"
+                + "   SET  Quantity = ?"
+                + " WHERE VoucherId = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(2, v.getVoucherId());
+            pre.setInt(1, v.getQuantity());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
 
     public static void main(String[] args) {
         DAOVouchers dao = new DAOVouchers();
@@ -267,9 +294,10 @@ public class DAOVouchers extends DBContext.connectDB {
 //        System.out.println(dao.getVoucherbyId("VCM010    "));
 //        System.out.println(dao.getImagebyId("VCM010    "));
 //        dao.updateVoucher(new Vouchers("VCM011", "2", "2", "2", 2, 3, "bautroikhongem"));
-        List<Vouchers> list = dao.view9SearchPagingVouchers("h", 1);
-        for (Vouchers o : list) {
-            System.out.println(o);
-        }
+//        List<Vouchers> list = dao.view9SearchPagingVouchers("h", 1);
+//        for (Vouchers o : list) {
+//            System.out.println(o);
+//        }
+         dao.updateQuantity(new Vouchers("VCM001    ", 50));
     }
 }
