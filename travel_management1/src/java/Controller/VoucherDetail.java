@@ -53,10 +53,8 @@ public class VoucherDetail extends HttpServlet {
             }
             if (service.equals("Insert")) {
                 String submit = request.getParameter("submit");
-
                 if (submit == null) {
                     response.sendRedirect("VoucherDetail");
-
                 } else {
                     String voucherID = request.getParameter("voucherID");
                     HttpSession session = request.getSession();
@@ -64,12 +62,30 @@ public class VoucherDetail extends HttpServlet {
                     String cusid = cus.getAccountC();
                     String title = request.getParameter("title");
                     String discount = request.getParameter("discount");
-                    int dis=Integer.parseInt(discount);
+                    int dis = Integer.parseInt(discount);
                     String image = request.getParameter("image");
                     String quantity = request.getParameter("quantity");
-                    int quanC = daoVC.getQuantityVoucherbyAcc(cusid, voucherID);  
-                    daoVC.addVoucherCus(new VoucherCustomer(voucherID, title, image, dis, cusid));
+                    int qty = Integer.parseInt(quantity);
 
+                    String lastId1 = "VC000";
+                    if (daoV.lastVoucherId() != null) {
+                        lastId1 = daoV.lastVoucherId().substring(0, 5);
+                    }
+                    String s1 = lastId1.substring(0, 3);
+                    String s2 = lastId1.substring(3);
+                    int numnews = Integer.parseInt(s2) + 1;
+                    String n = Integer.toString(numnews);
+                    if (numnews < 10) {
+                        n = "0".concat(n);
+                    }
+                    String newID = s1.concat(n);
+                    
+                    daoVC.addVoucherCus(new VoucherCustomer(newID, title, image, dis, cusid));
+                    daoV.updateQuantity(new Vouchers(voucherID, qty - 1));
+                    if (qty - 1 == 0) {
+                        daoV.removeVoucher(voucherID);
+                    }
+                    response.sendRedirect("Home");
                 }
             }
         }
