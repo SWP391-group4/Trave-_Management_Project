@@ -45,7 +45,7 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
                 + "where AccountC='" + acc + "' and VoucherId='" + id + "'";
         ResultSet rs = getData(sql);
         try {
-            while (rs.next()) {
+            if (rs.next()) {
                 return rs.getString(1);
             }
         } catch (SQLException ex) {
@@ -57,6 +57,6 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
         //dao.addVoucherCus(new VoucherCustomer("1", "1", "1", 1, "caoboimiennui"));
-        System.out.println(dao.getQuantityVoucherbyAcc("caoboimientay", "1"));
+        System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
     }
 }
