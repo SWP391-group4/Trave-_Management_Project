@@ -5,10 +5,17 @@
 package DAO;
 
 import Entity.BlogDetails;
+import Entity.Blogs;
+import Entity.HomeStays;
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -88,17 +95,42 @@ public class DAOBlogDetails extends DBContext.connectDB {
         }
         return null;
     }
+    //chua dung den - tung
+    public BlogDetails getDetailbyBlogID(String blogId) {
+        String sql = "select a.BlogDetailId ,a.Image, a.News, a.BlogId, b.title\n"
+                + "                from BlogDetails a inner join Blogs b\n"
+                + "                on a.BlogId = b.BlogId\n"
+                + "                where a.BlogId= '" + blogId + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new BlogDetails(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)
+                );
+                        }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBlogDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         DAOBlogDetails dao = new DAOBlogDetails();
-        int n=dao.addBlogDetails(new BlogDetails("BLD0010", "1", "1", "BL0002    "));
-//        System.out.println(n);
-        String lastId1d1 = dao.lastblogdetailIḌ().substring(0, 7);
-        String s1d1 = lastId1d1.substring(0, 6);
-        String s2d1 = lastId1d1.substring(6);
-        int numnewsd1 = Integer.parseInt(s2d1) + 2;
-        String nd1 = Integer.toString(numnewsd1);
-        String newIDd1 = s1d1.concat(nd1);
-        System.out.println(newIDd1);
+//        int n=dao.addBlogDetails(new BlogDetails("BLD0010", "1", "1", "BL0002    "));
+////        System.out.println(n);
+//        String lastId1d1 = dao.lastblogdetailIḌ().substring(0, 7);
+//        String s1d1 = lastId1d1.substring(0, 6);
+//        String s2d1 = lastId1d1.substring(6);
+//        int numnewsd1 = Integer.parseInt(s2d1) + 2;
+//        String nd1 = Integer.toString(numnewsd1);
+//        String newIDd1 = s1d1.concat(nd1);
+//        System.out.println(newIDd1);
+
+        BlogDetails a = dao.getDetailbyBlogID("BL0001    ");
+        System.out.println(a);
     }
 }

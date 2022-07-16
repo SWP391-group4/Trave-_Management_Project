@@ -8,11 +8,15 @@ import DAO.DAOBlogDetails;
 import DAO.DAOBlogs;
 import DAO.DAOExtensions;
 import DAO.DAOHomeStays;
+import DAO.DAOMarketing;
 import DAO.DAOReviews;
 import DAO.DAORules;
 import DAO.DAOSupplier;
+import Entity.BlogDetails;
+import Entity.Blogs;
 import Entity.Extensions;
 import Entity.HomeStays;
+import Entity.Marketing;
 import Entity.Reviews;
 import Entity.Rules;
 import java.io.IOException;
@@ -46,25 +50,17 @@ public class BlogDetailController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String blogId = request.getParameter("blogId");
         HttpSession session = request.getSession();
-        DAOBlogs daosup = new DAOBlogs();
-        DAOBlogDetails daorule=new DAOBlogDetails();
-        DAOHomeStays dao = new DAOHomeStays();
-        DAOReviews daor = new DAOReviews();
-        DAOExtensions daoe= new DAOExtensions();
-        List<Rules> rules = daorule.getRulebyHomeStayID(blogId);
-        List<Reviews> r = daor.getFeedbackByHID(blogId);
-        HomeStays h = dao.getHomestay(blogId);
-        Extensions e=daoe.getExtensions(blogId);
-        String accountS = h.getAccountS();
-        List<HomeStays> listbyS = dao.getRandomHomeStay();
-        List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
-        request.setAttribute("listbyS", listbyS);
-        request.setAttribute("listBySupplier", listBySupplier);
-        request.setAttribute("review", r);
-        request.setAttribute("rules", rules);
-        request.setAttribute("detail", h);
-        request.setAttribute("extion", e);
-        request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
+        DAOBlogs daob = new DAOBlogs();
+        DAOBlogDetails daobd = new DAOBlogDetails();
+//        DAOMarketing daom = new DAOMarketing();
+        BlogDetails blogdetail = daobd.getDetailbyBlogID(blogId);
+//        Blogs blog = daob.getAllbyBlogID(blogId);
+////        String accountM = blog.getAccountM();
+//        Marketing Accm = daom.getMarketing(accountM);
+        request.setAttribute("blogdetail", blogdetail);
+//        request.setAttribute("accountM", Accm);
+        
+        request.getRequestDispatcher("/BlogDetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

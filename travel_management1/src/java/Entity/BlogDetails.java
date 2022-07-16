@@ -13,9 +13,19 @@ public class BlogDetails {
     public String image;
     public String news;
     public String blogId;
+    public String title;
 
     public BlogDetails() {
     }
+
+    public BlogDetails(String blogDetailId, String image, String news, String blogId, String title) {
+        this.blogDetailId = blogDetailId;
+        this.image = image;
+        this.news = news;
+        this.blogId = blogId;
+        this.title = title;
+    }
+    
 
     public BlogDetails(String blogDetailId, String image, String news, String blogId) {
         this.blogDetailId = blogDetailId;
@@ -61,5 +71,13 @@ public class BlogDetails {
     public void setBlogId(String blogId) {
         this.blogId = blogId;
     }
+
+    @Override
+    public String toString() {
+        return "BlogDetails{" + "blogDetailId=" + blogDetailId + ", image=" + image + ", news=" + news + ", blogId=" + blogId + ", title=" + title + '}';
+    }
+
     
+
+     
 }
