@@ -61,7 +61,8 @@
                             <h5 > ${c.title}</h5>
                             <p>${c.description} </p>
                             <p style="color: #f71926">Discount: ${c.discount}%</p>
-                            <br>                        
+                            <br>    
+                            <h6 style="color:#f71926;margin-left: 3px">${alert}</h6>
                             <c:if test="${sessionScope.acc.type==4}">
                                 <input style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px" name="submit" value="Save" type="submit">          
                             </c:if>

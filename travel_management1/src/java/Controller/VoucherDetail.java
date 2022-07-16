@@ -66,7 +66,6 @@ public class VoucherDetail extends HttpServlet {
                     String image = request.getParameter("image");
                     String quantity = request.getParameter("quantity");
                     int qty = Integer.parseInt(quantity);
-
                     String lastId1 = "VC000";
                     if (daoV.lastVoucherId() != null) {
                         lastId1 = daoVC.lastVoucherCusId().substring(0, 5);
@@ -79,13 +78,17 @@ public class VoucherDetail extends HttpServlet {
                         n = "0".concat(n);
                     }
                     String newID = s1.concat(n);
-                    
+
                     daoVC.addVoucherCus(new VoucherCustomer(newID, title, image, dis, cusid));
                     daoV.updateQuantity(new Vouchers(voucherID, qty - 1));
                     if (qty - 1 == 0) {
                         daoV.removeVoucher(voucherID);
                     }
-                    response.sendRedirect("Home");
+                    String alert = "Saved";
+                    List<Vouchers> v = daoV.getVoucherbyId(voucherID);
+                    request.setAttribute("v", v);
+                    request.setAttribute("alert", alert);
+                    request.getRequestDispatcher("VoucherDetail.jsp").forward(request, response);
                 }
             }
         }
