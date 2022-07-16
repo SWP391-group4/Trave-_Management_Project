@@ -151,11 +151,25 @@ public class DAOSupplier extends connectDB {
 
     public List<SupplierHomestays> listHomestayBySupplier() {
         List<SupplierHomestays> list = new ArrayList<>();
-        String sql = "select s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId, h.homestayName\n"
+        String sql = "select"
+                + " s.AccountS,"
+                + " s.firstName,"
+                + "s.lastName,"
+                + "s.email,"
+                + "s.phone,"
+                + "h.homestayId,"
+                + " h.homestayName\n"
                 + "from Homestays h "
-                + "inner join Suppliers s "
+                + "inner join "
+                + "Suppliers s "
                 + "on h.AccountS = s.AccountS\n"
-                + "group by s.AccountS, s.firstName,s.lastName,s.email,s.phone,h.homestayId,h.homestayName";
+                + "group by s.AccountS,"
+                + " s.firstName,"
+                + "s.lastName,"
+                + "s.email,"
+                + "s.phone,"
+                + "h.homestayId,"
+                + "h.homestayName";
         ResultSet rs = getData(sql);
         try {
             while (rs.next()) {
@@ -306,16 +320,16 @@ public class DAOSupplier extends connectDB {
 
     public static void main(String[] args) {
         DAOSupplier d = new DAOSupplier();
-        SupplierImage s = d.getSUPImage("2convitcon");
-        System.out.println(s);
-        int count=d.updateSupplier(new Suppliers("2convitcon", "thinh", "quang", "0123123123",  "031312312"));
-        System.out.println(count);
-//        List<Suppliers> list = d.getSuppiler("2convitcon");
-//        Suppliers list = d.updateSUPImage("2convitcon","co.jpg");
-//        System.out.println(list);
-//        for (Suppliers temp : list) {
-//            System.out.println(temp);
-//        }
+//        SupplierImage s = d.getSUPImage("2convitcon");
+//        System.out.println(s);
+//        int count=d.updateSupplier(new Suppliers("2convitcon", "thinh", "quang", "0123123123",  "031312312"));
+//        System.out.println(count);
+        List<SupplierHomestays> list = d.listHomestayBySupplier();
+    
+        System.out.println(list);
+        for (SupplierHomestays temp : list) {
+            System.out.println(temp);
+        }
 //        int n = d.addSuppliers(new Suppliers("haianh123", "Tung", "Nguyen", "123456789", "tungnon@123", "0865965402",0));
 //        System.out.println(n);
     }
