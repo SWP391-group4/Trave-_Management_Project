@@ -16,6 +16,13 @@ public class HomeStayAddressses {
    public String Specific;
    public String ward;
 
+    public HomeStayAddressses(String city, String district, String Specific, String ward) {
+        this.city = city;
+        this.district = district;
+        this.Specific = Specific;
+        this.ward = ward;
+    }
+
     public HomeStayAddressses(String homestayid, String city, String district, String Specific, String ward) {
         this.homestayid = homestayid;
         this.city = city;
