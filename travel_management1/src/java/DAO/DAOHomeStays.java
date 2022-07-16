@@ -145,12 +145,17 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getHomeStaybyCID(String cid) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,\n"
-                + "                ha.specific,ha.ward,c.CateName,hd.price,h.Status from \n"
-                + "                ((HomeStays h inner join HomeStayAddressses ha on\n"
+        String sql = "select  h.HomeStayid,h.homestayname,h.cateID "
+                + ",ha.city,ha.district,\n"
+                + "                ha.specific,ha.ward,"
+                + "c.CateName,hd.price,h.Status from \n"
+                + "                ((HomeStays h inner join"
+                + " HomeStayAddressses ha on\n"
                 + "               h.HomeStayid=ha.HomeStayid )\n"
                 + " inner join Categories c on h.CateId=c.CateId )\n"
-                + " inner join HomeStayDetails hd on h.HomeStayId=hd.HomeStayId  where c.CateId=?";
+                + " inner join HomeStayDetails hd "
+                + "n h.HomeStayId=hd.HomeStayId  "
+                + "where c.CateId=?";
 
         try {
 
@@ -169,7 +174,8 @@ public class DAOHomeStays extends connectDB {
     }
 
     public HomeStayAddressses searchByHomeStay(String homestayID) {
-        String sql = "select * from HomeStayAddressses where homestayID = '" + homestayID + "'";
+        String sql = "select * from HomeStayAddressses where homestayID ="
+                + " '" + homestayID + "'";
 
         ResultSet rs = getData(sql);
         try {
@@ -259,14 +265,19 @@ public class DAOHomeStays extends connectDB {
 
     public List<Images> getImage(String homestayId) {
         List<Images> list = new ArrayList<>();
-        String sql = "select c.cateId, c.cateName from homestays h "
+        String sql = "select c.cateId, "
+                + "c.cateName "
+                + "from homestays h "
                 + "inner join images i "
                 + "on c.homestayId = h.homestayId "
                 + "where homestayId = '" + homestayId + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
-                list.add(new Images(rs.getString(1), rs.getString(2), rs.getString(3)));
+                list.add(new Images(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
@@ -460,13 +471,16 @@ public class DAOHomeStays extends connectDB {
     public List<HomeStays> SearchbyName(int index, String txtSearch) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,\n"
-                + "                             ha.specific,ha.ward,c.CateName,hd.price,h.Status,avg(r.star)as Saravg from \n"
+                + "                             ha.specific,ha.ward,c.CateName,hd.price,"
+                + "h.Status,avg(r.star)as Saravg from \n"
                 + "                             ((HomeStays h inner join HomeStayAddressses ha on\n"
                 + "                           h.HomeStayid=ha.HomeStayid )\n"
                 + "                              inner join Categories c on h.CateId=c.CateId )\n"
-                + "                               inner join HomeStayDetails hd on h.HomeStayId=hd.HomeStayId\n"
+                + "                               inner join HomeStayDetails hd "
+                + "on h.HomeStayId=hd.HomeStayId\n"
                 + "               inner join Reviews r on r.HomeStayId=h.HomeStayId \n"
-                + "                				where h.homestayname like '%" + txtSearch + "%'\n"
+                + "                				where"
+                + " h.homestayname like '%" + txtSearch + "%'\n"
                 + "                group by  h.HomeStayid,h.homestayname,h.cateID ,ha.city,ha.district,\n"
                 + "                              ha.specific,ha.ward,c.CateName,hd.price,h.Status \n"
                 + "                          order by HomeStayName offset ? rows fetch next 6 rows only";
@@ -478,7 +492,16 @@ public class DAOHomeStays extends connectDB {
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 list.add(new HomeStays(rs.getString(1),
-                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDouble(9), rs.getInt(10), rs.getDouble(11)));
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getDouble(9),
+                        rs.getInt(10),
+                        rs.getDouble(11)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
@@ -744,7 +767,8 @@ public class DAOHomeStays extends connectDB {
     }
 
     public int countToDivforStatus(int status) {
-        String sql = "select count(*) from HomeStays where Status = ?";
+        String sql = "select count(*) "
+                + "from HomeStays where Status = ?";
 
         try {
 
@@ -883,15 +907,9 @@ public class DAOHomeStays extends connectDB {
 
     public static void main(String[] args) {
         DAOHomeStays dao = new DAOHomeStays();
-        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ",0));
+        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ", 0));
         System.out.println(count);
 //
-        List<HomeStays> list = dao.getHomeStayforSUP("2convitcon");
-        HomeStays h = dao.getHomestay2("HS0001");
-        System.out.println(h);
-        for(HomeStays temp:list){
-            System.out.println(temp);
-        }
 
     }
 }
