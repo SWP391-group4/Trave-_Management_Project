@@ -6,6 +6,7 @@ package DAO;
 
 import Entity.VoucherCustomer;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -13,6 +14,7 @@ import java.sql.SQLException;
  * @author nam
  */
 public class DAOVoucherCustomer extends DBContext.connectDB {
+
     public int addVoucherCus(VoucherCustomer vc) {
         int n = 0;
         String sql = "INSERT INTO [dbo].[VoucherCustomer]\n"
@@ -37,8 +39,24 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return n;
     }
+
+    public String getQuantityVoucherbyAcc(String acc, String id) {
+        String sql = "select quantity from VoucherCustomer\n"
+                + "where AccountC='" + acc + "' and VoucherId='" + id + "'";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
-        DAOVoucherCustomer dao= new DAOVoucherCustomer();
-        dao.addVoucherCus(new VoucherCustomer("1","1","1",1,"caoboimiennui"));
+        DAOVoucherCustomer dao = new DAOVoucherCustomer();
+        //dao.addVoucherCus(new VoucherCustomer("1", "1", "1", 1, "caoboimiennui"));
+        System.out.println(dao.getQuantityVoucherbyAcc("caoboimientay", "1"));
     }
 }
