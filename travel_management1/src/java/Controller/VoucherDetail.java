@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOVouchers;
+import Entity.Customers;
 import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,6 +47,22 @@ public class VoucherDetail extends HttpServlet {
                 List<Vouchers> v = daoV.getVoucherbyId(voucherID);
                 request.setAttribute("v", v);
                 request.getRequestDispatcher("VoucherDetail.jsp").forward(request, response);
+            }
+            if (service.equals("Insert")) {
+                String submit = request.getParameter("submit");
+                if (submit == null) {
+                    response.sendRedirect("VoucherDetail");
+                } else {
+                    String voucherID = request.getParameter("voucherID");
+                    String title = request.getParameter("title");
+                    String discount = request.getParameter("discount");
+                    String image = request.getParameter("image");
+                    String quantity = request.getParameter("quantity");
+                    HttpSession session = request.getSession();
+                    Customers cus = (Customers) session.getAttribute("mar");
+                    String cusid = cus.getAccountC();
+                    
+                }
             }
         }
     }

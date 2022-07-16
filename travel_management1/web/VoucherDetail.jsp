@@ -51,6 +51,10 @@
                 <form action="VoucherDetail">
                     <input type="hidden" name="go" value="Insert">
                     <input type="hidden" name="voucherID" value="${c.voucherId}">
+                    <input type="hidden" name="title" value="${c.title}">
+                    <input type="hidden" name="discount" value="${c.discount}">
+                    <input type="hidden" name="image" value="${c.image}">
+                    <input type="hidden" name="quantity" value="${c.quantity}">
                     <div class="row">
                         <img src="images/${c.image}" style="width: 400px;height: 320px;margin-left: 70px;margin-top: 8px">
                         <div style="width: 40%;margin-left: 100px;">
