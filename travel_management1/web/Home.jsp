@@ -136,7 +136,7 @@
                     <div class="row">
                         <c:forEach items="${list3v}" var="c">
                             <div class="col-md-4">                         
-                                <a href="ListAllVoucher">
+                                <a href="VoucherDetail">
                                     <img style="width: 360px;height: 280px;border-radius: 15px" src="images/${c.image}">
                                 </a>                          
                             </div>   

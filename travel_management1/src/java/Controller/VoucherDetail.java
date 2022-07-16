@@ -32,7 +32,7 @@ public class VoucherDetail extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
+            response.sendRedirect("VoucherDetail.jsp");
         }
     }
 
