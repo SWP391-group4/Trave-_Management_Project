@@ -38,28 +38,32 @@
         </head>
         <body>
             <div style="margin-left: 120px">
-                <div style="padding-bottom: 60px;margin-top: 30px">
+                <div style="padding-bottom: 100px;margin-top: 30px">
                     <a href="Home">Home ></a>
 
                     <a href="ListAllVoucher">List Voucher ></a>
                     <a href="#" style="color: #000">Detail Voucher </a>
                 </div>
             </div>
-            <div class="col-lg-12 order-md-last" style="margin-left: 205px;padding-bottom: 60px;height: 400px;width: 90%">
-                <div class="row">
-                    <img src="images/HN.png" style="width: 400px;height: 320px;margin-left: 70px;margin-top: 8px">
-                    <div style="width: 30%;margin-left: 100px;">
-                        <h5 > Ky NGHy AN LyNH VyI "THy XANH"</h5>
-                        <p>?ã bao lâu r?i b?n ch?a ???c ?i ?âu ?ó? Vi?c di chuy?n b? h?n ch? b?i d?ch b?nh thì m?t chuy?n du l?ch t?i chính n?i b?n ?ang s?ng, không c?n ph?i ?i ??n b?t c? n?i nào xa là s? l?a ch?n hoàn h?o.</p>
-                        <p style="color: #f71926">Discount: 50%</p>
-                        <br>
-                        <form action="BlogsManager">
+            <div class="col-lg-12 order-md-last" style="margin-left: 205px;margin-bottom: 80px">
+            <c:forEach items="${v}" var="c">
+
+                <form action="VoucherDetail">
+                    <div class="row">
+                        <img src="images/${c.image}" style="width: 400px;height: 320px;margin-left: 70px;margin-top: 8px">
+                        <div style="width: 40%;margin-left: 100px;">
+                            <h5 > ${c.title}</h5>
+                            <p>${c.description} </p>
+                            <p style="color: #f71926">Discount: ${c.discount}%</p>
+                            <br>                        
                             <input type="hidden" name="go" value="Insert">
-                            <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Save</button>                                               
-                        </form>
+                            <button style="color:#fff;background: #4e73df;border-radius: 5px;border-style: none;padding-left: 10px;padding-right: 10px">Save</button>                                                                      
+                        </div>
                     </div>
-                </div>
-            </div>
+                </form>
+
+            </c:forEach>
+        </div>
         <jsp:include page="Footer.jsp"></jsp:include>
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

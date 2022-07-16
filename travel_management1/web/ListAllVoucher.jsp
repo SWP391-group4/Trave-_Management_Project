@@ -66,7 +66,7 @@
                             <div class="row">
                             <c:forEach items="${list}" var="c">
                                 <div class="col-md-4">
-                                    <a href="VoucherDetail">
+                                    <a href="VoucherDetail?go=Show&voucherID=${c.voucherId}">
                                         <div style="text-align:center;width: 361px;height: 385px;box-shadow: 1px 1px #d6d6d6 ;margin: 3px;padding: 0px;margin-bottom:20px;border: 1px solid #d6d6d6; background: #fefefe" >                                                                
                                             <img style="width: 360px;height: 280px;margin-bottom: 10px" src="images/${c.image}">
                                             <h5 style="font-weight: 500; font-size: 1rem;">${c.title}</h5>  

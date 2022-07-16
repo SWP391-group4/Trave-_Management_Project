@@ -4,8 +4,11 @@
  */
 package Controller;
 
+import DAO.DAOVouchers;
+import Entity.Vouchers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,9 +33,19 @@ public class VoucherDetail extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String service = request.getParameter("go");
+        if (service == null) {
+            service = "Show";
+        }
+        DAOVouchers daoV = new DAOVouchers();
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            response.sendRedirect("VoucherDetail.jsp");
+            if (service.equals("Show")) {
+                String voucherID = request.getParameter("voucherID");
+                List<Vouchers> v = daoV.getVoucherbyId(voucherID);
+                request.setAttribute("v", v);
+                request.getRequestDispatcher("VoucherDetail.jsp").forward(request, response);
+            }
         }
     }
 
