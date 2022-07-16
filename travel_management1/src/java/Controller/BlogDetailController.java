@@ -4,13 +4,26 @@
  */
 package Controller;
 
+import DAO.DAOBlogDetails;
+import DAO.DAOBlogs;
+import DAO.DAOExtensions;
+import DAO.DAOHomeStays;
+import DAO.DAOReviews;
+import DAO.DAORules;
+import DAO.DAOSupplier;
+import Entity.Extensions;
+import Entity.HomeStays;
+import Entity.Reviews;
+import Entity.Rules;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,18 +44,27 @@ public class BlogDetailController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet BlogDetailController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet BlogDetailController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        String blogId = request.getParameter("blogId");
+        HttpSession session = request.getSession();
+        DAOBlogs daosup = new DAOBlogs();
+        DAOBlogDetails daorule=new DAOBlogDetails();
+        DAOHomeStays dao = new DAOHomeStays();
+        DAOReviews daor = new DAOReviews();
+        DAOExtensions daoe= new DAOExtensions();
+        List<Rules> rules = daorule.getRulebyHomeStayID(blogId);
+        List<Reviews> r = daor.getFeedbackByHID(blogId);
+        HomeStays h = dao.getHomestay(blogId);
+        Extensions e=daoe.getExtensions(blogId);
+        String accountS = h.getAccountS();
+        List<HomeStays> listbyS = dao.getRandomHomeStay();
+        List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
+        request.setAttribute("listbyS", listbyS);
+        request.setAttribute("listBySupplier", listBySupplier);
+        request.setAttribute("review", r);
+        request.setAttribute("rules", rules);
+        request.setAttribute("detail", h);
+        request.setAttribute("extion", e);
+        request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
