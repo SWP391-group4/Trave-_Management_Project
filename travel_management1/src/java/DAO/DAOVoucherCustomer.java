@@ -53,10 +53,23 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return 0;
     }
-
+     public String lastVoucherCusId() {
+        String sql = "select top 1 VoucherId from VoucherCustomer\n"
+                + "order by VoucherId desc";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
-        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
-        System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
+//        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
+//        System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
+          System.out.println(dao.lastVoucherCusId());
     }
 }

@@ -48,7 +48,7 @@
             <div class="col-lg-12 order-md-last" style="margin-left: 205px;margin-bottom: 80px">
             <c:forEach items="${v}" var="c">
 
-                <form action="VoucherDetail">
+                <form action="VoucherDetail" method="post">
                     <input type="hidden" name="go" value="Insert">
                     <input type="hidden" name="voucherID" value="${c.voucherId}">
                     <input type="hidden" name="title" value="${c.title}">

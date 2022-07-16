@@ -58,7 +58,7 @@ public class VoucherDetail extends HttpServlet {
                 } else {
                     String voucherID = request.getParameter("voucherID");
                     HttpSession session = request.getSession();
-                    Customers cus = (Customers) session.getAttribute("mar");
+                    Customers cus = (Customers) session.getAttribute("customer");
                     String cusid = cus.getAccountC();
                     String title = request.getParameter("title");
                     String discount = request.getParameter("discount");
@@ -69,7 +69,7 @@ public class VoucherDetail extends HttpServlet {
 
                     String lastId1 = "VC000";
                     if (daoV.lastVoucherId() != null) {
-                        lastId1 = daoV.lastVoucherId().substring(0, 5);
+                        lastId1 = daoVC.lastVoucherCusId().substring(0, 5);
                     }
                     String s1 = lastId1.substring(0, 3);
                     String s2 = lastId1.substring(3);
