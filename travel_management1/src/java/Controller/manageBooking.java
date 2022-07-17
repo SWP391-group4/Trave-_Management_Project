@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOBooking;
+import DAO.DAOCustomers;
 import DAO.DAOHomeStays;
 import DAO.DAOSupplier;
 import Entity.Booking;
@@ -41,8 +42,22 @@ public class manageBooking extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
       String homeStayID=request.getParameter("homeStayID");
         DAOBooking dao = new DAOBooking();
+        DAOCustomers daoc=new DAOCustomers();
         List<Booking> listhomeStayID=dao.getBookingbyHomeStayID(homeStayID);
         List<Booking> list=dao.getLastBooking(homeStayID);
+//         String status = request.getParameter("status");
+//              String order = request.getParameter("orderNumber");
+//               int Order = Integer.parseInt(order);
+//               Booking bok=daoc.getbyord(Order);
+//                  request.setAttribute("bok", bok);
+//        if (status != null) {
+//            if (status.equals("1")) {
+//                dao.updateBookingStatus(0, Order);
+//            } else {
+//                dao.updateBookingStatus(1, Order);
+//            }
+//        }
+ 
         request.setAttribute("listhomeStayID", listhomeStayID);
          request.setAttribute("list", list);
          request.getRequestDispatcher("/manageBooking.jsp").forward(request, response);

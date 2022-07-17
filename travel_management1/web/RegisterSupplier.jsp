@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-
+        <jsp:include page="Footer.jsp"></jsp:include>
     <style type="text/css">
         .custom {
             color: transparent;

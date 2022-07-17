@@ -94,7 +94,22 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
+   public int updateBookingStatus(int status, int ord) {
+        int n = 0;
+        String sql = "Update Booking set "
+                + "status = ? "
+                + "where OrderNumber = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, status);
+            pre.setInt(2, ord);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
+        return n;
+    }
     public List<Booking> getLastBooking(String homestayId) {
         List<Booking> list = new ArrayList<>();
         String sql = "	SELECT TOP 3 * FROM Booking"
@@ -128,6 +143,32 @@ public class DAOBooking extends connectDB {
 
     }
 
+    public Booking getbyord(int ord){
+         String sql = "Select * from Booking where OrderNumber = '" + ord + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Booking(
+                         rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12));
+            
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
     public List<Booking> getBookingWatting(String homestayId) {
         List<Booking> list = new ArrayList<>();
         String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='" + homestayId + "' and status=0  ORDER BY OrderTime DESC";
@@ -163,7 +204,11 @@ public class DAOBooking extends connectDB {
         for (Booking temp : list) {
             System.out.println(temp);
         }
+        int count=dao.updateBookingStatus(2,17);
+        System.out.println(count);
 
+        Booking b=dao.getbyord(22);
+        System.out.println(b);
 //        String s = "11/27/2020 05:35:00";
 //        DateFormat frm = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
 //        try {
