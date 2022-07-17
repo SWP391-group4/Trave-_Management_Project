@@ -13,6 +13,7 @@ import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -90,6 +91,7 @@ public class SupplierRegisterController extends HttpServlet {
         SupplierAddresses supAddress = new SupplierAddresses(account.getAccount(), city, district, specific, ward);
 
         //----------image---------
+        
         Part partBefore = request.getPart("imageBefore");
         String realPartBefore = request.getServletContext().getRealPath("/images");
         String filenameBefore = Paths.get(partBefore.getSubmittedFileName()).getFileName().toString();
@@ -98,14 +100,13 @@ public class SupplierRegisterController extends HttpServlet {
         String realPartAfter = request.getServletContext().getRealPath("/images");
         String filenameAfter = Paths.get(partAfter.getSubmittedFileName()).getFileName().toString();
         //------------------------
-        int statusBefore = 0;
-        int statusAfter = 0;
+
         String imageBefore;
         String imageAfter;
         if (!filenameBefore.isEmpty()) {
             partBefore.write(realPartBefore + "/" + filenameBefore);
             imageBefore = filenameBefore;
-            statusBefore = 1;
+            
         } else {
             imageBefore = "default_person.jpg";
             //daoCus.updateCustomerImage(image, accountC);
@@ -114,7 +115,7 @@ public class SupplierRegisterController extends HttpServlet {
         if (!filenameAfter.isEmpty()) {
             partAfter.write(realPartAfter + "/" + filenameAfter);
             imageAfter = filenameAfter;
-            statusAfter = 1;
+            
         } else {
             imageAfter = "default_person.jpg";
             //daoCus.updateCustomerImage(image, accountC);

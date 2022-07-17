@@ -50,20 +50,50 @@ public class DAOHomeStays extends connectDB {
 
     public int addHomeStays(HomeStays hs) {
         int n = 0;
-        String sql = "insert into HomeStays(homeStayID,homeStayname,Status,cateID,accountS) \n"
-                + "values (?,?,2,?,?)";
+        String sql = "insert into HomeStays \n"
+                + "values (?,?,?,?,2)";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, hs.getHomeStayID());
             pre.setString(2, hs.getHomeStayname());
-            pre.setString(4, hs.getCateID());
-            pre.setString(5, hs.getAccountS());
+            pre.setString(3, hs.getCateID());
+            pre.setString(4, hs.getAccountS());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return n;
+    }
+
+    public HomeStays getLastHomestayId() {
+        String sql = "select top 1 * from homestays order by homestayId desc";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAccounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
+    public String getIdAuto() {
+        String id = getLastHomestayId().getHomeStayID();
+        String[] idComponent = id.trim().split("HS");
+        try {
+            int code = Integer.parseInt(idComponent[1]) + 1;
+            return "HS" + code;
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public int updateHomeStays(HomeStays hs) {
@@ -1007,11 +1037,13 @@ public class DAOHomeStays extends connectDB {
 //        int count = dao.updateHomeStayStatus(new HomeStays("HS0001", "CATID002  ", 0));
 //        System.out.println(count);
 //
-        List<HomeStays> list = dao.SearchbyPrice(1, 100000, 5000000);
-        for (HomeStays temp : list) {
-            System.out.println(temp);
-        }
-        HomeStays h = new HomeStays();
+        String code = dao.getIdAuto();
+        System.out.println(code);
+//        List<HomeStays> list = dao.SearchbyPrice(1, 100000, 5000000);
+//        for (HomeStays temp : list) {
+//            System.out.println(temp);
+//        }
+//        HomeStays h = new HomeStays();
 //h=dao.getHomestaybyAccountS("2convitcon");
 //        System.out.println(h);
 //    }

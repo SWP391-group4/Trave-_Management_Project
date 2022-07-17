@@ -18,179 +18,179 @@
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-12 col-xl-8 " id="first">
-                        <h3 class="h3 mb-4 page-title font-weight-bold">Register Homestay</h3>
-                        <div class="my-4">
-                            <hr class="my-4" />
-                            <h2 class="h3 mb-4 page-title ">Homestay Information</h2>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputCompany5">Type of Homestay</label>
-                                    <select name="skills"  class=" fluid selection dropdown no">
-                                        <option value="">All</option>
-                                        <option value="1">PHP</option>
+                <form action="RegisterHomestay" method="post" enctype='multipart/form-data'>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-12 col-xl-8 " id="first">
+                            <h3 class="h3 mb-4 page-title font-weight-bold">Register Homestay</h3>
+                            <div class="my-4">
+                                <hr class="my-4" />
+                                <h2 class="h3 mb-4 page-title ">Homestay Information</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCompany5">Type of Homestay</label>
+
+                                        <select name="category"  class=" fluid selection dropdown no">
+                                        <c:forEach items="${category}" var="o">
+                                            <option value="${o.cateId}">${o.cateName}</option>
+                                        </c:forEach>
                                     </select>
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                </div>  
+                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState5">HomeStay Name </label>                      
-                                    <input type="text" class="form-control" id="homestayName" placeholder="HomeStay Name" name="lastName" value="${lastName}"/>
-                            </div>   
+                                    <input type="text" class="form-control" id="homestayName" placeholder="HomeStay Name" name="homestayName" value="${lastName}"/>
+                                </div>   
+                            </div>
                         </div>
-                    </div>
-                    <div class="my-4">
+                        <div class="my-4">
+                            <hr class="my-4" />
+                            <h2 class="h3 mb-4 page-title ">Homestay Address</h2>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 "> 
+                                    <label for="inputState5">City</label>                      
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
+                                    <label for="inputState5">Specific</label>
+                                    <input type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState5">District</label>                      
+                                    <input type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
+                                </div> 
+                                <div class="form-group col-md-4">
+                                    <label for="inputState5">Ward</label>                      
+                                    <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
+                                </div> 
+                            </div>
+                        </div>
                         <hr class="my-4" />
-                        <h2 class="h3 mb-4 page-title ">Homestay Address</h2>
+                        <h2 class="h3 mb-4 page-title ">HomeStay Components</h2>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 "> 
+                                <label for="inputState5">Bedroom </label>                      
+                                <input type="number" class="form-control" id="homestayName"  name="bedroom"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState5"> Bed </label>                      
+                                <input type="number" class="form-control" id="homestayName"name="bed"/>
+                            </div> 
+                            <div class="form-group col-md-6">
+                                <label for="inputState5">LivingRoom </label>                      
+                                <input type="number" class="form-control" id="homestayName" name="livingroom"/>
+                            </div> 
+                            <div class="form-group col-md-6">
+                                <label for="inputState5">Kitchen </label>                      
+                                <input type="number" class="form-control" id="homestayName"  name="kitchen" />
+                            </div> 
+                            <div class="form-group col-md-6">
+                                <label for="inputState5">BathRoom</label>                      
+                                <input type="number" class="form-control" id="homestayName" name="bathroom" />
+                            </div> 
+
+                        </div>
+                        <hr class="my-4" />
+
+                        <h2 class="h3 mb-4 page-title ">HomeStay Extentions</h2>
                         <div class="form-row">
                             <div class="form-group col-md-4 "> 
-                                <label for="inputState5">City</label>                      
-                                <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
-                                <label for="inputState5">Specific</label>
-                                <input type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
+                                <input type="checkbox" name="extensions" value="wifi"> Wifi<BR>
+                                <input type="checkbox" name="extensions" value="Air Condition"> Air Conditioning<BR>
+                                <input type="checkbox" name="extensions" value="Washing Machine"> Washing Machine<BR>
+                                <input type="checkbox" name="extensions" value="Fan"> Fan<BR>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputState5">District</label>                      
-                                <input type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
+                                <input type="checkbox" name="extensions" value="Internet"> Internet<BR>
+                                <input type="checkbox" name="extensions" value="Fridge"> Fridge<BR>
+                                <input type="checkbox" name="extensions" value="Feater"> Feater<BR>
+                                <input type="checkbox" name="extensions" value="Desk"> Desk<BR>
                             </div> 
                             <div class="form-group col-md-4">
-                                <label for="inputState5">Ward</label>                      
-                                <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
+                                <input type="checkbox" name="extensions" value="TV"> TV<BR>
+                                <input type="checkbox" name="extensions" value="Sofa"> Sofa<BR>
+                                <input type="checkbox" name="extensions" value="Windows"> Windows<BR>
+                                <input type="checkbox" name="extensions" value="Wardrobe"> Wardrobe<BR>    
+                            </div>
+                            <input type="text" class="form-control" id="inputCompany5" name="extention" placeholder="Anything else"/>    
+                        </div>
+                        <hr class="my-4" />
+
+                        <h2 class="h3 mb-4 page-title ">CheckIn/CheckOut</h2>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 "> 
+                                <label for="inputState5">ChecIn time</label>                      
+                                <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkin"/>
+                            </div>
+                            <div class="form-group col-md-6 "> 
+                                <label for="inputState5">ChecOut time</label>                      
+                                <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkout"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!----------------------------------------------------------------------------------------------------------------------------------->
+
+
+                    <div class="col-12 col-lg-12 col-xl-8 " id="second" style="display: none;">
+                        <h2 class="h3 mb-4 page-title ">HomeStay Images</h2>
+                        <div class="form-row">
+
+                            <div class="form-group " enctype='multipart/form-data'> 
+                                <div class="form-group col-md-4">
+
+                                    <img src="images/image_icon.png" alt="Admin" class="w-100">
+                                    <input type="file" name="imageFirst" accept="image/png, image/jpg, image/jpeg">
+
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <img src="images/image_icon.png" alt="Admin" class="w-100">
+                                    <input type="file" name="imageSencond" accept="image/png, image/jpg, image/jpeg">
+
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <img src="images/image_icon.png" alt="Admin" class="w-100">
+                                    <input type="file" name="imageThird" accept="image/png, image/jpg, image/jpeg">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />  
+                        <label for="inputState5">HomeStay Description</label>     
+                        <div class="form-row">
+                            <textarea name="description" class="w-100">
+                            </textarea>
+                        </div>
+                        <hr class="my-4" />  
+                        <label for="inputState5">HomeStay Rules</label>     
+                        <div class="form-row">
+                            <textarea name="rule" class="w-100">
+                            </textarea>
+                        </div>
+
+                        <hr class="my-4" />
+                        <div class="form-row">
+                            <div class="form-group col-md-6 "> 
+                                <label for="inputState5">Price </label>                      
+                                <input type="number" class="form-control" id="homestayName"  name="price" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState5"> Incurred Cost </label>                      
+                                <input type="number" class="form-control" id="homestayName"name="incurredCost" />
                             </div> 
                         </div>
                     </div>
-                    <hr class="my-4" />
-                    <h2 class="h3 mb-4 page-title ">HomeStay Components</h2>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 "> 
-                            <label for="inputState5">Bedroom </label>                      
-                            <input type="number" class="form-control" id="homestayName"  name="lastName" value="${lastName}"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputState5"> Bed </label>                      
-                            <input type="number" class="form-control" id="homestayName"name="lastName" value="${lastName}"/>
-                        </div> 
-                        <div class="form-group col-md-6">
-                            <label for="inputState5">LivingRoom </label>                      
-                            <input type="number" class="form-control" id="homestayName" name="lastName" value="${lastName}"/>
-                        </div> 
-                        <div class="form-group col-md-6">
-                            <label for="inputState5">Kitchen </label>                      
-                            <input type="number" class="form-control" id="homestayName"  name="lastName" value="${lastName}"/>
-                        </div> 
-                        <div class="form-group col-md-6">
-                            <label for="inputState5">BathRoom</label>                      
-                            <input type="number" class="form-control" id="homestayName" name="lastName" value="${lastName}"/>
-                        </div> 
+                    <div class="text-warning">${alert}</div>
+                    <div class="col-md-12">
 
-                    </div>
-                    <hr class="my-4" />
-
-                    <h2 class="h3 mb-4 page-title ">HomeStay Extentions</h2>
-                    <div class="form-row">
-                        <div class="form-group col-md-4 "> 
-                            <input type="checkbox" name="extensions" value="first"> Wifi<BR>
-                            <input type="checkbox" name="extensions" value="first"> Air Conditioning<BR>
-                            <input type="checkbox" name="extensions" value="first"> Washing Machine<BR>
-                            <input type="checkbox" name="extensions" value="first"> Fan<BR>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <input type="checkbox" name="extensions" value="first"> Internet<BR>
-                            <input type="checkbox" name="extensions" value="first"> Fridge<BR>
-                            <input type="checkbox" name="extensions" value="first"> Feater<BR>
-                            <input type="checkbox" name="extensions" value="first"> Desk<BR>
-                        </div> 
-                        <div class="form-group col-md-4">
-                            <input type="checkbox" name="extensions" value="first"> TV<BR>
-                            <input type="checkbox" name="extensions" value="first"> Sofa<BR>
-                            <input type="checkbox" name="extensions" value="first"> Windows<BR>
-                            <input type="checkbox" name="extensions" value="first"> Wardrobe<BR>    
-                        </div>
-                        <input type="text" class="form-control" id="inputCompany5" name="district" value="" placeholder="Anything else"/>    
-                    </div>
-                    <hr class="my-4" />
-
-                    <h2 class="h3 mb-4 page-title ">CheckIn/CheckOut</h2>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 "> 
-                            <label for="inputState5">ChecIn time</label>                      
-                            <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
-                        </div>
-                        <div class="form-group col-md-6 "> 
-                            <label for="inputState5">ChecOut time</label>                      
-                            <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
-                        </div>
+                        <button class="btn btn-primary" type="submit" id="register" style="display: none">Register</button>
                     </div>
                 </div>
-                        
-                        
-                <!----------------------------------------------------------------------------------------------------------------------------------->
-                
-                
-                <div class="col-12 col-lg-12 col-xl-8 " id="second" style="display: none;">
-                    <h2 class="h3 mb-4 page-title ">HomeStay Images</h2>
-                    <div class="form-row">
-                        <label for="inputState5">BackGround Image</label>
-                        <div class="form-group "> 
-
-                            <img src="images/after.png" alt="Admin" class="w-50">
-                            <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label for="inputState5">Homestay Images</label>
-                        <div class="form-group "> 
-                            <div class="form-group col-md-4">
-                                <img src="images/after.png" alt="Admin" class="w-100">
-                                <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
-                            </div>
-                            <div class="form-group col-md-4 ">
-                                <img src="images/after.png" alt="Admin" class="w-100">
-                                <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
-                            </div>
-                            <div class="form-group col-md-4 ">
-                                <img src="images/after.png" alt="Admin" class="w-100">
-                                <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="my-4" />  
-                    <label for="inputState5">HomeStay Description</label>     
-                    <div class="form-row">
-                        <textarea name="" class="w-100">
-                        </textarea>
-                    </div>
-                    <hr class="my-4" />  
-                    <label for="inputState5">HomeStay Rules</label>     
-                    <div class="form-row">
-                        <textarea name="" class="w-100">
-                        </textarea>
-                    </div>
-                    <hr class="my-4" />
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6 "> 
-                            <label for="inputState5">Price </label>                      
-                            <input type="number" class="form-control" id="homestayName"  name="lastName" value="${lastName}"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputState5"> Incurred Cost </label>                      
-                            <input type="number" class="form-control" id="homestayName"name="lastName" value="${lastName}"/>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-
-            <hr class="my-4" />      
-
-
-            <div class="text-warning">${alert}</div>
-            <div class="col-md-12">
-                <button type="submit" name="preview" value="preview" class="btn btn-primary" id="back" onclick="backFunction()" style="display: none">Back</button>
-                <button type="submit" name="register" class="btn btn-primary" onclick="continueFunction()" id="continue">Continues</button>
-                <button type="submit" name="register" class="btn btn-primary" id="register" style="display: none">Register</button>
+            </form>
+                    <div class="col-md-12">
+                <button class="btn btn-primary" id="back" onclick="backFunction()" style="display: none">Back</button>
+                <button  class="btn btn-primary"   onclick="continueFunction()" id="continue">Continues</button>
             </div>
         </div>
     </div>
@@ -231,7 +231,6 @@
         border: 1px solid #f9be37;
         border-radius: 7px;
         padding: 5px 8px;
-        outline: none;
         white-space: nowrap;
         -webkit-user-select: none;
         cursor: pointer;

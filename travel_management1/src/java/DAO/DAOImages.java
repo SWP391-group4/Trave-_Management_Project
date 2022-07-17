@@ -16,14 +16,13 @@ import java.sql.SQLException;
 public class DAOImages extends connectDB{
     public int addHomeStayImage(Images img) {
         int n = 0;
-        String sql = "insert into Images(ImageId,ImageUrl,HomeStayId) \n"
-                + "values (?,?,?)";
+        String sql = "insert into Images(ImageUrl,HomeStayId) \n"
+                + "values (?,?)";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, img.getImageId());
-            pre.setString(2, img.getImageUrl());
-            pre.setString(3, img.getHomeStayId());
+            pre.setString(1, img.getImageUrl());
+            pre.setString(2, img.getHomeStayId());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
