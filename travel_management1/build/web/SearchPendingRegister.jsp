@@ -25,7 +25,7 @@
 
     <body id="page-top">
 
-        <jsp:include page="AdminLeftPageSup.jsp"/>
+        <jsp:include page="AdminLeftPageSupPending.jsp"/>
         <!-- Topbar Navbar -->
         <jsp:include page="AdminHeader.jsp"/>
 

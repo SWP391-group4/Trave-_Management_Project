@@ -40,13 +40,16 @@ public class AdminController extends HttpServlet {
 
             int totalSupplier = daoSupTemp.totalSupplier();
             int totalCustomer = daoCus.totalUser();
-
+            int totalPending = daoSupTemp.totalPending();
+            
             List<SupplierHomestays> listSupplier = daoSupplier.listTop10Homestay();
             List<Customers> listCus = daoCus.listTop5Customer();
+            List<Suppliers> pending = daoSupTemp.get5Pending();
             
-            
+            request.setAttribute("totalPending", totalPending);
             request.setAttribute("totalCus", totalCustomer);
             request.setAttribute("totalSup", totalSupplier);
+            request.setAttribute("pending", pending);
             request.setAttribute("listSup", listSupplier);
             request.setAttribute("listCus", listCus);
             

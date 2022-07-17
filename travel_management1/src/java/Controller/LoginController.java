@@ -74,7 +74,9 @@ public class LoginController extends HttpServlet {
                 case 1:
                     DAOAdmins daoAd = new DAOAdmins();
                     Admins admin = daoAd.getAdmin(account);
+                    int total = daoAd.totalMessage();
                     session.setAttribute("acc", acc);
+                    session.setAttribute("total", total);
                     session.setAttribute("admin", admin);
                     response.sendRedirect("adminController");
                     request.getSession().setMaxInactiveInterval(600);

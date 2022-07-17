@@ -37,17 +37,13 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                <a href="adminController" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-            </div>
+            
 
             <!-- Content Row -->
             <div class="row">
 
                 <!-- Supplier Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
+                <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -57,7 +53,7 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">${totalSup}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-book-reader fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -65,7 +61,7 @@
             </div>
 
             <!-- User Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -75,7 +71,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">${totalCus}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-person-booth fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -83,7 +79,7 @@
             </div>
 
             <!-- Pending Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card border-left-info shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -93,14 +89,10 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${totalPending}</div>
                                     </div>
                                     <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -113,22 +105,7 @@
             </div>
 
             <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    FAQs</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
 
         <!-- Content Row -->
@@ -211,35 +188,33 @@
                         </table>
                     </div>
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">FAQs</h6>
+                        <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between;">
+                            <h6 class="m-0 font-weight-bold text-primary">Supplier Pending</h6>
+                            <a href="AdminPendingRegister">View all</a>
                         </div>
-                        <div class="card-body">
-                            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                CSS bloat and poor page performance. 
-                                hihihi
-                            </p>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
+                        <table class="table table-striped">
+                            <thead>
 
-                                </tbody>
-                            </table>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Supplier Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone </th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
 
-                        </div>
+                            <tbody>
+                                <c:forEach items="${pending}" var="o">
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>${o.firstName} ${o. lastName}</td>
+                                        <td>${o.email}</td>
+                                        <td>${o.phone}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -290,7 +265,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login">Logout</a>
+                <a class="btn btn-primary" href="logout">Logout</a>
             </div>
         </div>
     </div>`

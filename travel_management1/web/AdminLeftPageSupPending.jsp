@@ -37,12 +37,12 @@
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Components</span>
             </a>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
                     <a class="collapse-item " href="AdminManageSupplierList">Suppliers</a>
-                    <a class="collapse-item active" href="AdminManageCustomerList">Customers</a>
+                    <a class="collapse-item" href="AdminManageCustomerList">Customers</a>
                 </div>
             </div>
         </li>
@@ -55,11 +55,11 @@
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Pending</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pending components:</h6>
-                    <a class="collapse-item" href="AdminPendingRegister"> Suppliers</a>
+                    <a class="collapse-item active" href="AdminPendingRegister"> Suppliers</a>
                     <a class="collapse-item" href="utilities-border.html"> Homestays</a>
 
                 </div>

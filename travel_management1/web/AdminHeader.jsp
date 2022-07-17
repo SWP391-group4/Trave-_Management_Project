@@ -24,16 +24,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Alerts -->
-    <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-           data-toggle="" aria-haspopup="true">
-            <i class="fas fa-bell fa-fw"></i>
-            <!-- Counter - Alerts -->
-            <span class="badge badge-danger badge-counter">3+</span>
-        </a>
-       
-    </li>
+    
 
     <!-- Nav Item - Messages -->
     <li class="nav-item dropdown no-arrow mx-1">
@@ -41,7 +32,7 @@
            data-toggle="" aria-haspopup="true" aria-expanded="true">
             <i class="fas fa-envelope fa-fw"></i>
             <!-- Counter - Messages -->
-            <span class="badge badge-danger badge-counter">7</span>
+            <span class="badge badge-danger badge-counter">${sessionScope.total}</span>
         </a>
         <!-- Dropdown - Messages -->
         
@@ -53,7 +44,7 @@
     <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.acc.account}</span>
             <img class="img-profile rounded-circle"
                  src="images/undraw_profile.svg">
         </a>
