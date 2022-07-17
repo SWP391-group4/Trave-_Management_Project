@@ -86,13 +86,23 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            <c:if test="${sessionScope.acc!=null}">  
+                                <div class="fields">
+                                    <div class="form-group">
+                                       <a href="bookingController">   <input type="submit" href="bookingController" value="Booking" class="btn btn-primary py-3 px-5">
+                                           </a>
+                                    </div>
+                                </div>        
+                                </c:if>
+                                 <c:if test="${sessionScope.acc==null}">
                                 <div class="fields">
 
                                     <div class="form-group">
-                                        <input type="submit" value="Booking" class="btn btn-primary py-3 px-5">
+                                        <a href="login"> <input type="button"   onclick=" alert('You must to login first!')" value="Booking" class="btn btn-primary py-3 px-5">
+                                            </a>
                                     </div>
                                 </div>
+                                </c:if>
                                 <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
                                     <h2>${detail.homeStayname}</h2>
                                 <span>Our Best hotels &amp; Rooms</span>
