@@ -73,7 +73,7 @@ public class DAOAccounts extends connectDB {
 
     public void signUp(String account, String pass) {
         String sql = "insert into Accounts\n"
-                + "values(?,?,3)";
+                + "values(?,?,4)";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, account);
