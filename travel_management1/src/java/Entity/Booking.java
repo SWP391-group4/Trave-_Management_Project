@@ -24,13 +24,29 @@ public class Booking {
     public String orderTime;
     public int bookingTime;
     public int visitorNumber;
-    public String price;
+    public double price;
+    public int status;
     public String email;
 
     public Booking() {
     }
 
-    public Booking(String accountC, String homeStayId, int orderNumber, String firstName, String lastName, String phone, String orderTime, int bookingTime, int visitorNumber, String price, String email) {
+    public Booking(String accountC, String homeStayId, int orderNumber, String firstName, String lastName, String phone, String orderTime, int bookingTime, int visitorNumber, double price, int status, String email) {
+        this.accountC = accountC;
+        this.homeStayId = homeStayId;
+        this.orderNumber = orderNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.orderTime = orderTime;
+        this.bookingTime = bookingTime;
+        this.visitorNumber = visitorNumber;
+        this.price = price;
+        this.status = status;
+        this.email = email;
+    }
+
+    public Booking(String accountC, String homeStayId, int orderNumber, String firstName, String lastName, String phone, String orderTime, int bookingTime, int visitorNumber, double price, String email) {
         this.accountC = accountC;
         this.homeStayId = homeStayId;
         this.orderNumber = orderNumber;
@@ -46,6 +62,14 @@ public class Booking {
 
     public String getAccountC() {
         return accountC;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public void setAccountC(String accountC) {
@@ -116,11 +140,11 @@ public class Booking {
         this.visitorNumber = visitorNumber;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -213,7 +237,9 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" + "accountC=" + accountC + ", homeStayId=" + homeStayId + ", orderNumber=" + orderNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", orderTime=" + orderTime + ", bookingTime=" + bookingTime + ", visitorNumber=" + visitorNumber + ", price=" + price + ", email=" + email + '}';
+        return "Booking{" + "accountC=" + accountC + ", homeStayId=" + homeStayId + ", orderNumber=" + orderNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", orderTime=" + orderTime + ", bookingTime=" + bookingTime + ", visitorNumber=" + visitorNumber + ", price=" + price + ", status=" + status + ", email=" + email + '}';
     }
+
+
 
 }
