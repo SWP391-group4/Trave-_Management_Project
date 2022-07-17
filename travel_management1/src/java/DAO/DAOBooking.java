@@ -42,7 +42,7 @@ public class DAOBooking extends connectDB {
                         rs.getString(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getString(10),
+                        rs.getInt(10),
                         rs.getString(11)));
             }
         } catch (SQLException ex) {
@@ -53,19 +53,105 @@ public class DAOBooking extends connectDB {
 
     public List<HomeStays> getHomestay(List<Booking> listBooking) {
         DAOHomeStays daoHomestay = new DAOHomeStays();
-        List<HomeStays> listHomestays =  new ArrayList<>();
+        List<HomeStays> listHomestays = new ArrayList<>();
         for (Booking o : listBooking) {
             listHomestays.add(daoHomestay.getHomestay(o.getHomeStayId()));
         }
         return listHomestays;
     }
 
+    public List<Booking> getBookingbyHomeStayID(String homestayId) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "select*\n" +
+"                from Booking "
+                + "where HomeStayId='" + homestayId + "'ORDER BY OrderTime DESC";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Booking(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+
+    }
+     public List<Booking> getLastBooking(String homestayId) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='"+homestayId+"' and status=0  ORDER BY OrderTime DESC";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Booking(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+
+    }
+       public List<Booking> getBookingWatting(String homestayId) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='"+homestayId+"' and status=0  ORDER BY OrderTime DESC";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Booking(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+
+    }
+
     public static void main(String[] args) {
         DAOBooking dao = new DAOBooking();
-        List<Booking> l = dao.getBooking("benbohanhphuc");
-         List<HomeStays> listHomestays = dao.getHomestay(l);
-         for (HomeStays listHomestay : listHomestays) {
-             System.out.println(listHomestay);
+            List<Booking> list = dao.getLastBooking("HS0002");
+        for (Booking temp : list) {
+            System.out.println(temp);
         }
 
 //        String s = "11/27/2020 05:35:00";
@@ -79,6 +165,5 @@ public class DAOBooking extends connectDB {
 //        } catch (ParseException ex) {
 //            Logger.getLogger(DAOBooking.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-
     }
 }
