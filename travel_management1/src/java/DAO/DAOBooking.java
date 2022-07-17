@@ -62,9 +62,46 @@ public class DAOBooking extends connectDB {
 
     public List<Booking> getBookingbyHomeStayID(String homestayId) {
         List<Booking> list = new ArrayList<>();
-        String sql = "select*\n" +
-"                from Booking "
-                + "where HomeStayId='" + homestayId + "'ORDER BY OrderTime DESC";
+        String sql = "select *from"
+                + " booking  "
+                + "where HomeStayId="
+                + "'" + homestayId + "'"
+                + "ORDER BY "
+                + "OrderTime DESC";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Booking(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12)
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+
+    }
+
+    public List<Booking> getLastBooking(String homestayId) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "	SELECT TOP 3 * FROM Booking"
+                + " where HomeStayId='" + homestayId + "'"
+                + " and status=0 "
+                + " ORDER BY "
+                + "OrderTime DESC";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -90,37 +127,10 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
-     public List<Booking> getLastBooking(String homestayId) {
-        List<Booking> list = new ArrayList<>();
-        String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='"+homestayId+"' and status=0  ORDER BY OrderTime DESC";
 
-        try {
-            PreparedStatement pre = conn.prepareStatement(sql);
-            ResultSet rs = pre.executeQuery();
-            while (rs.next()) {
-                list.add(new Booking(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getInt(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
-                        rs.getDouble(10),
-                        rs.getInt(11),
-                        rs.getString(12)));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
-
-    }
-       public List<Booking> getBookingWatting(String homestayId) {
+    public List<Booking> getBookingWatting(String homestayId) {
         List<Booking> list = new ArrayList<>();
-        String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='"+homestayId+"' and status=0  ORDER BY OrderTime DESC";
+        String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='" + homestayId + "' and status=0  ORDER BY OrderTime DESC";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -149,7 +159,7 @@ public class DAOBooking extends connectDB {
 
     public static void main(String[] args) {
         DAOBooking dao = new DAOBooking();
-            List<Booking> list = dao.getLastBooking("HS0002");
+        List<Booking> list = dao.getBookingbyHomeStayID("HS0002");
         for (Booking temp : list) {
             System.out.println(temp);
         }

@@ -83,7 +83,8 @@ public class DAOSupplier extends connectDB {
 
     public int updateSupplierEmail(String email, String accountS) {
         int n = 0;
-        String sql = "Update Suppliers set "
+        String sql = "Update Suppliers "
+                + "set "
                 + "email = ? "
                 + "where accountS = ?";
         try {
