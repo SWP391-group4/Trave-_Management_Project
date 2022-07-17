@@ -330,17 +330,72 @@ public class DAOHomeStaysTest {
 //    /**
 //     * Test of paggingHomeStay method, of class DAOHomeStays.
 //     */
-//    @Test
-//    public void testPaggingHomeStay() {
-//        System.out.println("paggingHomeStay");
-//        int index = 0;
-//        DAOHomeStays instance = new DAOHomeStays();
-//        List<HomeStays> expResult = null;
-//        List<HomeStays> result = instance.paggingHomeStay(index);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testPaggingHomeStayUT6() {
+        System.out.println("paggingHomeStay");
+        int index = 11;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 3;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+   
+    }
+       @Test
+    public void testPaggingHomeStayUT1() {
+        System.out.println("paggingHomeStay");
+        int index = 1;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 10;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+      
+    }
+       @Test
+    public void testPaggingHomeStayUT2() {
+        System.out.println("paggingHomeStay");
+        int index = 2;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 10;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    
+    }
+       @Test
+    public void testPaggingHomeStayUT3() {
+        System.out.println("paggingHomeStay");
+        int index = 3;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 10;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+     
+    }
+       @Test
+    public void testPaggingHomeStayUT4() {
+        System.out.println("paggingHomeStay");
+        int index = 4;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 10;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+  
+    }
+       @Test
+    public void testPaggingHomeStayUT5() {
+        System.out.println("paggingHomeStay");
+        int index = 5;
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 10;
+       int result = instance.paggingHomeStay(index).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
 //
 //    /**
 //     * Test of paggingHomeStaybyCATEID method, of class DAOHomeStays.
@@ -379,9 +434,72 @@ public class DAOHomeStaysTest {
         // TODO review the generated test code and remove the default call to fail.
     
     }
+              public void testPaggingHomeStaybyCATEIDTC4() {
+        System.out.println("paggingHomeStaybyCATEID");
+        int index = 1;
+        String CateID = "CATID003";
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 6;
+       int result = instance.paggingHomeStaybyCATEID(index, CateID).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    
+    }
 //
 //    /**
 //     * Test of SearchbyProvince method, of class DAOHomeStays.
+ @Test
+    public void testSearchbyPrice() {
+        System.out.println("SearchbyPrice");
+        int index = 7;
+               int min = 800000;
+                int max = 5000000;
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 6;
+        int result = instance.SearchbyPrice(index, min,max).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
+     @Test
+    public void testSearchbyPriceUC2() {
+        System.out.println("SearchbyPrice");
+        int index = 2;
+               int min = 2290000;
+                int max = 2290000;
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 0;
+        int result = instance.SearchbyPrice(index, min,max).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
+       @Test
+    public void testSearchbyPriceUC3() {
+        System.out.println("SearchbyPrice");
+        int index = 1;
+               int min = 2290000;
+                int max = 2290000;
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 1;
+        int result = instance.SearchbyPrice(index, min,max).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
+       @Test
+    public void testSearchbyPriceUC4() {
+        System.out.println("SearchbyPrice");
+        int index = 2;
+               int min = 800000;
+                int max = 5000000;
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 6;
+        int result = instance.SearchbyPrice(index, min,max).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
 
     @Test
     public void testSearchbyProvinceTC1() {
@@ -412,6 +530,17 @@ public class DAOHomeStaysTest {
         System.out.println("SearchbyProvince");
         int index = 1;
         String txtSearch = "Ha Noi";
+        DAOHomeStays instance = new DAOHomeStays();
+       int expResult = 6;
+        int result = instance.SearchbyProvince(index, txtSearch).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
+      public void testSearchbyProvinceTC4() {
+        System.out.println("SearchbyProvince");
+        int index = 1;
+        String txtSearch = "Bac Ninh";
         DAOHomeStays instance = new DAOHomeStays();
        int expResult = 6;
         int result = instance.SearchbyProvince(index, txtSearch).size();
@@ -453,6 +582,17 @@ public class DAOHomeStaysTest {
         String txtSearch = "";
         DAOHomeStays instance = new DAOHomeStays();
         int expResult = 6;
+       int result = instance.SearchbyName(index, txtSearch).size();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+      
+    }
+              public void testSearchbyNameTC4() {
+        System.out.println("SearchbyName");
+        int index = 1;
+        String txtSearch = "Nam";
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 1;
        int result = instance.SearchbyName(index, txtSearch).size();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -680,17 +820,17 @@ public class DAOHomeStaysTest {
 //    /**
 //     * Test of updateHomeStayDetail method, of class DAOHomeStays.
 //     */
-//    @Test
-//    public void testUpdateHomeStayDetail() {
-//        System.out.println("updateHomeStayDetail");
-//        HomeStayDetails hd = null;
-//        DAOHomeStays instance = new DAOHomeStays();
-//        int expResult = 0;
-//        int result = instance.updateHomeStayDetail(hd);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testUpdateHomeStayDetail() {
+        System.out.println("updateHomeStayDetail");
+        HomeStayDetails hd = new HomeStayDetails("HS0001", 1, 2, 3, 4, 5, null, null,30000, "jdksaldk", 0, "dsaidjsaoid");
+        DAOHomeStays instance = new DAOHomeStays();
+        int expResult = 0;
+        int result = instance.updateHomeStayDetail(hd);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+  
+    }
 //
 //    /**
 //     * Test of updateRules method, of class DAOHomeStays.
