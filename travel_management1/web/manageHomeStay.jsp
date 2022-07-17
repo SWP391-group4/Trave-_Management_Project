@@ -61,13 +61,14 @@
 						<table class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
-									<th>#</th>
+									
 									<th>HomeStayID</th>
 									<th>HomeStayName</th>
 									<th>Type</th>
 									<th>Status</th>
                                                                         <th>View</th><!-- <th>Status</th> -->
-                                                                        <th>Edit</th>
+                                                                        <th>Edit</th> 
+                                                                        <th>Booking</th>
 								</tr>
 							</thead>
                                                 <c:if test="${detail.status==1}">
@@ -75,7 +76,7 @@
                                                         
 							<tbody>
 								<tr>
-									<td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="32" height="32" class="rounded-circle my-n1" alt="Avatar"></td>
+									
 									<td>${o.homeStayID}</td>
 									<td>${o.homeStayname}</td>
 									<td>${o.cateName}</td>
@@ -83,11 +84,13 @@
 									<td><span class="badge bg-success">Active</span></td>
                                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
+                                                                         <td><a href="manageBooking?homeStayID=${o.homeStayID}">Check </a></td>
                                                                          </c:if>
                                                                          <c:if test="${o.status==0}">
                                                                              <td><span class="badge bg-secondary">Booked</span></td>
-                                                                        <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
+                                                                        <td><a href="displayinf?homeStayID=${o.homeStayID}">View </a></td>
                                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
+                                                                         <td><a href="manageBooking?homeStayID=${o.homeStayID}">Check </a></td>
                                                                          </c:if>
                                                                         <c:if test="${(o.status!=1)&&(o.status!=0)}">
                                                                             <td><span class="badge bg-warning">Pendding</span></td>
@@ -175,34 +178,10 @@
 							</tbody>
 						</table>
 
-						<strong>Activity</strong>
+						<strong>Booking Wating</strong>
 
 						<ul class="timeline mt-2 mb-0">
-							<li class="timeline-item">
-								<strong>Signed out</strong>
-								<span class="float-right text-muted text-sm">30m ago</span>
-								<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit...</p>
-							</li>
-							<li class="timeline-item">
-								<strong>Created invoice #1204</strong>
-								<span class="float-right text-muted text-sm">2h ago</span>
-								<p>Sed aliquam ultrices mauris. Integer ante arcu...</p>
-							</li>
-							<li class="timeline-item">
-								<strong>Discarded invoice #1147</strong>
-								<span class="float-right text-muted text-sm">3h ago</span>
-								<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit...</p>
-							</li>
-							<li class="timeline-item">
-								<strong>Signed in</strong>
-								<span class="float-right text-muted text-sm">3h ago</span>
-								<p>Curabitur ligula sapien, tincidunt non, euismod vitae...</p>
-							</li>
-							<li class="timeline-item">
-								<strong>Signed up</strong>
-								<span class="float-right text-muted text-sm">2d ago</span>
-								<p>Sed aliquam ultrices mauris. Integer ante arcu...</p>
-							</li>
+							
 						</ul>
 
 					</div>
