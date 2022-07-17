@@ -82,14 +82,14 @@
                         </div>
                     </div>
                 </div>
-
+    <a href="login" style="margin-left: 90px"> Login &nbsp;</a>or &nbsp;<a href="registerCustomer">Register &nbsp;</a> to experience the best !
                 <section >
                     <div class="row" style="margin-top:20px ;margin-left: 90px;color: #000000">
                         <h3 style="font-weight: bold;font-style: italic">Welcome to CTU Travel !</h3>
                     </div>
                 </section>
                 <p style="margin-left: 90px">Book accommodation, homestays, experiences and more on CTU Travel.</p>
-                <a href="login" style="margin-left: 90px"> Login &nbsp;</a>or &nbsp;<a href="registerCustomer">Register &nbsp;</a> to experience the best !
+            
                 <section >
                     <div class="row" style="margin-top:40px ;margin-left: 90px;color: #000000">
                         <h3 style="font-weight: bold;font-style: italic">Favorite Destination </h3>

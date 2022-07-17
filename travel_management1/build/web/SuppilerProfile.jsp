@@ -59,6 +59,7 @@
                     <div class="panel panel-default">
                         <div class="list-group-item  bg-secondary text-light">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
                         <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
+                       
                         <div class="panel-body"><a href="updateaddress">Change Address & Avatar</a></div>
                     </div>
 
