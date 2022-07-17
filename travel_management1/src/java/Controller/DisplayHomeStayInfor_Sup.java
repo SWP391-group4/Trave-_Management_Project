@@ -6,9 +6,11 @@ package Controller;
 
 import DAO.DAOHomeStays;
 import DAO.DAOReviews;
+import DAO.DAORules;
 import DAO.DAOSupplier;
 import Entity.HomeStays;
 import Entity.Reviews;
+import Entity.Rules;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,20 +41,23 @@ public class DisplayHomeStayInfor_Sup extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            HttpSession session = request.getSession();
-             Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        String homeStayID=request.getParameter("homeStayID");
+        HttpSession session = request.getSession();
+        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
+        String homeStayID = request.getParameter("homeStayID");
         DAOHomeStays dao = new DAOHomeStays();
-        DAOReviews daor=new DAOReviews();
-         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
-         request.setAttribute("review", r);
-        HomeStays h=dao.getHomestay(homeStayID);
-          String accountS = h.getAccountS();
-             List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
-              request.setAttribute("listBySupplier", listBySupplier);
+        DAOReviews daor = new DAOReviews();
+        DAORules rules=new DAORules();
+        List<Rules> listrule=rules.getRulebyHomeStayID(homeStayID);
+        request.setAttribute("listrule", listrule);
+        List<Reviews> r = daor.getFeedbackByHID(homeStayID);
+        request.setAttribute("review", r);
+        HomeStays h = dao.getHomestay(homeStayID);
+        String accountS = h.getAccountS();
+        List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
+        request.setAttribute("listBySupplier", listBySupplier);
         request.setAttribute("display", h);
         request.getRequestDispatcher("/DisplayDetailHomeStay.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
