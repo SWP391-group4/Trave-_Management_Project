@@ -7,13 +7,19 @@ package DAO;
 import DBContext.connectDB;
 import Entity.Images;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author phams
  */
-public class DAOImages extends connectDB{
+public class DAOImages extends connectDB {
+
     public int addHomeStayImage(Images img) {
         int n = 0;
         String sql = "insert into Images(ImageUrl,HomeStayId) \n"
@@ -29,12 +35,49 @@ public class DAOImages extends connectDB{
         }
         return n;
     }
-    
+
+    public List<Images> getIMG(String homestayID) {
+        List<Images> list = new ArrayList<>();
+
+        String sql = "select * from Images where HomeStayId='" + homestayID + "'";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Images(
+                        rs.getString(1),
+                        rs.getString(2), rs.getString(3)));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+    public Images getIMGtop1(String homestayID) {
+
+        String sql = "select  top 1* from Images where homestayID='" + homestayID + "'";
+
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Images(rs.getString(1), rs.getString(2), rs.getString(3));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         DAOImages dao = new DAOImages();
-        Images s = new Images("HIMG0104", "destination-2-1.jpg","HS0104");
-        int n = dao.addHomeStayImage(s);
-        System.out.println(n);
-        System.out.println(s);
+        List<Images> list = dao.getIMG("HS0001");
+        for (Images temp : list) {
+            System.out.println(temp);
+        }
+        Images img=dao.getIMGtop1("HS0001");
+        System.out.println(img);
     }
 }

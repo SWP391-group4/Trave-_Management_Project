@@ -33,9 +33,28 @@ public class HomeStays {
     public String description;
     public String video;
     public int status;
+public String imageUrl;
+
+
+
 
     public String getAccountS() {
         return accountS;
+    }
+
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, double price,int status, double star,  String imageUrl) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.city = city;
+        this.district = district;
+        this.specific = specific;
+        this.ward = ward;
+        this.cateName = cateName;
+        this.price = price;
+        this.star = star;
+        this.status = status;
+        this.imageUrl = imageUrl;
     }
 
     public HomeStays(String homeStayID, String cateID, int status) {

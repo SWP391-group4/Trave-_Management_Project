@@ -75,15 +75,11 @@
                             <div class="row">
                                 <div class="col-md-12 ftco-animate">
                                     <div class="single-slider owl-carousel">
+                                    <c:forEach items="${img}" var="o" >
                                         <div class="item">
-                                            <div class="hotel-img" style="background-image: url(images/hotel-2.jpg);"></div>
+                                            <div class="hotel-img" style="background-image: url(images/${o.imageUrl});"></div>
                                         </div>
-                                        <div class="item">
-                                            <div class="hotel-img" style="background-image: url(images/hotel-3.jpg);"></div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="hotel-img" style="background-image: url(images/hotel-4.jpg);"></div>
-                                        </div>
+                                          </c:forEach>
                                     </div>
                                 </div>
                             <c:if test="${sessionScope.acc!=null}">  
