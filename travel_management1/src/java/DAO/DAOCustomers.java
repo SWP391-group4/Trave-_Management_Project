@@ -81,8 +81,8 @@ public class DAOCustomers extends connectDB {
         }
         return null;
     }
- public Booking getbyord(int ord){
-         String sql = "Select * from Booking where OrderNumber = '" + ord + "'";
+ public Booking getbyord(String homeStayID){
+         String sql = "Select * from Booking where homeStayID = '" + homeStayID + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {

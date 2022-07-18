@@ -62,7 +62,7 @@
                                         <thead>
                                             <tr>
 
-                                                <th>HomeStayID</th>
+                                                    <th>HomeStayID</th>
                                                 <th>HomeStayName</th>
                                                 <th>Type</th>
                                                 <th>Status</th>

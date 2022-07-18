@@ -53,27 +53,28 @@
                     <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
                         <div class="tm-bg-primary-dark tm-block tm-block-products">
                             <div class="tm-product-table-container">
+                                <form action="manageBooking" >
+                                    <table class="table table-hover tm-table-small tm-product-table">
 
-                                <table class="table table-hover tm-table-small tm-product-table">
+                                        <thead>
+                                            <tr>
 
-                                    <thead>
-                                        <tr>
-
-                                            <th scope="col">NAME</th>
-                                            <th scope="col">VisitorNumber</th>
-                                            <th scope="col">BookingTime</th>
-                                            <th scope="col">OrderTime</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Mail</th>
-                                            <th  scope="col">Status</th>
-                                              <th  scope="col">Action</th>
+                                                <th scope="col">NAME</th>
+                                                <th scope="col">VisitorNumber</th>
+                                                <th scope="col">BookingTime</th>
+                                                <th scope="col">OrderTime</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Mail</th>
+                                                <th  scope="col">Status</th>
+                                                <th  scope="col">Action</th>
 
 
-                                        </tr>
-                                    </thead>
-                                <c:forEach items="${listhomeStayID}" var="o">
-                                    <tbody>
-
+                                            </tr>
+                                        </thead>
+                                    <c:forEach items="${listhomeStayID}" var="o">
+                                        <tbody>
+                                        <input type="hidden" name="update" value="${o.homeStayID}">
+                                        <input type="hidden" name="homestayId" value="${o.homeStayID}">
                                         <tr>
 
                                             <td>${o.accountC}</td>
@@ -82,29 +83,32 @@
                                             <td>${o.orderTime}</td>
                                             <td>${o.phone}</td>
                                             <td>${o.email}</td> 
-                                           <c:if test="${o.status==0}">
+                                            <c:if test="${o.status==0}">
+
+
                                                 <td><span class="badge bg-warning">Pending</span></td>
-                                                <td><a class="btn btn-warning text-light" href="" >Change</a>
+                                                <td><a class="btn btn-warning text-light" href="" >Change</a></td>
+
                                             </c:if>
                                             <c:if test="${o.status==1}">
                                                 <td><span class="badge bg-success">Accept</span></td>
-                                                      <td><a   class="btn btn-warning text-light" href="" >Change</a>
-                                            </c:if>
+                                                <td><a   class="btn btn-warning text-light" href="" >Change</a>
+                                                </c:if>
                                                 <c:if test="${o.status!=1&&o.status!=0}">
                                                 <td><span class="badge bg-secondary">Done</span></td>
                                                 <td><a class="btn btn-secondary" href=""  >Delete</a>
-                                            </c:if>
-                                         
+                                                </c:if>
+
 
                                         </tr>
 
-                                    </tbody>
+                                        </tbody>
 
 
-                                </c:forEach>
+                                    </c:forEach>
 
-                            </table>
-
+                                </table>
+                            </form>
                         </div>
                         <!-- table container -->
 
@@ -121,35 +125,35 @@
                                 <th scope="col">Phone</th>
                                 <th scope="col">Mail</th>
                                 <th  scope="col">Status</th>
-                   
+
                             </tr>
                         </thead>
-                    <c:forEach items="${list}" var="o">
-                        <tbody>
+                        <c:forEach items="${list}" var="o">
+                            <tbody>
                                 <tr>
 
-                                            <td>${o.accountC}</td>
-                                            <td>${o.visitorNumber}</td>
-                                            <td>${o.bookingTime}</td>
-                                            <td>${o.orderTime}</td>
-                                            <td>${o.phone}</td>
-                                            <td>${o.email}</td> 
-                                            <c:if test="${o.status==0}">
-                                                <td><span class="badge bg-warning">Pending</span></td>
-                                               
-                                            </c:if>
-                                            <c:if test="${o.status==1}">
-                                                <td><span class="badge bg-success">Accept</span></td>
-                                                   
-                                            </c:if>
-                                                <c:if test="${o.status!=1&&o.status!=0}">
-                                                <td><span class="badge bg-secondary">Done</span></td>
-                                              
-                                            </c:if>
-                                          
+                                    <td>${o.accountC}</td>
+                                    <td>${o.visitorNumber}</td>
+                                    <td>${o.bookingTime}</td>
+                                    <td>${o.orderTime}</td>
+                                    <td>${o.phone}</td>
+                                    <td>${o.email}</td> 
+                                    <c:if test="${o.status==0}">
+                                        <td><span class="badge bg-warning">Pending</span></td>
 
-                                        </tr>
-                        </tbody>
+                                    </c:if>
+                                    <c:if test="${o.status==1}">
+                                        <td><span class="badge bg-success">Accept</span></td>
+
+                                    </c:if>
+                                    <c:if test="${o.status!=1&&o.status!=0}">
+                                        <td><span class="badge bg-secondary">Done</span></td>
+
+                                    </c:if>
+
+
+                                </tr>
+                            </tbody>
                         </c:forEach>
                     </table>
                 </div>
@@ -157,7 +161,7 @@
             </div>
 
         </div>
-  <jsp:include page="Footer.jsp"></jsp:include>
+        <jsp:include page="Footer.jsp"></jsp:include>
         <script src="js/jquery-3.3.1.min.js"></script>
         <!-- https://jquery.com/download/ -->
         <script src="js/bootstrap.min.js"></script>

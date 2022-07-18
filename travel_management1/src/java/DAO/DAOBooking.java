@@ -94,15 +94,15 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
-   public int updateBookingStatus(int status, int ord) {
+   public int updateBookingStatus(int status, String homeStayID) {
         int n = 0;
         String sql = "Update Booking set "
                 + "status = ? "
-                + "where OrderNumber = ?";
+                + "where homeStayID = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, status);
-            pre.setInt(2, ord);
+            pre.setString(2, homeStayID);
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -204,7 +204,7 @@ public class DAOBooking extends connectDB {
         for (Booking temp : list) {
             System.out.println(temp);
         }
-        int count=dao.updateBookingStatus(2,17);
+        int count=dao.updateBookingStatus(2,"");
         System.out.println(count);
 
         Booking b=dao.getbyord(22);
