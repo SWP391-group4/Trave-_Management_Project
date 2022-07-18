@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import DAO.DAOImages;
 import DAO.DAOSupplierTemp;
 import Entity.*;
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class SupplierDetailController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             DAOSupplierTemp daoSup = new DAOSupplierTemp();
             String homestayId = request.getParameter("homestay");
-            
+            DAOImages daoImages = new DAOImages();
             //-----Homestay information------
             HomeStays homestay = daoSup.getHomeStayInfo(homestayId);
             HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
@@ -56,14 +57,16 @@ public class SupplierDetailController extends HttpServlet {
             request.setAttribute("listExtentions", listExtentions);
             
             //------------------------------
-            
+            List<Images> listImage = daoImages.getIMG(homestayId);
             //-----Supplier information----
             Suppliers supplier = daoSup.getSupplier(homestayId);
             String accountS = supplier.getAccountS();
             SupplierAddresses supplierAddress = daoSup.getSupplierAddress(accountS);
             
             SupplierImage supplierImage = daoSup.getSupplierImage(accountS);
-            
+            System.out.println(supplierImage);
+            request.setAttribute("listImage", listImage);
+            request.setAttribute("supplierImage", supplierImage);
             request.setAttribute("supplier", supplier);
             request.setAttribute("supplierAddress", supplierAddress);
             //---------------

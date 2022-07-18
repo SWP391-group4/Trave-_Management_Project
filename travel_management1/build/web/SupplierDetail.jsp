@@ -42,7 +42,7 @@
         <div class="container bootdey flex-grow-1 container-p-y">
             <a href="AdminManageSupplierList" class="btn btn-success btn-sm">< Back</a>&nbsp;
             <div class="media align-items-center py-3 mb-3 col-md-8">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-3">
+                <img src="images/${supplierImage.img_Avatar}" alt="" class="d-block ui-w-100 rounded-circle col-md-3">
                 <div class="media-body ml-4 col-md-9">
                     <h4 class="font-weight-bold mb-0">${supplier.firstName} ${supplier.lastName}</h4>
                     <div><span class="text-muted font-weight-normal">${supplier.email}</span></div>
@@ -120,8 +120,8 @@
                         <h6 class="mt-4 mb-3">Citizen Identification</h6>
 
                         <div class="md-col-12 form-row">
-                            <div class="form-group col-md-6"><img src="images/default_person.jpg" alt="alt" class="w-100"/></div>
-                            <div class="form-group col-md-6"><img src="images/default_person.jpg" alt="alt" class="w-100"/></div>
+                            <div class="form-group col-md-6"><img src="images-ID/${supplierImage.img_ID_front}" alt="alt" class="w-100"/></div>
+                            <div class="form-group col-md-6"><img src="images-ID/${supplierImage.img_ID_back}" alt="alt" class="w-100"/></div>
 
 
                         </div>
@@ -129,15 +129,10 @@
                     </div>
                 </div>
             </div>
-
-
-
-
             <!--Homestay-->
             <div class="container" id="homestay" style="display: none">
                 <div class="card mb-4" >
                     <div class="card-body">
-
                         <table class="table user-view-table m-0">
                             <tbody>
                                 <tr>
@@ -161,12 +156,27 @@
                         </table>
                     </div>
                     <hr class="border-light m-0">
-                    <!--Images here-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="carousel-testimony owl-carousel ftco-owl">
+                                    <c:forEach items="${listImage}" var="c">
+                                        <div class="item">
+                                            <div class="testimony-wrap p-4 pb-5">
+                                                <div style="width: 301px;height:336px ;background-image: url(images/${c.imageUrl});background-size: cover;border-radius: 5px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div> 
+                            </div> 
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
                     <div class="row no-gutters row-bordered">
-                        
+
                     </div>
                     <hr class="border-light m-0">
                     <hr>
