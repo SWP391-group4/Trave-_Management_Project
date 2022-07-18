@@ -8,6 +8,7 @@ import DAO.DAOSupplierTemp;
 import Entity.Categories;
 import Entity.HomeStayAddressses;
 import Entity.HomeStays;
+import Entity.SupplierImage;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,22 +71,29 @@ public class AdminPendingRegisterController extends HttpServlet {
         String supplierId = request.getParameter("supplierId");
         if (supplierId != null) {
             List<HomeStays> list = daoSup.getListHoneStayBySupplierId(supplierId);
-            List<HomeStayAddressses> listAddress = new ArrayList<>();
-            List<Categories> listCat = new ArrayList<>();
-            for (HomeStays o : list) {
-                listAddress.add(daoSup.getHomeStay(o.getHomeStayID()));
-                listCat.add(daoSup.getCategories(o.getHomeStayID()));
-            }
-            //-----------------------
-            String update = request.getParameter("update");
-            if (update != null) {
-                int n = daoSup.updateSupplierStatus(supplierId);
-            }
-            //-----------------------
-            request.setAttribute("listHomestay", list);
-            request.setAttribute("listCat", listCat);
-            request.setAttribute("listAddress", listAddress);
-            request.setAttribute("size", listAddress.size());
+            List<SupplierImage> listImage = new ArrayList<>();
+            List<HomeStayAddressses> listAddress;
+            
+                listAddress = new ArrayList<>();
+                List<Categories> listCat = new ArrayList<>();
+                for (HomeStays o : list) {
+                    listImage.add(daoSup.getSupplierImage(o.getHomeStayID()));
+                    listAddress.add(daoSup.getHomeStay(o.getHomeStayID()));
+                    listCat.add(daoSup.getCategories(o.getHomeStayID()));
+                }
+
+                //-----------------------
+                String update = request.getParameter("update");
+                if (update != null) {
+                    daoSup.updateSupplierStatus(supplierId);
+                }
+                //-----------------------
+                request.setAttribute("listHomestay", list);
+                request.setAttribute("listCat", listCat);
+                request.setAttribute("listImage", listImage);
+                request.setAttribute("listAddress", listAddress);
+                request.setAttribute("size", listAddress.size());
+            
         }
         //-----------------------
 

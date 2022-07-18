@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,7 +77,12 @@
                                         <div class="text-center">
                                             <!-- Image upload -->
                                             <div class="square position-relative display-2 mb-3">
-                                                <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                                <c:if test="${supImage.img_Avatar == null}">
+                                                    <img src="images/default_person.jpg" alt="alt" class="w-100"/>
+                                                </c:if>
+                                                <c:if test="${supImage.img_Avatar != null}">
+                                                <img src="images/${supImage.img_Avatar}" alt="alt"class="w-100"/>
+                                                </c:if>
                                             </div>
                                             <!-- Button -->
                                             <input readonly type="file" id="customFile" name="file" hidden="">
@@ -115,9 +121,6 @@
                                             <input readonly type="text" class="form-control" placeholder="" aria-label="Phone number" value="${supAddress.specific}">
                                         </div>
                                         <!-- Email -->
-
-
-
                                     </div> <!-- Row END -->
                                 </div>
                             </div>
@@ -126,8 +129,8 @@
                                 <div class="bg-secondary-soft px-4 py-5 rounded">
                                     <h4 class="mb-4 mt-0 text-center">Citizen Identify</h4>
                                     <div class="row g-3">
-                                        <img src="images/hotel-1.jpg" alt="alt" class="w-100"/>
-                                        <img src="images/hotel-2.jpg" alt="alt" class="w-100"/>
+                                        <img src="images-ID/${supImage.img_ID_front}" alt="alt" class="w-100"/>
+                                        <img src="images-ID/${supImage.img_ID_back}" alt="alt" class="w-100"/>
                                     </div>
                                 </div>
                             </div>
