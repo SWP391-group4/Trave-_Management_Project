@@ -49,7 +49,6 @@ public class BlogDetailController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String blogId = request.getParameter("blogId");
-        HttpSession session = request.getSession();
         DAOBlogs daob = new DAOBlogs();
         DAOBlogDetails daobd = new DAOBlogDetails();
 //        DAOMarketing daom = new DAOMarketing();
@@ -59,7 +58,7 @@ public class BlogDetailController extends HttpServlet {
 //        Marketing Accm = daom.getMarketing(accountM);
         request.setAttribute("blogdetail", blogdetail);
 //        request.setAttribute("accountM", Accm);
-        
+
         request.getRequestDispatcher("/BlogDetail.jsp").forward(request, response);
     }
 

@@ -292,10 +292,10 @@ public class DAOBlogs extends connectDB {
 //        for (Blogs o : list) {
 //            System.out.println(o);
 //        }
-//        List<Blogs> list = dao.viewBlogsDetail("BL0001");
-//        for (Blogs o : list) {
-//            System.out.println(o);
-//        }
+        List<Blogs> list = dao.paggingBlog(1);
+        for (Blogs o : list) {
+            System.out.println(o);
+        }
 //        System.out.println(dao.counttotalB());
 //        String lastId1 = dao.lastblogIḌ().substring(0, 6);
 //        String s1 = lastId1.substring(0, 5);
