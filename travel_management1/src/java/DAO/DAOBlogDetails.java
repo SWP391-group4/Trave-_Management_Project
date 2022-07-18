@@ -97,7 +97,7 @@ public class DAOBlogDetails extends DBContext.connectDB {
     }
     //chua dung den - tung
     public BlogDetails getDetailbyBlogID(String blogId) {
-        String sql = "select a.BlogDetailId ,a.Image, a.News, a.BlogId, b.title\n"
+        String sql = "select a.BlogDetailId ,a.Image, a.News, a.BlogId, b.Title\n"
                 + "                from BlogDetails a inner join Blogs b\n"
                 + "                on a.BlogId = b.BlogId\n"
                 + "                where a.BlogId= '" + blogId + "'";

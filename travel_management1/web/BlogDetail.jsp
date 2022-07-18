@@ -66,11 +66,12 @@
             <div class="blog-wrapper">
                <p>
                   ${blogdetail.news}
+<!--                  alt="images/blog-2.jpg"-->
                </p>
-               <img alt="images/blog-2.jpg" class="img-responsive pull-right blog-inner" src="images/blog-2.jpg">
-               <p>
-                  <b>Orlando, Florida, August 13, 2015</b> -- Inc. magazine today ranked WebCorpCo as the 1,870th fastest growing company on the 34th annual Inc. 5000 and 9th fastest in the state of Florida. The Inc. 5000 is an exclusive ranking of the nation's fastest-growing private companies and represents the most comprehensive look at the most important segment of the economy-America's independent entrepreneurs. Companies such as Yelp, Pandora, Timberland, Dell, Domino's Pizza, LinkedIn, Zillow, and many other well-known names gained early exposure as members of the Inc. 5000.
-               </p>
+               <img  class="img-responsive pull-right blog-inner" src="images/blog-2.jpg">
+               <div>
+                  ${blogdetail.title}
+               </div>
                <p>
                   "We are honored to have made the Inc. 5000 and see it as another validation point of our overall business strategy," says Shawn Moore, Founder and CTO of WebCorpCo. "WebCorpCo is on the move and will be making some exciting announcements in the weeks ahead - we expect 2015 and 2016 to be huge years for us as we execute on the most important initiatives in our company's history."
                </p>
