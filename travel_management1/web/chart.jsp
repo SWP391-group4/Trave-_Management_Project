@@ -67,7 +67,7 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
       
             <main class="app-content">
-            
+            <div id="clock"></div>
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
@@ -102,13 +102,13 @@
             function time() {
                 var today = new Date();
                 var weekday = new Array(7);
-                weekday[0] = "Chủ Nhật";
-                weekday[1] = "Thứ Hai";
-                weekday[2] = "Thứ Ba";
-                weekday[3] = "Thứ Tư";
-                weekday[4] = "Thứ Năm";
-                weekday[5] = "Thứ Sáu";
-                weekday[6] = "Thứ Bảy";
+                weekday[0] = "SunDay";
+                weekday[1] = "Monday";
+                weekday[2] = "Tueday";
+                weekday[3] = "Wednesday";
+                weekday[4] = "Thursday";
+                weekday[5] = "Friday";
+                weekday[6] = "Saturday";
                 var day = weekday[today.getDay()];
                 var dd = today.getDate();
                 var mm = today.getMonth() + 1;
@@ -118,7 +118,7 @@
                 var s = today.getSeconds();
                 m = checkTime(m);
                 s = checkTime(s);
-                nowTime = h + " giờ " + m + " phút " + s + " giây";
+                nowTime = h + " : " + m + " : " + s + " :";
                 if (dd < 10) {
                     dd = '0' + dd
                 }
@@ -174,9 +174,9 @@
             const dataArea = {
                 labels: labelsArea,
                 datasets: [{
-                        label: 'Tổng doanh thu theo tháng',
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
+                        label: 'Total By Month',
+                        backgroundColor: 'rgb(99, 132, 255)',
+                        borderColor: 'rgb(153, 0, 153)',
                         data: [${totalPriceMonth1}, ${totalPriceMonth2}, ${totalPriceMonth3}, ${totalPriceMonth4}, ${totalPriceMonth5}, ${totalPriceMonth6}, ${totalPriceMonth7}, ${totalPriceMonth8}, ${totalPriceMonth9}, ${totalPriceMonth10}, ${totalPriceMonth11}, ${totalPriceMonth12}, ${totalPriceMonth5}],
                     }]
             };
