@@ -34,6 +34,7 @@ public class HomeStays {
     public String video;
     public int status;
 public String imageUrl;
+public int orderNumber;
 
 
 
@@ -141,14 +142,22 @@ public String imageUrl;
         this.video = video;
     }
 
-    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status) {
+    public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status,int orderNumber) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
         this.accountS = accountS;
         this.status = status;
+       this.orderNumber=orderNumber;
     }
-
+ public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateID = cateID;
+        this.accountS = accountS;
+        this.status = status;
+      
+    }
     public HomeStays(String homeStayID, String homeStayname, String cateID, int status) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;

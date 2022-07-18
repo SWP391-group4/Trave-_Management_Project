@@ -73,8 +73,7 @@
                                         </thead>
                                     <c:forEach items="${listhomeStayID}" var="o">
                                         <tbody>
-                                        <input type="hidden" name="update" value="${o.homeStayID}">
-                                        <input type="hidden" name="homestayId" value="${o.homeStayID}">
+                                      
                                         <tr>
 
                                             <td>${o.accountC}</td>

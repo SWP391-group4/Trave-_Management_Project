@@ -4,13 +4,16 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
 import DAO.DAOSupplier;
+import Entity.HomeStays;
 import Entity.SupplierAddresses;
 import Entity.SupplierImage;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,11 +58,14 @@ public class SuppilerProflieController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOSupplier daosup = new DAOSupplier();
+        DAOHomeStays dao=new DAOHomeStays();
         HttpSession session = request.getSession();
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String accountS = sp.getAccountS();
+//       List<HomeStays> list= dao.getHomeStayforBOOKINGbySUP(accountS);
         SupplierImage Simg = daosup.getSUPImage(accountS);
+    //        request.setAttribute("list", "list");
         request.setAttribute("Simg", Simg);
         request.setAttribute("sp", sp);
         request.setAttribute("spa", spa);

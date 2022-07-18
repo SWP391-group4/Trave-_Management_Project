@@ -61,6 +61,7 @@
                         <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
                        
                         <div class="panel-body"><a href="updateaddress">Change Address & Avatar</a></div>
+                          <div class="panel-body"><a href="manageBooking?accountS=${list.accountS}">Manage Booking</a></div>
                     </div>
 
 
