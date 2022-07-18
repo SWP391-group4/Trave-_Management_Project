@@ -77,14 +77,14 @@ public class AdminManageSupplierListController extends HttpServlet {
 
             String cateId = supHome.getCateId();
             String cateName = daoSup.getCategoryName(cateId);
-
+            request.setAttribute("homestayId", homestayId);
             //--------------------------
             request.setAttribute("supHome", supHome);
             request.setAttribute("address", homestayAddress);
             request.setAttribute("evaluate", evaluate);
             request.setAttribute("cateName", cateName);
         }
-        
+
         List<SupplierHomestays> listHomeStay = daoSup.pagging(index);
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listHomeStay);

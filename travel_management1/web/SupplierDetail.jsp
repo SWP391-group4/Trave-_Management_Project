@@ -117,36 +117,14 @@
                                 </tr>
                             </tbody>
                         </table>
-
                         <h6 class="mt-4 mb-3">Interests</h6>
 
-                        <table class="table user-view-table m-0">
-                            <tbody>
-                                <tr>
-                                    <td>Favorite music:</td>
-                                    <td>
-                                        Rock,
-                                        Alternative,
-                                        Electro,
-                                        Drum &amp; Bass,
-                                        Dance
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Favorite movies:</td>
-                                    <td>
-                                        The Green Mile,
-                                        Pulp Fiction,
-                                        Back to the Future,
-                                        WALL·E,
-                                        Django Unchained,
-                                        The Truman Show,
-                                        Home Alone,
-                                        Seven Pounds
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="md-col-12 form-row">
+                            <div class="form-group col-md-6"><img src="images/default_person.jpg" alt="alt" class="w-100"/></div>
+                            <div class="form-group col-md-6"><img src="images/default_person.jpg" alt="alt" class="w-100"/></div>
+
+
+                        </div>
 
                     </div>
                 </div>
@@ -208,7 +186,7 @@
                         </div>
                     </div>
                     <hr class="border-light m-0">
-<hr>
+                    <hr>
                     <div class="card-body">
 
                         <table class="m-0 user-view-table">
@@ -235,7 +213,7 @@
                             </tr>
                             </tbody>
                         </table>
-<hr>
+                        <hr>
                         <table class="m-0 user-view-table">
                             <tbody>
                             <thead>
@@ -255,7 +233,7 @@
                             </tbody>
                         </table>
 
-                            <hr>
+                        <hr>
                         <table class="m-0 user-view-table">
                             <tbody>
                             <thead>

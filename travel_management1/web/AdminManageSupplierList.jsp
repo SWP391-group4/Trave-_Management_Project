@@ -183,7 +183,7 @@
 
                             </div>
                             <div>
-                                <a >
+                                <a href="SupplierDetail?homestay=${homestayId}">
                                 <button type="submit" class="btn btn-success">View Detail</button>
                                 </a>
                             </div>
