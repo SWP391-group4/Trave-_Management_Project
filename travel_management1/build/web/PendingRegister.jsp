@@ -162,7 +162,7 @@
                                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                                     <div class="container bootdey flex-grow-1 container-p-y ">
                                         <div class="media align-items-center py-3 mb-3 ">
-                                            <img src="images/hotel-1.jpg" alt="" class="col-md-5">
+                                            <img src="images/${image.get(i).imageUrl}" alt="" class="col-md-5">
                                             <div class="media-body ml-4 col-md-7">
                                                 <h4 class="font-weight-bold mb-0">${homestay.get(i).homeStayname}</h4>
                                                 <div class="text-muted mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">

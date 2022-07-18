@@ -4,12 +4,15 @@
  */
 package Controller;
 
+import DAO.DAOImages;
 import DAO.DAOSupplierTemp;
 import Entity.Categories;
 import Entity.HomeStayAddressses;
 import Entity.HomeStays;
+import Entity.Images;
 import Entity.SupplierImage;
 import Entity.Suppliers;
+import java.awt.Image;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +58,7 @@ public class AdminPendingRegisterController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
-
+        DAOImages daoImage = new DAOImages();
         String indexPage = request.getParameter("index");
         if (indexPage == null) {
             indexPage = "1";
@@ -71,17 +74,17 @@ public class AdminPendingRegisterController extends HttpServlet {
         String supplierId = request.getParameter("supplierId");
         if (supplierId != null) {
             List<HomeStays> list = daoSup.getListHoneStayBySupplierId(supplierId);
-            List<SupplierImage> listImage = new ArrayList<>();
+            List<Images> listImage = new ArrayList<>();
             List<HomeStayAddressses> listAddress;
             
                 listAddress = new ArrayList<>();
                 List<Categories> listCat = new ArrayList<>();
                 for (HomeStays o : list) {
-                    listImage.add(daoSup.getSupplierImage(o.getHomeStayID()));
+                    listImage.add(daoImage.getIMGtop1(o.getHomeStayID()));
                     listAddress.add(daoSup.getHomeStay(o.getHomeStayID()));
                     listCat.add(daoSup.getCategories(o.getHomeStayID()));
                 }
-
+                
                 //-----------------------
                 String update = request.getParameter("update");
                 if (update != null) {
