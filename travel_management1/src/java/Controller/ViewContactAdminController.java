@@ -46,7 +46,7 @@ public class ViewContactAdminController extends HttpServlet {
         for (MessageAdmin o : list) {
             listCus.add(daoCus.getCustomer(o.getAccountC()));
         }
-        System.out.println(listCus);
+        
         request.setAttribute("listAd", list);
         request.setAttribute("listCus", listCus);
         request.setAttribute("size", list.size());
