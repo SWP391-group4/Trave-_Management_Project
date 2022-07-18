@@ -65,7 +65,7 @@
       <div class="col-md-12 ct-content">
             <div class="blog-wrapper">
                <p>
-                  ${blogdetail.news}
+                  ${blogdetail.images}
 <!--                  alt="images/blog-2.jpg"-->
                </p>
                <img  class="img-responsive pull-right blog-inner" src="images/blog-2.jpg">

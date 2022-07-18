@@ -35,11 +35,11 @@
         <!-- Main css -->
         <link rel="stylesheet" href="css/style1.css">
     </head>
-    <body style="padding-top: 0px">
+    <body style="padding-top: 0px;padding-bottom: 0px">
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="main">
 
-                <section class="signup" style="padding-top: 60px">
+                <section class="signup" style="padding-top: 60px;padding-bottom: 60px">
                     <!-- <img src="images/signup-bg.jpg" alt=""> -->
                     <div class="container">
                         <div class="signup-content">
@@ -71,90 +71,90 @@
             </section>
 
         </div>
-        <!-- 
-            <footer class="ftco-footer ftco-bg-dark ftco-section">
-                <div class="container">
-                  <div class="row mb-5">
+
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
+            <div class="">
+                <div class="row mb-5">
                     <div class="col-md">
-                      <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">CTU</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
+                        <div class="ftco-footer-widget mb-3">
+                            <h2 class="ftco-heading-2">CTU Travel</h2>
+                            <p>
+                                Customers can use CTU travel instead of having to find a lot of hotels, villas, ... suitable for their travel or needs. 
+                            </p>
+
+                        </div>
                     </div>
                     <div class="col-md">
-                      <div class="ftco-footer-widget mb-4 ml-md-4">
-                        <h2 class="ftco-heading-2">Information</h2>
-                        <ul class="list-unstyled">
-                          <li><a href="#" class="py-2 d-block">About Us</a></li>
-                          <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                          <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                          <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                          <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                          <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                          <li><a href="#" class="py-2 d-block">Refund policy</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                       <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Experience</h2>
-                        <ul class="list-unstyled">
-                          <li><a href="#" class="py-2 d-block">Beach</a></li>
-                          <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                          <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                          <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                          <li><a href="#" class="py-2 d-block">Nature</a></li>
-                          <li><a href="#" class="py-2 d-block">Party</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="ftco-footer-widget mb-4">
-                          <h2 class="ftco-heading-2">Have a Questions?</h2>
-                          <div class="block-23 mb-3">
-                            <ul>
-                              <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                        <div class="ftco-footer-widget mb-3 ml-md-4">
+                            <h2 class="ftco-heading-2">Information</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block">About Us</a></li>
+                                <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
+                                <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                                <li><a href="#" class="py-2 d-block">General enquiries</a></li>
+                                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                                <li><a href="#" class="py-2 d-block">Refund policy</a></li>
                             </ul>
-                          </div>
-                      </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="row">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-3">
+                            <h2 class="ftco-heading-2">Experience</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block">Beach</a></li>
+                                <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                                <li><a href="#" class="py-2 d-block">Wildlife</a></li>
+                                <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
+                                <li><a href="#" class="py-2 d-block">Nature</a></li>
+                                <li><a href="#" class="py-2 d-block">Party</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-3">
+                            <h2 class="ftco-heading-2">Co-operate with us</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">FPT University,Hoa Lac, Thach That, Ha Noi</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text"> (+84)396 125 049</span></a></li>
+                                    <li><a href="RegisterSupplierAccount"><span class="icon icon-envelope"></span><span class="text">Register Supplier</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12 text-center">
-          
-                      <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-</div>
-</div>
-</div>
-<!-- JS -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="js/main.js"></script>
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- JS -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="js/main.js"></script>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.timepicker.min.js"></script>
-<script src="js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.animateNumber.min.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/jquery.timepicker.min.js"></script>
+        <script src="js/scrollax.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="js/google-map.js"></script>
+        <script src="js/main.js"></script>
+    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
