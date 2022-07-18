@@ -22,14 +22,17 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-12 col-xl-8 " id="first">
                             <h3 class="h3 mb-4 page-title font-weight-bold">Register Homestay</h3>
-                            <div class="my-4">
-                                <hr class="my-4" />
-                                <h2 class="h3 mb-4 page-title ">Homestay Information</h2>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCompany5">Type of Homestay</label>
+                        
+                            <div class="text-success font-weight-bold">${alert}</div>
+                        
+                        <div class="my-4">
+                            <hr class="my-4" />
+                            <h2 class="h3 mb-4 page-title ">Homestay Information</h2>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCompany5">Type of Homestay</label>
 
-                                        <select name="category"  class=" fluid selection dropdown no">
+                                    <select required name="category"  class=" fluid selection dropdown no">
                                         <c:forEach items="${category}" var="o">
                                             <option value="${o.cateId}">${o.cateName}</option>
                                         </c:forEach>
@@ -50,17 +53,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4 "> 
                                     <label for="inputState5">City</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
                                     <label for="inputState5">Specific</label>
                                     <input type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">District</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
                                 </div> 
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">Ward</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
                                 </div> 
                             </div>
                         </div>
@@ -69,23 +72,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6 "> 
                                 <label for="inputState5">Bedroom </label>                      
-                                <input type="number" class="form-control" id="homestayName"  name="bedroom"/>
+                                <input required type="number" class="form-control" id="homestayName"  name="bedroom"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputState5"> Bed </label>                      
-                                <input type="number" class="form-control" id="homestayName"name="bed"/>
+                                <input required type="number" class="form-control" id="homestayName"name="bed"/>
                             </div> 
                             <div class="form-group col-md-6">
                                 <label for="inputState5">LivingRoom </label>                      
-                                <input type="number" class="form-control" id="homestayName" name="livingroom"/>
+                                <input required type="number" class="form-control" id="homestayName" name="livingroom"/>
                             </div> 
                             <div class="form-group col-md-6">
                                 <label for="inputState5">Kitchen </label>                      
-                                <input type="number" class="form-control" id="homestayName"  name="kitchen" />
+                                <input required type="number" class="form-control" id="homestayName"  name="kitchen" />
                             </div> 
                             <div class="form-group col-md-6">
                                 <label for="inputState5">BathRoom</label>                      
-                                <input type="number" class="form-control" id="homestayName" name="bathroom" />
+                                <input required type="number" class="form-control" id="homestayName" name="bathroom" />
                             </div> 
 
                         </div>
@@ -119,11 +122,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-6 "> 
                                 <label for="inputState5">ChecIn time</label>                      
-                                <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkin"/>
+                                <input required type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkin"/>
                             </div>
                             <div class="form-group col-md-6 "> 
                                 <label for="inputState5">ChecOut time</label>                      
-                                <input type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkout"/>
+                                <input required type="time" class="form-control" id="inputCompany5" placeholder=""  name="checkout"/>
                             </div>
                         </div>
                     </div>
@@ -140,17 +143,17 @@
                                 <div class="form-group col-md-4">
 
                                     <img src="images/image_icon.png" alt="Admin" class="w-100">
-                                    <input type="file" name="imageFirst" accept="image/png, image/jpg, image/jpeg">
+                                    <input required type="file" name="imageFirst" accept="image/png, image/jpg, image/jpeg">
 
                                 </div>
                                 <div class="form-group col-md-4">
                                     <img src="images/image_icon.png" alt="Admin" class="w-100">
-                                    <input type="file" name="imageSencond" accept="image/png, image/jpg, image/jpeg">
+                                    <input required type="file" name="imageSecond" accept="image/png, image/jpg, image/jpeg">
 
                                 </div>
                                 <div class="form-group col-md-4">
                                     <img src="images/image_icon.png" alt="Admin" class="w-100">
-                                    <input type="file" name="imageThird" accept="image/png, image/jpg, image/jpeg">
+                                    <input required type="file" name="imageThird" accept="image/png, image/jpg, image/jpeg">
 
                                 </div>
                             </div>
@@ -173,22 +176,22 @@
                         <div class="form-row">
                             <div class="form-group col-md-6 "> 
                                 <label for="inputState5">Price </label>                      
-                                <input type="number" class="form-control" id="homestayName"  name="price" />
+                                <input required type="number" class="form-control" id="homestayName"  name="price" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputState5"> Incurred Cost </label>                      
-                                <input type="number" class="form-control" id="homestayName"name="incurredCost" />
+                                <input required type="number" class="form-control" id="homestayName"name="incurredCost" />
                             </div> 
                         </div>
                     </div>
-                    <div class="text-warning">${alert}</div>
+
                     <div class="col-md-12">
 
                         <button class="btn btn-primary" type="submit" id="register" style="display: none">Register</button>
                     </div>
                 </div>
             </form>
-                    <div class="col-md-12">
+            <div class="col-md-12">
                 <button class="btn btn-primary" id="back" onclick="backFunction()" style="display: none">Back</button>
                 <button  class="btn btn-primary"   onclick="continueFunction()" id="continue">Continues</button>
             </div>
