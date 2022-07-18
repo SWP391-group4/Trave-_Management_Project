@@ -109,7 +109,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("acc", acc);
                     session.setAttribute("customer", cus);
                     session.setAttribute("customerAddress", cusAddress);
-                    response.sendRedirect("CustomerProfile");
+                    response.sendRedirect("Home");
                     request.getSession().setMaxInactiveInterval(600);
 
                     break;
