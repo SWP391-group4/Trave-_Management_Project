@@ -40,27 +40,30 @@ public class manageBooking extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      String homeStayID=request.getParameter("homeStayID");
+        String homeStayID = request.getParameter("homeStayID");
         DAOBooking dao = new DAOBooking();
-        DAOCustomers daoc=new DAOCustomers();
-        List<Booking> listhomeStayID=dao.getBookingbyHomeStayID(homeStayID);
-        List<Booking> list=dao.getLastBooking(homeStayID);
-//         String status = request.getParameter("status");
-//              String order = request.getParameter("orderNumber");
-//               int Order = Integer.parseInt(order);
-//               Booking bok=daoc.getbyord(Order);
-//                  request.setAttribute("bok", bok);
-//        if (status != null) {
-//            if (status.equals("1")) {
-//                dao.updateBookingStatus(0, Order);
-//            } else {
-//                dao.updateBookingStatus(1, Order);
-//            }
-//        }
- 
+        DAOCustomers daoc = new DAOCustomers();
+        List<Booking> listhomeStayID = dao.getBookingbyHomeStayID(homeStayID);
+        List<Booking> list = dao.getLastBooking(homeStayID);
+        String status = request.getParameter("status");
+        String update = request.getParameter("update");
+        if (update != null) {
+            if (status != null) {
+                if (status.equals("1")) {
+                    dao.updateBookingStatus(0, homeStayID);
+                } else {
+                    dao.updateBookingStatus(1, homeStayID);
+                }
+                
+            }
+        }
+//        int Order = Integer.parseInt(order);
+        Booking bok = daoc.getbyord(homeStayID);
+        request.setAttribute("bok", bok);
+
         request.setAttribute("listhomeStayID", listhomeStayID);
-         request.setAttribute("list", list);
-         request.getRequestDispatcher("/manageBooking.jsp").forward(request, response);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/manageBooking.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
