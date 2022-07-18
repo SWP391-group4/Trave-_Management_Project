@@ -9,7 +9,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+        <title>CTU Travel</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/cmt.css">
         <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="icon" href="images/logo.png" type="">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="css/magnific-popup.css">
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -58,33 +59,55 @@
         <link rel="stylesheet" href="css/style.css">
         <link href="blog-overview.css" rel="stylesheet">
         <jsp:include page="Header.jsp"></jsp:include>
-    </head>
-    <body>
-        <div class="container ct-u-paddingTop40 ct-u-paddingBottom100">
-   <div class="row">
-      <div class="col-md-12 ct-content">
-            <div class="blog-wrapper">
-               <p>
-                  ${blogdetail.images}
-<!--                  alt="images/blog-2.jpg"-->
-               </p>
-               <img  class="img-responsive pull-right blog-inner" src="images/blog-2.jpg">
-               <div>
-                  ${blogdetail.title}
-               </div>
-               <p>
-                  "We are honored to have made the Inc. 5000 and see it as another validation point of our overall business strategy," says Shawn Moore, Founder and CTO of WebCorpCo. "WebCorpCo is on the move and will be making some exciting announcements in the weeks ahead - we expect 2015 and 2016 to be huge years for us as we execute on the most important initiatives in our company's history."
-               </p>
-               <p>
-                  The 2015 Inc. 5000 is the most competitive crop in the list's history. The average company on the list achieved a mind-boggling three-year growth of 490%. The Inc. 5000's aggregate revenue is $205 billion, generating 647,000 jobs over the past three years. "The story of this year's Inc. 5000 is the story of great leadership. In an incredibly competitive business landscape, it takes something extraordinary to take your company to the top," says Inc. President and Editor-In-Chief Eric Schurenberg. "You have to remember that the average company on the Inc. 5000 grew nearly six-fold since 2012. Business owners don't achieve that kind of success by accident." Founded in 2006, WebCorpCo is an enterprise website content management software developer.
-               </p>
-               <p>
-                  WebCorpCo CMS customers include the Florida Department of Education, MobileHelp, the Dr. Phillips Center for the Performing Arts, and the CNL family of companies. WebCorpCo has earned several major awards in the past year. The Miami Beach Information mobile app was judged to be 2014's best travel destination app by Travel Weekly and earned the Gold Magellan award, finishing ahead of the silver-award winning Hotwire.com app. More about Inc. and the Inc. 500|5000
-               </p>
+        </head>
+        <body>
+
+            <div class="container ct-u-paddingTop40 ct-u-paddingBottom100">
+                <div class="row">
+                    <div class="col-md-8 ct-content" style="margin-bottom: 20px;padding-right: 20px">
+                        <div style="padding-bottom: 20px;margin-top: 30px">
+                            <a href="Home">Home ></a>
+
+                            <a href="blogController">List Blogs ></a>
+                            <a href="#" style="color: #222831">Detail Blogs </a>
+                        </div>
+                        <div class="blog-wrapper">
+                            <h3>${title}</h3>
+                        <p>
+                            <!--                  alt="images/blog-2.jpg"-->
+                        </p>
+                        <c:forEach items="${listm}" var="c">
+                            <h8 style="font-size: 13px;font-family: 'Roboto',sans-serif;">Created by: ${c.firstName} ${c.lastName}</h8>
+                            </c:forEach>
+                        <br>                       
+
+                        <c:forEach items="${listbd}" var="c">
+                            <img style="width: 692px"  class="img-responsive pull-right blog-inner" src="images/${c.image}">
+                            <br>
+                            <br>
+                            <p>
+                                ${c.news}
+                            </p>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="col-md-4 ct-content" style="margin-top: 220px;text-align: center" >
+                    <h6 style="padding: 4px;width: 158px;margin-left: auto;margin-right: auto;font-style: italic;color: #f9be37">Lastest Blogs</h6>
+                    <hr>
+                    <c:forEach items="${list3b}" var="c">
+                        <div class="row" style="margin-left: auto;margin-right: auto">                       
+                            <a href="BlogDetail?blogId=${c.blogId}">
+                                <img style="width: 100px;height: 70px"  class="img-responsive pull-right blog-inner" src="images/${c.image}"> 
+                            </a>
+                            <a href="BlogDetail?blogId=${c.blogId}">
+                                <p style="width: 185px;text-align: left;padding-left: 8px;font-size: 13px;font-family: 'Roboto',sans-serif;color: #000">${c.title} </p>
+                            </a>                       
+                        </div>
+                        <br>
+                    </c:forEach>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
     </body>
-            <jsp:include page="Footer.jsp"></jsp:include>
+    <jsp:include page="Footer.jsp"></jsp:include>
 </html>

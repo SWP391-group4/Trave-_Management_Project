@@ -95,27 +95,26 @@ public class DAOBlogDetails extends DBContext.connectDB {
         }
         return null;
     }
-    //chua dung den - tung
-    public BlogDetails getDetailbyBlogID(String blogId) {
-        String sql = "select a.BlogDetailId ,a.Image, a.News, a.BlogId, b.Title\n"
-                + "                from BlogDetails a inner join Blogs b\n"
-                + "                on a.BlogId = b.BlogId\n"
-                + "                where a.BlogId= '" + blogId + "'";
-        ResultSet rs = getData(sql);
+
+    public List<BlogDetails> viewBlogsDetail(String id) {
+        List<BlogDetails> vec = new ArrayList<BlogDetails>();
+        String sql = "select * from BlogDetails\n"
+                + "where BlogId='"+id+"'";
         try {
-            if (rs.next()) {
-                return new BlogDetails(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5)
-                );
-                        }
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String blogdetailId = rs.getString(1);
+                String image = rs.getString(2);
+                String news = rs.getString(3);
+                String blogId = rs.getString(4);
+                BlogDetails obj = new BlogDetails(blogdetailId, image, news, blogId);
+                vec.add(obj);
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOBlogDetails.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
-        return null;
+        return vec;
     }
 
     public static void main(String[] args) {
@@ -130,7 +129,5 @@ public class DAOBlogDetails extends DBContext.connectDB {
 //        String newIDd1 = s1d1.concat(nd1);
 //        System.out.println(newIDd1);
 
-        BlogDetails a = dao.getDetailbyBlogID("BL0001    ");
-        System.out.println(a);
     }
 }
