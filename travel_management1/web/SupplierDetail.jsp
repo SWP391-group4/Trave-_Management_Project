@@ -117,7 +117,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h6 class="mt-4 mb-3">Interests</h6>
+                        <h6 class="mt-4 mb-3">Citizen Identification</h6>
 
                         <div class="md-col-12 form-row">
                             <div class="form-group col-md-6"><img src="images/default_person.jpg" alt="alt" class="w-100"/></div>
@@ -166,24 +166,7 @@
 
                 <div class="card">
                     <div class="row no-gutters row-bordered">
-                        <div class="d-flex col-md align-items-center">
-                            <a href="javascript:void(0)" class="card-body d-block text-body">
-                                <div class="text-muted small line-height-1">Total</div>
-                                <div class="text-xlarge">250</div>
-                            </a>
-                        </div>
-                        <div class="d-flex col-md align-items-center">
-                            <a href="javascript:void(0)" class="card-body d-block text-body">
-                                <div class="text-muted small line-height-1">Turnover/Month</div>
-                                <div class="text-xlarge">534</div>
-                            </a>
-                        </div>
-                        <div class="d-flex col-md align-items-center">
-                            <a href="javascript:void(0)" class="card-body d-block text-body">
-                                <div class="text-muted small line-height-1">Evaluate</div>
-                                <div class="text-xlarge">236</div>
-                            </a>
-                        </div>
+                        
                     </div>
                     <hr class="border-light m-0">
                     <hr>
