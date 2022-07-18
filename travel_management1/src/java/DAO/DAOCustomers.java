@@ -81,7 +81,31 @@ public class DAOCustomers extends connectDB {
         }
         return null;
     }
-
+ public Booking getbyord(int ord){
+         String sql = "Select * from Booking where OrderNumber = '" + ord + "'";
+        ResultSet rs = getData(sql);
+        try {
+            if (rs.next()) {
+                return new Booking(
+                         rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getDouble(10),
+                        rs.getInt(11),
+                        rs.getString(12));
+            
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
     public CustomerAddresses getCustomerAddresses(String accountC) {
         String sql = "Select * from customerAddresses"
                 + " where "

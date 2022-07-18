@@ -134,7 +134,18 @@ public class DAOAdmins extends connectDB {
         }
         return l;
     }
-    
+    public int totalMessage() {
+        String sql = "select count(*) from MessengerCA where messrole = 1";
+        ResultSet rs = getData(sql);
+        try {
+            if(rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAdmins.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOAdmins d = new DAOAdmins();
         Admins a = d.getAdmin("khongkk");

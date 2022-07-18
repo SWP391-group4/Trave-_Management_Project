@@ -5,6 +5,7 @@
 package DAO;
 
 import DBContext.connectDB;
+import Entity.Accounts;
 import Entity.Categories;
 import Entity.HomeStays;
 import java.sql.PreparedStatement;
@@ -30,7 +31,6 @@ public class DAOCategories extends connectDB{
             while (rs.next()) {
                 String cateId = rs.getString(1);
                 String cateName = rs.getString(2);
-                String accountS = rs.getString(3);
                 Categories obj = new Categories(cateId, cateName);
                 vec.add(obj);
             }
@@ -56,6 +56,7 @@ public class DAOCategories extends connectDB{
         return n;
     }
     
+
     public static void main(String[] args) {
          DAOCategories dao = new DAOCategories();
           List<Categories> list = dao.ListCate();

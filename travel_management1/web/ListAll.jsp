@@ -55,19 +55,13 @@
                                             <input  type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination, City">
                                     </div>
                                     <div class="form-group">
-                                        <div class="range-slider">
-                                            <span>
-                                                <input type="number" value="25000" min="0" max="120000"/>	-
-                                                <input type="number" value="50000" min="0" max="120000"/>
-                                            </span>           
-                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
                                     </div>
                                 </div>
                             </form>
-
+                                    
 
                         </div>
 
@@ -97,15 +91,25 @@
                     <div class="col-lg-9 order-md-last" >
                         <div class="row">
                             <c:forEach items="${listp}" var="o">
+                              
+                                    
+                              
                                 <div class="col-sm col-md-6 col-lg-12 ftco-animate"style=" margin: 0 10px 20px 10px">
                                     <div class="destination" style="display: inline-flex">
+                                        <c:if test="${o.status==0||o.status==1}">
                                         <a href="HomeStayDetailController?homeStayID=${o.homeStayID}" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
                                             <div class="icon d-flex justify-content-center align-items-center">
-
                                                 <span class="icon-link"></span>
                                             </div>
                                         </a>
-
+</c:if>
+                                        <c:if test="${o.status!=0&&o.status!=1}">
+                                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center col-lg-4 d-inline" style="border-radius: 10px;background-image: url(images/hotel-1.jpg);">
+                                            <div class="icon d-flex justify-content-center align-items-center">
+                                                <span class="icon-link"></span>
+                                            </div>
+                                        </a>
+</c:if>
                                         <div class="text p-3 col-lg-8">
                                             <div class="d-flex">
 
@@ -119,7 +123,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<2)&&(o.star>1)}">
@@ -129,7 +133,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==2}">
@@ -139,7 +143,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<3)&&(o.star>2)}">
@@ -149,7 +153,7 @@
                                                             <i class="icon-star-half"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==3}">
@@ -159,7 +163,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<4)&&(o.star>3)}">
@@ -169,7 +173,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-half"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==4}">
@@ -179,7 +183,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==5}">
@@ -189,7 +193,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<5)&&(o.star>4)}">
@@ -199,7 +203,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-half"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
 
@@ -215,6 +219,11 @@
                                                             Booked
                                                         </span>
                                                     </c:if>
+                                                    <c:if test="${o.status!=0&&o.status!=1}">
+                                                        <span class="badge bg-transparent text-light">
+                                                            NOT READY
+                                                        </span> 
+                                                    </c:if>
                                                     <p> Price: ${o.price} dong</p>
                                                 </div>
 
@@ -225,11 +234,17 @@
 
                                             <hr>
                                             <p class="bottom-area d-sm-flex">
+                                                <c:if test="${o.status==0||o.status==1}">
+                                                    <span class="ml-auto"><i class="" style="display: inline" >
+                                                        </i>
 
-                                                <span class="ml-auto"><i class="" style="display: inline" >
-                                                    </i>
-
-                                                    <a href="HomeStayDetailController?homeStayID=${o.homeStayID}">Detail</a></span>
+                                                        <a href="HomeStayDetailController?homeStayID=${o.homeStayID}">Detail</a></span>
+                                                    </c:if>
+                                                    <c:if test="${o.status!=0&&o.status!=1}">
+                                                        <span class="ml-auto"><i class="" style="display: inline" >
+                                                        </i>
+                                                    <a href="#"></a></span>
+                                                </c:if>
                                             </p>
                                         </div>
 

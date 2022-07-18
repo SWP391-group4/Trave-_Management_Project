@@ -85,120 +85,121 @@
                                             <img src="images/${cusImage.img_ID_back}" alt="alt"style="width: 100%; height: 75% "/>
                                         </c:otherwise>
                                     </c:choose>
-                                            <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
+                                    <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
                                 </div>
-                                
+
                             </div>
                             <div class="text-warning">${alert}</div>
                             <div>
-                                <button type="submit" name="preview" value="preview" class="btn btn-primary">Preview</button>
                                 <c:if test="${continues==null}">
+                                    <button type="submit" name="preview" value="preview" class="btn btn-primary">Preview</button>
                                     <button type="submit" name="register" class="btn btn-primary">Register</button>
                                 </c:if>
+
+                            </div>
                         </form>
                         <c:if test="${continues!=null}">
-                            <button type="submit" name="register" class="btn btn-primary">Continues</button>
+                            <a href="RegisterHomestay"><button  class="btn btn-primary">Continues</button></a>
                         </c:if>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+        <jsp:include page="Footer.jsp"></jsp:include>
+    <style type="text/css">
+        .custom {
+            color: transparent;
+            text-align: center;
+        }
+        .custom::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+        .custom::before {
+            content: 'Upload Image';
+            color: #ffffff;
+            display: inline-block;
+            background: #f9be37;
+            border: 1px solid #f9be37;
+            border-radius: 7px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #f9be37;
+            font-size: 10pt;
+            margin-left: 110px;
+            margin-right: auto;
+        }
+        .custom:hover::before {
+            border-color: #f9be37;
+        }
+        .custom:active {
+            outline: 0;
+        }
+        .custom:active::before {
+            background: -webkit-linear-gradient(top, #black, #black);
+        }
+        body{
+            color: #8e9194;
+            background-color: #f4f6f9;
+        }
+        .avatar-xl img {
+            width: 110px;
+        }
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+        .text-muted {
+            color: #aeb0b4 !important;
+        }
+        .text-muted {
+            font-weight: 300;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #4d5154;
+            background-color: #ffffff;
+            background-clip: padding-box;
+            border: 1px solid #eef0f3;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+    </style>
 
-<style type="text/css">
-    .custom {
-        color: transparent;
-        text-align: center;
-    }
-    .custom::-webkit-file-upload-button {
-        visibility: hidden;
-    }
-    .custom::before {
-        content: 'Upload Image';
-        color: #ffffff;
-        display: inline-block;
-        background: #f9be37;
-        border: 1px solid #f9be37;
-        border-radius: 7px;
-        padding: 5px 8px;
-        outline: none;
-        white-space: nowrap;
-        -webkit-user-select: none;
-        cursor: pointer;
-        text-shadow: 1px 1px #f9be37;
-        font-size: 10pt;
-        margin-left: 110px;
-        margin-right: auto;
-    }
-    .custom:hover::before {
-        border-color: #f9be37;
-    }
-    .custom:active {
-        outline: 0;
-    }
-    .custom:active::before {
-        background: -webkit-linear-gradient(top, #black, #black);
-    }
-    body{
-        color: #8e9194;
-        background-color: #f4f6f9;
-    }
-    .avatar-xl img {
-        width: 110px;
-    }
-    .rounded-circle {
-        border-radius: 50% !important;
-    }
-    img {
-        vertical-align: middle;
-        border-style: none;
-    }
-    .text-muted {
-        color: #aeb0b4 !important;
-    }
-    .text-muted {
-        font-weight: 300;
-    }
-    .form-control {
-        display: block;
-        width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #4d5154;
-        background-color: #ffffff;
-        background-clip: padding-box;
-        border: 1px solid #eef0f3;
-        border-radius: 0.25rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-</style>
+    <script type="text/javascript">
+        var myModal = document.getElementById('myModal');
+        var myInput = document.getElementById('myInput');
 
-<script type="text/javascript">
-    var myModal = document.getElementById('myModal');
-    var myInput = document.getElementById('myInput');
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus();
+        });
+    </script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus();
-    });
-</script>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 </body>
 </html>

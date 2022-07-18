@@ -53,14 +53,7 @@
                                         <div class="form-group">
                                             <input type="text" value="${txtsearch}" method="get" name="txt" class="form-control" placeholder="Destination,HomeStayName">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="range-slider">
-                                            <span>
-                                                <input type="number" value="25000" min="0" max="120000"/>	-
-                                                <input type="number" value="50000" min="0" max="120000"/>
-                                            </span>           
-                                        </div>
-                                    </div>
+                                   
                                     <div class="form-group">
                                         <input type="submit" value="Search" class="btn btn-primary py-3 px-5" name="Search">
                                     </div>
@@ -116,7 +109,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<2)&&(o.star>1)}">
@@ -126,7 +119,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==2}">
@@ -136,7 +129,7 @@
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<3)&&(o.star>2)}">
@@ -146,7 +139,7 @@
                                                             <i class="icon-star-half"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==3}">
@@ -156,7 +149,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-o"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<4)&&(o.star>3)}">
@@ -166,7 +159,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-half"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==4}">
@@ -176,7 +169,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-o"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${o.star==5}">
@@ -186,7 +179,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
                                                     <c:if test="${(o.star<5)&&(o.star>4)}">
@@ -196,7 +189,7 @@
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star"></i>
                                                             <i class="icon-star-half"></i>
-                                                            <span>8 Rating</span>
+                                                            <span></span>
                                                         </p>
                                                     </c:if>
 

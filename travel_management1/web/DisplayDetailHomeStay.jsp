@@ -43,48 +43,15 @@
         <hr style="border:1px solid #fff">
 		<div class="sticky-content pull-right">
 			<div class="btn-group btn-dropdown">
-				<button type="button" class="btn btn-default btn-sm btn-favorites" data-toggle="dropdown"><i class="fa fa-android-star"></i> Favorites</button>
-				<ul class="dropdown-menu dropdown-menu-right list-inline">
-					<li><a href="#"><i class="fa fa-pie-graph"></i> <span>Statistics</span></a></li>
-					<li><a href="#"><i class="fa fa-email"></i> <span>Inbox</span></a></li>
-					<li><a href="#"><i class="fa fa-chatboxes"></i> <span>Chat</span></a></li>
-					<li><a href="#"><i class="fa fa-help-circled"></i> <span>Help</span></a></li>
-					<li><a href="#"><i class="fa fa-gear-a"></i> <span>Settings</span></a></li>
-					<li><a href="#"><i class="fa fa-help-buoy"></i> <span>Support</span></a></li>
-				</ul>
+				
 			</div>
-			<button type="button" class="btn btn-default btn-sm btn-quick-task" data-toggle="modal" data-target="#quick-task-modal"><i class="fa fa-edit"></i> Quick Task</button>
+			
 		    <br>
             <br>
 		</div>
 		<!-- quick task modal -->
 		<div class="modal fade" id="quick-task-modal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title" id="myModalLabel">Quick Task</h4>
-					</div>
-					<div class="modal-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label for="task-title" class="control-label sr-only">Title</label>
-								<div class="col-sm-12">
-									<input type="text" class="form-control" id="task-title" placeholder="Title">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label sr-only">Description</label>
-								<div class="col-sm-12">
-									<textarea class="form-control" name="task-description" rows="5" cols="30" placeholder="Description"></textarea>
-								</div>
-							</div>
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save Task</button>
-						</form>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 		<!-- end quick task modal -->
 	</div>
@@ -92,9 +59,13 @@
 	<div class="row">
 		<div class="col-md-8">
 			<div class="project-section general-info">
+                            <div class="container">
+              
+                </div>
 				<h3>General Info</h3>
-                                <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-compose"></i><a href="" >Update Information</a></button>
+                                <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-compose"></i><a href="updatehomestay?homeStayID=${h.homeStayID}" >Update Information</a></button>
 				<p>${display.description}</p>
+                                <h3>Price: ${display.price}</h3>
 				<div class="row">
                                      
 					<div class="col-sm-9">
@@ -102,7 +73,7 @@
                                                       <h2>Type:</h2>
                                     <p>${display.cateName}</p>
                                                     
-                                                    <h2>All Service</h2>
+                                                    <h2>All Service:</h2>
 
                                                     <p>Bed Quantity: ${display.bedQty}</p>
                                                      <p>BedRoom Quantity: ${display.bedRoomQty}</p>
@@ -115,7 +86,7 @@
 					</div>
                                                         <div class="col-sm-9">
 						<dl class="dl-horizontal">
-                                                    <h2>Address </h2>
+                                                    <h2>Address: </h2>
 
                                                     <p>City: ${display.city}</p>
                                                      <p>District: ${display.district}</p>
@@ -123,7 +94,14 @@
                                                        <p>Ward: ${display.ward}</p>	
 						</dl>
 					</div>
-					
+                                                 
+                    
+                                                 <div class="col-sm-9">
+                                                <h2>Rules </h2>
+                                                       <c:forEach items="${listrule}" var="o">
+                                                            <p>${o.listRules}</p>
+                                                       </c:forEach>
+					</div>
 					
 				</div>
 			</div>
@@ -148,21 +126,15 @@
 								<small class="text-muted">${o.date}</small>
 							</div>
 							<div class="btn-group pull-right activity-actions">
-								<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-ios-arrow-down"></i>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-right" role="menu">
-									<li><a href="#">Message Michael</a></li>
-									<li><a href="#">Assign Task</a></li>
-								</ul>
+								
+								
 							</div>
 						</div>
                                             </c:forEach>
 					</li>
 					
 				</ul>
-				<button type="button" class="btn btn-default center-block"><i class="fa fa-ios-refresh"></i> Load more</button>
+				
 			</div>
 		</div>
 		<div class="col-md-4">
@@ -187,7 +159,7 @@
                                                
                                                  </c:forEach>
                                                  <c:forEach begin="0" end="0"  items="${listBySupplier}" var="o">
-					  <a href="manageHomeStay?accountS=${o.accountS}" class="btn btn-sm btn-default"><i class="fa fa-list"></i> See all</a>
+					 
                                           </c:forEach>
 				</div>
                               
@@ -196,7 +168,7 @@
 		</div>
 	</div>
 </div>
-
+ <jsp:include page="Footer.jsp"></jsp:include>
 <style type="text/css">
 body {
     background-image: url('http://demo.thedevelovers.com/dashboard/queenadmin-1.2/assets/img/gray_jean.png?1353438653');

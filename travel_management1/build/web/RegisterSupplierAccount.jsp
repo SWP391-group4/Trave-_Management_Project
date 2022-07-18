@@ -78,7 +78,7 @@
 
             </script>
         </div>
-
+        <jsp:include page="Footer.jsp"></jsp:include>
         <!-- JS -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="js/main.js"></script>
