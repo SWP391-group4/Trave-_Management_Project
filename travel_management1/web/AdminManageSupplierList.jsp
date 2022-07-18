@@ -183,7 +183,9 @@
 
                             </div>
                             <div>
-                                <input type="submit" class="btn btn-success" value="View Detail" src="SupplierDetail.jsp">
+                                <a >
+                                <button type="submit" class="btn btn-success">View Detail</button>
+                                </a>
                             </div>
                         </div>
                     </div>
