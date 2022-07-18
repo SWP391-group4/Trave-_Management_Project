@@ -146,7 +146,7 @@
                         <div class="container bootdey flex-grow-1 container-p-y">
 
                             <div class="media align-items-center py-3 mb-3">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
+                                <img src="images/${supplierImage.img_Avatar}" alt="" class="d-block ui-w-100 rounded-circle col-md-4">
                                 <div class="media-body ml-4 col-md-8">
                                     <h4 class="font-weight-bold mb-0">${supHome.firstName} ${supHome.lastName}</h4>
                                     <div class="text-muted mb-2">${supHome.email}</div>

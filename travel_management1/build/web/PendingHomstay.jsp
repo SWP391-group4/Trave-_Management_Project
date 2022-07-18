@@ -80,12 +80,15 @@
                     <hr class="border-light m-0">
                     <!--Images here-->
                     <div class="row col-md-12">
-                        <div class="col-md-6">
-                            <img src="images/hotel-1.jpg" alt="alt"class="w-100"/>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="images/hotel-1.jpg" alt="alt" class="w-100"/>
-                        </div>
+                        <c:forEach items="${listImage}" var="c">
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div style="width: 301px;height:336px ;background-image: url(images/${c.imageUrl});background-size: cover;border-radius: 5px">
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                        
                     </div>
                     <hr>
                 </div>
@@ -178,7 +181,7 @@
                     <c:if test="${supplier.status != 0}">
                         <button class="btn btn-success">Activate Homestay</button>
                     </c:if>
-                        <c:if test="${supplier.status == 0}">
+                    <c:if test="${supplier.status == 0}">
                         <div class="btn btn-secondary">Activate Homestay</div>
                     </c:if>
                 </div>  

@@ -96,7 +96,7 @@ public class AdminPendingRegisterController extends HttpServlet {
                 request.setAttribute("listImage", listImage);
                 request.setAttribute("listAddress", listAddress);
                 request.setAttribute("size", listAddress.size());
-            
+                
         }
         //-----------------------
 

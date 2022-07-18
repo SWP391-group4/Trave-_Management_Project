@@ -9,6 +9,7 @@ import DAO.DAOSupplierTemp;
 import Entity.HomeStayAddressses;
 
 import Entity.SupplierHomestays;
+import Entity.SupplierImage;
 import java.io.IOException;
 
 import java.util.List;
@@ -62,6 +63,7 @@ public class AdminManageSupplierListController extends HttpServlet {
         /* TODO output your page here. You may use following sample code. */
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
         DAOHomeStays daoHome = new DAOHomeStays();
+        
         int count = daoHome.countToDiv();
         int endPage = count / 7;
         if (count % 7 != 0) {
@@ -74,12 +76,13 @@ public class AdminManageSupplierListController extends HttpServlet {
             SupplierHomestays supHome = daoSup.getPreview(homestayId);
             HomeStayAddressses homestayAddress = daoSup.getHomeStay(homestayId);
             int evaluate = daoSup.getEvaluate(homestayId);
-
+            SupplierImage supplierImage = daoSup.getSupplierImage(supHome.getAccountS());
             String cateId = supHome.getCateId();
             String cateName = daoSup.getCategoryName(cateId);
             request.setAttribute("homestayId", homestayId);
             //--------------------------
             request.setAttribute("supHome", supHome);
+            request.setAttribute("supplierImage", supplierImage);
             request.setAttribute("address", homestayAddress);
             request.setAttribute("evaluate", evaluate);
             request.setAttribute("cateName", cateName);

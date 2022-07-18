@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOHomeStays;
+import DAO.DAOImages;
 import DAO.DAOSupplierTemp;
 import Entity.*;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class AdminPendingHomstayController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOHomeStays daoHome = new DAOHomeStays();
         DAOSupplierTemp daoSup = new DAOSupplierTemp();
-
+        DAOImages daoImage = new DAOImages();
         String homeStayId = request.getParameter("homeStayId");
         String index = request.getParameter("index");
 
@@ -45,7 +46,7 @@ public class AdminPendingHomstayController extends HttpServlet {
         Extensions extension_temp = daoHome.getExtension(homeStayId);
         List<String> extension = daoHome.getExtenstion(extension_temp);
         Rules rule = daoHome.getRule(homeStayId);
-//        List<Images> image = daoHome.getImage(homeStayId);
+        List<Images> image = daoImage.getIMG(homeStayId);
         Suppliers supplier = daoSup.getSupplier(homeStayId);
         Categories category = daoSup.getCategories(homeStayId);
         HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
@@ -53,6 +54,7 @@ public class AdminPendingHomstayController extends HttpServlet {
         
         request.setAttribute("supplier", supplier);
         request.setAttribute("homestay", homestay);
+        request.setAttribute("listImage", image);
         request.setAttribute("category", category);
         request.setAttribute("homestayAddress", homeAddress);
         request.setAttribute("homestayDetail", homestayDetail);
