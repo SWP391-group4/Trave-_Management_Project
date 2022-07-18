@@ -161,7 +161,7 @@
                     <div class="row">
                         <c:forEach items="${list3b}" var="c">
                             <div class="col-md-4">
-                                <a href="BlogDetail?blogId=${a.blogId}">
+                                <a href="BlogDetail?blogId=${c.blogId}">
                                     <div style="width: 366px;height: 289px ; ;background-image: url(images/${c.image});background-position:center;background-size: cover">
                                         <p style="color: #FFF;text-align: center;padding-top: 20px;background:rgba(0,0,0,0.5)">HomeStay Information</p>
                                         <h6 style="color: #FFF;text-align: center;margin-top: 158px;background:rgba(0,0,0,0.5)">${c.title}</h6>
