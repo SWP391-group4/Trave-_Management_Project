@@ -9,11 +9,18 @@ package Entity;
  * @author nam
  */
 public class VoucherCustomer {
+
     public String voucherId;
     public String title;
     public String image;
     public int discount;
     public String accountC;
+
+    public VoucherCustomer(String voucherId, String title, int discount) {
+        this.voucherId = voucherId;
+        this.title = title;
+        this.discount = discount;
+    }
 
     public VoucherCustomer(String voucherId, String title, String image, int discount, String accountM) {
         this.voucherId = voucherId;
@@ -67,5 +74,5 @@ public class VoucherCustomer {
     public String toString() {
         return "VoucherCustomer{" + "voucherId=" + voucherId + ", title=" + title + ", image=" + image + ", discount=" + discount + ", accountM=" + accountC + '}';
     }
-    
+
 }

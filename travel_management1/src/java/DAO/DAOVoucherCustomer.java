@@ -8,6 +8,9 @@ import Entity.VoucherCustomer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -53,7 +56,8 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return 0;
     }
-     public String lastVoucherCusId() {
+
+    public String lastVoucherCusId() {
         String sql = "select top 1 VoucherId from VoucherCustomer\n"
                 + "order by VoucherId desc";
         ResultSet rs = getData(sql);
@@ -66,10 +70,36 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return null;
     }
+
+    public List<VoucherCustomer> getVoucherbyId(String id) {
+        List<VoucherCustomer> list = new ArrayList<VoucherCustomer>();
+        String sql = "SELECT voucherId,title, discount from VoucherCustomer\n"
+                + "where AccountC='" + id + "'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String voucherId = rs.getString(1);
+                String title = rs.getString(2);
+                int discount = rs.getInt(3);
+                VoucherCustomer obj = new VoucherCustomer(voucherId,title, discount);
+                list.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
 //        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
-          System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
+        System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
 //          System.out.println(dao.lastVoucherCusId());
+        List<VoucherCustomer> list = dao.getVoucherbyId("caoboimiennui");
+        for (VoucherCustomer o : list) {
+            System.out.println(o);
+        }
+
     }
 }

@@ -61,11 +61,12 @@ public class DAOBooking extends connectDB {
         }
         return listHomestays;
     }
- public List<Booking> getBookingbyHomeStayID(String homestayId) {
+
+    public List<Booking> getBookingbyHomeStayID(String homestayId) {
         List<Booking> list = new ArrayList<>();
-        String sql = "select *from  booking  where HomeStayId='"+homestayId+"'\n" +
-"                ORDER BY \n" +
-"                OrderTime DESC";
+        String sql = "select *from  booking  where HomeStayId='" + homestayId + "'\n"
+                + "                ORDER BY \n"
+                + "                OrderTime DESC";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -92,15 +93,15 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
- 
- public String totalPricePerMonth(int month,String homeStayID) {
-        String sql = "select totalPrice from  (select MONTH(OrderTime) as SalesMonth,\n" +
-" SUM(price) as totalPrice\n" +
-" from booking where HomeStayId=?\n" +
-" GROUP BY MONTH(OrderTime)) as t where t.SalesMonth =?";
+
+    public String totalPricePerMonth(int month, String homeStayID) {
+        String sql = "select totalPrice from  (select MONTH(OrderTime) as SalesMonth,\n"
+                + " SUM(price) as totalPrice\n"
+                + " from booking where HomeStayId=?\n"
+                + " GROUP BY MONTH(OrderTime)) as t where t.SalesMonth =?";
         try {
-                   PreparedStatement pre = conn.prepareStatement(sql);
-                   pre.setString(1, homeStayID);
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, homeStayID);
             pre.setInt(2, month);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
@@ -115,11 +116,12 @@ public class DAOBooking extends connectDB {
         }
         return null;
     }
-    public List<Booking> getBookingbyHomeStayIDandORDER(String homestayId,int OrderNumber) {
+
+    public List<Booking> getBookingbyHomeStayIDandORDER(String homestayId, int OrderNumber) {
         List<Booking> list = new ArrayList<>();
-        String sql = "select *from  booking  where HomeStayId='"+homestayId+"' and OrderNumber='"+OrderNumber+"'  \n" +
-"                ORDER BY \n" +
-"                OrderTime DESC";
+        String sql = "select *from  booking  where HomeStayId='" + homestayId + "' and OrderNumber='" + OrderNumber + "'  \n"
+                + "                ORDER BY \n"
+                + "                OrderTime DESC";
 
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -146,7 +148,8 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
-   public int updateBookingStatus(int status, String homeStayID) {
+
+    public int updateBookingStatus(int status, String homeStayID) {
         int n = 0;
         String sql = "Update Booking set "
                 + "status = ? "
@@ -162,6 +165,7 @@ public class DAOBooking extends connectDB {
 
         return n;
     }
+
     public List<Booking> getLastBooking(String homestayId) {
         List<Booking> list = new ArrayList<>();
         String sql = "	SELECT TOP 3 * FROM Booking"
@@ -195,13 +199,13 @@ public class DAOBooking extends connectDB {
 
     }
 
-    public Booking getbyord(int ord){
-         String sql = "Select * from Booking where OrderNumber = '" + ord + "'";
+    public Booking getbyord(int ord) {
+        String sql = "Select * from Booking where OrderNumber = '" + ord + "'";
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
                 return new Booking(
-                         rs.getString(1),
+                        rs.getString(1),
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4),
@@ -213,14 +217,14 @@ public class DAOBooking extends connectDB {
                         rs.getDouble(10),
                         rs.getInt(11),
                         rs.getString(12));
-            
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return null;
     }
-    
+
     public List<Booking> getBookingWatting(String homestayId) {
         List<Booking> list = new ArrayList<>();
         String sql = "	SELECT TOP 3 * FROM Booking where HomeStayId='" + homestayId + "' and status=0  ORDER BY OrderTime DESC";
@@ -249,19 +253,21 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
-     public int getMonth() {
+
+    public int getMonth() {
         Date date = new Date();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         int month = localDate.getMonthValue();
         return month;
     }
-     public Booking getHomeStay(String homeStayID){
-               String sql = "select * from booking where HomeStayId='"+homeStayID+"'";
+
+    public Booking getHomeStay(String homeStayID) {
+        String sql = "select * from booking where HomeStayId='" + homeStayID + "'";
 
         ResultSet rs = getData(sql);
         try {
             if (rs.next()) {
-                return new Booking( rs.getString(1),
+                return new Booking(rs.getString(1),
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4),
@@ -273,13 +279,13 @@ public class DAOBooking extends connectDB {
                         rs.getDouble(10),
                         rs.getInt(11),
                         rs.getString(12));
-                        
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-     }
+    }
 
     public static void main(String[] args) {
         DAOBooking dao = new DAOBooking();
@@ -292,7 +298,7 @@ public class DAOBooking extends connectDB {
 
 //        Booking b=dao.getbyord(22);
 //        System.out.println(b);
-        Booking ia=dao.getHomeStay("HS0002");
+        Booking ia = dao.getHomeStay("HS0002");
         System.out.println(ia);
 //        String s = "11/27/2020 05:35:00";
 //        DateFormat frm = new SimpleDateFormat("MM/dd/yy HH:mm:ss");

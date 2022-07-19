@@ -54,6 +54,17 @@ public class HomeStayDetailController extends HttpServlet {
         DAOReviews daor = new DAOReviews();
         DAOImages daoi=new DAOImages();
         DAOExtensions daoe= new DAOExtensions();
+        
+        String submitComment = request.getParameter("submitComment");
+        if(submitComment != null) {
+            String cus_name = request.getParameter("user_name");
+            String date = request.getParameter("date");
+            String comment = request.getParameter("comment");
+            double star = Double.parseDouble(request.getParameter("star"));
+            int a = daor.addComment2(new Reviews(cus_name, date, star, comment,homeStayID));
+            
+        }
+        
         List<Rules> rules = daorule.getRulebyHomeStayID(homeStayID);
         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
         List<Images> img=daoi.getIMG(homeStayID);
@@ -71,7 +82,9 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("extion", e);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
 ////insert Comment
+        
 
+        
 
     }
 
@@ -88,6 +101,7 @@ public class HomeStayDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**
@@ -101,7 +115,7 @@ public class HomeStayDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request, response);  
     }
 
     /**
