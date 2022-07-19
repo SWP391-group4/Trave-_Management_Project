@@ -92,6 +92,7 @@ public class DAOMarketing extends connectDB {
         }
         return n;
     }
+
     public List<Marketing> ListMKT() {
         List<Marketing> vec = new ArrayList<Marketing>();
         String sql = "SELECT *\n"
@@ -115,13 +116,35 @@ public class DAOMarketing extends connectDB {
         return vec;
     }
 
+    public List<Marketing> getAuthorMarketings(String id) {
+        List<Marketing> vec = new ArrayList<Marketing>();
+        String sql = "select m.LastName,m.FirstName from blogs b\n"
+                + "inner join Marketing m on b.AccountM=m.AccountM\n"
+                + "where b.BlogId like '"+id+"'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String AccountM = null;
+                String FirstName = rs.getString(1);
+                String LastName = rs.getString(2);
+                int Age = 0;
+                String Email = null;
+                String Phone = null;
+                Marketing obj = new Marketing(AccountM, FirstName, LastName, Age, Email, Phone);
+                vec.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return vec;
+    }
+
     public static void main(String[] args) {
         DAOMarketing dao = new DAOMarketing();
-        int n= dao.updateMarketing(new Marketing("bautroikhongem", "Thanh Nam", "Nguyen", 25, "namthanh@gmail.com", "8434784791"));
-        if (n > 0) {
-            System.out.println("updated");
-       
+                List<Marketing> list = dao.getAuthorMarketings("BL0001    ");
+        for (Marketing o : list) {
+            System.out.println(o);
+        }
     }
 }
-}
-

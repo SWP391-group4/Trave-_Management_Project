@@ -28,18 +28,18 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputCompany5">First name: </label>
-                                        <input type="text" class="form-control" id="inputCompany5" placeholder="First name" name="firstName" value="${firstName}"/>
+                                        <input required type="text" class="form-control" id="inputCompany5" placeholder="First name" name="firstName" value="${firstName}"/>
                                     <label for="inputState6">Contact Phone</label>    
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="(+84)" name="phone" />
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder="(+84)" name="phone" />
                                     <label for="inputState6">Contact Email</label>    
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="userName123@email.com" name="email" value="${email}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder="userName123@email.com" name="email" value="${email}"/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState5">Last name</label>                      
-                                    <input type="text" class="form-control" id="Last name" placeholder="Last name" name="lastName" value="${lastName}"/>
+                                    <input required type="text" class="form-control" id="Last name" placeholder="Last name" name="lastName" value="${lastName}"/>
 
                                     <label for="inputState6">Fax</label>    
-                                    <input type="text" class="form-control" id="inputCompany5" name="fax" value="${fax}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" name="fax" value="${fax}"/>
                                 </div>                  
 
                             </div>
@@ -48,17 +48,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4 "> 
                                     <label for="inputState5">City</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder=""  name="city"value="${city}"/>
                                     <label for="inputState5">Specific</label>
-                                    <input type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" name="specific"value="${specific}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">District</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" name="district" value="${district}"/>
                                 </div> 
                                 <div class="form-group col-md-4">
                                     <label for="inputState5">Ward</label>                      
-                                    <input type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
+                                    <input required type="text" class="form-control" id="inputCompany5" placeholder="" name="ward" value="${ward}"/>
                                 </div> 
                             </div>
                             <hr class="my-4" />
@@ -74,7 +74,7 @@
                                             <img src="images/${cusImage.img_ID_front}" alt="alt" style="width: 100%; height: 75% "/>
                                         </c:otherwise>
                                     </c:choose>
-                                    <input type="file" name="imageBefore" class="custom" value="${cusImage.img_ID_front}" accept="image/png, image/jpg, image/jpeg">
+                                    <input required type="file" name="imageBefore" class="custom" value="${cusImage.img_ID_front}" accept="image/png, image/jpg, image/jpeg">
                                 </div> 
                                 <div class="form-group col-md-6">
                                     <c:choose>
@@ -85,7 +85,7 @@
                                             <img src="images/${cusImage.img_ID_back}" alt="alt"style="width: 100%; height: 75% "/>
                                         </c:otherwise>
                                     </c:choose>
-                                    <input type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
+                                    <input required type="file" name="imageAfter" class="custom" value="${cusImage.img_ID_back}" accept="image/png, image/jpg, image/jpeg">
                                 </div>
 
                             </div>

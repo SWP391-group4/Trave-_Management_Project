@@ -93,11 +93,11 @@ public class SupplierRegisterController extends HttpServlet {
         //----------image---------
         
         Part partBefore = request.getPart("imageBefore");
-        String realPartBefore = request.getServletContext().getRealPath("/images");
+        String realPartBefore = request.getServletContext().getRealPath("/images-ID");
         String filenameBefore = Paths.get(partBefore.getSubmittedFileName()).getFileName().toString();
 
         Part partAfter = request.getPart("imageAfter");
-        String realPartAfter = request.getServletContext().getRealPath("/images");
+        String realPartAfter = request.getServletContext().getRealPath("/images-ID");
         String filenameAfter = Paths.get(partAfter.getSubmittedFileName()).getFileName().toString();
         //------------------------
 

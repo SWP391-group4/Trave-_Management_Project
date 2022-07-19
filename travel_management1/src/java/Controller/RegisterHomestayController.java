@@ -166,11 +166,11 @@ public class RegisterHomestayController extends HttpServlet {
                 && addFirst != 0 && addSecond != 0 && addThird != 0) {
             String alert = "Register success";
             request.setAttribute("alert", alert);
-            request.getRequestDispatcher("RegisterHomestay").forward(request, response);
+            request.getRequestDispatcher("RegisterHomestay.jsp").forward(request, response);
         } else {
             String alert = "Something went wrong";
             request.setAttribute("alert", alert);
-            request.getRequestDispatcher("RegisterHomestay").forward(request, response);
+            request.getRequestDispatcher("RegisterHomestay.jsp").forward(request, response);
         }
         //------
     }

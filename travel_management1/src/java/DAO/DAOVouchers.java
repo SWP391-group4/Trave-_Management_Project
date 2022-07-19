@@ -294,10 +294,10 @@ public class DAOVouchers extends DBContext.connectDB {
 //        System.out.println(dao.getVoucherbyId("VCM010    "));
 //        System.out.println(dao.getImagebyId("VCM010    "));
 //        dao.updateVoucher(new Vouchers("VCM011", "2", "2", "2", 2, 3, "bautroikhongem"));
-//        List<Vouchers> list = dao.view9SearchPagingVouchers("h", 1);
-//        for (Vouchers o : list) {
-//            System.out.println(o);
-//        }
+        List<Vouchers> list = dao.viewtop3Vouchers();
+        for (Vouchers o : list) {
+            System.out.println(o);
+        }
          dao.updateQuantity(new Vouchers("VCM001    ", 50));
     }
 }
