@@ -43,6 +43,14 @@ public int orderNumber;
         return accountS;
     }
 
+    public HomeStays(String accountS, String cateName,int status,  int orderNumber,String homeStayname) {
+        this.homeStayname = homeStayname;
+        this.accountS = accountS;
+        this.cateName = cateName;
+        this.status = status;
+        this.orderNumber = orderNumber;
+    }
+
     public HomeStays(String homeStayID, String homeStayname, String cateID, String city, String district, String specific, String ward, String cateName, double price,int status, double star,  String imageUrl) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
@@ -150,12 +158,21 @@ public int orderNumber;
         this.status = status;
        this.orderNumber=orderNumber;
     }
- public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS, int status) {
+ public HomeStays(String homeStayID, String homeStayname,String accountS, String cateName,  int status) {
+        this.homeStayID = homeStayID;
+        this.homeStayname = homeStayname;
+        this.cateName = cateName;   
+        this.accountS = accountS;
+        this.status = status;
+      
+    }
+ public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS,String cateName, int status) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
         this.accountS = accountS;
         this.status = status;
+        this.cateName=cateName;
       
     }
     public HomeStays(String homeStayID, String homeStayname, String cateID, int status) {
@@ -472,15 +489,7 @@ public int orderNumber;
         this.homeStayname = homeStayname;
         this.cateID = cateID;
     }
-public HomeStays(String homeStayID, String homeStayname, String cateID, String accountS,String cateName, int status) {
-        this.homeStayID = homeStayID;
-        this.homeStayname = homeStayname;
-        this.cateID = cateID;
-        this.accountS = accountS;
-        this.status = status;
-        this.cateName=cateName;
-      
-    }
+
     public HomeStays() {
     }
 

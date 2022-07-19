@@ -1,3 +1,7 @@
+<%@page import="Entity.Suppliers"%>
+<%@page import="java.util.List"%>
+<%@page import="Entity.HomeStays"%>
+<%@page import="DAO.DAOHomeStays"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,17 +52,13 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                             </a>
 
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <h5 class="card-title mb-0">Clients</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-striped" style="width:100%">
+                                    <table class="table table-borderless" style="width:100%">
                                         <thead>
                                             <tr>
 
@@ -68,17 +68,17 @@
                                                 <th>Status</th>
                                                 <th>View</th><!-- <th>Status</th> -->
                                                 <th>Edit</th> 
-
-                                                <th>View Chart</th>
+                                                <th>Chart</th>
+                                                <th>Booking</th>
                                                 <th>Export</th>
+
                                             </tr>
                                         </thead>
+                                
                                     <c:if test="${detail.status==1}">
                                         <c:forEach items="${listbyAccountS}" var="o">
-
                                             <tbody>
                                                 <tr>
-
                                                     <td>${o.homeStayID}</td>
                                                     <td>${o.homeStayname}</td>
                                                     <td>${o.cateName}</td>
@@ -86,22 +86,25 @@
                                                         <td><span class="badge bg-success">Active</span></td>
                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
-
-                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
+                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">Chart</a></td>
+                                                        <td><a href="bookingchange?homeStayID=${o.homeStayID}">Booking </a></td>
                                                         <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
                                                     </c:if>
                                                     <c:if test="${o.status==0}">
                                                         <td><span class="badge bg-secondary">Booked</span></td>
                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
-
-                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
+                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">Chart </a></td>
+                                                        <td><a href="bookingchange?homeStayID=${o.homeStayID}">Booking </a></td>
                                                         <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
                                                     </c:if>
                                                     <c:if test="${(o.status!=1)&&(o.status!=0)}">
                                                         <td><span class="badge bg-warning">Pendding</span></td>
                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
-
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </c:if>
 
                                                 </tr>
@@ -129,24 +132,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-actions float-right">
-                                    <div class="dropdown show">
-                                        <a href="#" data-toggle="dropdown" data-display="static">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                        </a>
 
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <h5 class="card-title mb-0">${sessionScope.acc.account}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="row g-0">
                                     <div class="col-sm-3 col-xl-12 col-xxl-3 text-center">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                        <img src="images/${Simg.img_Avatar}" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
                                     </div>
                                     <div class="col-sm-9 col-xl-12 col-xxl-9">
                                         <strong>About me</strong>
@@ -182,8 +175,9 @@
                                             </c:if>
 
                                     </tbody>
-                                </table>
 
+                                </table>
+                                <a href="">Check Customer Booking</a>
 
 
                                 <ul class="timeline mt-2 mb-0">

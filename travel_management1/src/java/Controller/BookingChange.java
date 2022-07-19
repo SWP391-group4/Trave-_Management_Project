@@ -1,32 +1,28 @@
+package Controller;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
-
 import DAO.DAOBooking;
-import DAO.DAOHomeStays;
-import DAO.DAOSupplier;
-import Entity.HomeStays;
-import Entity.SupplierAddresses;
-import Entity.SupplierImage;
-import Entity.Suppliers;
+import DAO.DAOCustomers;
+import Entity.Booking;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author thinh
  */
-@WebServlet(name = "manageHomeStay", urlPatterns = {"/manageHomeStay"})
-public class manageHomeStay extends HttpServlet {
+@WebServlet(urlPatterns = {"/bookingchange"})
+public class BookingChange extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,21 +35,33 @@ public class manageHomeStay extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String service = request.getParameter("service");
+        if (service == null) {
+            service = "show";
+        }
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        String accountS = request.getParameter("accountS");
-        DAOHomeStays dao = new DAOHomeStays();
-        DAOSupplier daos = new DAOSupplier();
-        DAOBooking daob = new DAOBooking();
-        Suppliers sup = daos.getSuppiler(accountS);
-        SupplierImage Simg = daos.getSUPImage(accountS);
-        List<HomeStays> listbyAccountS = dao.getHomeStayforSUP(accountS);
-        request.setAttribute("detail", sup);
-        request.setAttribute("Simg", Simg);
-        request.setAttribute("listbyAccountS", listbyAccountS);
-        Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        request.getRequestDispatcher("/manageHomeStay.jsp").forward(request, response);
+        String update = request.getParameter("update");
+        if (service.equals("show")) {
+            String homeStayID = request.getParameter("homeStayID");
+            request.setAttribute("homeStayID", homeStayID);
+            DAOBooking dao = new DAOBooking();
+            DAOCustomers daoc = new DAOCustomers();
+            List<Booking> listhomeStayID = dao.getBookingbyHomeStayID(homeStayID);
+            request.setAttribute("listhomeStayID", listhomeStayID);
+            request.getRequestDispatcher("/BookingChange.jsp").forward(request, response);
+        }
+        if (service.equals("update")) {
+            String homeStayID = request.getParameter("homeStayID");
+            String orderNumber = request.getParameter("orderNumber");
+            int OrderNumber = Integer.parseInt(orderNumber);
+            DAOBooking dao = new DAOBooking();
+            dao.updateBookingStatusbyORD(OrderNumber, homeStayID);
+            DAOCustomers daoc = new DAOCustomers();
+            List<Booking> listhomeStayID = dao.getBookingbyHomeStayID(homeStayID);
+            request.setAttribute("listhomeStayID", listhomeStayID);
+            request.getRequestDispatcher("/BookingChange.jsp").forward(request, response);
 
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

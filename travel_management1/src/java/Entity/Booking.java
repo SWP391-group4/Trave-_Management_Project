@@ -31,6 +31,11 @@ public class Booking {
     public Booking() {
     }
 
+    public Booking(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+
     public Booking(String accountC, String homeStayId, int orderNumber, String firstName, String lastName, String phone, String orderTime, int bookingTime, int visitorNumber, double price, int status, String email) {
         this.accountC = accountC;
         this.homeStayId = homeStayId;

@@ -213,6 +213,24 @@ public class DAOBooking extends connectDB {
         return n;
     }
 
+    public int updateBookingStatusbyORD( int ordernumber, String homestayID) {
+        int n = 0;
+        String sql = "Update Booking set "
+                + "status = ? "
+                + "where orderNumber = ? and homestayid=?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, 1);
+            pre.setInt(2, ordernumber);
+            pre.setString(3, homestayID);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return n;
+    }
+
     public List<Booking> getLastBooking(String homestayId) {
         List<Booking> list = new ArrayList<>();
         String sql = "	SELECT TOP 3 * FROM Booking"
@@ -422,6 +440,25 @@ public class DAOBooking extends connectDB {
 
     }
 
+   public List<Booking> getOrderNumber(String homestayId) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "	SELECT OrderNumber FROM Booking where HomeStayId='" + homestayId + "' ";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new Booking(
+                        rs.getInt(1)
+                       ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+
+    }
+
     public int updateHomeStaysStatus(String id) {
         int n = 0;
         String sql = "UPDATE [dbo].[HomeStays]\n"
@@ -439,18 +476,18 @@ public class DAOBooking extends connectDB {
 
     public static void main(String[] args) {
         DAOBooking dao = new DAOBooking();
-//        List<Booking> list = dao.getBookingbyHomeStayIDandORDER("HS0002",13);
-//        for (Booking temp : list) {
-//            System.out.println(temp);
-//        }
-//        int count=dao.updateBookingStatus(2,"");
+        List<Booking> list = dao.getOrderNumber("HS0002");
+        for (Booking temp : list) {
+            System.out.println(temp);
+        }
+//        int count=dao.updateBookingStatusbyORD(0,"7","HS0002");
 //        System.out.println(count);
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy");
-        String strDate = dateFormat.format(date);
-        System.out.println("Converted String: " + strDate);
-        String nd = dao.aVGbyYear(strDate, "HS0002");
-        System.out.println(nd);
+//        Date date = Calendar.getInstance().getTime();
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy");
+//        String strDate = dateFormat.format(date);
+//        System.out.println("Converted String: " + strDate);
+//        String nd = dao.aVGbyYear(strDate, "HS0002");
+//        System.out.println(nd);
 //        Booking b=dao.getbyord(22);
 //        System.out.println(b);
 //        Booking ia=dao.getHomeStay("HS0002");

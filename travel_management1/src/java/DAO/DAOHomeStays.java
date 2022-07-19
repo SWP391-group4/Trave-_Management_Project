@@ -1004,6 +1004,30 @@ public class DAOHomeStays extends connectDB {
         return list;
     }
 
+    public List<HomeStays> getHomeStayforSUP2(String accountS) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select s.AccountS,c.CateName,h.[Status],b.OrderNumber,h.HomeStayName,b.AccountC from Suppliers s\n"
+                + "inner join HomeStays h on s.AccountS=h.AccountS\n"
+                + "inner join booking b on b.HomeStayId=h.HomeStayId\n"
+                + "inner join Categories c on c.CateId=h.CateId where  s.AccountS=''" + accountS + "'";
+
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4), rs.getInt(5)));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
     public List<HomeStays> getHomeStayforBOOKINGbySUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select h.HomeStayId,\n"
