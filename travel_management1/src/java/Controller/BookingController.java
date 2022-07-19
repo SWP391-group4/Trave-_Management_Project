@@ -11,6 +11,8 @@ import Entity.HomeStays;
 import Entity.VoucherCustomer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -87,7 +89,7 @@ public class BookingController extends HttpServlet {
                 String startdate = request.getParameter("startdate");
                 String rent = request.getParameter("rent");
                 String numvisitor = request.getParameter("numvisitor");
-                
+
             }
         }
     }

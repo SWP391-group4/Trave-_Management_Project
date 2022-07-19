@@ -138,7 +138,8 @@
                         </div>
                         <div class="col-12">
                             <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
-                            <input name="startdate" type="date" class="form-control" required>
+                            <input name="startdate" type="date" value="${date}" class="form-control" required min="${date}">
+                            
                         </div>
                         <div class="col-12">
                             <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>

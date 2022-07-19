@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -117,7 +118,12 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         //       System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
 //          System.out.println(dao.lastVoucherCusId());
         List<VoucherCustomer> list = dao.getVoucherbyVId("VC002     ");
-        System.out.println(list.get(0).getDiscount());
+        Calendar c = Calendar.getInstance();
+        int da = c.get(Calendar.DATE) + 1;
+        int m = c.get(Calendar.MONTH) + 1;
+        int y = c.get(Calendar.YEAR);
+        String date1 = String.valueOf(y) + "-" + String.valueOf(m) + "-" + String.valueOf(da);
+        System.out.println(date1);
 
     }
 }
