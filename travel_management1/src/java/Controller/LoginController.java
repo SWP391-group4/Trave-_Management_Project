@@ -65,10 +65,10 @@ public class LoginController extends HttpServlet {
         if (acc == null) {
             String noti = "Incorrect user name or password,please try again";
             request.setAttribute("noti", noti);
-            response.sendRedirect("Login.jsp");
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
             int type = acc.getType();
-            request.getSession().setMaxInactiveInterval(600);
+          
 
             switch (type) {
                 case 1:

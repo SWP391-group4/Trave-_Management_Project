@@ -4,13 +4,17 @@
  */
 package Controller;
 
+import DAO.DAOBooking;
 import DAO.DAOHomeStays;
 import DAO.DAOVoucherCustomer;
+import Entity.Booking;
 import Entity.Customers;
 import Entity.HomeStays;
 import Entity.VoucherCustomer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +31,7 @@ import javax.servlet.http.HttpSession;
 public class BookingController extends HttpServlet {
 
     DAOVoucherCustomer daov = new DAOVoucherCustomer();
-
+    DAOBooking daob = new DAOBooking();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -86,8 +90,14 @@ public class BookingController extends HttpServlet {
                 String lastname = request.getParameter("lastname");
                 String startdate = request.getParameter("startdate");
                 String rent = request.getParameter("rent");
+                String total = request.getParameter("total");
                 String numvisitor = request.getParameter("numvisitor");
+                if (!voucherId.isEmpty()) {
+                    daov.removeVoucherCus(voucherId);
+                }
                 
+                
+                daob.addBooking(new Booking(cusid, homeStayId, 0, firstname, lastname, rent, rent, 0, 0, 0, 0, total));
             }
         }
     }

@@ -55,7 +55,7 @@
                 </c:if>
                 <c:if test="${sessionScope.acc==null}">
 
-                    <a class="nav-link " href="login"  >
+                    <a class="nav-link " href="login" >
                         <span class="mr-2 d-none d-lg-inline">Login</span>
 
                     </a>

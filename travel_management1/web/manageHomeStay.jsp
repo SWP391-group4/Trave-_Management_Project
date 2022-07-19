@@ -62,13 +62,13 @@
                                         <thead>
                                             <tr>
 
-                                                    <th>ID</th>
+                                                <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Type</th>
                                                 <th>Status</th>
                                                 <th>View</th><!-- <th>Status</th> -->
                                                 <th>Edit</th> 
-                                                <th>Booking</th>
+
                                                 <th>View Chart</th>
                                                 <th>Export</th>
                                             </tr>
@@ -86,17 +86,17 @@
                                                         <td><span class="badge bg-success">Active</span></td>
                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
-                                                        <td><a href="">Check </a></td>
-                                                          <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
-                                                           <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
+
+                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
+                                                        <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
                                                     </c:if>
                                                     <c:if test="${o.status==0}">
-                                                         <td><span class="badge bg-success">Active</span></td>
+                                                        <td><span class="badge bg-secondary">Booked</span></td>
                                                         <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
                                                         <td><a href="updatehomestay?homeStayID=${o.homeStayID}">Edit</a></td>
-                                                        <td><a href="">Check </a></td>
-                                                          <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
-                                                           <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
+
+                                                        <td><a href="viewchart?homeStayID=${o.homeStayID}">View Chart </a></td>
+                                                        <td><a href="manageBookingexport?homeStayID=${o.homeStayID}">Export </a></td>
                                                     </c:if>
                                                     <c:if test="${(o.status!=1)&&(o.status!=0)}">
                                                         <td><span class="badge bg-warning">Pendding</span></td>
@@ -184,7 +184,7 @@
                                     </tbody>
                                 </table>
 
-                                   
+
 
                                 <ul class="timeline mt-2 mb-0">
 

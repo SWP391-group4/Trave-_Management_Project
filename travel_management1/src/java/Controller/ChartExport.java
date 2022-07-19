@@ -8,23 +8,18 @@ import DAO.DAOBooking;
 import DAO.DAOSupplier;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.Year;
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.Date;
+
 /**
  *
  * @author thinh
  */
-@WebServlet(name = "viewchart", urlPatterns = {"/viewchart"})
-public class viewchart extends HttpServlet {
+@WebServlet(name = "ChartExport", urlPatterns = {"/chartexport"})
+public class ChartExport extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,16 +33,11 @@ public class viewchart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     Date date = Calendar.getInstance().getTime();  
-                DateFormat dateFormat = new SimpleDateFormat("yyyy");  
-                String strDate = dateFormat.format(date);  
-     
-        DAOBooking dao = new DAOBooking();
+           response.setContentType("application/vnd.ms-excel");
+    response.setHeader("Content-Disposition", "attachment;filename=doc.xls");
+       DAOBooking dao = new DAOBooking();
         DAOSupplier daos=new DAOSupplier();
         String homeStayID = request.getParameter("homeStayID");
-        
-        String AVyear=dao.aVGbyYear(strDate, homeStayID);
-         request.setAttribute("AVyear", AVyear);
         //count
         String count1 = daos.numberOfBookingbyMonth(1, homeStayID);
         String count2 = daos.numberOfBookingbyMonth(2, homeStayID);
@@ -101,9 +91,10 @@ public class viewchart extends HttpServlet {
         request.setAttribute("count11", count11);
         request.setAttribute("count12", count12);
 
-        request.getRequestDispatcher("chart.jsp").forward(request, response);
-    }
-
+        request.getRequestDispatcher("chartexport.jsp").forward(request, response);
+        }
+    
+      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
