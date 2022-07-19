@@ -112,18 +112,26 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         return list;
     }
 
+    public int removeVoucherCus(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[VoucherCustomer]\n"
+                + "      WHERE VoucherId='" + id + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
 //        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
         //       System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
 //          System.out.println(dao.lastVoucherCusId());
         List<VoucherCustomer> list = dao.getVoucherbyVId("VC002     ");
-        Calendar c = Calendar.getInstance();
-        int da = c.get(Calendar.DATE) + 1;
-        int m = c.get(Calendar.MONTH) + 1;
-        int y = c.get(Calendar.YEAR);
-        String date1 = String.valueOf(y) + "-" + String.valueOf(m) + "-" + String.valueOf(da);
-        System.out.println(date1);
+        dao.removeVoucherCus("VC017     ");
 
     }
 }
