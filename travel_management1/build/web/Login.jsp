@@ -36,68 +36,7 @@
         <link rel="stylesheet" href="css/style1.css">
     </head> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <body style="padding-top: 0px;padding-bottom: 0px">
-     
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-    <a  href="Home"><img src="images/logo.png" style="width: 50px;height:60px;margin-left:50px "></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu">Menu</span> 
-    </button>
-
-    <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item "><a href="Home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="ListAllHomeStayController" class="nav-link">HomeStay</a></li>
-            <li class="nav-item"><a href="blogController" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="ContactAdmin.jsp" class="nav-link">Contact</a></li>
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-
-                <c:if test="${sessionScope.acc!=null}">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 smal">${sessionScope.acc.account}</span>
-
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                         aria-labelledby="userDropdown">
-                        <c:if test="${sessionScope.acc.type==3}">
-                            <a class="dropdown-item" href="suppilerProflieController">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                        </c:if>
-                        <c:if test="${sessionScope.acc.type==2}">
-                            <a class="dropdown-item" href="MarketingProfileController">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                        </c:if>
-                         <c:if test="${sessionScope.acc.type==2}">
-                            <a class="dropdown-item" href="MarketingManager">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Manager 
-                            </a>
-                        </c:if>
-                        <c:if test="${sessionScope.acc.type==4}">
-                            <a class="dropdown-item" href="CustomerProfile">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                        </c:if>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="logout"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
-                        </a>
-                    </div>
-                </c:if>
-              
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
+        <jsp:include page="Header.jsp"></jsp:include>
             <div class="main">
 
                 <section class="signup" style="padding-top: 60px;padding-bottom: 60px">
@@ -116,18 +55,15 @@
                                     <input type="password" class="form-input" name="password" id="password" placeholder="Password"/>
 
                                 </div>
-                            <c:if test="${sessionScope.acc.password==null||sessionScope.acc.account==null}">
-                                <div class="form-group">
-                                    <a onclick="alert('Incorrect user name or password,please try again!')">   <input type="submit" name="submit" id="submit" class="form-submit" value="Login"/>
-                                    </a>
+                         
+                                <div class="form-group" >
+                                      <input type="submit" name="submit" id="submit" class="form-submit" value="Login"/>
+                                     <p>${mess}</p>
                                 </div>
-                            </c:if>
-                                   <c:if test="${sessionScope.acc!=null}">
-                                <div class="form-group">
-                                    <a onclick="alert('Login success')">   <input type="submit" name="submit" id="submit" class="form-submit" value="Login"/>
-                                    </a>
-                                </div>
-                            </c:if>
+                               
+       
+                                
+                         
                         </form>
                         <p class="loginhere">
                             Don't have account ? Click Here to <a href="registerCustomer" class="loginhere-link">Sign Up</a>
