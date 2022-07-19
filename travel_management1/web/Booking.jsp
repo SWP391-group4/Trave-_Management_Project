@@ -1,3 +1,4 @@
+<%@page import="Entity.HomeStays"%>
 <!doctype html>
 <html>
     <head>
@@ -76,62 +77,69 @@
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Total Price</span>
-                        <span class="badge bg-primary rounded-pill">${detail.price} VND</span>
-                    </h4>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">HomeStay: ${detail.homeStayname} </h6>
-                                <small>Address: ${detail.specific}, ${detail.ward}, ${detail.city}</small>
-                            </div>  
-                        </li>        
-                    </ul>
-                    <form class="card p-2" method="post">
-                        <div class="input-group">                            
+                    <%
+                        HomeStays h = (HomeStays) request.getAttribute("detail");
+                        double discount = (double) request.getAttribute("discount");
+                        double total = h.getPrice() - discount * h.getPrice();
+                    %>
+                    <span class="badge bg-primary rounded-pill"><%=total%> VND</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">HomeStay: ${detail.homeStayname} </h6>
+                            <small>Address: ${detail.specific}, ${detail.ward}, ${detail.city}</small>
+                        </div>  
+                    </li>        
+                </ul>
+                <form class="card p-2" method="post" action="bookingController">
+                    <div class="input-group">    
+                        <input type="hidden" name="homestayid" value="${detail.homeStayID}">  
+                        <c:forEach items="${voucher}" var="c"> 
+                            <input type="hidden" name="voucherid" value="${c.voucherId}">  
                             <select class="form-select" id="country" name="discount" required>
                                 <option value="0">Adding Voucher</option>
-                                 <c:forEach items="${voucher}" var="c">                               
                                 <option value="${c.discount}">${c.title} (${c.discount}%)</option>
-                                 </c:forEach>
                             </select>
-                            <button type="submit" class="btn btn-danger">Add</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-7 col-lg-8">
-                    <form class="needs-validation" method="post">
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstname" required>
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastname" required>
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
-                                <input name="startdate" type="date" class="form-control" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
-                                <input name="rent" type="number" class="form-control" required min="1" >
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <button class="w-100 btn btn-danger btn-lg" type="submit">Book now</button>
-                    </form>
-                </div>
+                        </c:forEach>
+                        <button type="submit" name="submit" value="add" class="btn btn-danger">Add</button>
+                    </div>
+                </form>
             </div>
-        </main>
-        <script type='text/javascript'></script>
+            <div class="col-md-7 col-lg-8">
+                <form class="needs-validation" method="post" action="bookingController">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstname" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastname" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
+                            <input name="startdate" type="date" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
+                            <input name="rent" type="number" class="form-control" required min="1" >
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="w-100 btn btn-danger btn-lg" name="submit" value="book" type="submit">Book now</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script type='text/javascript'></script>
     <jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

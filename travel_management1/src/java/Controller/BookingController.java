@@ -43,14 +43,27 @@ public class BookingController extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             String submit = request.getParameter("submit");
             DAOHomeStays dao = new DAOHomeStays();
+            HttpSession session = request.getSession();
+            Customers cus = (Customers) session.getAttribute("customer");
+            String cusid = cus.getAccountC();
             if (submit == null) {
-                HttpSession session = request.getSession();
-                Customers cus = (Customers) session.getAttribute("customer");
-                String cusid = cus.getAccountC();
                 String homeStayId = request.getParameter("homeStayId");
                 HomeStays h = dao.getHomestay(homeStayId);
                 List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
-
+                double discount = 0.0;
+                request.setAttribute("discount", discount);
+                request.setAttribute("detail", h);
+                request.setAttribute("voucher", voucher);
+                request.getRequestDispatcher("Booking.jsp").forward(request, response);
+            }
+            if ("add".equals(submit)) {
+                List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
+                String homeStayId = request.getParameter("homestayid");
+                HomeStays h = dao.getHomestay(homeStayId);
+                String d = request.getParameter("discount");
+                String neww="0.".concat(d);               
+                Double discount=Double.valueOf(neww);
+                request.setAttribute("discount", discount);
                 request.setAttribute("detail", h);
                 request.setAttribute("voucher", voucher);
                 request.getRequestDispatcher("Booking.jsp").forward(request, response);
@@ -98,4 +111,3 @@ public class BookingController extends HttpServlet {
     }// </editor-fold>
 
 }
-
