@@ -88,9 +88,11 @@
                     </ul>
                     <form class="card p-2" method="post">
                         <div class="input-group">                            
-                            <select class="form-select" id="country" required>
-                                <option value=""> Voucher</option>
-                                <option>India (20%)</option>
+                            <select class="form-select" id="country" name="discount" required>
+                                <option value="0">Adding Voucher</option>
+                                 <c:forEach items="${voucher}" var="c">                               
+                                <option value="${c.discount}">${c.title} (${c.discount}%)</option>
+                                 </c:forEach>
                             </select>
                             <button type="submit" class="btn btn-danger">Add</button>
                         </div>
