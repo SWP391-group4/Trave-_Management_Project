@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+        <title>b</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -40,7 +40,12 @@
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <div class="container bootdey flex-grow-1 container-p-y">
+            <c:if test="${activate == null}">
             <a href="AdminPendingRegister?supplierId=${supplier.accountS}&index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
+            </c:if>
+            <c:if test="${activate != null}">
+            <a href="AdminPendingHomestayList?index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
+            </c:if>
             <div class="media align-items-center py-3 mb-3 col-md-8">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-3">
                 <div class="media-body ml-4 col-md-9">

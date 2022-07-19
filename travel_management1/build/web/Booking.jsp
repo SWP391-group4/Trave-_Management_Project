@@ -77,7 +77,7 @@
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Total Price</span>
-                    <%
+                    <%  
                         HomeStays h = (HomeStays) request.getAttribute("detail");
                         double discount = (double) request.getAttribute("discount");
                         double total = h.getPrice() - discount * h.getPrice();
@@ -95,13 +95,17 @@
                 <form class="card p-2" method="post" action="bookingController">
                     <div class="input-group">    
                         <input type="hidden" name="homestayid" value="${detail.homeStayID}">  
-                        <c:forEach items="${voucher}" var="c"> 
-                            <input type="hidden" name="voucherid" value="${c.voucherId}">  
-                            <select class="form-select" id="country" name="discount" required>
-                                <option value="0">Adding Voucher</option>
-                                <option value="${c.discount}">${c.title} (${c.discount}%)</option>
-                            </select>
-                        </c:forEach>
+                        <select class="form-select" id="country" name="voucherid" >
+                            <option value=".">No Use</option>
+                            <c:forEach items="${voucher}" var="c">                                  
+                                <c:if test="${c.voucherId==check}">                               
+                                    <option value="${c.voucherId}" selected="">${c.title} (${c.discount}%)</option>
+                                </c:if>
+                                <c:if test="${c.voucherId!=check}">                               
+                                    <option value="${c.voucherId}" >${c.title} (${c.discount}%)</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
                         <button type="submit" name="submit" value="add" class="btn btn-danger">Add</button>
                     </div>
                 </form>
@@ -110,6 +114,8 @@
                 <form class="needs-validation" method="post" action="bookingController">
                     <div class="row g-3">
                         <div class="col-sm-6">
+                            <input type="hidden" name="homestayid" value="${detail.homeStayID}"> 
+                            <input type="hidden" name="voucherid" value="${check}"> 
                             <label for="firstName" class="form-label">First name</label>
                             <input type="text" class="form-control" id="firstName" name="firstname" required>
                             <div class="invalid-feedback">
@@ -123,9 +129,17 @@
                                 Valid last name is required.
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Visitor Number</label>
+                            <input type="number" class="form-control" id="lastName" name="numvisitor" min="1" required>
+                            <div class="invalid-feedback">
+                                Visitor is required.
+                            </div>
+                        </div>
                         <div class="col-12">
                             <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
-                            <input name="startdate" type="date" class="form-control" required>
+                            <input name="startdate" type="date" value="${date}" class="form-control" required min="${date}">
+                            
                         </div>
                         <div class="col-12">
                             <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
