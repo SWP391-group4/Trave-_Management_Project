@@ -57,6 +57,7 @@ public class AdminPendingHomstayController extends HttpServlet {
 
         
         request.setAttribute("supplier", supplier);
+        System.out.println(supplier.getStatus());
         request.setAttribute("homestay", homestay);
         request.setAttribute("listImage", image);
         request.setAttribute("category", category);

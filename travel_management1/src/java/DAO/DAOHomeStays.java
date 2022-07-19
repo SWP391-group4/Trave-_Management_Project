@@ -436,12 +436,66 @@ public class DAOHomeStays extends connectDB {
         return 0;
     }
 
+    public int totalPendingHomestaySearch(String search) {
+        String sql = "select count(*) from "
+                + "homestays h inner join suppliers s "
+                + "on h.accountS = s.accountS "
+                + " where h.status = 2 and s.status = 1 "
+                + "and ("
+                + " h.homestayName like '%" + search + "%' or "
+                + "s.firstname like '%" + search + "%' or "
+                + "s.lastname like '%" + search + "%' )";
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+
     public List<HomeStays> paggingHomestayPending(int index) {
         List<HomeStays> list = new ArrayList<>();
         String sql = "select * from"
                 + " homestays h inner join suppliers s \n"
                 + "on h.accountS = s.accountS "
                 + "where h.status = 2 and s.status = 1\n"
+                + "order by h.AccountS \n"
+                + "offset ?\n"
+                + "rows fetch\n"
+                + "next 5 rows \n"
+                + "only;";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, (index - 1) * 5);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                list.add(new HomeStays(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOHomeStays.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<HomeStays> paggingHomestayPendingSearch(int index, String search) {
+        List<HomeStays> list = new ArrayList<>();
+        String sql = "select * from"
+                + " homestays h inner join suppliers s \n"
+                + "on h.accountS = s.accountS "
+                + "where h.status = 2 and s.status = 1\n"
+                + "and ("
+                + " h.homestayName like '%" + search + "%' or "
+                + "s.firstname like '%" + search + "%' or "
+                + "s.lastname like '%" + search + "%' )"
                 + "order by h.AccountS \n"
                 + "offset ?\n"
                 + "rows fetch\n"
@@ -1168,7 +1222,9 @@ public class DAOHomeStays extends connectDB {
 //
 //        String code = dao.getIdAuto();
 //        System.out.println(code);
-        List<HomeStays> list = dao.getHomeStayforBOOKINGbySUP("2convitcon");
+        List<HomeStays> list = dao.paggingHomestayPendingSearch(1, "dieu");
+        int total = dao.totalPendingHomestaySearch("dieu");
+        System.out.println(total);
         for (HomeStays temp : list) {
             System.out.println(temp);
         }
@@ -1176,7 +1232,6 @@ public class DAOHomeStays extends connectDB {
 //h=dao.getHomestaybyAccountS("2convitcon");
 //        System.out.println(h);
 //    }
-        HomeStayDetails hd = dao.getHomestayDetail("HS0001");
-        System.out.println(hd);
+
     }
 }

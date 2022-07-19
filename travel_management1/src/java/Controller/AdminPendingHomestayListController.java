@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOHomeStays;
+import DAO.DAOImages;
 import DAO.DAOSupplierTemp;
 import Entity.HomeStayAddressses;
 import Entity.*;
@@ -56,7 +57,8 @@ public class AdminPendingHomestayListController extends HttpServlet {
         processRequest(request, response);
         DAOHomeStays daoHomestay = new DAOHomeStays();
         DAOSupplierTemp daoSupTemp = new DAOSupplierTemp();
-        
+        DAOImages daoImage = new DAOImages();
+
         String indexPage = request.getParameter("index");
         if (indexPage == null) {
             indexPage = "1";
@@ -75,23 +77,24 @@ public class AdminPendingHomestayListController extends HttpServlet {
         List<HomeStayAddressses> listAddress;
         List<Categories> listCat = new ArrayList<>();
         List<HomeStayDetails> listDetail = new ArrayList<>();
-        
+        List<Images> listImage = new ArrayList<>();
+
         listAddress = daoHomestay.getListAddress(listHomestay);
         for (HomeStays o : listHomestay) {
             listSupplier.add(daoSupTemp.getSupplier(o.getHomeStayID()));
             listCat.add(daoHomestay.getCategory(o.getHomeStayID()));
             listDetail.add(daoHomestay.getHomestayDetail(o.getHomeStayID()));
-            
+            listImage.add(daoImage.getIMGtop1(o.getHomeStayID()));
         }
 
         //-------------------------------
-        
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", listHomestay);
         request.setAttribute("listSupplier", listSupplier);
         request.setAttribute("listAddress", listAddress);
         request.setAttribute("listCat", listCat);
         request.setAttribute("listDetail", listDetail);
+        request.setAttribute("listImage", listImage);
         request.setAttribute("size", listHomestay.size());
         request.setAttribute("tag", index);
         request.getSession().setAttribute("tag", index);
@@ -110,6 +113,52 @@ public class AdminPendingHomestayListController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOHomeStays daoHomestay = new DAOHomeStays();
+        DAOSupplierTemp daoSupTemp = new DAOSupplierTemp();
+        DAOImages daoImage = new DAOImages();
+
+        String search = request.getParameter("search");
+        
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = daoHomestay.totalPendingHomestaySearch(search);
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
+
+        List<HomeStays> listHomestay = daoHomestay.paggingHomestayPendingSearch(index, search);
+
+        //-------------------------------
+        List<Suppliers> listSupplier = new ArrayList<>();
+        List<HomeStayAddressses> listAddress;
+        List<Categories> listCat = new ArrayList<>();
+        List<HomeStayDetails> listDetail = new ArrayList<>();
+        List<Images> listImage = new ArrayList<>();
+
+        listAddress = daoHomestay.getListAddress(listHomestay);
+        for (HomeStays o : listHomestay) {
+            listSupplier.add(daoSupTemp.getSupplier(o.getHomeStayID()));
+            listCat.add(daoHomestay.getCategory(o.getHomeStayID()));
+            listDetail.add(daoHomestay.getHomestayDetail(o.getHomeStayID()));
+            listImage.add(daoImage.getIMGtop1(o.getHomeStayID()));
+        }
+
+        //-------------------------------
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listHomestay);
+        request.setAttribute("listSupplier", listSupplier);
+        request.setAttribute("listAddress", listAddress);
+        request.setAttribute("listCat", listCat);
+        request.setAttribute("listDetail", listDetail);
+        request.setAttribute("listImage", listImage);
+        request.setAttribute("size", listHomestay.size());
+        request.setAttribute("tag", index);
+        request.getSession().setAttribute("tag", index);
+        request.getRequestDispatcher("RegisterHomestayList.jsp").forward(request, response);
     }
 
     /**

@@ -431,7 +431,8 @@ public class DAOSupplierTemp extends connectDB {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6));
+                        rs.getString(6),
+                        rs.getInt(7));
 
             }
 
@@ -620,6 +621,7 @@ public class DAOSupplierTemp extends connectDB {
         List<HomeStays> l = dao.getListHoneStayBySupplierId("123456cainha");
         Categories c = dao.getCategories("123456cainha");
         HomeStayDetails hd = dao.getHomestayDetails("HS0007");
-        System.out.println(hd);
+        Suppliers s = dao.getSupplier("HS105");
+        System.out.println(s);
     }
 }

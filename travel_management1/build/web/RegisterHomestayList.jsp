@@ -45,7 +45,7 @@
                     <div class="card-header py-3"  style="display: inline-flex; justify-content: space-between ">
                         <h6 class="m-0 font-weight-bold text-primary">Pending Homestay</h6>
                         <div>
-                            <form action="AdminSearchPending">
+                            <form action="AdminPendingHomestayList" method="post">
 
                                 <input type="text" name="search" placeholder="Search">
                                 <input type="submit" class="btn btn-success" value="Search">
@@ -62,7 +62,13 @@
                                 <div class="px-3 my-3">
                                     <a class="cart-item-product" href="#">
                                         <div class="cart-item-product-thumb">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Product">
+                                            <c:if test="${listImage.get(i).imageUrl==null}">
+                                                <img src="images/default_person.jpg" alt="Product">
+                                            </c:if>
+                                                <c:if test="${listImage.get(i).imageUrl!=null}">
+                                                <img src="images/${listImage.get(i).imageUrl}" alt="Product">
+                                            </c:if>
+                                            
                                         </div>
                                         <div class="cart-item-product-info">
                                             <h4 class="font-weight-bold">
@@ -102,8 +108,6 @@
                                     </span>
                                 </div>
                                 <div class="px-3 my-3 text-center">
-
-                                    <button class="btn btn-success">Activate</button>
                                     
                                     <a href="PendingHomstay?homeStayId=${list.get(i).homeStayID}&homestayPending=activate"><button class="btn btn-warning">Detail ></button></a>
                                 </div>
@@ -111,6 +115,7 @@
                             <!-- Cart Item-->
                         </div>
                     </c:forEach>
+                    
                     <c:set value="${endPage}" var="o"/>
                     <ul class="pagination justify-content-center">
                         <c:choose>
