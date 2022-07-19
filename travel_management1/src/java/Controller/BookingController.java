@@ -32,6 +32,7 @@ public class BookingController extends HttpServlet {
 
     DAOVoucherCustomer daov = new DAOVoucherCustomer();
     DAOBooking daob = new DAOBooking();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -72,7 +73,16 @@ public class BookingController extends HttpServlet {
                     List<VoucherCustomer> list = daov.getVoucherbyVId(v);
                     check = list.get(0).getVoucherId();
                     String d = String.valueOf(list.get(0).getDiscount());
-                    String neww = "0.".concat(d);
+                    String neww = "0";
+                    if (list.get(0).getDiscount() < 10) {
+                        neww = "0.0".concat(d);
+                    }
+                    if (list.get(0).getDiscount() == 100) {
+                        neww = "1";
+                    }
+                    if (list.get(0).getDiscount() >= 10 && list.get(0).getDiscount() <= 99) {
+                        neww = "0.".concat(d);
+                    }
                     discount = Double.valueOf(neww);
                 }
                 HomeStays h = dao.getHomestay(homeStayId);
@@ -92,12 +102,22 @@ public class BookingController extends HttpServlet {
                 String rent = request.getParameter("rent");
                 String total = request.getParameter("total");
                 String numvisitor = request.getParameter("numvisitor");
+                int Rent = Integer.parseInt(rent);
+                double Total = Double.valueOf(total);
+                int Numvisitor = Integer.parseInt(numvisitor);
                 if (!voucherId.isEmpty()) {
                     daov.removeVoucherCus(voucherId);
                 }
-                
-                
-                daob.addBooking(new Booking(cusid, homeStayId, 0, firstname, lastname, rent, rent, 0, 0, 0, 0, total));
+                int od = daob.countordernumber(homeStayId);
+                int ordernumber = 0;
+                if (od == 0) {
+                    ordernumber = 1;
+                } else {
+                    ordernumber = daob.getLastOrdernum(homeStayId) + 1;
+                }                               
+                daob.addBooking(new Booking(cusid, homeStayId, ordernumber, firstname, lastname, cus.getPhone(), startdate, Rent, Numvisitor, Total, 0, cus.getEmail()));
+                daob.updateHomeStaysStatus(homeStayId);
+                response.sendRedirect("Home");
             }
         }
     }

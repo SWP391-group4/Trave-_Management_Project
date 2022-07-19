@@ -422,6 +422,21 @@ public class DAOBooking extends connectDB {
 
     }
 
+    public int updateHomeStaysStatus(String id) {
+        int n = 0;
+        String sql = "UPDATE [dbo].[HomeStays]\n"
+                + "   SET [Status] = ?\n"
+                + " WHERE homestayid='" + id + "    '";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, 0);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOBooking dao = new DAOBooking();
 //        List<Booking> list = dao.getBookingbyHomeStayIDandORDER("HS0002",13);
@@ -452,6 +467,6 @@ public class DAOBooking extends connectDB {
 //            Logger.getLogger(DAOBooking.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        int n = dao.addBooking(new Booking("caoboimiennui", "HS0001    ", 2, "1", "1", "1", "2022-01-05", 0, 0, 0, 0, "1"));
-        System.out.println(dao.getLastOrdernum("HS0001    "));
+        System.out.println(dao.updateHomeStaysStatus("HS0001    "));
     }
 }
