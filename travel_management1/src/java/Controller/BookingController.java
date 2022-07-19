@@ -4,8 +4,10 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
 import DAO.DAOVoucherCustomer;
 import Entity.Customers;
+import Entity.HomeStays;
 import Entity.VoucherCustomer;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,14 +40,21 @@ public class BookingController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String submit = request.getParameter("submit");
-        if (submit == null) {
-            HttpSession session = request.getSession();
-            Customers cus = (Customers) session.getAttribute("customer");
-            String cusid = cus.getAccountC();
-            List<VoucherCustomer> voucher=daov.getVoucherbyId(cusid);
-            request.setAttribute("voucher", voucher);
-            request.getRequestDispatcher("Booking.jsp").forward(request, response);
+        try ( PrintWriter out = response.getWriter()) {
+            String submit = request.getParameter("submit");
+            DAOHomeStays dao = new DAOHomeStays();
+            if (submit == null) {
+                HttpSession session = request.getSession();
+                Customers cus = (Customers) session.getAttribute("customer");
+                String cusid = cus.getAccountC();
+                String homeStayId = request.getParameter("homeStayId");
+                HomeStays h = dao.getHomestay(homeStayId);
+                List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
+
+                request.setAttribute("detail", h);
+                request.setAttribute("voucher", voucher);
+                request.getRequestDispatcher("Booking.jsp").forward(request, response);
+            }
         }
     }
 
@@ -89,3 +98,4 @@ public class BookingController extends HttpServlet {
     }// </editor-fold>
 
 }
+

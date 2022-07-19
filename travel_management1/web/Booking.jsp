@@ -70,19 +70,19 @@
     <body oncontextmenu='return false' class='snippet-body'>
         <main class="container"  style="margin-bottom:50px">
             <div class="py-5 text-center">
-                <h2>Booking form</h2>
+                <h2>Booking</h2>
             </div>
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Total Price</span>
-                        <span class="badge bg-primary rounded-pill">3000000 VND</span>
+                        <span class="badge bg-primary rounded-pill">${detail.price} VND</span>
                     </h4>
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">HomeStay:  </h6>
-                                <small>Address :</small>
+                                <h6 class="my-0">HomeStay: ${detail.homeStayname} </h6>
+                                <small>Address: ${detail.specific}, ${detail.ward}, ${detail.city}</small>
                             </div>  
                         </li>        
                     </ul>
@@ -120,8 +120,8 @@
                                 <input name="startdate" type="date" class="form-control" required>
                             </div>
                             <div class="col-12">
-                                <label for="day" class="form-label">End Day <span class="text-muted"></span></label>
-                                <input name="enddate" type="date" class="form-control" required>
+                                <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
+                                <input name="rent" type="number" class="form-control" required min="1" >
                             </div>
                         </div>
                         <br>
