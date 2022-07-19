@@ -846,7 +846,7 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getHomeStayforSUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select h.HomeStayId,\n" +
+        String sql = "select h.HomeStayId,cat.cateid,\n" +
 "                 h.HomeStayName, \n" +
 "                 h.AccountS,\n" +
 "                cat.CateName,\n" +
@@ -866,7 +866,7 @@ public class DAOHomeStays extends connectDB {
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getString(4), rs.getInt(5)));
+                        rs.getString(4),rs.getString(5), rs.getInt(6)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -1092,7 +1092,7 @@ public class DAOHomeStays extends connectDB {
 //
 //        String code = dao.getIdAuto();
 //        System.out.println(code);
-        List<HomeStays> list = dao.getHomeStayforBOOKINGbySUP("2convitcon");
+        List<HomeStays> list = dao.getHomeStayforSUP("2convitcon");
         for (HomeStays temp : list) {
             System.out.println(temp);
         }

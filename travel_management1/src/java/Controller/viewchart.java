@@ -33,6 +33,8 @@ public class viewchart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+          String type=    request.getParameter("type");
+    
         DAOBooking dao = new DAOBooking();
         DAOSupplier daos=new DAOSupplier();
         String homeStayID = request.getParameter("homeStayID");

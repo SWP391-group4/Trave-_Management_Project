@@ -113,7 +113,9 @@
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> ${sp.email} </li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Phone</strong></span> ${sp.phone} </li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Fax</strong></span> ${sp.fax} </li>
-                    </ul></div>
+                    </ul>
+                   
+        </div>
                       <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
