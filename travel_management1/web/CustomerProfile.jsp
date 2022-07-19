@@ -209,7 +209,7 @@
                                             <c:set value="${listHomestay}" var="listHomestay"/>
                                             <c:set value="${listBooking}" var="listBooking"/>
                                             <c:set value="${listSup}" var="listSup"/>
-                                            <c:forEach begin="0" end="${size-1}" var="i">
+                                            <c:forEach begin="0" end="${listBooking.size()-1}" var="i">
                                                 <tr class="inner-box">
                                                     <th scope="row">
                                                         <div class="event-date">
@@ -227,7 +227,7 @@
                                                             <h3><a href="HomeStayDetailController?homeStayID=${listHomestay.get(i).homeStayID}">${listHomestay.get(i).homeStayname}</a></h3>
                                                             <div class="meta">
                                                                 <div class="organizers">
-                                                                    <a href="#">${listSup.get(i).firstName}${listSup.get(i).lastName}</a>
+                                                                    <a href="#">${listSupBook.get(i).firstName}${listSupBook.get(i).lastName}</a>
                                                                 </div>
                                                                 <div class="time">
                                                                     <i class="bi bi-people-fill">
@@ -319,7 +319,7 @@
                                         <tbody>
                                             <c:set value="${listHistory}" var="listHistory"/>
                                             <c:set value="${listHomestayHistory}" var="listHomestayHistory"/>
-                                            <c:forEach begin="0" end="${size-1}" var="i">
+                                            <c:forEach begin="0" end="${listHistory.size()-1}" var="i">
                                                 <tr class="inner-box">
                                                     <th scope="row">
                                                         <div class="event-date">
