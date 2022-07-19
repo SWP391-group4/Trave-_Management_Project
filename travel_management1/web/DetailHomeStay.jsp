@@ -87,7 +87,9 @@
                             <c:if test="${sessionScope.acc!=null}">  
                                 <div class="fields">
                                     <div class="form-group">
-                                        <a href="bookingController">   <input type="submit" href="bookingController" value="Booking" class="btn btn-primary py-3 px-5">
+                                        
+                                        <a href="bookingController?homeStayId=${detail.homeStayID}"> 
+                                            <input type="submit" href="bookingController" value="Booking" class="btn btn-primary py-3 px-5">
                                         </a>
                                     </div>
                                 </div>        

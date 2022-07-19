@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author thinh
  */
-@WebServlet(name = "manageBooking", urlPatterns = {"/manageBooking"})
+@WebServlet(name = "manageBooking", urlPatterns = {"/manageBookingexport"})
 public class manageBooking extends HttpServlet {
 
     /**
@@ -41,6 +41,8 @@ public class manageBooking extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String homeStayID = request.getParameter("homeStayID");
+        response.setContentType("application/vnd.ms-excel");
+    response.setHeader("Content-Disposition", "attachment;filename=doc.xls");
 //        String orderNumber=request.getParameter("OrderNumber");
 //        int OrderNumber=Integer.parseInt(orderNumber);
         DAOBooking dao = new DAOBooking();

@@ -4,20 +4,36 @@
  */
 package Controller;
 
+import DAO.DAOBooking;
+import DAO.DAOHomeStays;
+import DAO.DAOVoucherCustomer;
+import DAO.DAOsendEmailBooking;
+import Entity.Booking;
+import Entity.Customers;
+import Entity.HomeStays;
+import Entity.User;
+import Entity.VoucherCustomer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author thinh
+ * @author nam
  */
 @WebServlet(name = "BookingController", urlPatterns = {"/bookingController"})
 public class BookingController extends HttpServlet {
+
+    DAOVoucherCustomer daov = new DAOVoucherCustomer();
+    DAOBooking daob = new DAOBooking();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,8 +47,91 @@ public class BookingController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("Booking.jsp").forward(request, response);
+        try ( PrintWriter out = response.getWriter()) {
+            String submit = request.getParameter("submit");
+            DAOHomeStays dao = new DAOHomeStays();
+            HttpSession session = request.getSession();
+            Customers cus = (Customers) session.getAttribute("customer");
+            String cusid = cus.getAccountC();
+            if (submit == null) {
+                String homeStayId = request.getParameter("homeStayId");
+                HomeStays h = dao.getHomestay(homeStayId);
+                List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
+                double discount = 0.0;
+                request.setAttribute("discount", discount);
+                request.setAttribute("detail", h);
+                request.setAttribute("voucher", voucher);
+                request.getRequestDispatcher("Booking.jsp").forward(request, response);
+            }
+            if ("add".equals(submit)) {
+                List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
+                String homeStayId = request.getParameter("homestayid");
+                String v = request.getParameter("voucherid");
+                String check = null;
+                Double discount = 0.0;
+                if (v.equals(".")) {
+                    discount = 0.0;
+                } else {
+                    List<VoucherCustomer> list = daov.getVoucherbyVId(v);
+                    check = list.get(0).getVoucherId();
+                    String d = String.valueOf(list.get(0).getDiscount());
+                    String neww = "0";
+                    if (list.get(0).getDiscount() < 10) {
+                        neww = "0.0".concat(d);
+                    }
+                    if (list.get(0).getDiscount() == 100) {
+                        neww = "1";
+                    }
+                    if (list.get(0).getDiscount() >= 10 && list.get(0).getDiscount() <= 99) {
+                        neww = "0.".concat(d);
+                    }
+                    discount = Double.valueOf(neww);
+                }
+                HomeStays h = dao.getHomestay(homeStayId);
 
+                request.setAttribute("discount", discount);
+                request.setAttribute("detail", h);
+                request.setAttribute("check", check);
+                request.setAttribute("voucher", voucher);
+                request.getRequestDispatcher("Booking.jsp").forward(request, response);
+            }
+            if ("book".equals(submit)) {
+                String homeStayId = request.getParameter("homestayid");
+                String voucherId = request.getParameter("voucherid");
+                String firstname = request.getParameter("firstname");
+                String lastname = request.getParameter("lastname");
+                String startdate = request.getParameter("startdate");
+                String rent = request.getParameter("rent");
+                String total = request.getParameter("total");
+                String numvisitor = request.getParameter("numvisitor");
+                int Rent = Integer.parseInt(rent);
+                double Total = Double.valueOf(total);
+                int Numvisitor = Integer.parseInt(numvisitor);
+                if (!voucherId.isEmpty()) {
+                    daov.removeVoucherCus(voucherId);
+                }
+                int od = daob.countordernumber(homeStayId);
+                int ordernumber = 0;
+                if (od == 0) {
+                    ordernumber = 1;
+                } else {
+                    ordernumber = daob.getLastOrdernum(homeStayId) + 1;
+                }
+                daob.addBooking(new Booking(cusid, homeStayId, ordernumber, firstname, lastname, cus.getPhone(), startdate, Rent, Numvisitor, Total, 0, cus.getEmail()));
+                daob.updateHomeStaysStatus(homeStayId);
+                String email = request.getParameter("email");
+                DAOsendEmailBooking sm = new DAOsendEmailBooking();
+                //get the 6-digit code
+                String code = "Thanks for using our website. The supplier will contact you shortly.";
+
+                //craete new user using all information
+                User user = new User(cus.getEmail(), code);
+
+                //call the send email method
+                boolean test = sm.sendEmail(user);
+                response.sendRedirect("Home");
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

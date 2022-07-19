@@ -1,201 +1,160 @@
+<%@page import="Entity.HomeStays"%>
 <!doctype html>
-                        <html>
-                            <head>
-                                <meta charset='utf-8'>
-                                <meta name='viewport' content='width=device-width, initial-scale=1'>
-                                <title>Snippet - GoSNippets</title>
-                                <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
-                                <link href='' rel='stylesheet'>
-                                <style>h2 {
-    font-size: 40px;
-    background: linear-gradient(to left, #660066 0%, #ff3300 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}</style>
-                                <script type='text/javascript' src=''></script>
-                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-                                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
-                            </head>
-                            <body oncontextmenu='return false' class='snippet-body'>
-                            <main>
-    <div class="py-5 text-center">
-        <h2>Checkout form</h2>
-    </div>
-    <div class="row g-5">
-        <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Total Price</span>
-                <span class="badge bg-primary rounded-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">HomeStay Name</h6>
-                        <small class="text-muted">Day: </small>
-                    </div>
-                    <span class="text-muted">price</span>   
-                </li>        
-               
-            </ul>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='' rel='stylesheet'>
+        <style>h2 {
+                font-size: 40px;
+                background: linear-gradient(to left, #660066 0%, #ff3300 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }</style>
+        <script type='text/javascript' src=''></script>
+        <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+        <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <title>CTU Travel</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <link href="star/rateit.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/cmt.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="icon" href="images/logo.png" type="">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+        <link rel="stylesheet" href="css/aos.css">
 
-            <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <button type="submit" class="btn btn-danger">Redeem</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate>
-                <div class="row g-3">
-                    <div class="col-sm-6">
-                        <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
-                    </div>
+        <link rel="stylesheet" href="css/ionicons.min.css">
 
-                    <div class="col-sm-6">
-                        <label for="lastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
-                    </div>
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/jquery.timepicker.css">
 
 
-                    <div class="col-12">
-                        <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
-                        </div>
-                    </div>
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
-                    <div class="col-12">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Plaza street" required>
-                        <div class="invalid-feedback">
-                            Please enter your shipping address.
-                        </div>
-                    </div>
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
 
-                    <div class="col-12">
-                        <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                    </div>
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
 
-                    <div class="col-md-5">
-                        <label for="country" class="form-label">Country</label>
-                        <select class="form-select" id="country" required>
-                            <option value="">Choose...</option>
-                            <option>India</option>
+        <link rel="stylesheet" href="css/aos.css">
+
+        <link rel="stylesheet" href="css/ionicons.min.css">
+
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="blog-overview.css" rel="stylesheet">
+    </head>
+</head>
+<jsp:include page="Header.jsp"></jsp:include>
+    <body oncontextmenu='return false' class='snippet-body'>
+        <main class="container"  style="margin-bottom:50px">
+            <div class="py-5 text-center">
+                <h2>Booking</h2>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Total Price</span>
+                    <%  
+                        HomeStays h = (HomeStays) request.getAttribute("detail");
+                        double discount = (double) request.getAttribute("discount");
+                        double total = h.getPrice() - discount * h.getPrice();
+                    %>
+                    <span class="badge bg-primary rounded-pill"><%=total%> VND</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">HomeStay: ${detail.homeStayname} </h6>
+                            <small>Address: ${detail.specific}, ${detail.ward}, ${detail.city}</small>
+                        </div>  
+                    </li>        
+                </ul>
+                <form class="card p-2" method="post" action="bookingController">
+                    <div class="input-group">    
+                        <input type="hidden" name="homestayid" value="${detail.homeStayID}">  
+                        <select class="form-select" id="country" name="voucherid" >
+                            <option value=".">No Use</option>
+                            <c:forEach items="${voucher}" var="c">                                  
+                                <c:if test="${c.voucherId==check}">                               
+                                    <option value="${c.voucherId}" selected="">${c.title} (${c.discount}%)</option>
+                                </c:if>
+                                <c:if test="${c.voucherId!=check}">                               
+                                    <option value="${c.voucherId}" >${c.title} (${c.discount}%)</option>
+                                </c:if>
+                            </c:forEach>
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
+                        <button type="submit" name="submit" value="add" class="btn btn-danger">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <form class="needs-validation" method="post" action="bookingController">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <input type="hidden" name="homestayid" value="${detail.homeStayID}"> 
+                            <input type="hidden" name="voucherid" value="${check}">
+                            <input type="hidden" name="total" value="<%=total%>">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstname" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastname" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Visitor Number</label>
+                            <input type="number" class="form-control" id="lastName" name="numvisitor" min="1" required>
+                            <div class="invalid-feedback">
+                                Visitor is required.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
+                            <input name="startdate" type="date" value="${date}" class="form-control" required min="${date}">
+                            
+                        </div>
+                        <div class="col-12">
+                            <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
+                            <input name="rent" type="number" class="form-control" required min="1" >
                         </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <label for="state" class="form-label">State</label>
-                        <select class="form-select" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>Delhi</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="zip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Zip code required.
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-4">
-
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="same-address">
-                    <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                </div>
-
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="save-info">
-                    <label class="form-check-label" for="save-info">Save this information for next time</label>
-                </div>
-
-                <hr class="my-4">
-
-                <h4 class="mb-3">Payment</h4>
-
-                <div class="my-3">
-                    <div class="form-check">
-                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                        <label class="form-check-label" for="credit">Credit card</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                        <label class="form-check-label" for="debit">Debit card</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                        <label class="form-check-label" for="paypal">Paytm</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                        <label class="form-check-label" for="paypal">Phonepe</label>
-                    </div>
-                </div>
-
-                <div class="row gy-3">
-                    <div class="col-md-6">
-                        <label for="cc-name" class="form-label">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                        <small class="text-muted">Full name as displayed on card</small>
-                        <div class="invalid-feedback">
-                            Name on card is required
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Credit card number is required
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cc-expiration" class="form-label">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Expiration date required
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cc-cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Security code required
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-4">
-
-                <button class="w-100 btn btn-danger btn-lg" type="submit">Continue to checkout</button>
-            </form>
+                    <br>
+                    <br>
+                    <button class="w-100 btn btn-danger btn-lg" name="submit" value="book" type="submit">Book now</button>
+                </form>
+            </div>
         </div>
-    </div>
-</main>
-                            <script type='text/javascript'></script>
-                                    <jsp:include page="Footer.jsp"></jsp:include>
-                            </body>
-                        </html>
+    </main>
+    <script type='text/javascript'></script>
+    <jsp:include page="Footer.jsp"></jsp:include>
+</body>
+</html>

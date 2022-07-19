@@ -8,6 +8,10 @@ import Entity.VoucherCustomer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  *
@@ -53,7 +57,8 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return 0;
     }
-     public String lastVoucherCusId() {
+
+    public String lastVoucherCusId() {
         String sql = "select top 1 VoucherId from VoucherCustomer\n"
                 + "order by VoucherId desc";
         ResultSet rs = getData(sql);
@@ -66,10 +71,67 @@ public class DAOVoucherCustomer extends DBContext.connectDB {
         }
         return null;
     }
+
+    public List<VoucherCustomer> getVoucherbyId(String id) {
+        List<VoucherCustomer> list = new ArrayList<VoucherCustomer>();
+        String sql = "SELECT voucherId,title, discount from VoucherCustomer\n"
+                + "where AccountC='" + id + "'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String voucherId = rs.getString(1);
+                String title = rs.getString(2);
+                int discount = rs.getInt(3);
+                VoucherCustomer obj = new VoucherCustomer(voucherId, title, discount);
+                list.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<VoucherCustomer> getVoucherbyVId(String id) {
+        List<VoucherCustomer> list = new ArrayList<VoucherCustomer>();
+        String sql = "SELECT voucherId,title, discount from VoucherCustomer\n"
+                + "where voucherId='" + id + "'";
+        try {
+            Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state1.executeQuery(sql);
+            while (rs.next()) {
+                String voucherId = rs.getString(1);
+                String title = rs.getString(2);
+                int discount = rs.getInt(3);
+                VoucherCustomer obj = new VoucherCustomer(voucherId, title, discount);
+                list.add(obj);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+    public int removeVoucherCus(String id) {
+        int n = 0;
+        String sql = "DELETE FROM [dbo].[VoucherCustomer]\n"
+                + "      WHERE VoucherId='" + id + "'";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+
     public static void main(String[] args) {
         DAOVoucherCustomer dao = new DAOVoucherCustomer();
 //        dao.addVoucherCus(new VoucherCustomer("VCM001     ", "1", "10", 1, "caoboimiennui"));
-          System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
+        //       System.out.println(dao.getQuantityVoucherbyAcc("caoboimiennui", "1"));
 //          System.out.println(dao.lastVoucherCusId());
+        List<VoucherCustomer> list = dao.getVoucherbyVId("VC002     ");
+        dao.removeVoucherCus("VC017     ");
+
     }
 }

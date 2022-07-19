@@ -87,21 +87,21 @@
                                 <div class="col-xs-6">
                                     <label for="first_name">
                                         <h4>City</h4></label>
-                                    <input type="text" class="form-control" value=""  name="city" id="first_name" placeholder="${spa.city}" title="">
+                                    <input type="text" class="form-control" value="${spa.city}""  name="city" id="first_name" placeholder="${spa.city}" title="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="first_name">
                                         <h4>Ward</h4></label>
-                                    <input type="text" class="form-control" value=""  name="ward" id="first_name" placeholder="${spa.ward}" title="">
+                                    <input type="text" class="form-control" value="${spa.ward}"  name="ward" id="first_name" placeholder="${spa.ward}" title="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="first_name">
                                         <h4>District</h4></label>
-                                    <input type="text" class="form-control" value=""  name="district" id="first_name" placeholder="${spa.district}" title="">
+                                    <input type="text" class="form-control" value="${spa.district}"  name="district" id="first_name" placeholder="${spa.district}" title="">
                                 </div>
                             </div>
 
@@ -109,7 +109,7 @@
                                 <div class="col-xs-6">
                                     <label for="first_name">
                                         <h4>Specific</h4></label>
-                                    <input type="text" class="form-control" value=""  name="specific" id="first_name" placeholder="${spa.specific}" title="">
+                                    <input type="text" class="form-control" value="${spa.specific}"  name="specific" id="first_name" placeholder="${spa.specific}" title="">
                                 </div>
                             </div>
                             <div class="form-group">

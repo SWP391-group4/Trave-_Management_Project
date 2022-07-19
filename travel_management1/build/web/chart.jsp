@@ -71,17 +71,19 @@
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart 
+                            <i class="fas fa-chart-bar me-1"></i>
+                           Bar Chart 
                         </div>
                         <div class="card-body">
-                            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                         <canvas id="bar-chart" width="100%" height="30"></canvas>
+                         
                         </div>
 
                     </div>
                     
-                </div>              
-            </div>
+                </div>   
+            
+            
         </main>
         <!-- Essential javascripts for application to work-->
         <script src="admin/js/jquery-3.2.1.min.js"></script>
@@ -96,105 +98,95 @@
         <!-- Data table plugin-->
         <script type="text/javascript" src="admin/js/plugins/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="admin/js/plugins/dataTables.bootstrap.min.js"></script>
-        <script type="text/javascript">$('#sampleTable').DataTable();</script>
-        <script>
-            //Thời Gian
-            function time() {
-                var today = new Date();
-                var weekday = new Array(7);
-                weekday[0] = "SunDay";
-                weekday[1] = "Monday";
-                weekday[2] = "Tueday";
-                weekday[3] = "Wednesday";
-                weekday[4] = "Thursday";
-                weekday[5] = "Friday";
-                weekday[6] = "Saturday";
-                var day = weekday[today.getDay()];
-                var dd = today.getDate();
-                var mm = today.getMonth() + 1;
-                var yyyy = today.getFullYear();
-                var h = today.getHours();
-                var m = today.getMinutes();
-                var s = today.getSeconds();
-                m = checkTime(m);
-                s = checkTime(s);
-                nowTime = h + " : " + m + " : " + s + " :";
-                if (dd < 10) {
-                    dd = '0' + dd
-                }
-                if (mm < 10) {
-                    mm = '0' + mm
-                }
-                today = day + ', ' + dd + '/' + mm + '/' + yyyy;
-                tmp = '<span class="date"> ' + today + ' - ' + nowTime +
-                        '</span>';
-                document.getElementById("clock").innerHTML = tmp;
-                clocktime = setTimeout("time()", "1000", "Javascript");
-
-                function checkTime(i) {
-                    if (i < 10) {
-                        i = "0" + i;
-                    }
-                    return i;
-                }
-            }
-            //In dữ liệu
-            var myApp = new function () {
-                this.printTable = function () {
-                    var tab = document.getElementById('sampleTable');
-                    var win = window.open('', '', 'height=700,width=700');
-                    win.document.write(tab.outerHTML);
-                    win.document.close();
-                    win.print();
-                }
-            }
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <!--  Area -->
-        <script>
-            const labelsArea = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December',
-            ];
+         
+        <div class="col-sm-3">
+                    <!--left col-->
 
-            const dataArea = {
-                labels: labelsArea,
-                datasets: [{
-                        label: 'Total By Month',
-                        backgroundColor: 'rgb(99, 132, 255)',
-                        borderColor: 'rgb(153, 0, 153)',
-                        data: [${totalPriceMonth1}, ${totalPriceMonth2}, ${totalPriceMonth3}, ${totalPriceMonth4}, ${totalPriceMonth5}, ${totalPriceMonth6}, ${totalPriceMonth7}, ${totalPriceMonth8}, ${totalPriceMonth9}, ${totalPriceMonth10}, ${totalPriceMonth11}, ${totalPriceMonth12}, ${totalPriceMonth5}],
-                    }]
-            };
+                    <ul class="list-group ">
+                        <li class="list-group-item  bg-secondary text-light">Summary</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Total of Booking: </strong></span> ${count1+count2+count3+count4+count5+count6+count7+count8+count9+count10+count11+count12}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Average in this year </strong></span> ${AVyear} dong </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Phone</strong></span> ${sp.phone} </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Fax</strong></span> ${sp.fax} </li>
+                    </ul>
+                   
+        </div>
+                      <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar me-1"></i>
+                            Line Chart 
+                        </div>
+                        <div class="card-body">
+                 <canvas id="line-chart" width="100%" height="30"></canvas>
+                         
+                        </div>
 
-            const configArea = {
-                type: 'line',
-                data: dataArea,
-                options: {}
-            };
-            const myAreaChart = new Chart(
-                    document.getElementById('myAreaChart'),
-                    configArea
-                    );
+                    </div>
+                    
+                </div>  
+  <script>
+new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      datasets: [
+        {
+          label: "NUMBER",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#50bcc4","#bcc450","#c45850","6aa84f","#741b47","#93c47d","#999999"],
+          data: [${count1},${count2},${count3},${count4},${count5},${count6},${count7},${count8},${count9},${count10},${count11},${count12}]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Number of booking'   
+      }
+    }
+});
     </script>
-    <!-- Bar -->
-  
+   
+        <script>
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      datasets: [
+        {
+          label: "Price by month",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#50bcc4","#bcc450","#c45850","6aa84f","#741b47","#93c47d","#999999"],
+          data: [${Month1},${Month2},${Month3},${Month4},${Month5},${Month6},${Month7},${Month8},${Month9},${Month10},${Month11},${Month12}]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Total Price in Month'
+        
+      }
+    }
+});
+    </script>
+           
+    <a href="chartexport">Export</a>
+
+
+             
+    
+ 
 </body>
 
+  <jsp:include page="Footer.jsp"/>
 </html>
 
 

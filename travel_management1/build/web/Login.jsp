@@ -34,7 +34,7 @@
 
         <!-- Main css -->
         <link rel="stylesheet" href="css/style1.css">
-    </head>
+    </head> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <body style="padding-top: 0px;padding-bottom: 0px">
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="main">
@@ -45,27 +45,30 @@
                         <div class="signup-content">
                             <form method="GET" id="signup-form" class="signup-form" action="login">
                                 <h2 class="form-title">Login</h2>
-                                <p>${requestScope.noti}</p>
 
-                            <div class="form-group">
-                                <input type="text" class="form-input" name="account" id="name" placeholder="account"/>
-                            </div>
 
-                            <div class="form-group">
-                                <input type="password" class="form-input" name="password" id="password" placeholder="Password"/>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="account" id="name" placeholder="account"/>
+                                </div>
 
-                            </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-input" name="password" id="password" placeholder="Password"/>
 
-                            <div class="form-group">
-                                <input type="submit" name="submit" id="submit" class="form-submit" value="Login"/>
-                            </div>
+                                </div>
+                         
+                                <div class="form-group" >
+                                      <input type="submit" name="submit" id="submit" class="form-submit" value="Login"/>
+                                     <p>${mess}</p>
+                                </div>
+                               
+       
+                                
+                         
                         </form>
                         <p class="loginhere">
                             Don't have account ? Click Here to <a href="registerCustomer" class="loginhere-link">Sign Up</a>
                         </p>
-                        <p class="loginhere">
-                            <a href="login.html" class="loginhere-link">Forget password</a>
-                        </p>
+
                     </div>
                 </div>
             </section>

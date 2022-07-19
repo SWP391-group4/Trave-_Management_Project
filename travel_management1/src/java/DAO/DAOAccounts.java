@@ -142,8 +142,8 @@ public class DAOAccounts extends connectDB {
     public static void main(String[] args) {
         DAOAccounts dao = new DAOAccounts();
         
-        
-        int n = dao.insertAccount(new Accounts("haianh123", "123456", 3));
-        System.out.println(n);
+        Accounts a=dao.search("2convitcon", "123");
+        System.out.println(a);
+     
     }
 }
