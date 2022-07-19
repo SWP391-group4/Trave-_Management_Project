@@ -4,8 +4,15 @@
  */
 package Controller;
 
+import DAO.DAOHomeStays;
+import DAO.DAOSupplierTemp;
+import Entity.HomeStayAddressses;
+import Entity.*;
+import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +38,7 @@ public class AdminPendingHomestayListController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +54,48 @@ public class AdminPendingHomestayListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOHomeStays daoHomestay = new DAOHomeStays();
+        DAOSupplierTemp daoSupTemp = new DAOSupplierTemp();
         
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = daoHomestay.totalPendingHomestay();
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
+
+        List<HomeStays> listHomestay = daoHomestay.paggingHomestayPending(index);
+
+        //-------------------------------
+        List<Suppliers> listSupplier = new ArrayList<>();
+        List<HomeStayAddressses> listAddress;
+        List<Categories> listCat = new ArrayList<>();
+        List<HomeStayDetails> listDetail = new ArrayList<>();
+        
+        listAddress = daoHomestay.getListAddress(listHomestay);
+        for (HomeStays o : listHomestay) {
+            listSupplier.add(daoSupTemp.getSupplier(o.getHomeStayID()));
+            listCat.add(daoHomestay.getCategory(o.getHomeStayID()));
+            listDetail.add(daoHomestay.getHomestayDetail(o.getHomeStayID()));
+            
+        }
+
+        //-------------------------------
+        
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("list", listHomestay);
+        request.setAttribute("listSupplier", listSupplier);
+        request.setAttribute("listAddress", listAddress);
+        request.setAttribute("listCat", listCat);
+        request.setAttribute("listDetail", listDetail);
+        request.setAttribute("size", listHomestay.size());
+        request.setAttribute("tag", index);
+        request.getSession().setAttribute("tag", index);
+        request.getRequestDispatcher("RegisterHomestayList.jsp").forward(request, response);
     }
 
     /**

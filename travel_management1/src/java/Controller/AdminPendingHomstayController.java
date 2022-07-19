@@ -40,7 +40,11 @@ public class AdminPendingHomstayController extends HttpServlet {
         DAOImages daoImage = new DAOImages();
         String homeStayId = request.getParameter("homeStayId");
         String index = request.getParameter("index");
-
+        String homestayPending = request.getParameter("homestayPending");
+        if(homestayPending!=null) {
+            request.setAttribute("activate", homestayPending);
+        }
+        
         HomeStays homestay = daoHome.getHomestayById(homeStayId);
         HomeStayAddressses homeAddress = daoHome.searchByHomeStay(homeStayId);
         Extensions extension_temp = daoHome.getExtension(homeStayId);

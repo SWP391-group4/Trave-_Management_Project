@@ -54,74 +54,81 @@
 
                     </div>
                     
-                    <div class="container pb-5 mb-2">
-                        <!-- Alert-->
-                        <!-- Cart Item-->
-                        <div class="cart-item d-md-flex justify-content-between">
-                            <div class="px-3 my-3">
-                                <a class="cart-item-product" href="#">
-                                    <div class="cart-item-product-thumb">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Product">
-                                    </div>
-                                    <div class="cart-item-product-info">
-                                        <h4 class="font-weight-bold">
-                                            Homestay Name here
-                                        </h4>
-                                        <span>
-                                            <strong>
-                                                Type:
-                                            </strong> 
-                                            Category here
-                                        </span>
-                                        <span>
-                                            <strong>
-                                                Address:
-                                            </strong> 
-                                            address here
-                                        </span>
-                                        <span>
-                                            <strong>
-                                                Address:
-                                            </strong> 
-                                            address here
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="px3 my-3 text-center">
-                                <div class="cart-item-label">Supplier</div><span class="text-xl font-weight-medium">supplier here</span>
-                            </div>
-                            <div class="px-3 my-3 text-center">
-                                <div class="cart-item-label">Apparent Price</div><span class="text-xl font-weight-medium">$35.00</span>
-                            </div>
-                            <div class="px-3 my-3 text-center">
-                                
-                                <button class="btn btn-success">Activate</button>
-                                <button class="btn btn-warning">Detail ></button>
-                            </div>
-                        </div>
-                        <!-- Cart Item-->
-                    </div>
+                    <c:forEach begin="0" end="${size-1}" var="i">
+                        <div class="container pb-5 mb-2">
+                            <!-- Alert-->
+                            <!-- Cart Item-->
+                            <div class="cart-item d-md-flex justify-content-between">
+                                <div class="px-3 my-3">
+                                    <a class="cart-item-product" href="#">
+                                        <div class="cart-item-product-thumb">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Product">
+                                        </div>
+                                        <div class="cart-item-product-info">
+                                            <h4 class="font-weight-bold">
+                                                ${list.get(i).homeStayname}
+                                            </h4>
+                                            <span>
+                                                <strong>
+                                                    Type:
+                                                </strong> 
+                                                ${listCat.get(i).cateName}
+                                            </span>
+                                            <span>
+                                                <strong>
+                                                    Address:
+                                                </strong> 
+                                                ${listAddress.get(i).specific},${listAddress.get(i).ward},${listAddress.get(i).district},${listAddress.get(i).city}
+                                            </span>
+                                            
+                                        </div>
+                                    </a>
+                                </div>
 
+                                <div class="px3 my-3 text-center">
+                                    <div class="cart-item-label">
+                                        Supplier
+                                    </div>
+                                    <span class="text-xl font-weight-medium">
+                                        ${listSupplier.get(i).firstName} ${listSupplier.get(i).lastName}
+                                    </span>
+                                </div>
+                                <div class="px-3 my-3 text-center">
+                                    <div class="cart-item-label">
+                                        Apparent Price
+                                    </div>
+                                    <span class="text-xl font-weight-medium">
+                                        ${listDetail.get(i).price} VND
+                                    </span>
+                                </div>
+                                <div class="px-3 my-3 text-center">
+
+                                    <button class="btn btn-success">Activate</button>
+                                    
+                                    <a href="PendingHomstay?homeStayId=${list.get(i).homeStayID}&homestayPending=activate"><button class="btn btn-warning">Detail ></button></a>
+                                </div>
+                            </div>
+                            <!-- Cart Item-->
+                        </div>
+                    </c:forEach>
                     <c:set value="${endPage}" var="o"/>
                     <ul class="pagination justify-content-center">
                         <c:choose>
                             <c:when test="${tag > 1}">
                                 <li class="page-item ">
-                                    <a class="page-link" href="AdminPendingRegister?index=${tag-1}">Previous</a>
+                                    <a class="page-link" href="AdminPendingHomestayList?index=${tag-1}">Previous</a>
                                 </li>
                             </c:when>
                         </c:choose>
                         <c:choose>
                             <c:when test="${tag+3< endPage}">
                                 <c:forEach begin="${tag}" end="${tag+2}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingRegister?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingHomestayList?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
                                 <c:when test="${tag+2>=endPage}">
                                     <c:forEach begin="${tag}" end="${endPage}" var="i">
-                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingRegister?index=${i}">${i}</a></li>
+                                    <li class="${tag==i?"active":""} page-item"><a class="page-link" href="AdminPendingHomestayList?index=${i}">${i}</a></li>
                                     </c:forEach>
                                 </c:when>
                             </c:choose>
@@ -130,7 +137,7 @@
                             <c:when test="${tag+6< endPage}">
                                 <li class="page-item">
                                     <c:set value="${tag+1}" var="n"/>
-                                    <a class="page-link" href="AdminPendingRegister?index=${tag+1}">Next</a>
+                                    <a class="page-link" href="AdminPendingHomestayList?index=${tag+1}">Next</a>
                                 </li>
                             </c:when>
                         </c:choose>
