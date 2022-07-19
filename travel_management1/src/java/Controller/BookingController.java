@@ -59,14 +59,35 @@ public class BookingController extends HttpServlet {
             if ("add".equals(submit)) {
                 List<VoucherCustomer> voucher = daov.getVoucherbyId(cusid);
                 String homeStayId = request.getParameter("homestayid");
+                String v = request.getParameter("voucherid");
+                String check = null;
+                Double discount = 0.0;
+                if (v.equals(".")) {
+                    discount = 0.0;
+                } else {
+                    List<VoucherCustomer> list = daov.getVoucherbyVId(v);
+                    check = list.get(0).getVoucherId();
+                    String d = String.valueOf(list.get(0).getDiscount());
+                    String neww = "0.".concat(d);
+                    discount = Double.valueOf(neww);
+                }
                 HomeStays h = dao.getHomestay(homeStayId);
-                String d = request.getParameter("discount");
-                String neww="0.".concat(d);               
-                Double discount=Double.valueOf(neww);
+
                 request.setAttribute("discount", discount);
                 request.setAttribute("detail", h);
+                request.setAttribute("check", check);
                 request.setAttribute("voucher", voucher);
                 request.getRequestDispatcher("Booking.jsp").forward(request, response);
+            }
+            if ("book".equals(submit)) {
+                String homeStayId = request.getParameter("homestayid");
+                String voucherId = request.getParameter("voucherid");
+                String firstname = request.getParameter("firstname");
+                String lastname = request.getParameter("lastname");
+                String startdate = request.getParameter("startdate");
+                String rent = request.getParameter("rent");
+                String numvisitor = request.getParameter("numvisitor");
+                
             }
         }
     }
