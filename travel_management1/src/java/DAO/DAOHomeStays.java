@@ -87,7 +87,7 @@ public class DAOHomeStays extends connectDB {
 
     public String getIdAuto() {
         String id = getLastHomestayId().getHomeStayID();
-        String[] idComponent = id.trim().split("HS");
+        String[] idComponent = id.trim().split("HS0");
         try {
             int code = Integer.parseInt(idComponent[1]) + 1;
             return "HS" + code;

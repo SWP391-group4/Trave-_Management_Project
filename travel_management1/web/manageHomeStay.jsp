@@ -181,7 +181,7 @@
                                     </tbody>
                                 </table>
 
-                                        <a href="">View Chart</a>
+                                   
 
                                 <ul class="timeline mt-2 mb-0">
 

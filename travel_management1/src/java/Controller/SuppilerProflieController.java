@@ -89,7 +89,7 @@ public class SuppilerProflieController extends HttpServlet {
         DAOSupplier daosup = new DAOSupplier();
 
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
-        SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+ 
 
         String account = sp.getAccountS();
         String firstName = request.getParameter("fname");
