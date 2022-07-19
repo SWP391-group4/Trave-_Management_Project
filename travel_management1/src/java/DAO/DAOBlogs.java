@@ -104,12 +104,13 @@ public class DAOBlogs extends connectDB {
         }
         return list;
     }
-      public List<Blogs> viewtop3Blogses2(String id) {
+
+    public List<Blogs> viewtop3Blogses2(String id) {
         List<Blogs> list = new ArrayList<Blogs>();
         String sql = "select  top 4 * from blogs\n"
-                 + "where BlogId != '"+id+"' "
+                + "where BlogId != '" + id + "' "
                 + "order by BlogId DESC  ";
-               
+
         try {
             Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = state1.executeQuery(sql);
@@ -228,14 +229,14 @@ public class DAOBlogs extends connectDB {
 
     public String getTitle(String id) {
         String sql = "select title from blogs\n"
-                + "where BlogId='"+id+"'";
-        String title=null;
+                + "where BlogId='" + id + "'";
+        String title = null;
         try {
-            
+
             Statement state1 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = state1.executeQuery(sql);
             while (rs.next()) {
-                 title = rs.getString(1);
+                title = rs.getString(1);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -294,18 +295,20 @@ public class DAOBlogs extends connectDB {
 
     public List<Blogs> paggingBlog(int index) {
         List<Blogs> list = new ArrayList<>();
-        String sql = "select * from Blogs\n"
-                + "order by BlogId\n"
-                + "offset ? rows\n"
-                + "fetch next 3 rows only";
+        String sql = "select b.BlogId, b.Image, b.Title, b.AccountM,\n"
+                + "m.FirstName, m.LastName, m.Email\n"
+                + "from Blogs b inner join Marketing m\n"
+                + "on b.AccountM = m.AccountM\n"
+                + "order by BlogId offset ? rows fetch next 3 rows only";
         try {
 
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 3);
+            pre.setInt(1, (index - 1) * 5);
 
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                list.add(new Blogs(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                list.add(new Blogs(rs.getString(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOBlogs.class.getName()).log(Level.SEVERE, null, ex);

@@ -49,6 +49,8 @@
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
     </head>
     <body>
 
@@ -528,39 +530,40 @@
                                     <div class="row">
                                         <div class="col-sm-8">   
                                             <c:if test="${sessionScope.acc!=null}">
-                                                <form>
-
-                                                    <h3 class="pull-left">New Comment</h3>
-
-                                                    <fieldset>
-                                                        <div class="row">
-
-                                                            <form action="HomeStayDetailController" method="Get">
-                                                                <!--                                                                <div class="rateit" style="margin-left: 20px" 
-                                                                                                                                 data-rateit-mode="font"  data-rateit-resetable="false"  
-                                                                                                                                 data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
-                                                                                                                            </div>-->
-                                                                <div class="container">
-                                                                    <span id="rateMe1" name="star"></span>
-                                                                </div>
-                                                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                                                    <input type="text" name="user_name" placeholder="Your name" required="">
-                                                                </div>
-                                                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                                                    <input type="datetime-local" name="date" placeholder="Choose date">
-                                                                </div>
 
 
-                                                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                                                    <textarea class="form-control" name="comment" placeholder="Your message" required=""></textarea>
-                                                                </div>
-                                                                <button type="submit" name="submitComment" value="sub" class="btn btn-normal pull-right">Submit</button>
-                                                            </form>
+                                                <h3 class="pull-left">New Comment</h3>
+                                                <div>
+                                                    
+                                                </div>
+                                                <fieldset>
+                                                    <div class="row">
 
 
-                                                        </div>  	
-                                                    </fieldset>
-                                                </form>
+                                                        <form action="HomeStayDetailController" method="Get">
+                                                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                            <input type="hidden" name="homeStayID" value="${homestayId}">
+                                                            </div>
+                                                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                                <input id="ratinginput" name="star" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2">
+                                                            </div>
+                                                            
+                                                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                                <input type="text" name="user_name" placeholder="Your name" required="">
+                                                            </div>
+
+
+
+                                                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                                <textarea class="form-control" name="comment" placeholder="Your message" required=""></textarea>
+                                                            </div>
+                                                            <button type="submit" name="submitComment" value="sub" class="btn btn-normal pull-right">Submit</button>
+                                                        </form>
+
+
+                                                    </div>  	
+                                                </fieldset>
+
                                             </c:if>
 
                                             <c:if test="${sessionScope.acc==null}">
@@ -697,6 +700,8 @@
         <script src="js/google-map.js"></script>
         <script src="js/main.js"></script>
         <script src="js/addons/rating.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 
     </body>
 </html>

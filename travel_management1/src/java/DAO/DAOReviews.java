@@ -96,7 +96,7 @@ public class DAOReviews extends connectDB{
         String[] idComponent = id.trim().split("RVID");
         try {
             int code = Integer.parseInt(idComponent[1]) + 1;
-            return "RVID293" + code;
+            return "RVID" + code;
         } catch (Exception e) {
         }
         return null;

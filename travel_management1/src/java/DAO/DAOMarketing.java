@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,10 +143,14 @@ public class DAOMarketing extends connectDB {
     }
 
     public static void main(String[] args) {
-        DAOMarketing dao = new DAOMarketing();
-                List<Marketing> list = dao.getAuthorMarketings("BL0001    ");
-        for (Marketing o : list) {
-            System.out.println(o);
-        }
+//        DAOMarketing dao = new DAOMarketing();
+//                List<Marketing> list = dao.getAuthorMarketings("BL0001    ");
+//        for (Marketing o : list) {
+//            System.out.println(o);
+//        }
+        LocalDate date_day = java.time.LocalDate.now();
+            LocalTime date_time = java.time.LocalTime.now();
+            String date = date_day+" "+date_time;
+            System.out.println(date);
     }
 }

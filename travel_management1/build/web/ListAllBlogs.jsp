@@ -81,7 +81,7 @@
                                             </div>
                                                     
 <!--                                            <div style="width: 200px; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">
-                                                ${a.news}
+                                                ${a.fname}
                                             </div>-->
                                             <hr>
                                             <p class="bottom-area d-flex">

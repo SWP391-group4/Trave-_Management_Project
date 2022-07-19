@@ -15,6 +15,9 @@ public class Blogs {
     public String accountM;
     public String news;
     public String img2;
+    public String fname;
+    public String lname;
+    public String email;
     public Blogs() {
     }
 
@@ -38,6 +41,16 @@ public class Blogs {
         this.accountM = accountM;
         this.news = news;
         this.img2 = img2;
+    }
+    
+    public Blogs(String blogId, String image, String title, String accountM, String fname, String lname, String email ) {
+        this.blogId = blogId;
+        this.image = image;
+        this.title = title;
+        this.accountM = accountM;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
     }
     
     public Blogs(String blogId, String image, String title, String news, String accountM) {

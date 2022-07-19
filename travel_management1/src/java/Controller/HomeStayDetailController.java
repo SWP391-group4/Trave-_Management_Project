@@ -19,6 +19,11 @@ import Entity.SupplierAddresses;
 import Entity.Suppliers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,27 +54,30 @@ public class HomeStayDetailController extends HttpServlet {
         String homeStayID = request.getParameter("homeStayID");
         HttpSession session = request.getSession();
         DAOSupplier daosup = new DAOSupplier();
-        DAORules daorule=new DAORules();
+        DAORules daorule = new DAORules();
         DAOHomeStays dao = new DAOHomeStays();
         DAOReviews daor = new DAOReviews();
-        DAOImages daoi=new DAOImages();
-        DAOExtensions daoe= new DAOExtensions();
-        
+        DAOImages daoi = new DAOImages();
+        DAOExtensions daoe = new DAOExtensions();
+
         String submitComment = request.getParameter("submitComment");
-        if(submitComment != null) {
+        if (submitComment != null) {
             String cus_name = request.getParameter("user_name");
-            String date = request.getParameter("date");
-            String comment = request.getParameter("comment");
             double star = Double.parseDouble(request.getParameter("star"));
-            int a = daor.addComment2(new Reviews(cus_name, date, star, comment,homeStayID));
-            
+            String comment = request.getParameter("comment");
+            LocalDate date_day = java.time.LocalDate.now();
+            LocalTime date_time = java.time.LocalTime.now();
+            String date = date_day+" "+date_time;
+            System.out.println(date);
+            int a = daor.addComment2(new Reviews(cus_name, date, star, comment, homeStayID));
+
         }
-        
+
         List<Rules> rules = daorule.getRulebyHomeStayID(homeStayID);
         List<Reviews> r = daor.getFeedbackByHID(homeStayID);
-        List<Images> img=daoi.getIMG(homeStayID);
+        List<Images> img = daoi.getIMG(homeStayID);
         HomeStays h = dao.getHomestay(homeStayID);
-        Extensions e=daoe.getExtensions(homeStayID);
+        Extensions e = daoe.getExtensions(homeStayID);
         String accountS = h.getAccountS();
         List<HomeStays> listbyS = dao.getRandomHomeStay();
         List<HomeStays> listBySupplier = dao.getRandomHomeStaybySuppiler(accountS);
@@ -80,11 +88,9 @@ public class HomeStayDetailController extends HttpServlet {
         request.setAttribute("rules", rules);
         request.setAttribute("detail", h);
         request.setAttribute("extion", e);
+        request.setAttribute("homestayId", homeStayID);
         request.getRequestDispatcher("/DetailHomeStay.jsp").forward(request, response);
 ////insert Comment
-        
-
-        
 
     }
 
@@ -101,7 +107,7 @@ public class HomeStayDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+
     }
 
     /**
@@ -115,7 +121,7 @@ public class HomeStayDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);  
+        processRequest(request, response);
     }
 
     /**
