@@ -15,6 +15,11 @@ public class VoucherCustomer {
     public int discount;
     public String accountC;
 
+    public VoucherCustomer(String title, int discount) {
+        this.title = title;
+        this.discount = discount;
+    }
+
     public VoucherCustomer(String voucherId, String title, String image, int discount, String accountM) {
         this.voucherId = voucherId;
         this.title = title;
