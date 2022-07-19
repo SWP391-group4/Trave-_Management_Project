@@ -89,7 +89,9 @@ public class BookingController extends HttpServlet {
                 String startdate = request.getParameter("startdate");
                 String rent = request.getParameter("rent");
                 String numvisitor = request.getParameter("numvisitor");
-
+                if(!voucherId.isEmpty()){
+                out.print("h");
+                }
             }
         }
     }
