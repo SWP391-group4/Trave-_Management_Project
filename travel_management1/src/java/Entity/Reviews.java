@@ -12,14 +12,14 @@ public class Reviews {
  public String reviewID;
  public String cus_name;
  public String date;
- public int star;
+ public double star;
  public String feedBack;
  public String homeStayID;
 
     public Reviews() {
     }
 
-    public Reviews(String reviewID, String cus_name, String date, int star, String feedBack, String homeStayID) {
+    public Reviews(String reviewID, String cus_name, String date, double star, String feedBack, String homeStayID) {
         this.reviewID = reviewID;
         this.cus_name = cus_name;
         this.date = date;
@@ -28,6 +28,24 @@ public class Reviews {
         this.homeStayID = homeStayID;
     }
 
+    public Reviews(String cus_name, String date, double star, String feedBack) {
+        this.cus_name = cus_name;
+        this.date = date;
+        this.star = star;
+        this.feedBack = feedBack;
+    }
+
+    public Reviews(String cus_name, String date, double star, String feedBack, String homeStayID) {
+        this.cus_name = cus_name;
+        this.date = date;
+        this.star = star;
+        this.feedBack = feedBack;
+        this.homeStayID = homeStayID;
+    }
+    
+    
+    
+    
     public String getReviewID() {
         return reviewID;
     }
@@ -52,7 +70,7 @@ public class Reviews {
         this.date = date;
     }
 
-    public int getStar() {
+    public double getStar() {
         return star;
     }
 
