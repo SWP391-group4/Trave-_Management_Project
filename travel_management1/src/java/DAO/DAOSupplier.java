@@ -45,7 +45,28 @@ public class DAOSupplier extends connectDB {
         }
         return null;
     }
-
+ public String numberOfBookingbyMonth(int month,String homeStayID) {
+        String sql = "select totalPrice from  (select MONTH(OrderTime) as SalesMonth,\n" +
+" COUNT(price) as totalPrice\n" +
+" from booking where HomeStayId=?\n" +
+" GROUP BY MONTH(OrderTime)) as t where t.SalesMonth =?";
+        try {
+                   PreparedStatement pre = conn.prepareStatement(sql);
+                   pre.setString(1, homeStayID);
+            pre.setInt(2, month);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                String totalPrice = rs.getString("totalPrice");
+                return totalPrice;
+            }
+            pre.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
     public SupplierAddresses getSupplierAddresses(String accountS) {
         String sql = "Select * from SupplierAddresses where accountS = '" + accountS + "'";
         ResultSet rs = getData(sql);

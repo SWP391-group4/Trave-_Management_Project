@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.DAOBooking;
+import DAO.DAOSupplier;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,33 +33,63 @@ public class viewchart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+          String type=    request.getParameter("type");
+    
         DAOBooking dao = new DAOBooking();
-        int month = dao.getMonth();
+        DAOSupplier daos=new DAOSupplier();
         String homeStayID = request.getParameter("homeStayID");
-        String totalPriceMonth1 = dao.totalPricePerMonth(1, homeStayID);
-        String totalPriceMonth2 = dao.totalPricePerMonth(2, homeStayID);
-        String totalPriceMonth3 = dao.totalPricePerMonth(3, homeStayID);
-        String totalPriceMonth4 = dao.totalPricePerMonth(4, homeStayID);
-        String totalPriceMonth5 = dao.totalPricePerMonth(5, homeStayID);
-        String totalPriceMonth6 = dao.totalPricePerMonth(6, homeStayID);
-        String totalPriceMonth7 = dao.totalPricePerMonth(7, homeStayID);
-        String totalPriceMonth8 = dao.totalPricePerMonth(8, homeStayID);
-        String totalPriceMonth9 = dao.totalPricePerMonth(9, homeStayID);
-        String totalPriceMonth10 = dao.totalPricePerMonth(10, homeStayID);
-        String totalPriceMonth11 = dao.totalPricePerMonth(11, homeStayID);
-        String totalPriceMonth12 = dao.totalPricePerMonth(12, homeStayID);
-        request.setAttribute("totalPriceMonth1", totalPriceMonth1);
-        request.setAttribute("totalPriceMonth2", totalPriceMonth2);
-        request.setAttribute("totalPriceMonth3", totalPriceMonth3);
-        request.setAttribute("totalPriceMonth4", totalPriceMonth4);
-        request.setAttribute("totalPriceMonth5", totalPriceMonth5);
-        request.setAttribute("totalPriceMonth6", totalPriceMonth6);
-        request.setAttribute("totalPriceMonth7", totalPriceMonth7);
-        request.setAttribute("totalPriceMonth8", totalPriceMonth8);
-        request.setAttribute("totalPriceMonth9", totalPriceMonth9);
-        request.setAttribute("totalPriceMonth10", totalPriceMonth10);
-        request.setAttribute("totalPriceMonth11", totalPriceMonth11);
-        request.setAttribute("totalPriceMonth12", totalPriceMonth12);
+        //count
+        String count1 = daos.numberOfBookingbyMonth(1, homeStayID);
+        String count2 = daos.numberOfBookingbyMonth(2, homeStayID);
+        String count3 = daos.numberOfBookingbyMonth(3, homeStayID);
+        String count4 = daos.numberOfBookingbyMonth(4, homeStayID);
+        String count5 = daos.numberOfBookingbyMonth(5, homeStayID);
+        String count6 = daos.numberOfBookingbyMonth(6, homeStayID);
+        String count7 = daos.numberOfBookingbyMonth(7, homeStayID);
+        String count8 = daos.numberOfBookingbyMonth(8, homeStayID);
+        String count9 = daos.numberOfBookingbyMonth(9, homeStayID);
+        String count10 = daos.numberOfBookingbyMonth(10, homeStayID);
+        String count11 = daos.numberOfBookingbyMonth(11, homeStayID);
+        String count12 = daos.numberOfBookingbyMonth(12, homeStayID);
+        //month
+        String Month1 = dao.pricePerMonth(1, homeStayID);
+        String Month2 = dao.pricePerMonth(2, homeStayID);
+        String Month3 = dao.pricePerMonth(3, homeStayID);
+        String Month4 = dao.pricePerMonth(4, homeStayID);
+        String Month5 = dao.pricePerMonth(5, homeStayID);
+        String Month6 = dao.pricePerMonth(6, homeStayID);
+        String Month7 = dao.pricePerMonth(7, homeStayID);
+        String Month8 = dao.pricePerMonth(8, homeStayID);
+        String Month9 = dao.pricePerMonth(9, homeStayID);
+        String Month10 = dao.pricePerMonth(10, homeStayID);
+        String Month11 = dao.pricePerMonth(11, homeStayID);
+        String Month12 = dao.pricePerMonth(12, homeStayID);
+
+        request.setAttribute("Month1", Month1);
+        request.setAttribute("Month2", Month2);
+        request.setAttribute("Month3", Month3);
+        request.setAttribute("Month4", Month4);
+        request.setAttribute("Month5", Month5);
+        request.setAttribute("Month6", Month6);
+        request.setAttribute("Month7", Month7);
+        request.setAttribute("Month8", Month8);
+        request.setAttribute("Month9", Month9);
+        request.setAttribute("Month10", Month10);
+        request.setAttribute("Month11", Month11);
+        request.setAttribute("Month12", Month12);
+
+        request.setAttribute("count1", count1);
+        request.setAttribute("count2", count2);
+        request.setAttribute("count3", count3);
+        request.setAttribute("count4", count4);
+        request.setAttribute("count5", count5);
+        request.setAttribute("count6", count6);
+        request.setAttribute("count7", count7);
+        request.setAttribute("count8", count8);
+        request.setAttribute("count9", count9);
+        request.setAttribute("count10", count10);
+        request.setAttribute("count11", count11);
+        request.setAttribute("count12", count12);
 
         request.getRequestDispatcher("chart.jsp").forward(request, response);
     }
