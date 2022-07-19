@@ -846,8 +846,8 @@ public class DAOHomeStays extends connectDB {
 
     public List<HomeStays> getHomeStayforSUP(String accountS) {
         List<HomeStays> list = new ArrayList<>();
-        String sql = "select h.HomeStayId,cat.cateid,\n" +
-"                 h.HomeStayName, \n" +
+        String sql = "select h.HomeStayId,\n" +
+"                 h.HomeStayName,cat.cateid, \n" +
 "                 h.AccountS,\n" +
 "                cat.CateName,\n" +
 "               h.status\n" +

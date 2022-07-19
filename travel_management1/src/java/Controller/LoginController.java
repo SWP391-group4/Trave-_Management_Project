@@ -12,6 +12,8 @@ import DAO.DAOSupplier;
 import Entity.Accounts;
 import Entity.*;
 import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -63,10 +65,13 @@ public class LoginController extends HttpServlet {
         Accounts acc = dao.search(account, password);
         //login
         if (acc == null) {
-            String noti = "Incorrect user name or password,please try again";
-            request.setAttribute("noti", noti);
+           PrintWriter pw=response.getWriter();
+pw.println("<script type=\"text/javascript\">");
+pw.println("window.alert('Invalid Username or Password');");
+pw.println("</script>");
             response.sendRedirect("Login.jsp");
-        } else {
+        } 
+        else {
             int type = acc.getType();
             request.getSession().setMaxInactiveInterval(600);
 
@@ -116,11 +121,6 @@ public class LoginController extends HttpServlet {
                 default:
                     throw new AssertionError();
             }
-//            account = (String) session.getAttribute("account");
-//            if (account == null) {
-//                response.sendRedirect("Login.jsp");
-//                return;     
-//            }
             
         }
 

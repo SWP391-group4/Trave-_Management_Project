@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Year;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -115,6 +116,29 @@ public class DAOBooking extends connectDB {
         }
         return null;
     }
+  public String aVGbyYear(String year,String homeStayID) {
+        String sql = "select (totalPrice) from  (select Year(OrderTime) as SalesYear,\n" +
+" avg(price) as totalPrice\n" +
+" from booking where HomeStayId=?\n" +
+"GROUP BY YEAR(OrderTime)) as t where t.SalesYear=?";
+        try {
+                   PreparedStatement pre = conn.prepareStatement(sql);
+                   pre.setString(1, homeStayID);
+            pre.setString(2, year);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                String totalPrice = rs.getString("totalPrice");
+                return totalPrice;
+            }
+            pre.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
+ 
   public String numberOfBookingbyMonth(int month,String homeStayID) {
         String sql = "select totalPrice from  (select MONTH(OrderTime) as SalesMonth,\n" +
 " COUNT(price) as totalPrice\n" +
@@ -168,6 +192,7 @@ public class DAOBooking extends connectDB {
         return list;
 
     }
+
    public int updateBookingStatus(int status, String homeStayID) {
         int n = 0;
         String sql = "Update Booking set "
@@ -311,8 +336,12 @@ public class DAOBooking extends connectDB {
 //        }
 //        int count=dao.updateBookingStatus(2,"");
 //        System.out.println(count);
-String la=dao.numberOfBookingbyMonth(6, "HS0002");
-        System.out.println(la);
+       Date date = Calendar.getInstance().getTime();  
+                DateFormat dateFormat = new SimpleDateFormat("yyyy");  
+                String strDate = dateFormat.format(date);  
+                System.out.println("Converted String: " + strDate);  
+  String nd=dao.aVGbyYear(strDate, "HS0002");
+        System.out.println(nd);
 //        Booking b=dao.getbyord(22);
 //        System.out.println(b);
 //        Booking ia=dao.getHomeStay("HS0002");
