@@ -7,9 +7,11 @@ package Controller;
 import DAO.DAOBooking;
 import DAO.DAOHomeStays;
 import DAO.DAOVoucherCustomer;
+import DAO.DAOsendEmailBooking;
 import Entity.Booking;
 import Entity.Customers;
 import Entity.HomeStays;
+import Entity.User;
 import Entity.VoucherCustomer;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -114,9 +116,19 @@ public class BookingController extends HttpServlet {
                     ordernumber = 1;
                 } else {
                     ordernumber = daob.getLastOrdernum(homeStayId) + 1;
-                }                               
+                }
                 daob.addBooking(new Booking(cusid, homeStayId, ordernumber, firstname, lastname, cus.getPhone(), startdate, Rent, Numvisitor, Total, 0, cus.getEmail()));
                 daob.updateHomeStaysStatus(homeStayId);
+                String email = request.getParameter("email");
+                DAOsendEmailBooking sm = new DAOsendEmailBooking();
+                //get the 6-digit code
+                String code = "Thanks for using our website. The supplier will contact you shortly.";
+
+                //craete new user using all information
+                User user = new User(cus.getEmail(), code);
+
+                //call the send email method
+                boolean test = sm.sendEmail(user);
                 response.sendRedirect("Home");
             }
         }
