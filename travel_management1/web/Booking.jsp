@@ -115,7 +115,8 @@
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <input type="hidden" name="homestayid" value="${detail.homeStayID}"> 
-                            <input type="hidden" name="voucherid" value="${check}"> 
+                            <input type="hidden" name="voucherid" value="${check}">
+                            <input type="hidden" name="total" value="<%=total%>">
                             <label for="firstName" class="form-label">First name</label>
                             <input type="text" class="form-control" id="firstName" name="firstname" required>
                             <div class="invalid-feedback">
