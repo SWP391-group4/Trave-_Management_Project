@@ -76,13 +76,13 @@
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Total Price</span>
+                        
                     <%
                         HomeStays h = (HomeStays) request.getAttribute("detail");
                         double discount = (double) request.getAttribute("discount");
                         double total = h.getPrice() - discount * h.getPrice();
                     %>
-                    <span class="badge bg-primary rounded-pill"><%=total%> VND</span>
+                    <span class="text-primary">Price: <%=total%> VND / 1 Day</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-sm">
