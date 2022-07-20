@@ -137,7 +137,7 @@ public class BookingController extends HttpServlet {
 
                 //call the send email method
                 boolean test = sm.sendEmail(user);
-                response.sendRedirect("CustomerProfile");
+                response.sendRedirect("Home");
             }
         }
     }
