@@ -31,7 +31,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "BookingController", urlPatterns = {"/bookingController"})
 public class BookingController extends HttpServlet {
-
+    
     DAOVoucherCustomer daov = new DAOVoucherCustomer();
     DAOBooking daob = new DAOBooking();
 
@@ -88,7 +88,7 @@ public class BookingController extends HttpServlet {
                     discount = Double.valueOf(neww);
                 }
                 HomeStays h = dao.getHomestay(homeStayId);
-
+                
                 request.setAttribute("discount", discount);
                 request.setAttribute("detail", h);
                 request.setAttribute("check", check);
@@ -117,19 +117,27 @@ public class BookingController extends HttpServlet {
                 } else {
                     ordernumber = daob.getLastOrdernum(homeStayId) + 1;
                 }
-                daob.addBooking(new Booking(cusid, homeStayId, ordernumber, firstname, lastname, cus.getPhone(), startdate, Rent, Numvisitor, Total, 0, cus.getEmail()));
+                int n=daob.addBooking(new Booking(cusid, homeStayId, ordernumber, firstname, lastname, cus.getPhone(), startdate, Rent, Numvisitor, Total, 0, cus.getEmail()));
                 daob.updateHomeStaysStatus(homeStayId);
                 String email = request.getParameter("email");
                 DAOsendEmailBooking sm = new DAOsendEmailBooking();
                 //get the 6-digit code
-                String code = "Thanks for using our website. The supplier will contact you shortly.";
+                HomeStays h = dao.getHomestay(homeStayId);
+                String vetify = "Thanks for using CTU Travel service. The supplier will contact you shortly !"
+                        + "\n  Booking Information: "
+                        + "\n +Full Name: " + lastname + " " + firstname
+                        + "\n +Phone Number: " + cus.getPhone()
+                        + "\n +Homestay: " + h.getHomeStayname()
+                        + "\n +Address: " + h.getSpecific() + ", " + h.getWard() + ", " + h.getCity()
+                        + "\n +Start Date: " + startdate
+                        + "\n +Total Bill: " + Total + "VND";
 
                 //craete new user using all information
-                User user = new User(cus.getEmail(), code);
+                User user = new User(cus.getEmail(), vetify);
 
                 //call the send email method
                 boolean test = sm.sendEmail(user);
-                response.sendRedirect("Home");
+                response.sendRedirect("CustomerProfile");
             }
         }
     }

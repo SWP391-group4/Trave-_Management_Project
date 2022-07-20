@@ -77,7 +77,7 @@
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Total Price</span>
-                    <%  
+                    <%
                         HomeStays h = (HomeStays) request.getAttribute("detail");
                         double discount = (double) request.getAttribute("discount");
                         double total = h.getPrice() - discount * h.getPrice();
@@ -140,7 +140,7 @@
                         <div class="col-12">
                             <label for="day" class="form-label">Start Day <span class="text-muted"></span></label>
                             <input name="startdate" type="date" value="${date}" class="form-control" required min="${date}">
-                            
+
                         </div>
                         <div class="col-12">
                             <label for="day" class="form-label">Number of rental days<span class="text-muted"></span></label>
@@ -149,12 +149,11 @@
                     </div>
                     <br>
                     <br>
-                    <button class="w-100 btn btn-danger btn-lg" name="submit" value="book" type="submit">Book now</button>
+                    <button class="w-100 btn btn-danger btn-lg" name="submit" value="book" type="submit" >Book now</button>
                 </form>
             </div>
-        </div>
     </main>
-    <script type='text/javascript'></script>
+
     <jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>
