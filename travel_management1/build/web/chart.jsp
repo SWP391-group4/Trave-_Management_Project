@@ -111,8 +111,7 @@
                         <li class="list-group-item  bg-secondary text-light">Summary</li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Total of Booking: </strong></span> ${count1+count2+count3+count4+count5+count6+count7+count8+count9+count10+count11+count12}</li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Average in this year </strong></span> ${AVyear} dong </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Phone</strong></span> ${sp.phone} </li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Fax</strong></span> ${sp.fax} </li>
+                        
                     </ul>
                    
         </div>

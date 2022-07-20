@@ -90,7 +90,12 @@
                                         <td><span class="badge bg-secondary text-light">Checked</span></td>
                                     </c:if>
                                     <td>${o.email}</td>
+                                    <c:if  test="${o.status==0}">
                                     <td><a href="bookingchange?service=update&homeStayID=${homeStayID}&orderNumber=${o.orderNumber}">Update</a></td>
+                                    </c:if>
+                                    <c:if  test="${o.status==1}">
+                                    <td></td>
+                                    </c:if>
                                     </tr>
 
                                 </c:forEach>

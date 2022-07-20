@@ -90,7 +90,7 @@ public class DAOHomeStays extends connectDB {
         String[] idComponent = id.trim().split("HS");
         try {
             int code = Integer.parseInt(idComponent[1]) + 1;
-            return "HS" + code;
+            return "HS0" + code;
         } catch (Exception e) {
         }
         return null;
