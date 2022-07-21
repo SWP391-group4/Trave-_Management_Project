@@ -9,6 +9,7 @@ package Entity;
  * @author nam
  */
 public class Blogs {
+
     public String blogId;
     public String image;
     public String title;
@@ -18,6 +19,7 @@ public class Blogs {
     public String fname;
     public String lname;
     public String email;
+
     public Blogs() {
     }
 
@@ -27,14 +29,13 @@ public class Blogs {
 //        this.title = title;
 //        this.accountM = accountM;
 //    }
-
     public Blogs(String blogId, String image, String title) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
     }
 
-    public Blogs(String blogId, String image, String title, String img2 , String news, String accountM ) {
+    public Blogs(String blogId, String image, String title, String img2, String news, String accountM) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
@@ -42,8 +43,8 @@ public class Blogs {
         this.news = news;
         this.img2 = img2;
     }
-    
-    public Blogs(String blogId, String image, String title, String accountM, String fname, String lname, String email ) {
+
+    public Blogs(String blogId, String image, String title, String accountM, String fname, String lname, String email) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
@@ -52,7 +53,7 @@ public class Blogs {
         this.lname = lname;
         this.email = email;
     }
-    
+
     public Blogs(String blogId, String image, String title, String news, String accountM) {
         this.blogId = blogId;
         this.image = image;
@@ -60,11 +61,28 @@ public class Blogs {
         this.news = news;
         this.accountM = accountM;
     }
+
     public Blogs(String blogId, String image, String title, String accountM) {
         this.blogId = blogId;
         this.image = image;
         this.title = title;
         this.accountM = accountM;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getImg2() {
@@ -90,7 +108,6 @@ public class Blogs {
     public void setAccountM(String accountM) {
         this.accountM = accountM;
     }
-    
 
     public String getBlogId() {
         return blogId;
@@ -118,17 +135,7 @@ public class Blogs {
 
     @Override
     public String toString() {
-        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", title=" + title + ", accountM=" + accountM + ", news=" + news + ", img2=" + img2 + '}';
+        return "Blogs{" + "blogId=" + blogId + ", image=" + image + ", title=" + title + ", accountM=" + accountM + ", news=" + news + ", img2=" + img2 + ", fname=" + fname + ", lname=" + lname + ", email=" + email + '}';
     }
 
-
-  
-  
-
-    
-
-    
-
-    
-    
 }

@@ -72,17 +72,12 @@
 
                                                     <h4 style="font-size: 15px">Author:</h4>
                                                     <p class="rate">
-                                                        ${a.accountM}
+                                                          ${a.lname} ${a.fname}   
                                                     </p>
                                                 </div>
                                                 <div class="two">
-
                                                 </div>
                                             </div>
-                                                    
-<!--                                            <div style="width: 200px; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">
-                                                ${a.fname}
-                                            </div>-->
                                             <hr>
                                             <p class="bottom-area d-flex">
                                                 <!--                                        <span><i class="icon-map-o"></i> Date</span> -->

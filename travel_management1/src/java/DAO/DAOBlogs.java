@@ -303,7 +303,7 @@ public class DAOBlogs extends connectDB {
         try {
 
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, (index - 1) * 5);
+            pre.setInt(1, (index - 1) * 3);
 
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
@@ -356,7 +356,7 @@ public class DAOBlogs extends connectDB {
 //        for (Blogs o : list) {
 //            System.out.println(o);
 //        }
-        List<Blogs> list = dao.viewtop3Blogses2("BL0001    ");
+        List<Blogs> list = dao.paggingBlog(1);
         for (Blogs o : list) {
             System.out.println(o);
         }
