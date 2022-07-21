@@ -31,27 +31,7 @@
         <link rel="stylesheet" href="css/admin.css">
     </head>
     <body>
-
-        <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar" >
-            <div class="container">
-                <a  href="menu.jsp"><img src="images/logo.png" style="width: 70px;height:80px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse text-dark" id="ftco-nav" >
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="flight.html" class="nav-link">Flight</a></li>
-                        <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-                        <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item" <i class="fa fa-sign-in" aria-hidden="true"></i><a href="login.html" class="nav-link">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <jsp:include page="Header.jsp"></jsp:include>
         <!-- END nav -->
 
         <section >
@@ -65,10 +45,6 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-item nav-link " href="#">Booking <span class="sr-only">(current)</span></a>
-                                <a class="nav-item nav-link" href="#">History</a>
-                            </div>
                         </div>
                     </nav>
                     <!-- /Breadcrumb -->
@@ -95,7 +71,7 @@
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Full Name: ${admin.firstName} ${admin.lastName}</span> </li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Age: ${admin.age}</span></li>
                                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: ${admin.email}</span></li>
-                                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> + ${admin.phone}</li>
+                                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone: +${admin.phone}</span> </li>
                                                     </ul>
 
                                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">

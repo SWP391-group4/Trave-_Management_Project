@@ -48,6 +48,12 @@
                                 Profile
                             </a>
                         </c:if>
+                        <c:if test="${sessionScope.acc.type==1}">
+                            <a class="dropdown-item" href="adminController">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Dashboard
+                            </a>
+                        </c:if>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
                         </a>
