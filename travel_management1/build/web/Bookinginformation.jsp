@@ -85,12 +85,14 @@
                     ${v1}
                 </h4>
                 <h5>${v2}</h5>
-                <p>${v3}</p>
-                <p>${v4}</p>
-                <p>${v5}</p>
-                <p>${v6}</p>
-                <p>${v7}</p>
-                <p>${v8}</p>
+                <ul>
+                <li>${v3}</li>
+                <li>${v4}</li>
+                <li>${v5}</li>
+                <li>${v6}</li>
+                <li>${v7}</li>
+                <li>${v8}</li>
+                </ul>
                 <a href="Home" class="d-flex justify-content-between align-items-center mb-3">
                     <button class="w-50 btn btn-danger btn-xs" name="submit" value="book" type="submit" >Return Home</button>
                 </a>

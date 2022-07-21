@@ -27,8 +27,8 @@ public class DAOsendEmailBooking{
         boolean test = false;
 
         String toEmail = user.getEmail();
-        String fromEmail = "ctutravel1614@gmail.com";
-        String password = "jspochkftsfcwlhj";
+        String fromEmail = "ctutravelfpt@gmail.com";
+        String password = "cdegwabfynbbzrvc";
 
         try {
             // your host email smtp server details

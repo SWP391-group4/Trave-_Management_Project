@@ -124,21 +124,21 @@ public class BookingController extends HttpServlet {
                 //get the 6-digit code
                 HomeStays h = dao.getHomestay(homeStayId);
                 String vetify = "Thanks for using CTU Travel service. The supplier will contact you shortly !"
-                        + "\n  Booking Information: "
-                        + "\n +Full Name: " + lastname + " " + firstname
-                        + "\n +Phone Number: " + cus.getPhone()
-                        + "\n +Homestay: " + h.getHomeStayname()
-                        + "\n +Address: " + h.getSpecific() + ", " + h.getWard() + ", " + h.getCity()
-                        + "\n +Start Date: " + startdate
-                        + "\n +Total Bill: " + Total * Rent + "VND";
+                        + "\n    Booking Information: "
+                        + "\n     +Full Name: " + lastname + " " + firstname
+                        + "\n     +Phone Number: " + cus.getPhone()
+                        + "\n     +Homestay: " + h.getHomeStayname()
+                        + "\n     +Address: " + h.getSpecific() + ", " + h.getWard() + ", " + h.getCity()
+                        + "\n     +Start Date: " + startdate
+                        + "\n     +Total Bill: " + Total * Rent + "VND";
                 String v1 = "Thanks for using CTU Travel service. The supplier will contact you shortly !";
                 String v2 = "  Booking Information: ";
-                String v3 = " +Full Name: " + lastname + " " + firstname;
-                String v4 =" +Phone Number: " + cus.getPhone();
-                String v5 =" +Homestay: " + h.getHomeStayname();
-                String v6 =" +Address: " + h.getSpecific() + ", " + h.getWard() + ", " + h.getCity();
-                String v7 =" +Start Date: " + startdate;
-                String v8 =" +Total Bill: " + Total * Rent + "VND";
+                String v3 = "  Full Name: " + lastname + " " + firstname;
+                String v4 = "  Phone Number: " + cus.getPhone();
+                String v5 = "  Homestay: " + h.getHomeStayname();
+                String v6 = "  Address: " + h.getSpecific() + ", " + h.getWard() + ", " + h.getCity();
+                String v7 = "  Start Date: " + startdate;
+                String v8 = "  Total Bill: " + Total * Rent + "VND";
                 //craete new user using all information
                 User user = new User(cus.getEmail(), vetify);
 
