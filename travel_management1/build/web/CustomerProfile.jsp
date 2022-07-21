@@ -206,9 +206,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:set value="${listHomestay}" var="listHomestay"/>
-                                            <c:set value="${listBooking}" var="listBooking"/>
-                                            <c:set value="${listSup}" var="listSup"/>
+                            
                                             <c:forEach begin="0" end="${listBooking.size()-1}" var="i">
                                                 <tr class="inner-box">
                                                     <th scope="row">

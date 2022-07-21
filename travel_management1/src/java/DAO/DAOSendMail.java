@@ -33,7 +33,7 @@ public class DAOSendMail {
 
         String toEmail = user.getEmail();
         String fromEmail = "ctutravel1614@gmail.com";
-        String password = "jspochkftsfcwlhj";
+        String password = "usnmhogdrpspweox";
 
         try {
             // your host email smtp server details
