@@ -40,8 +40,15 @@
                     <div class="col-sm-10">
                         <h1>User: ${sp.accountS}</h1></div>
                 <div class="col-sm-2">
-                    <a href="suppilerProflieController" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
-                    </a>
+                     <c:choose>
+                        <c:when test="${Simg.img_Avatar == ''}">
+                            <a href="suppilerProflieController" class="pull-right"><img title="cc" class="img-circle img-responsive" src="images/AvatarDefault.jpg">
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <img title="cca" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             <div class="row">
