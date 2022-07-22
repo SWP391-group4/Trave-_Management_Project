@@ -60,7 +60,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pending components:</h6>
                     <a class="collapse-item active" href="AdminPendingRegister"> Suppliers</a>
-                    <a class="collapse-item" href="utilities-border.html"> Homestays</a>
+                    <a class="collapse-item" href="AdminPendingHomestayList"> Homestays</a>
 
                 </div>
             </div>
