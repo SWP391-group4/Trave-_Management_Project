@@ -88,6 +88,8 @@ public class UpdateSuppilerAddressController extends HttpServlet {
 //        part.write(realPart + "/" + filename);
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
         String accountS = spa.getAccountS();
+        SupplierImage Simg = daosup.getSUPImage(accountS);
+        request.setAttribute("Simg", Simg);
         String specific = request.getParameter("specific");
         String ward = request.getParameter("ward");
         String district = request.getParameter("district");
@@ -111,9 +113,8 @@ public class UpdateSuppilerAddressController extends HttpServlet {
                 request.setAttribute("Simg", new SupplierImage(accountS, image));
                 request.getRequestDispatcher("UpdateSUPAdress.jsp").forward(request, response);
             }
-        }
-        else{
-             if (n == 0 ) {
+        } else {
+            if (n == 0) {
                 String noti = "Update fails";
                 request.setAttribute("spa", spa);
                 request.setAttribute("noti", noti);

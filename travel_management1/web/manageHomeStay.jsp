@@ -139,7 +139,14 @@
                             <div class="card-body">
                                 <div class="row g-0">
                                     <div class="col-sm-3 col-xl-12 col-xxl-3 text-center">
-                                        <img src="images/${Simg.img_Avatar}" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                          <c:choose>
+                        <c:when test="${Simg.img_Avatar == ''}">
+                                        <img src="images/AvatarDefault.jpg" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                         </c:when>
+                        <c:otherwise>
+                              <img src="images/${Simg.img_Avatar}" width="64" height="64" class="rounded-circle mt-2" alt="Angelica Ramos">
+                            </c:otherwise>
+                    </c:choose>
                                     </div>
                                     <div class="col-sm-9 col-xl-12 col-xxl-9">
                                         <strong>About me</strong>
