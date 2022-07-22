@@ -42,7 +42,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
                     <a class="collapse-item " href="AdminManageSupplierList">Suppliers</a>
-                    <a class="collapse-item" href="AdminManageCustomerList">Customers</a>
+                    <a class="collapse-item" href="AdminPendingHomestayList">Customers</a>
                 </div>
             </div>
         </li>
