@@ -58,14 +58,15 @@ public class SuppilerProflieController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         DAOSupplier daosup = new DAOSupplier();
-        DAOHomeStays dao=new DAOHomeStays();
+        DAOHomeStays dao = new DAOHomeStays();
         HttpSession session = request.getSession();
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
         SupplierAddresses spa = (SupplierAddresses) session.getAttribute("suppliersAddress");
+
         String accountS = sp.getAccountS();
 //       List<HomeStays> list= dao.getHomeStayforBOOKINGbySUP(accountS);
         SupplierImage Simg = daosup.getSUPImage(accountS);
-    //        request.setAttribute("list", "list");
+        //        request.setAttribute("list", "list");
         request.setAttribute("Simg", Simg);
         request.setAttribute("sp", sp);
         request.setAttribute("spa", spa);
@@ -89,7 +90,6 @@ public class SuppilerProflieController extends HttpServlet {
         DAOSupplier daosup = new DAOSupplier();
 
         Suppliers sp = (Suppliers) session.getAttribute("suppliers");
- 
 
         String account = sp.getAccountS();
         String firstName = request.getParameter("fname");
@@ -97,7 +97,10 @@ public class SuppilerProflieController extends HttpServlet {
         String email = sp.getEmail();
         String fax = request.getParameter("fax");
         String phone = request.getParameter("phone");
-
+          String accountS = sp.getAccountS();
+        SupplierImage Simg = daosup.getSUPImage(accountS);
+        
+      
         Suppliers sup_temp = new Suppliers(account, firstName, lastName, fax, phone);
         int n = daosup.updateSupplier(sup_temp);
 
@@ -105,11 +108,13 @@ public class SuppilerProflieController extends HttpServlet {
             String noti = "Update fails";
             request.setAttribute("sp", sp);
             request.setAttribute("noti", noti);
+              request.setAttribute("Simg", Simg);
             request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         } else {
             String noti = "Update done.";
             request.setAttribute("sp", sup_temp);
             request.setAttribute("noti", noti);
+              request.setAttribute("Simg", Simg);
             request.getRequestDispatcher("SuppilerProfile.jsp").forward(request, response);
         }
 
