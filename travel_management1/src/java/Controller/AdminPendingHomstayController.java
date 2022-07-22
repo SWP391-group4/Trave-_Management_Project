@@ -35,40 +35,7 @@ public class AdminPendingHomstayController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAOHomeStays daoHome = new DAOHomeStays();
-        DAOSupplierTemp daoSup = new DAOSupplierTemp();
-        DAOImages daoImage = new DAOImages();
-        String homeStayId = request.getParameter("homeStayId");
-        String index = request.getParameter("index");
-        String homestayPending = request.getParameter("homestayPending");
-        if(homestayPending!=null) {
-            request.setAttribute("activate", homestayPending);
-        }
-        
-        HomeStays homestay = daoHome.getHomestayById(homeStayId);
-        HomeStayAddressses homeAddress = daoHome.searchByHomeStay(homeStayId);
-        Extensions extension_temp = daoHome.getExtension(homeStayId);
-        List<String> extension = daoHome.getExtenstion(extension_temp);
-        Rules rule = daoHome.getRule(homeStayId);
-        List<Images> image = daoImage.getIMG(homeStayId);
-        Suppliers supplier = daoSup.getSupplier(homeStayId);
-        Categories category = daoSup.getCategories(homeStayId);
-        HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
 
-        
-        request.setAttribute("supplier", supplier);
-        System.out.println(supplier.getStatus());
-        request.setAttribute("homestay", homestay);
-        request.setAttribute("listImage", image);
-        request.setAttribute("category", category);
-        request.setAttribute("homestayAddress", homeAddress);
-        request.setAttribute("homestayDetail", homestayDetail);
-        request.setAttribute("extension", extension);
-        request.setAttribute("rule", rule);
-//        request.setAttribute("image", image);
-        request.setAttribute("index", index);
-
-        request.getRequestDispatcher("PendingHomstay.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,6 +51,46 @@ public class AdminPendingHomstayController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        DAOHomeStays daoHome = new DAOHomeStays();
+        DAOSupplierTemp daoSup = new DAOSupplierTemp();
+        DAOImages daoImage = new DAOImages();
+        String homeStayId = request.getParameter("homeStayId");
+        String index = request.getParameter("index");
+        String homestayPending = request.getParameter("homestayPending");
+        if (homestayPending != null) {
+            request.setAttribute("activate", homestayPending);
+        }
+
+        HomeStays homestay = daoHome.getHomestayById(homeStayId);
+        HomeStayAddressses homeAddress = daoHome.searchByHomeStay(homeStayId);
+        Extensions extension_temp = daoHome.getExtension(homeStayId);
+        List<String> extension = daoHome.getExtenstion(extension_temp);
+        Rules rule = daoHome.getRule(homeStayId);
+        List<Images> image = daoImage.getIMG(homeStayId);
+        Suppliers supplier = daoSup.getSupplier(homeStayId);
+        Categories category = daoSup.getCategories(homeStayId);
+        HomeStayDetails homestayDetail = daoSup.getHomestayDetails(homeStayId);
+
+        
+        String update = request.getParameter("update");
+        if(update != null) {
+            daoSup.activateHomestay(homeStayId);
+            String alert = "Activate done!";
+            request.setAttribute("alert", alert);
+        }
+        
+        request.setAttribute("supplier", supplier);
+        request.setAttribute("homestay", homestay);
+        request.setAttribute("listImage", image);
+        request.setAttribute("category", category);
+        request.setAttribute("homestayAddress", homeAddress);
+        request.setAttribute("homestayDetail", homestayDetail);
+        request.setAttribute("extension", extension);
+        request.setAttribute("rule", rule);
+//        request.setAttribute("image", image);
+        request.setAttribute("index", index);
+
+        request.getRequestDispatcher("PendingHomstay.jsp").forward(request, response);
     }
 
     /**

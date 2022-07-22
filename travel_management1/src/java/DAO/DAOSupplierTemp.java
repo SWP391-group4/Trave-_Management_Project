@@ -615,6 +615,18 @@ public class DAOSupplierTemp extends connectDB {
         return 0;
     }
 
+    public int activateHomestay(String homestayId) {
+         String sql = "update homestays set status = 1 where homestayId = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, homestayId);
+            int n = pre.executeUpdate();
+            return n;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSupplierTemp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         DAOSupplierTemp dao = new DAOSupplierTemp();
         List<Suppliers> list = dao.paggingPending(1);

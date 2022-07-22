@@ -1246,12 +1246,11 @@ public class DAOHomeStays extends connectDB {
 //
 //        String code = dao.getIdAuto();
 //        System.out.println(code);
-        List<HomeStays> list = dao.paggingHomestayPendingSearch(1, "dieu");
-        int total = dao.totalPendingHomestaySearch("dieu");
-        System.out.println(total);
-        for (HomeStays temp : list) {
-            System.out.println(temp);
-        }
+
+        Extensions e  = dao.getExtension("HS105");
+         List<String> list =dao.getExtenstion(e);
+         System.out.println(list.size());
+        
 //        HomeStays h = new HomeStays();
 //h=dao.getHomestaybyAccountS("2convitcon");
 //        System.out.println(h);

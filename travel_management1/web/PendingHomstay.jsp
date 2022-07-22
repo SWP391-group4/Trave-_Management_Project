@@ -41,10 +41,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <div class="container bootdey flex-grow-1 container-p-y">
             <c:if test="${activate == null}">
-            <a href="AdminPendingRegister?supplierId=${supplier.accountS}&index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
+                <a href="AdminPendingRegister?supplierId=${supplier.accountS}&index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
             </c:if>
             <c:if test="${activate != null}">
-            <a href="AdminPendingHomestayList?index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
+                <a href="AdminPendingHomestayList?index=${sessionScope.tag}" class="btn btn-success btn-sm">< Back</a>&nbsp;
             </c:if>
             <div class="media align-items-center py-3 mb-3 col-md-8">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle col-md-3">
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        
+
                     </div>
                     <hr>
                 </div>
@@ -184,7 +184,12 @@
                         </table>
                     </div>
                     <c:if test="${supplier.status != 0}">
-                        <button class="btn btn-success">Activate Homestay</button>
+                        <h6 class="text-success">${alert}</h6>
+                        <form action="PendingHomstay">
+                            <input type="hidden" name="homeStayId" value="${homestay.homeStayID}">
+                            <input type="hidden" name="update" value="done">
+                            <button class="btn btn-success">Activate Homestay</button>
+                        </form>
                     </c:if>
                     <c:if test="${supplier.status == 0}">
                         <div class="btn btn-secondary">Activate Homestay</div>
