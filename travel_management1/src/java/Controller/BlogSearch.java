@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author tung
  */
 @WebServlet(name = "BlogSearch", urlPatterns = {"/BlogSearch"})
 public class BlogSearch extends HttpServlet {

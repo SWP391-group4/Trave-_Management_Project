@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author phams
+ * @author tungg
  */
 @WebServlet(name = "SupplierDetailController", urlPatterns = {"/SupplierDetail"})
 public class SupplierDetailController extends HttpServlet {

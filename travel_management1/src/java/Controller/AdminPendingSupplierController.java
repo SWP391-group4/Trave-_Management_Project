@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author phams
+ * @author tung
  */
 @WebServlet(name = "AdminPendingSupplierController", urlPatterns = {"/PendingSupplier"})
 public class AdminPendingSupplierController extends HttpServlet {

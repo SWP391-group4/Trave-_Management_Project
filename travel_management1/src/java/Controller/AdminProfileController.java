@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author nam
+ * @author tung
  */
 @WebServlet(name = "AdminProfileController", urlPatterns = {"/AdminProfileController"})
 public class AdminProfileController extends HttpServlet {

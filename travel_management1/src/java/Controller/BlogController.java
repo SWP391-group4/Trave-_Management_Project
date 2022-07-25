@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thinh
+ * @author tung
  */
 @WebServlet(name = "BlogController", urlPatterns = {"/blogController"})
 public class BlogController extends HttpServlet {

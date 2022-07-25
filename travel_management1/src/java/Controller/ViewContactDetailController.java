@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author phams
+ * @author tung
  */
 @WebServlet(name = "ViewContactDetailController", urlPatterns = {"/ViewContactDetail"})
 public class ViewContactDetailController extends HttpServlet {
