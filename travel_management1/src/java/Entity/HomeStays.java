@@ -158,10 +158,10 @@ public int orderNumber;
         this.status = status;
        this.orderNumber=orderNumber;
     }
- public HomeStays(String homeStayID, String homeStayname,String accountS, String cateName,  int status) {
+ public HomeStays(String homeStayID, String homeStayname,String accountS, String cateId,  int status) {
         this.homeStayID = homeStayID;
         this.homeStayname = homeStayname;
-        this.cateName = cateName;   
+        this.cateID = cateId;   
         this.accountS = accountS;
         this.status = status;
       

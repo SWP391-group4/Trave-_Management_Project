@@ -72,10 +72,10 @@ public class DAOHomeStays extends connectDB {
         try {
             if (rs.next()) {
                 return new HomeStays(
-                        rs.getString(1),
-                        rs.getString(2),
+                        rs.getString(1), 
+                        rs.getString(2), 
                         rs.getString(3),
-                        rs.getString(4),
+                        rs.getString(4), 
                         rs.getInt(5));
             }
         } catch (SQLException ex) {
@@ -1247,10 +1247,7 @@ public class DAOHomeStays extends connectDB {
 //        String code = dao.getIdAuto();
 //        System.out.println(code);
 
-        Extensions e  = dao.getExtension("HS105");
-         List<String> list =dao.getExtenstion(e);
-         System.out.println(list.size());
-        
+        int n = dao.addHomeStays(new HomeStays(dao.getIdAuto(), "hihi", "123456cainha", "CATID001  ", 0));
 //        HomeStays h = new HomeStays();
 //h=dao.getHomestaybyAccountS("2convitcon");
 //        System.out.println(h);
