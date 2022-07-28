@@ -100,7 +100,7 @@
                                                     </c:if>
                                                     <c:if test="${(o.status!=1)&&(o.status!=0)}">
                                                         <td><span class="badge bg-warning">Pendding</span></td>
-                                                        <td><a href="displayinf?homeStayID=${o.homeStayID}">View</a></td>
+                                                        <td><a href="#"></a></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
@@ -184,7 +184,7 @@
                                     </tbody>
 
                                 </table>
-                                <a href="">Check Customer Booking</a>
+                         
 
 
                                 <ul class="timeline mt-2 mb-0">

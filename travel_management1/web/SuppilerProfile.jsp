@@ -42,11 +42,11 @@
                 <div class="col-sm-2">
                      <c:choose>
                         <c:when test="${Simg.img_Avatar == ''}">
-                            <a href="suppilerProflieController" class="pull-right"><img title="cc" class="img-circle img-responsive" src="images/AvatarDefault.jpg">
+                            <a href="suppilerProflieController" class="pull-right"><img title="cc" class="img-circle img-responsive"  src="images/AvatarDefault.jpg">
                             </a>
                         </c:when>
                         <c:otherwise>
-                            <img title="cca" class="img-circle img-responsive" src="images/${Simg.img_Avatar}">
+                            <img title="cca" class="img-circle img-responsive"  src="images/${Simg.img_Avatar}">
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="panel panel-default">
                         <div class="list-group-item  bg-secondary text-light">Manage Serivce <i class="fa fa-link fa-1x"></i></div>
                         <div class="panel-body"><a href="manageHomeStay?accountS=${sp.accountS}">Manage HomeStay</a></div>
-                       
+                    
                         <div class="panel-body"><a href="updateaddress">Change Address & Avatar</a></div>
                         
                     </div>
